@@ -1,0 +1,14 @@
+# pastas
+/eclipse
+/.gradle
+/.settings
+/out
+/build
+/bin
+
+#arquivos
+*.iml
+*.ipr
+*.iws
+.classpath
+.project
