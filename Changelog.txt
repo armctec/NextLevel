@@ -1,0 +1,4 @@
+Version 0.1.0 - Alpha
+    Adding ores and generation:
+        Ores:Aluminium,Copper,Tin,Lead,Zinc,Silver,Titanium,Nickel,Tungsten,Silicon
+        Gems:Ruby,Sapphire,Moonstone,Redonyx,Blackonyx
