@@ -1,7 +1,7 @@
 package com.armctec.nl.test.init;
 
 import com.armctec.nl.test.block.BlockCano;
-import com.armctec.nl.test.configs.Names;
+import com.armctec.nl.test.reference.Names;
 
 import net.minecraft.block.Block;
 import net.minecraftforge.fml.common.registry.GameRegistry;

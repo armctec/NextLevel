@@ -1,4 +1,4 @@
-package com.armctec.nl.test.configs;
+package com.armctec.nl.test.reference;
 
 public class Names 
 {

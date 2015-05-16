@@ -15,6 +15,7 @@ import com.armctec.nl.general.block.BlockAdvanced;
 import com.armctec.nl.general.block.BlockBasic;
 import com.armctec.nl.general.reference.ToolRef;
 import com.armctec.nl.ores.gui.CreativeTabOres;
+import com.armctec.nl.ores.reference.ModConfig;
 import com.armctec.nl.ores.reference.Names;
 import com.google.common.collect.ImmutableMap;
 
@@ -24,7 +25,7 @@ public class BlockOre extends BlockBasic
 	{
 		super();
 		this.setCreativeTab(CreativeTabOres.ORES_TAB);
-		setBlockName(NameBlock);
+		setBlockName(ModConfig.MOD_ID, NameBlock);
 		setHardness(3.0F);
 		setResistance(5.0F);
 		setHarvestLevel("pickaxe", ToolLevel);
@@ -34,7 +35,7 @@ public class BlockOre extends BlockBasic
 	{
 		super();
 		this.setCreativeTab(CreativeTabOres.ORES_TAB);
-		setBlockName(NameBlock);
+		setBlockName(ModConfig.MOD_ID, NameBlock);
 		setHardness(3.0F);
 		setResistance(5.0F);
 		setHarvestLevel(NameTool, ToolLevel);

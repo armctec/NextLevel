@@ -8,20 +8,20 @@ import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 
 import com.armctec.nl.general.utility.LogHelper;
-import com.armctec.nl.test.configs.Reference;
 import com.armctec.nl.test.init.ModBlocks;
 import com.armctec.nl.test.init.ModBlocksClient;
 import com.armctec.nl.test.proxy.CommonProxy;
+import com.armctec.nl.test.reference.ModConfig;
 
-@Mod(modid = Reference.MOD_ID, name = Reference.MOD_NAME, version = Reference.MOD_VERSION)
+@Mod(modid = ModConfig.MOD_ID, name = ModConfig.MOD_NAME, version = ModConfig.MOD_VERSION)
 public class TestBlocks 
 {
-	LogHelper Log = Reference.Log;
+	LogHelper Log = ModConfig.Log;
 	
-	@Mod.Instance(Reference.MOD_ID)
+	@Mod.Instance(ModConfig.MOD_ID)
     public static TestBlocks instance;
 	
-	@SidedProxy(clientSide = Reference.CLIENT_PROXY_CLASS, serverSide = Reference.SERVER_PROXY_CLASS)
+	@SidedProxy(clientSide = ModConfig.CLIENT_PROXY_CLASS, serverSide = ModConfig.SERVER_PROXY_CLASS)
     public static CommonProxy proxy;
 	
 	@Mod.EventHandler

@@ -6,8 +6,8 @@ import net.minecraft.item.Item;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 
 import com.armctec.nl.general.utility.LogHelper;
-import com.armctec.nl.test.configs.Names;
-import com.armctec.nl.test.configs.Reference;
+import com.armctec.nl.test.reference.ModConfig;
+import com.armctec.nl.test.reference.Names;
 
 public class ModBlocksClient 
 {
@@ -18,8 +18,8 @@ public class ModBlocksClient
 	
 	public static void init()
 	{
-		Item itemBlockSimple = GameRegistry.findItem(Reference.MOD_ID, Names.Blocks.CANO);
-	    ModelResourceLocation itemModelResourceLocation = new ModelResourceLocation(getName(Reference.MOD_ID, Names.Blocks.CANO), "inventory");
+		Item itemBlockSimple = GameRegistry.findItem(ModConfig.MOD_ID, Names.Blocks.CANO);
+	    ModelResourceLocation itemModelResourceLocation = new ModelResourceLocation(getName(ModConfig.MOD_ID, Names.Blocks.CANO), "inventory");
 	    Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(itemBlockSimple, 0, itemModelResourceLocation);
 	}
 }

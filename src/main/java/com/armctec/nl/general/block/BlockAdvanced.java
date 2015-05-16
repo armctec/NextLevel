@@ -20,11 +20,6 @@ public class BlockAdvanced extends BlockBasic
     {
         this(MaterialAdvanced.Advanced);
     }	
-    
-    public void setBlockName(String name)
-    {
-        setUnlocalizedName(name);
-    }   
 	
 	@Override
     public boolean isOpaqueCube() 

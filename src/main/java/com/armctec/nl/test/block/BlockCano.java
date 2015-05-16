@@ -21,9 +21,9 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 import com.armctec.nl.general.block.BlockAdvanced;
 import com.armctec.nl.general.block.BlockBasic;
-import com.armctec.nl.ores.gui.CreativeTabOres;
-import com.armctec.nl.ores.reference.ModConfig;
-import com.armctec.nl.test.configs.Names;
+import com.armctec.nl.test.gui.CreativeTabTest;
+import com.armctec.nl.test.reference.ModConfig;
+import com.armctec.nl.test.reference.Names;
 import com.armctec.nl.test.gui.CreativeTabTest;
 import com.google.common.collect.ImmutableMap;
 
@@ -38,7 +38,7 @@ public class BlockCano extends BlockAdvanced
 		this.setCreativeTab(CreativeTabTest.ORES_TAB);
 		
 		this.setDefaultState(this.blockState.getBaseState().withProperty(FACING, EnumFacing.NORTH).withProperty(DIRECAO, 1));
-		setBlockName(Names.Blocks.CANO);
+		setBlockName(ModConfig.MOD_ID, Names.Blocks.CANO);
 		setHardness(3.0F);
 		setResistance(5.0F);
 		setHarvestLevel("pickaxe", 0);	// Stone Pickaxe

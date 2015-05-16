@@ -1,6 +1,6 @@
 package com.armctec.nl.test.gui;
 
-import com.armctec.nl.test.configs.Reference;
+import com.armctec.nl.test.reference.ModConfig;
 
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.init.Items;
@@ -9,7 +9,7 @@ import net.minecraft.item.ItemSaddle;
 
 public class CreativeTabTest 
 {
-    public static final CreativeTabs ORES_TAB = new CreativeTabs(Reference.MOD_ID.toLowerCase())
+    public static final CreativeTabs ORES_TAB = new CreativeTabs(ModConfig.MOD_ID.toLowerCase())
     {
         @Override
         public Item getTabIconItem()

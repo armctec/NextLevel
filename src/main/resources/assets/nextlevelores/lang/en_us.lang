@@ -1,18 +1,18 @@
-tile.copper_ore.name=Copper Ore
-tile.tin_ore.name=Tin Ore
-tile.lead_ore.name=Lead Ore
-tile.aluminium_ore.name=Aluminium Ore
-tile.zinc_ore.name=Zinc Ore
-tile.titanium_ore.name=Titanium Ore
-tile.silver_ore.name=Silver Ore
-tile.nickel_ore.name=Nickel Ore
-tile.tungsten_ore.name=Tungsten Ore
-tile.silicon_ore.name=Silicon Ore
+tile.nextlevelores:copper_ore.name=Copper Ore
+tile.nextlevelores:tin_ore.name=Tin Ore
+tile.nextlevelores:lead_ore.name=Lead Ore
+tile.nextlevelores:aluminium_ore.name=Aluminium Ore
+tile.nextlevelores:zinc_ore.name=Zinc Ore
+tile.nextlevelores:titanium_ore.name=Titanium Ore
+tile.nextlevelores:silver_ore.name=Silver Ore
+tile.nextlevelores:nickel_ore.name=Nickel Ore
+tile.nextlevelores:tungsten_ore.name=Tungsten Ore
+tile.nextlevelores:silicon_ore.name=Silicon Ore
 
-tile.ruby_ore.name=Ruby
-tile.sapphire_ore.name=Sapphire
-tile.moonstone_ore.name=Moonstone
-tile.blackonyx_ore.name=Black Onyx
-tile.redonyx_ore.name=Red Onyx
+tile.nextlevelores:ruby_ore.name=Ruby
+tile.nextlevelores:sapphire_ore.name=Sapphire
+tile.nextlevelores:moonstone_ore.name=Moonstone
+tile.nextlevelores:blackonyx_ore.name=Black Onyx
+tile.nextlevelores:redonyx_ore.name=Red Onyx
 
 itemGroup.nextlevelores=Ores
