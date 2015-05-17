@@ -5,7 +5,7 @@ import com.armctec.nl.general.utility.LogHelper;
 public class ModConfig 
 {
 	public final static String MOD_ID = "NextLevelOres";
-	public final static String MOD_VERSION = "0.1.0";
+	public final static String MOD_VERSION = "0.2.0";
 	public final static String MOD_NAME = "Next Level Ores";
 	public final static String CLIENT_PROXY_CLASS = "com.armctec.nl.ores.proxy.ClientProxy";
 	public final static String SERVER_PROXY_CLASS = "com.armctec.nl.ores.proxy.ServerProxy";

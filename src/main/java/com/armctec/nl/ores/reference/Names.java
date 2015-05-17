@@ -36,6 +36,7 @@ public class Names
 		public final static String SILVER_INGOT = "silver_ingot";
 		public final static String NICKEL_INGOT = "nickel_ingot";
 		public final static String TUNGSTEN_INGOT = "tungsten_ingot";
+		public final static String SILICON_INGOT = "silicon_ingot";
 		// Alloys
 		public final static String BRONZE_INGOT = "bronze_ingot"; // Copper, Tin
 		public final static String BRASS_INGOT = "brass_ingot"; // Copper, Zinc

@@ -9,10 +9,29 @@ tile.nextlevelores:nickel_ore.name=Nickel Ore
 tile.nextlevelores:tungsten_ore.name=Tungsten Ore
 tile.nextlevelores:silicon_ore.name=Silicon Ore
 
-tile.nextlevelores:ruby_ore.name=Ruby
-tile.nextlevelores:sapphire_ore.name=Sapphire
-tile.nextlevelores:moonstone_ore.name=Moonstone
-tile.nextlevelores:blackonyx_ore.name=Black Onyx
-tile.nextlevelores:redonyx_ore.name=Red Onyx
+tile.nextlevelores:ruby_ore.name=Ruby Ore
+tile.nextlevelores:sapphire_ore.name=Sapphire Ore
+tile.nextlevelores:moonstone_ore.name=Moonstone Ore
+tile.nextlevelores:blackonyx_ore.name=Black Onyx Ore
+tile.nextlevelores:redonyx_ore.name=Red Onyx Ore
+
+item.nextlevelores:copper_ingot.name=Copper Ingot
+item.nextlevelores:tin_ingot.name=Tin Ingot
+item.nextlevelores:lead_ingot.name=Lead Ingot
+item.nextlevelores:aluminium_ingot.name=Aluminium Ingot
+item.nextlevelores:zinc_ingot.name=Zinc Ingot
+item.nextlevelores:titanium_ingot.name=Titanium Ingot
+item.nextlevelores:silver_ingot.name=Silver Ingot
+item.nextlevelores:nickel_ingot.name=Nickel Ingot
+item.nextlevelores:tungsten_ingot.name=Tungsten Ingot
+item.nextlevelores:silicon_ingot.name=Silicon Ingot
+
+item.nextlevelores:ruby_gem.name=Ruby
+item.nextlevelores:sapphire_gem.name=Sapphire
+item.nextlevelores:moonstone_gem.name=Moonstone
+item.nextlevelores:blackonyx_gem.name=Black Onyx
+item.nextlevelores:redonyx_gem.name=Red Onyx
+
+
 
 itemGroup.nextlevelores=Ores

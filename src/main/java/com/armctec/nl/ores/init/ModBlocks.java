@@ -1,7 +1,9 @@
 package com.armctec.nl.ores.init;
 
 import com.armctec.nl.general.reference.ToolRef;
+import com.armctec.nl.ores.block.BlockGem;
 import com.armctec.nl.ores.block.BlockOre;
+import com.armctec.nl.ores.reference.GemsConfig;
 import com.armctec.nl.ores.reference.Names;
 
 import net.minecraft.block.Block;
@@ -21,11 +23,11 @@ public class ModBlocks
 	public final static BlockOre TungstenOre = new BlockOre(Names.Blocks.TUNGSTEN_ORE,  ToolRef.DiamondTool);
 	public final static BlockOre SiliconOre = new BlockOre(Names.Blocks.SILICON_ORE,  ToolRef.IronTool);
 	// Gems
-	public final static BlockOre RubyOre = new BlockOre(Names.Blocks.RUBY_ORE,  ToolRef.IronTool);
-	public final static BlockOre SapphireOre = new BlockOre(Names.Blocks.SAPPHIRE_ORE,  ToolRef.IronTool);
-	public final static BlockOre MoonstoneOre = new BlockOre(Names.Blocks.MOONSTONE_ORE,  ToolRef.StoneTool);
-	public final static BlockOre BlackonyxOre = new BlockOre(Names.Blocks.BLACKONYX_ORE,  ToolRef.IronTool);
-	public final static BlockOre RedonyxOre = new BlockOre(Names.Blocks.REDONYX_ORE,  ToolRef.IronTool);
+	public final static BlockGem RubyOre = new BlockGem(Names.Blocks.RUBY_ORE,  ToolRef.IronTool, GemsConfig.configRuby);
+	public final static BlockGem SapphireOre = new BlockGem(Names.Blocks.SAPPHIRE_ORE,  ToolRef.IronTool, GemsConfig.configSapphire);
+	public final static BlockGem MoonstoneOre = new BlockGem(Names.Blocks.MOONSTONE_ORE,  ToolRef.StoneTool, GemsConfig.configMoonstone);
+	public final static BlockGem BlackonyxOre = new BlockGem(Names.Blocks.BLACKONYX_ORE,  ToolRef.IronTool, GemsConfig.configBlackonyx);
+	public final static BlockGem RedonyxOre = new BlockGem(Names.Blocks.REDONYX_ORE,  ToolRef.IronTool, GemsConfig.configRedonyx);
 	
 	
 	public static void init()

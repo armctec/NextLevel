@@ -12,6 +12,8 @@ import com.armctec.nl.general.utility.LogHelper;
 import com.armctec.nl.ores.handler.ConfigurationHandler;
 import com.armctec.nl.ores.init.ModBlocks;
 import com.armctec.nl.ores.init.ModBlocksClient;
+import com.armctec.nl.ores.init.ModItems;
+import com.armctec.nl.ores.init.ModItemsClient;
 import com.armctec.nl.ores.proxy.CommonProxy;
 import com.armctec.nl.ores.reference.ModConfig;
 import com.armctec.nl.ores.reference.OresConfig;
@@ -34,6 +36,7 @@ public class WorldOres
 		ConfigurationHandler.init(event.getSuggestedConfigurationFile());
         FMLCommonHandler.instance().bus().register(new ConfigurationHandler());
 		
+        ModItems.init();
 		ModBlocks.init();
 
 		proxy.preInit();
@@ -47,7 +50,10 @@ public class WorldOres
     public void init(FMLInitializationEvent event)
 	{
         if(event.getSide().isClient() == true)
+        {
+        	ModItemsClient.init();
         	ModBlocksClient.init();
+        }
 		proxy.init();
         Log.info("Initialization Complete!");
 	}
@@ -56,13 +62,7 @@ public class WorldOres
     public void postInit(FMLPostInitializationEvent event)
     {
         proxy.postInit();
-        Log.info("Post Initialization Complete!");
-        
-        
-        Log.info(String.format("World Gen Copper--> Numero Blocos: %d", OresConfig.Copper.NumberOfBlocks));
-		Log.info(String.format("World Gen Copper--> Ymax.........: %d", OresConfig.Copper.Ymax));
-		Log.info(String.format("World Gen Copper--> Ymin.........: %d", OresConfig.Copper.Ymin));
-		Log.info(String.format("World Gen Copper--> Veins........: %d", OresConfig.Copper.Veins));        
+        Log.info("Post Initialization Complete!");       
     }
 	
 }
