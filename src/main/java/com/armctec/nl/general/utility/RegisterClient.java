@@ -5,9 +5,6 @@ import net.minecraft.client.resources.model.ModelResourceLocation;
 import net.minecraft.item.Item;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 
-import com.armctec.nl.ores.reference.ModConfig;
-import com.armctec.nl.ores.reference.Names;
-
 public class RegisterClient 
 {
 	private static String getName(String ModName, String BlockName)

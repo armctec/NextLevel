@@ -21,5 +21,6 @@ public class OresConfig
 	public static final OreConfig Sapphire = new OreConfig(5, 8, 0, 18);
 	public static final OreConfig Moonstone = new OreConfig(6, 8, 0, 20);	
 	public static final OreConfig Redonyx = new OreConfig(7, 8, 0, 22);	
-	public static final OreConfig Blackonyx = new OreConfig(7, 8, 0, 25);	
+	public static final OreConfig Blackonyx = new OreConfig(7, 8, 0, 22);
+	public static final OreConfig Amethyst = new OreConfig(8, 8, 0, 22); 
 }

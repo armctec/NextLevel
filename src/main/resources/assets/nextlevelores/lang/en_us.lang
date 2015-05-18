@@ -14,6 +14,7 @@ tile.nextlevelores:sapphire_ore.name=Sapphire Ore
 tile.nextlevelores:moonstone_ore.name=Moonstone Ore
 tile.nextlevelores:blackonyx_ore.name=Black Onyx Ore
 tile.nextlevelores:redonyx_ore.name=Red Onyx Ore
+tile.nextlevelores:amethyst_ore.name=Amethyst Ore
 
 item.nextlevelores:copper_ingot.name=Copper Ingot
 item.nextlevelores:tin_ingot.name=Tin Ingot
@@ -31,7 +32,20 @@ item.nextlevelores:sapphire_gem.name=Sapphire
 item.nextlevelores:moonstone_gem.name=Moonstone
 item.nextlevelores:blackonyx_gem.name=Black Onyx
 item.nextlevelores:redonyx_gem.name=Red Onyx
+item.nextlevelores:amethyst_gem.name=Amethyst
 
-
+item.nextlevelores:bronze_ingot.name=Bronze Ingot
+item.nextlevelores:brass_ingot.name=Brass Ingot
+item.nextlevelores:zamak_ingot.name=Zamak Ingot
+item.nextlevelores:sterling_silver_ingot.name=Sterling Silver Ingot
+item.nextlevelores:cupronickel_ingot.name=Cupronickel Ingot
+item.nextlevelores:invar_ingot.name=Invar Ingot
+item.nextlevelores:steel_ingot.name=Steel Ingot
+item.nextlevelores:ferrosilicon_ingot.name=Ferrosilicon Ingot
+item.nextlevelores:electrum_ingot.name=Electrum Ingot
+item.nextlevelores:hss_ingot.name=Hss Ingot
+item.nextlevelores:babbitt_ingot.name=Babbitt Ingot
+item.nextlevelores:grade_5_ingot.name=Grade 5 Ingot
+item.nextlevelores:carbon_ingot.name=Carbon Ingot
 
 itemGroup.nextlevelores=Ores

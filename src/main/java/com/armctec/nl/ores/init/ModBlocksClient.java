@@ -1,13 +1,8 @@
 package com.armctec.nl.ores.init;
 
-import net.minecraft.client.Minecraft;
-import net.minecraft.client.resources.model.ModelResourceLocation;
-import net.minecraft.item.Item;
-import net.minecraftforge.fml.common.registry.GameRegistry;
-
 import com.armctec.nl.general.utility.RegisterClient;
-import com.armctec.nl.ores.reference.Names;
 import com.armctec.nl.ores.reference.ModConfig;
+import com.armctec.nl.ores.reference.Names;
 
 public class ModBlocksClient 
 {
@@ -30,6 +25,6 @@ public class ModBlocksClient
 		RegisterClient.registerBlock(ModConfig.MOD_ID, Names.Blocks.MOONSTONE_ORE);
 		RegisterClient.registerBlock(ModConfig.MOD_ID, Names.Blocks.BLACKONYX_ORE);
 		RegisterClient.registerBlock(ModConfig.MOD_ID, Names.Blocks.REDONYX_ORE);
-		
+		RegisterClient.registerBlock(ModConfig.MOD_ID, Names.Blocks.AMETHYST_ORE);
 	}
 }

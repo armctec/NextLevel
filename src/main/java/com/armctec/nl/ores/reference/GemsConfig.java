@@ -10,4 +10,5 @@ public class GemsConfig
 	public static final GemConfig configMoonstone = new GemConfig(ModItems.MoonstoneGem, 1, 0, 2, 5, 5, 2);
 	public static final GemConfig configBlackonyx = new GemConfig(ModItems.BlackonyxGem, 1, 0, 2, 10, 5, 2);
 	public static final GemConfig configRedonyx = new GemConfig(ModItems.RedonyxGem, 1, 0, 2, 5, 10, 2);
+	public static final GemConfig configAmethyst = new GemConfig(ModItems.AmethystGem, 1, 0, 2, 5, 10, 2);
 }

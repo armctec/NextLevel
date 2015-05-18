@@ -2,14 +2,12 @@ package com.armctec.nl.general.world.gen;
 
 import java.util.Random;
 
-import com.armctec.nl.general.reference.OreConfig;
-import com.armctec.nl.ores.init.ModBlocks;
-import com.armctec.nl.ores.reference.OresConfig;
-
 import net.minecraft.block.Block;
 import net.minecraft.util.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenMinable;
+
+import com.armctec.nl.general.reference.OreConfig;
 
 public class BaseOreGen 
 {

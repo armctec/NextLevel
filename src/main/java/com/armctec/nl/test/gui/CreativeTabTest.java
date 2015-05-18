@@ -1,11 +1,10 @@
 package com.armctec.nl.test.gui;
 
-import com.armctec.nl.test.reference.ModConfig;
-
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
-import net.minecraft.item.ItemSaddle;
+
+import com.armctec.nl.test.reference.ModConfig;
 
 public class CreativeTabTest 
 {

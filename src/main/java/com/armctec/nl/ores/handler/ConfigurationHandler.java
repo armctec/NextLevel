@@ -2,12 +2,12 @@ package com.armctec.nl.ores.handler;
 
 import java.io.File;
 
-import com.armctec.nl.ores.reference.ModConfig;
-
 import net.minecraftforge.common.config.Configuration;
 import net.minecraftforge.common.config.Property;
 import net.minecraftforge.fml.client.event.ConfigChangedEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+
+import com.armctec.nl.ores.reference.ModConfig;
 
 public class ConfigurationHandler
 {

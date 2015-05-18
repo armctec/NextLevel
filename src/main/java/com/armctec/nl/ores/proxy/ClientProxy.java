@@ -1,7 +1,5 @@
 package com.armctec.nl.ores.proxy;
 
-import com.armctec.nl.ores.init.ModBlocksClient;
-
 import net.minecraft.client.Minecraft;
 import net.minecraft.entity.player.EntityPlayer;
 

@@ -7,3 +7,6 @@ Version 0.1.1 - Alpha
 Version 0.2.0
     Adicionado Ingots e Gems
     Ore Gems drops gems
+Version 0.2.5
+    Adicionado Alloys
+    Adicionado Amethyst Gem, Ore, e WorldGen

@@ -23,4 +23,5 @@ public class OreGen
 	public static final BaseOreGen MoonstoneGen = new BaseOreGen(ModBlocks.MoonstoneOre, OresConfig.Moonstone);
 	public static final BaseOreGen BlackonyxGen = new BaseOreGen(ModBlocks.BlackonyxOre, OresConfig.Blackonyx);
 	public static final BaseOreGen RedonyxGen = new BaseOreGen(ModBlocks.RedonyxOre, OresConfig.Redonyx);
+	public static final BaseOreGen AmethystGen = new BaseOreGen(ModBlocks.AmethystOre, OresConfig.Amethyst);
 }

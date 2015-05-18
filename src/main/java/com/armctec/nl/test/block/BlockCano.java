@@ -1,10 +1,5 @@
 package com.armctec.nl.test.block;
 
-import java.util.Collection;
-
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockGlass;
-import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.properties.PropertyDirection;
 import net.minecraft.block.properties.PropertyInteger;
@@ -13,19 +8,15 @@ import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.util.BlockPos;
 import net.minecraft.util.EnumFacing;
-import net.minecraft.util.EnumWorldBlockLayer;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
 import com.armctec.nl.general.block.BlockAdvanced;
-import com.armctec.nl.general.block.BlockBasic;
 import com.armctec.nl.test.gui.CreativeTabTest;
 import com.armctec.nl.test.reference.ModConfig;
 import com.armctec.nl.test.reference.Names;
-import com.armctec.nl.test.gui.CreativeTabTest;
-import com.google.common.collect.ImmutableMap;
 
 public class BlockCano extends BlockAdvanced
 {

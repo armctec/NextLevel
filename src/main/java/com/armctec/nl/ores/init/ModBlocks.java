@@ -1,34 +1,33 @@
 package com.armctec.nl.ores.init;
 
+import net.minecraftforge.fml.common.registry.GameRegistry;
+
 import com.armctec.nl.general.reference.ToolRef;
 import com.armctec.nl.ores.block.BlockGem;
 import com.armctec.nl.ores.block.BlockOre;
 import com.armctec.nl.ores.reference.GemsConfig;
 import com.armctec.nl.ores.reference.Names;
 
-import net.minecraft.block.Block;
-import net.minecraftforge.fml.common.registry.GameRegistry;
-
 public class ModBlocks 
 {
 	// Ores
-	public final static BlockOre CopperOre = new BlockOre(Names.Blocks.COPPER_ORE,  ToolRef.StoneTool);
-	public final static BlockOre TinOre = new BlockOre(Names.Blocks.TIN_ORE,  ToolRef.StoneTool);
-	public final static BlockOre LeadOre = new BlockOre(Names.Blocks.LEAD_ORE,  ToolRef.IronTool);
-	public final static BlockOre AluminiumOre = new BlockOre(Names.Blocks.ALUMINIUM_ORE,  ToolRef.StoneTool);
-	public final static BlockOre ZincOre = new BlockOre(Names.Blocks.ZINC_ORE,  ToolRef.IronTool);
-	public final static BlockOre TitaniumOre = new BlockOre(Names.Blocks.TITANIUM_ORE,  ToolRef.DiamondTool);
-	public final static BlockOre SilverOre = new BlockOre(Names.Blocks.SILVER_ORE,  ToolRef.IronTool);
-	public final static BlockOre NickelOre = new BlockOre(Names.Blocks.NICKEL_ORE,  ToolRef.IronTool);
-	public final static BlockOre TungstenOre = new BlockOre(Names.Blocks.TUNGSTEN_ORE,  ToolRef.DiamondTool);
-	public final static BlockOre SiliconOre = new BlockOre(Names.Blocks.SILICON_ORE,  ToolRef.IronTool);
+	public final static BlockOre CopperOre = new BlockOre(Names.Blocks.COPPER_ORE, ToolRef.StoneTool);
+	public final static BlockOre TinOre = new BlockOre(Names.Blocks.TIN_ORE, ToolRef.StoneTool);
+	public final static BlockOre LeadOre = new BlockOre(Names.Blocks.LEAD_ORE, ToolRef.IronTool);
+	public final static BlockOre AluminiumOre = new BlockOre(Names.Blocks.ALUMINIUM_ORE, ToolRef.StoneTool);
+	public final static BlockOre ZincOre = new BlockOre(Names.Blocks.ZINC_ORE, ToolRef.IronTool);
+	public final static BlockOre TitaniumOre = new BlockOre(Names.Blocks.TITANIUM_ORE, ToolRef.DiamondTool);
+	public final static BlockOre SilverOre = new BlockOre(Names.Blocks.SILVER_ORE, ToolRef.IronTool);
+	public final static BlockOre NickelOre = new BlockOre(Names.Blocks.NICKEL_ORE, ToolRef.IronTool);
+	public final static BlockOre TungstenOre = new BlockOre(Names.Blocks.TUNGSTEN_ORE, ToolRef.DiamondTool);
+	public final static BlockOre SiliconOre = new BlockOre(Names.Blocks.SILICON_ORE, ToolRef.IronTool);
 	// Gems
-	public final static BlockGem RubyOre = new BlockGem(Names.Blocks.RUBY_ORE,  ToolRef.IronTool, GemsConfig.configRuby);
-	public final static BlockGem SapphireOre = new BlockGem(Names.Blocks.SAPPHIRE_ORE,  ToolRef.IronTool, GemsConfig.configSapphire);
-	public final static BlockGem MoonstoneOre = new BlockGem(Names.Blocks.MOONSTONE_ORE,  ToolRef.StoneTool, GemsConfig.configMoonstone);
-	public final static BlockGem BlackonyxOre = new BlockGem(Names.Blocks.BLACKONYX_ORE,  ToolRef.IronTool, GemsConfig.configBlackonyx);
-	public final static BlockGem RedonyxOre = new BlockGem(Names.Blocks.REDONYX_ORE,  ToolRef.IronTool, GemsConfig.configRedonyx);
-	
+	public final static BlockGem RubyOre = new BlockGem(Names.Blocks.RUBY_ORE, ToolRef.IronTool, GemsConfig.configRuby);
+	public final static BlockGem SapphireOre = new BlockGem(Names.Blocks.SAPPHIRE_ORE, ToolRef.IronTool, GemsConfig.configSapphire);
+	public final static BlockGem MoonstoneOre = new BlockGem(Names.Blocks.MOONSTONE_ORE, ToolRef.StoneTool, GemsConfig.configMoonstone);
+	public final static BlockGem BlackonyxOre = new BlockGem(Names.Blocks.BLACKONYX_ORE, ToolRef.IronTool, GemsConfig.configBlackonyx);
+	public final static BlockGem RedonyxOre = new BlockGem(Names.Blocks.REDONYX_ORE, ToolRef.IronTool, GemsConfig.configRedonyx);
+	public final static BlockGem AmethystOre = new BlockGem(Names.Blocks.AMETHYST_ORE, ToolRef.IronTool, GemsConfig.configAmethyst);
 	
 	public static void init()
 	{
@@ -49,5 +48,6 @@ public class ModBlocks
         GameRegistry.registerBlock(MoonstoneOre, Names.Blocks.MOONSTONE_ORE);
         GameRegistry.registerBlock(BlackonyxOre, Names.Blocks.BLACKONYX_ORE);
         GameRegistry.registerBlock(RedonyxOre, Names.Blocks.REDONYX_ORE);
+        GameRegistry.registerBlock(AmethystOre, Names.Blocks.AMETHYST_ORE);
 	}
 }

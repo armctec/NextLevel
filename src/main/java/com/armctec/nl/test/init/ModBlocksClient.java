@@ -5,7 +5,6 @@ import net.minecraft.client.resources.model.ModelResourceLocation;
 import net.minecraft.item.Item;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 
-import com.armctec.nl.general.utility.LogHelper;
 import com.armctec.nl.test.reference.ModConfig;
 import com.armctec.nl.test.reference.Names;
 

@@ -5,11 +5,9 @@ import net.minecraftforge.fml.common.SidedProxy;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
-import net.minecraftforge.fml.common.registry.GameRegistry;
 
 import com.armctec.nl.general.utility.LogHelper;
 import com.armctec.nl.test.init.ModBlocks;
-import com.armctec.nl.test.init.ModBlocksClient;
 import com.armctec.nl.test.proxy.CommonProxy;
 import com.armctec.nl.test.reference.ModConfig;
 

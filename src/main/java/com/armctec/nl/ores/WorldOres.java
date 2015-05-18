@@ -16,7 +16,6 @@ import com.armctec.nl.ores.init.ModItems;
 import com.armctec.nl.ores.init.ModItemsClient;
 import com.armctec.nl.ores.proxy.CommonProxy;
 import com.armctec.nl.ores.reference.ModConfig;
-import com.armctec.nl.ores.reference.OresConfig;
 import com.armctec.nl.ores.world.gen.WorldGenOre;
 
 @Mod(modid = ModConfig.MOD_ID, name = ModConfig.MOD_NAME, version = ModConfig.MOD_VERSION, guiFactory = ModConfig.GUI_FACTORY_CLASS)

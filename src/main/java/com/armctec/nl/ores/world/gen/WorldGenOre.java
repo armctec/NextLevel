@@ -2,12 +2,8 @@ package com.armctec.nl.ores.world.gen;
 
 import java.util.Random;
 
-import com.armctec.nl.ores.init.ModBlocks;
-
-import net.minecraft.util.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.chunk.IChunkProvider;
-import net.minecraft.world.gen.feature.WorldGenMinable;
 import net.minecraftforge.fml.common.IWorldGenerator;
 
 public class WorldGenOre implements IWorldGenerator 
@@ -62,6 +58,7 @@ public class WorldGenOre implements IWorldGenerator
     	OreGen.MoonstoneGen.generate(world, x,  z, random);
     	OreGen.BlackonyxGen.generate(world, x,  z, random);
     	OreGen.RedonyxGen.generate(world, x,  z, random);
+    	OreGen.AmethystGen.generate(world, x,  z, random);
     }    
 
 }
