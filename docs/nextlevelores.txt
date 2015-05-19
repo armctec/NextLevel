@@ -1,0 +1,46 @@
+Ores Vanilla:
+    Iron
+    Gold
+
+Ores:
+    Aluminium
+    Copper
+    Lead
+    Nickel
+    Silicon
+    Silver
+    Tin
+    Titanium
+    Tungsten
+    Zinc
+    
+Alloys:
+    Bronze - Copper, Tin
+    Brass - Copper, Zinc
+    Invar - Nickel, Iron
+    Zamak - Aluminium, Copper
+    Steel - Iron, Carbon
+    Sterling silver - Silver, Copper
+    Electrum - Silver, Gold
+    HSS - Steel, Tungsten
+    Babbitt - Lead, Tin
+    Grade 5 - Titanium, Aluminium
+    Cupronickel - Nickel, Copper
+    Ferrosilicon - Silicon, Iron
+    Carbon - Coal, Charcoal
+    
+Gemstones Vanilla:
+    Lapis Lazuli
+    Diamond
+    Emerald
+    
+Gemstones:
+    Ruby
+    Sapphire
+    Black Onyx
+    Red Onyx
+    Moonstone
+    Amethyst
+    
+    
+    
