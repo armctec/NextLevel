@@ -10,6 +10,8 @@ import net.minecraftforge.fml.common.registry.GameRegistry;
 
 import com.armctec.nl.general.utility.LogHelper;
 import com.armctec.nl.machines.handler.ConfigurationHandler;
+import com.armctec.nl.machines.init.ModBlocks;
+import com.armctec.nl.machines.init.ModBlocksClient;
 import com.armctec.nl.machines.proxy.CommonProxy;
 import com.armctec.nl.machines.reference.ModConfig;
 
@@ -31,7 +33,7 @@ public class MachinesNL
         FMLCommonHandler.instance().bus().register(new ConfigurationHandler());
 		
         //ModItems.init();
-		//ModBlocks.init();
+		ModBlocks.init();
 
 		proxy.preInit();
 
@@ -46,7 +48,7 @@ public class MachinesNL
         if(event.getSide().isClient() == true)
         {
         	//ModItemsClient.init();
-        	//ModBlocksClient.init();
+        	ModBlocksClient.init();
         }
 		proxy.init();
         Log.info("Initialization Complete!");

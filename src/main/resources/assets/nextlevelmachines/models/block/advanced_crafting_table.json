@@ -1,0 +1,12 @@
+{
+    "parent": "block/cube",
+    "textures": {
+        "particle": "nextlevelmachines:blocks/advanced_crafting_table_front",
+        "down": "blocks/planks_oak",
+        "up": "nextlevelmachines:blocks/advanced_crafting_table_top",
+        "north": "nextlevelmachines:blocks/advanced_crafting_table_front",
+        "east": "nextlevelmachines:blocks/advanced_crafting_table_side",
+        "south": "nextlevelmachines:blocks/advanced_crafting_table_side",
+        "west": "nextlevelmachines:blocks/advanced_crafting_table_front"
+    }
+}
