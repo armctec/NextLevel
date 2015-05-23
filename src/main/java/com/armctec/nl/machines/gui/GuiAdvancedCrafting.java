@@ -1,8 +1,8 @@
 package com.armctec.nl.machines.gui;
 
 import com.armctec.nl.general.entities.TileEntityBasicInventory;
-import com.armctec.nl.general.inventory.ContainerAdvancedCrafting;
 import com.armctec.nl.machines.entities.TileEntityAdvancedCrafting;
+import com.armctec.nl.machines.inventory.ContainerAdvancedCrafting;
 import com.armctec.nl.machines.reference.ModConfig;
 
 import net.minecraft.client.gui.inventory.GuiContainer;
@@ -31,7 +31,8 @@ public class GuiAdvancedCrafting extends GuiContainer
      */
     protected void drawGuiContainerForegroundLayer(int mouseX, int mouseY)
     {
-        this.fontRendererObj.drawString(I18n.format("container.crafting", new Object[0]), 28, 6, 4210752);
+        // Trocar texto en_Us.lang --> I18n.format("container.crafting"
+    	this.fontRendererObj.drawString("Advanced Crafting", 28, 6, 4210752);
         this.fontRendererObj.drawString(I18n.format("container.inventory", new Object[0]), 8, this.ySize - 96 + 2, 4210752);
     }
 

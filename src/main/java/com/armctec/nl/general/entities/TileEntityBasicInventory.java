@@ -5,6 +5,8 @@ import java.util.Arrays;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.nbt.NBTTagList;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.ChatComponentText;
 import net.minecraft.util.ChatComponentTranslation;
@@ -15,18 +17,25 @@ public class TileEntityBasicInventory extends TileEntity implements IInventory
 	private ItemStack[] itemStacks = null;
 	private int num_slots = 0;
 	private String NameEntity = null;
-			
+	
+	public TileEntityBasicInventory()
+	{
+		super();
+	}
+	
 	public TileEntityBasicInventory(String NameEntity, int num_slots) 
 	{
 		this.num_slots = num_slots;
 		itemStacks = new ItemStack[num_slots];
 		this.NameEntity = NameEntity;
+		
+		super();
 	}
 
 	@Override
 	public String getName() 
 	{
-		return NameEntity;
+		return "container."+NameEntity+".name";
 	}
 
 	@Override
@@ -171,5 +180,48 @@ public class TileEntityBasicInventory extends TileEntity implements IInventory
 	{
 		Arrays.fill(itemStacks, null);
 	}
+	
+	// This is where you save any data that you don't want to lose when the tile entity unloads
+	// In this case, it saves the itemstacks stored in the container
+	@Override
+	public void writeToNBT(NBTTagCompound parentNBTTagCompound)
+	{
+		super.writeToNBT(parentNBTTagCompound); // The super call is required to save and load the tileEntity's location
+
+		// to use an analogy with Java, this code generates an array of hashmaps
+		// The itemStack in each slot is converted to an NBTTagCompound, which is effectively a hashmap of key->value pairs such
+		//   as slot=1, id=2353, count=1, etc
+		// Each of these NBTTagCompound are then inserted into NBTTagList, which is similar to an array.
+		NBTTagList dataForAllSlots = new NBTTagList();
+		for (int i = 0; i < this.itemStacks.length; ++i) {
+			if (this.itemStacks[i] != null)	{
+				NBTTagCompound dataForThisSlot = new NBTTagCompound();
+				dataForThisSlot.setByte("Slot", (byte) i);
+				this.itemStacks[i].writeToNBT(dataForThisSlot);
+				dataForAllSlots.appendTag(dataForThisSlot);
+			}
+		}
+		// the array of hashmaps is then inserted into the parent hashmap for the container
+		parentNBTTagCompound.setTag("Items", dataForAllSlots);
+	}
+
+	// This is where you load the data that you saved in writeToNBT
+	@Override
+	public void readFromNBT(NBTTagCompound parentNBTTagCompound)
+	{
+		super.readFromNBT(parentNBTTagCompound); // The super call is required to save and load the tiles location
+		final byte NBT_TYPE_COMPOUND = 10;       // See NBTBase.createNewByType() for a listing
+		NBTTagList dataForAllSlots = parentNBTTagCompound.getTagList("Items", NBT_TYPE_COMPOUND);
+
+		Arrays.fill(itemStacks, null);           // set all slots to empty
+		for (int i = 0; i < dataForAllSlots.tagCount(); ++i) {
+			NBTTagCompound dataForOneSlot = dataForAllSlots.getCompoundTagAt(i);
+			int slotIndex = dataForOneSlot.getByte("Slot") & 255;
+
+			if (slotIndex >= 0 && slotIndex < this.itemStacks.length) {
+				this.itemStacks[slotIndex] = ItemStack.loadItemStackFromNBT(dataForOneSlot);
+			}
+		}
+	}	
 
 }

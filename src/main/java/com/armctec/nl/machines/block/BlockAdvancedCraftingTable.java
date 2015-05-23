@@ -65,7 +65,16 @@ public class BlockAdvancedCraftingTable extends BlockBasic implements ITileEntit
 	
 	public void breakBlock(World worldIn, BlockPos pos, IBlockState state)
     {
-		IInventory inventory = worldIn.getTileEntity(pos) instanceof IInventory ? (IInventory)worldIn.getTileEntity(pos) : null;
+		IInventory inventory = null;
+		
+		
+		if(worldIn.getTileEntity(pos) instanceof IInventory)
+		{
+			ModConfig.Log.info("Inventorio encontrado");
+			inventory =  (IInventory)worldIn.getTileEntity(pos);
+		}
+		else
+			ModConfig.Log.info("Inventorio nao encontrado");
 
 		if (inventory != null)
 		{

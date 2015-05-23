@@ -1,4 +1,4 @@
-package com.armctec.nl.general.inventory;
+package com.armctec.nl.machines.inventory;
 
 import com.armctec.nl.general.entities.TileEntityBasicInventory;
 import com.armctec.nl.machines.entities.TileEntityAdvancedCrafting;
