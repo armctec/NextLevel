@@ -21,6 +21,7 @@ import net.minecraft.world.World;
 import com.armctec.nl.general.block.BlockBasic;
 import com.armctec.nl.general.entities.TileEntityBasicInventory;
 import com.armctec.nl.machines.MachinesNL;
+import com.armctec.nl.machines.entities.TileEntityAdvancedCrafting;
 import com.armctec.nl.machines.gui.CreativeTabMachines;
 import com.armctec.nl.machines.gui.GuiHandlerAdvancedCrafting;
 import com.armctec.nl.machines.init.ModBlocks;
@@ -59,7 +60,7 @@ public class BlockAdvancedCraftingTable extends BlockBasic implements ITileEntit
 	@Override
 	public TileEntity createNewTileEntity(World worldIn, int meta) 
 	{
-		return new TileEntityBasicInventory(Names.Entites.ENTITY_ADVANCED_CRAFTING, 9);
+		return new TileEntityAdvancedCrafting(Names.Entites.ENTITY_ADVANCED_CRAFTING, 9);
 	}
 	
 	public void breakBlock(World worldIn, BlockPos pos, IBlockState state)

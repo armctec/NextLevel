@@ -1,6 +1,8 @@
 package com.armctec.nl.machines.gui;
 
 import com.armctec.nl.general.entities.TileEntityBasicInventory;
+import com.armctec.nl.general.inventory.ContainerAdvancedCrafting;
+import com.armctec.nl.machines.entities.TileEntityAdvancedCrafting;
 import com.armctec.nl.machines.reference.Names;
 
 import net.minecraft.entity.player.EntityPlayer;
@@ -27,10 +29,10 @@ public class GuiHandlerAdvancedCrafting implements IGuiHandler
 
 		BlockPos xyz = new BlockPos(x, y, z);
 		TileEntity tileEntity = world.getTileEntity(xyz);
-		if (tileEntity instanceof TileEntityBasicInventory) 
+		if (tileEntity instanceof TileEntityAdvancedCrafting) 
 		{
-			TileEntityBasicInventory tileEntityInventoryBasic = (TileEntityBasicInventory) tileEntity;
-			return new ContainerBasic(player.inventory, tileEntityInventoryBasic);
+			TileEntityAdvancedCrafting tileEntityInventoryBasic = (TileEntityAdvancedCrafting) tileEntity;
+			return new ContainerAdvancedCrafting(player.inventory, world, xyz, tileEntityInventoryBasic);
 		}
 		return null;
 	}
@@ -46,10 +48,10 @@ public class GuiHandlerAdvancedCrafting implements IGuiHandler
 
 		BlockPos xyz = new BlockPos(x, y, z);
 		TileEntity tileEntity = world.getTileEntity(xyz);
-		if (tileEntity instanceof TileEntityBasicInventory) 
+		if (tileEntity instanceof TileEntityAdvancedCrafting) 
 		{
-			TileEntityBasicInventory tileEntityInventoryBasic = (TileEntityBasicInventory) tileEntity;
-			return new GuiInventoryBasic(player.inventory, tileEntityInventoryBasic);
+			TileEntityAdvancedCrafting tileEntityInventoryBasic = (TileEntityAdvancedCrafting) tileEntity;
+			return new GuiAdvancedCrafting(player.inventory, world, xyz, tileEntityInventoryBasic);
 		}
 		return null;
 	}

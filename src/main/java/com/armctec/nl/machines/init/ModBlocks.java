@@ -12,7 +12,7 @@ public class ModBlocks
 	
 	public static void init()
 	{
-		// Ores
+		// Machines
         GameRegistry.registerBlock(AdvancedCraftingTable, Names.Blocks.ADVANCED_CRAFTING_TABLE);
 	}
 }
