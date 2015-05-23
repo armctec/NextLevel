@@ -25,11 +25,11 @@ public class TileEntityBasicInventory extends TileEntity implements IInventory
 	
 	public TileEntityBasicInventory(String NameEntity, int num_slots) 
 	{
+		super();
+		
 		this.num_slots = num_slots;
 		itemStacks = new ItemStack[num_slots];
 		this.NameEntity = NameEntity;
-		
-		super();
 	}
 
 	@Override
@@ -188,6 +188,8 @@ public class TileEntityBasicInventory extends TileEntity implements IInventory
 	{
 		super.writeToNBT(parentNBTTagCompound); // The super call is required to save and load the tileEntity's location
 
+		parentNBTTagCompound.setInteger("QuantSlots", num_slots);
+		
 		// to use an analogy with Java, this code generates an array of hashmaps
 		// The itemStack in each slot is converted to an NBTTagCompound, which is effectively a hashmap of key->value pairs such
 		//   as slot=1, id=2353, count=1, etc
@@ -210,10 +212,14 @@ public class TileEntityBasicInventory extends TileEntity implements IInventory
 	public void readFromNBT(NBTTagCompound parentNBTTagCompound)
 	{
 		super.readFromNBT(parentNBTTagCompound); // The super call is required to save and load the tiles location
+		
+		num_slots = parentNBTTagCompound.getInteger("QuantSlots");
+		itemStacks = new ItemStack[num_slots];
+		Arrays.fill(itemStacks, null);           // set all slots to empty
+
 		final byte NBT_TYPE_COMPOUND = 10;       // See NBTBase.createNewByType() for a listing
 		NBTTagList dataForAllSlots = parentNBTTagCompound.getTagList("Items", NBT_TYPE_COMPOUND);
 
-		Arrays.fill(itemStacks, null);           // set all slots to empty
 		for (int i = 0; i < dataForAllSlots.tagCount(); ++i) {
 			NBTTagCompound dataForOneSlot = dataForAllSlots.getCompoundTagAt(i);
 			int slotIndex = dataForOneSlot.getByte("Slot") & 255;

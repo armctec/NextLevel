@@ -1,5 +1,7 @@
 package com.armctec.nl.machines.entities;
 
+import net.minecraft.nbt.NBTTagCompound;
+
 import com.armctec.nl.general.entities.TileEntityBasicInventory;
 import com.armctec.nl.machines.reference.ModConfig;
 
@@ -16,5 +18,18 @@ public class TileEntityAdvancedCrafting extends TileEntityBasicInventory
 	{
 		super();
 	}
-
+	
+	@Override
+	public void writeToNBT(NBTTagCompound parentNBTTagCompound)
+	{
+		super.writeToNBT(parentNBTTagCompound);
+		ModConfig.Log.info("writeToNBT");
+	}
+	
+	@Override
+	public void readFromNBT(NBTTagCompound parentNBTTagCompound)
+	{
+		super.readFromNBT(parentNBTTagCompound);
+		ModConfig.Log.info("readFromNBT");
+	}
 }

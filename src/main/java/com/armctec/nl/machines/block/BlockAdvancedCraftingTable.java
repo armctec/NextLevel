@@ -79,11 +79,16 @@ public class BlockAdvancedCraftingTable extends BlockBasic implements ITileEntit
 		if (inventory != null)
 		{
 			// For each slot in the inventory
+			
+			ModConfig.Log.info("Inventorio tamanho:"+inventory.getSizeInventory());
+			
 			for (int i = 0; i < inventory.getSizeInventory(); i++)
 			{
 				// If the slot is not empty
 				if (inventory.getStackInSlot(i) != null)
 				{
+					ModConfig.Log.info("Inventorio item "+i+":"+inventory.getStackInSlot(i).toString());
+					
 					// Create a new entity item with the item stack in the slot
 					EntityItem item = new EntityItem(worldIn, pos.getX() + 0.5, pos.getY() + 0.5, pos.getZ() + 0.5, inventory.getStackInSlot(i));
 
