@@ -19,6 +19,7 @@ import net.minecraft.world.IInteractionObject;
 import net.minecraft.world.World;
 
 import com.armctec.nl.general.block.BlockBasic;
+import com.armctec.nl.general.block.BlockBasicContainer;
 import com.armctec.nl.general.entities.TileEntityBasicInventory;
 import com.armctec.nl.machines.MachinesNL;
 import com.armctec.nl.machines.entities.TileEntityAdvancedCrafting;
@@ -28,7 +29,7 @@ import com.armctec.nl.machines.init.ModBlocks;
 import com.armctec.nl.machines.reference.Names;
 import com.armctec.nl.machines.reference.ModConfig;
 
-public class BlockAdvancedCraftingTable extends BlockBasic implements ITileEntityProvider
+public class BlockAdvancedCraftingTable extends BlockBasicContainer
 {
 	public BlockAdvancedCraftingTable() 
 	{
@@ -110,18 +111,7 @@ public class BlockAdvancedCraftingTable extends BlockBasic implements ITileEntit
 			// Clear the inventory so nothing else (such as another mod) can do anything with the items
 			inventory.clear();
 		}
-		// Linhas Abaixo sao Necessárias: BlockContainer
+		
 		super.breakBlock(worldIn, pos, state);
-        worldIn.removeTileEntity(pos);
     }
-	
-    /**
-     * Called on both Client and Server when World#addBlockEvent is called
-     */
-    public boolean onBlockEventReceived(World worldIn, BlockPos pos, IBlockState state, int eventID, int eventParam)
-    {
-        super.onBlockEventReceived(worldIn, pos, state, eventID, eventParam);
-        TileEntity tileentity = worldIn.getTileEntity(pos);
-        return tileentity == null ? false : tileentity.receiveClientEvent(eventID, eventParam);
-    }	
 }

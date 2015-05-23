@@ -115,6 +115,14 @@ public class TileEntityBasicInventory extends TileEntity implements IInventory
 	@Override
 	public void setInventorySlotContents(int index, ItemStack stack) 
 	{
+		if(index>num_slots || itemStacks==null)
+		{	
+			System.out.println("Erro:"+index+":"+itemStacks==null);
+			return;
+		}
+		
+		System.out.println("set Pos:"+index+"-"+stack.toString());
+			
 		itemStacks[index] = stack;
 
         if (stack != null && stack.stackSize > getInventoryStackLimit())
@@ -135,7 +143,10 @@ public class TileEntityBasicInventory extends TileEntity implements IInventory
 	public boolean isUseableByPlayer(EntityPlayer player) 
 	{
 		if (this.worldObj.getTileEntity(this.pos) != this) 
+		{
+			System.out.println("Erro: isUseableByPlayer");
 			return false;
+		}
 		return player.getDistanceSq(pos.getX() + 0.5f, pos.getY() + 0.5f, pos.getZ() + 0.5f) < 64;
 	}
 
@@ -225,8 +236,16 @@ public class TileEntityBasicInventory extends TileEntity implements IInventory
 			int slotIndex = dataForOneSlot.getByte("Slot") & 255;
 
 			if (slotIndex >= 0 && slotIndex < this.itemStacks.length) {
-				this.itemStacks[slotIndex] = ItemStack.loadItemStackFromNBT(dataForOneSlot);
+				itemStacks[slotIndex] = ItemStack.loadItemStackFromNBT(dataForOneSlot);
 			}
+		}
+		
+		System.out.println("Tamanho Lido:"+num_slots);
+		for(int i=0;i<num_slots;i++)
+		{
+			if(itemStacks[i]!=null)
+				System.out.println("Num:"+i+"-"+itemStacks[i].toString());
+			System.out.println("Num:"+i+"- ");
 		}
 	}	
 
