@@ -61,7 +61,7 @@ public class BlockAdvancedCraftingTable extends BlockBasicContainer
 	@Override
 	public TileEntity createNewTileEntity(World worldIn, int meta) 
 	{
-		return new TileEntityAdvancedCrafting(Names.Entites.ENTITY_ADVANCED_CRAFTING, 9);
+		return new TileEntityAdvancedCrafting(Names.Entites.ENTITY_ADVANCED_CRAFTING);
 	}
 	
 	public void breakBlock(World worldIn, BlockPos pos, IBlockState state)

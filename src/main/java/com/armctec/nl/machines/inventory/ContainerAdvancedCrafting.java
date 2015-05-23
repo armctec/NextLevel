@@ -91,13 +91,49 @@ public class ContainerAdvancedCrafting extends Container
 		this.tileEntity.closeInventory(playerIn);
 	}	
 	
+	public ItemStack getCraftingResultItemStack()
+	{
+		Slot slot = (Slot)inventorySlots.get(0);
+		if(slot!=null && slot.getHasStack())
+		{
+			onCraftMatrixChanged(tileEntity);
+			ItemStack item = slot.getStack();
+			
+			return item;
+		}
+		return null;
+	}
+	
+	public ItemStack getCraftingResultItemStack(int size)
+	{
+		Slot slot = (Slot)inventorySlots.get(0);
+		if(slot!=null && slot.getHasStack())
+		{
+			onCraftMatrixChanged(tileEntity);
+			ItemStack item = slot.getStack();
+			
+			return item;
+		}
+		return null;
+	}	
+	
+	public boolean getCraftingResult()
+	{
+		Slot slot = (Slot)inventorySlots.get(0);
+		if(slot!=null && slot.getHasStack())
+		{
+			return true;
+		}
+		return false;
+	}
+	
 	/**
      * Take a stack from the specified inventory slot.
      */
     public ItemStack transferStackInSlot(EntityPlayer playerIn, int index)
     {
         ItemStack itemstack = null;
-        Slot slot = (Slot)this.inventorySlots.get(index);
+        Slot slot = (Slot)inventorySlots.get(index);
 
         if (slot != null && slot.getHasStack())
         {

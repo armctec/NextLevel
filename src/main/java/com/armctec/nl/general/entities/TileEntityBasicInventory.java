@@ -4,15 +4,17 @@ import java.util.Arrays;
 
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.IInventory;
+import net.minecraft.inventory.ISidedInventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.ChatComponentText;
 import net.minecraft.util.ChatComponentTranslation;
+import net.minecraft.util.EnumFacing;
 import net.minecraft.util.IChatComponent;
 
-public class TileEntityBasicInventory extends TileEntity implements IInventory 
+public class TileEntityBasicInventory extends TileEntity implements IInventory
 {
 	private ItemStack[] itemStacks = null;
 	private int num_slots = 0;
@@ -117,11 +119,14 @@ public class TileEntityBasicInventory extends TileEntity implements IInventory
 	{
 		if(index>num_slots || itemStacks==null)
 		{	
-			System.out.println("Erro:"+index+":"+itemStacks==null);
+			//System.out.println("Erro:"+index+":"+itemStacks==null);
 			return;
 		}
 		
-		System.out.println("set Pos:"+index+"-"+stack.toString());
+		//if(stack!=null)
+		//	System.out.println("set Pos:"+index+"-"+stack.toString());
+		//else
+		//	System.out.println("set Pos:"+index+"- ");
 			
 		itemStacks[index] = stack;
 
@@ -144,7 +149,7 @@ public class TileEntityBasicInventory extends TileEntity implements IInventory
 	{
 		if (this.worldObj.getTileEntity(this.pos) != this) 
 		{
-			System.out.println("Erro: isUseableByPlayer");
+			//System.out.println("Erro: isUseableByPlayer");
 			return false;
 		}
 		return player.getDistanceSq(pos.getX() + 0.5f, pos.getY() + 0.5f, pos.getZ() + 0.5f) < 64;
@@ -206,8 +211,10 @@ public class TileEntityBasicInventory extends TileEntity implements IInventory
 		//   as slot=1, id=2353, count=1, etc
 		// Each of these NBTTagCompound are then inserted into NBTTagList, which is similar to an array.
 		NBTTagList dataForAllSlots = new NBTTagList();
-		for (int i = 0; i < this.itemStacks.length; ++i) {
-			if (this.itemStacks[i] != null)	{
+		for (int i = 0; i < this.itemStacks.length; ++i) 
+		{
+			if (this.itemStacks[i] != null)	
+			{
 				NBTTagCompound dataForThisSlot = new NBTTagCompound();
 				dataForThisSlot.setByte("Slot", (byte) i);
 				this.itemStacks[i].writeToNBT(dataForThisSlot);
@@ -231,22 +238,23 @@ public class TileEntityBasicInventory extends TileEntity implements IInventory
 		final byte NBT_TYPE_COMPOUND = 10;       // See NBTBase.createNewByType() for a listing
 		NBTTagList dataForAllSlots = parentNBTTagCompound.getTagList("Items", NBT_TYPE_COMPOUND);
 
-		for (int i = 0; i < dataForAllSlots.tagCount(); ++i) {
+		for (int i = 0; i < dataForAllSlots.tagCount(); ++i) 
+		{
 			NBTTagCompound dataForOneSlot = dataForAllSlots.getCompoundTagAt(i);
 			int slotIndex = dataForOneSlot.getByte("Slot") & 255;
 
-			if (slotIndex >= 0 && slotIndex < this.itemStacks.length) {
+			if (slotIndex >= 0 && slotIndex < this.itemStacks.length) 
+			{
 				itemStacks[slotIndex] = ItemStack.loadItemStackFromNBT(dataForOneSlot);
 			}
 		}
 		
-		System.out.println("Tamanho Lido:"+num_slots);
-		for(int i=0;i<num_slots;i++)
-		{
-			if(itemStacks[i]!=null)
-				System.out.println("Num:"+i+"-"+itemStacks[i].toString());
-			System.out.println("Num:"+i+"- ");
-		}
+		//System.out.println("Tamanho Lido:"+num_slots);
+		//for(int i=0;i<num_slots;i++)
+		//{
+		//	if(itemStacks[i]!=null)
+		//		System.out.println("Num:"+i+"-"+itemStacks[i].toString());
+		//	System.out.println("Num:"+i+"- ");
+		//}
 	}	
-
 }
