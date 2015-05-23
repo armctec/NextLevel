@@ -11,12 +11,11 @@ public class TileEntityAdvancedCrafting extends TileEntityBasicInventory
 {
 	Container container = null;
 	
-	public TileEntityAdvancedCrafting(String NameEntity, int num_slots, Container container) 
+	public TileEntityAdvancedCrafting(String NameEntity, int num_slots) 
 	{
 		super(NameEntity, num_slots);
 		// TODO Auto-generated constructor stub
 		ModConfig.Log.info("TileEntity Created: Name:"+NameEntity+", NumSlots:"+num_slots);
-		this.container = container;
 	}
 	
 	public TileEntityAdvancedCrafting()
@@ -46,6 +45,11 @@ public class TileEntityAdvancedCrafting extends TileEntityBasicInventory
         return row >= 0 && row < 3 && column >= 0 && column <= 3 ? this.getStackInSlot(row + column * 3) : null;
     }
 	
+    public void setContainer(Container container)
+    {
+    	this.container = container;
+    }
+    
     @Override
 	public void setInventorySlotContents(int index, ItemStack stack) 
 	{
@@ -53,4 +57,13 @@ public class TileEntityAdvancedCrafting extends TileEntityBasicInventory
     	container.onCraftMatrixChanged(this);
 	}
 	
+    public int getHeight()
+    {
+        return 3;
+    }
+
+    public int getWidth()
+    {
+        return 3;
+    }    
 }

@@ -23,18 +23,22 @@ public class ContainerAdvancedCrafting extends Container
     public IInventory craftResult = new InventoryCraftResult();
     private World worldObj;
     private BlockPos blockPosition;
+    AdvancedInventoryCrafting advcrafting = null;
     
 	public ContainerAdvancedCrafting(InventoryPlayer playerInventory, World worldIn, BlockPos blockPosition, TileEntityAdvancedCrafting tileEntity) 
 	{
 		this.worldObj = worldIn;
 		this.tileEntity = tileEntity;
 		this.blockPosition = blockPosition;
+		
+		tileEntity.setContainer(this);
+		advcrafting = new AdvancedInventoryCrafting(tileEntity, null, 0, 0);
 		setSlots(playerInventory);
 	}
 	
 	private void setSlots(InventoryPlayer playerInventory)
 	{
-		this.addSlotToContainer(new SlotCrafting(playerInventory.player, tileEntity, craftResult, 0, 124, 35));
+		this.addSlotToContainer(new SlotCrafting(playerInventory.player, advcrafting, craftResult, 0, 124, 35));
         int i;
         int j;
 
@@ -68,7 +72,7 @@ public class ContainerAdvancedCrafting extends Container
 	@Override
     public void onCraftMatrixChanged(IInventory inventoryIn)
     {
-        craftResult.setInventorySlotContents(0, CraftingManager.getInstance().findMatchingRecipe(tileEntity, this.worldObj));
+        craftResult.setInventorySlotContents(0, CraftingManager.getInstance().findMatchingRecipe(advcrafting, this.worldObj));
     }
     
 	// Vanilla calls this method every tick to make sure the player is still able to access the inventory, and if not closes the gui
