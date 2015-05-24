@@ -20,14 +20,14 @@ import net.minecraft.world.World;
 
 import com.armctec.nl.general.block.BlockBasic;
 import com.armctec.nl.general.block.BlockBasicContainer;
-import com.armctec.nl.general.entities.TileEntityBasicInventory;
+import com.armctec.nl.general.tileentity.TileEntityBasicInventory;
 import com.armctec.nl.machines.MachinesNL;
-import com.armctec.nl.machines.entities.TileEntityAdvancedCrafting;
 import com.armctec.nl.machines.gui.CreativeTabMachines;
-import com.armctec.nl.machines.gui.GuiHandlerAdvancedCrafting;
+import com.armctec.nl.machines.handler.GuiHandlerAdvancedCrafting;
 import com.armctec.nl.machines.init.ModBlocks;
 import com.armctec.nl.machines.reference.Names;
 import com.armctec.nl.machines.reference.ModConfig;
+import com.armctec.nl.machines.tileentity.TileEntityAdvancedCrafting;
 
 public class BlockAdvancedCraftingTable extends BlockBasicContainer
 {

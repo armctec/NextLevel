@@ -1,4 +1,4 @@
-package com.armctec.nl.general.entities;
+package com.armctec.nl.general.tileentity;
 
 import java.util.Arrays;
 
@@ -8,6 +8,9 @@ import net.minecraft.inventory.ISidedInventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
+import net.minecraft.network.NetworkManager;
+import net.minecraft.network.Packet;
+import net.minecraft.network.play.server.S35PacketUpdateTileEntity;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.ChatComponentText;
 import net.minecraft.util.ChatComponentTranslation;
@@ -257,4 +260,18 @@ public class TileEntityBasicInventory extends TileEntity implements IInventory
 		//	System.out.println("Num:"+i+"- ");
 		//}
 	}	
+	
+	@Override
+	public Packet getDescriptionPacket() 
+	{
+		NBTTagCompound nbtTagCompound = new NBTTagCompound();
+		writeToNBT(nbtTagCompound);
+		return new S35PacketUpdateTileEntity(this.pos, 0, nbtTagCompound);
+	}
+
+	@Override
+	public void onDataPacket(NetworkManager net, S35PacketUpdateTileEntity pkt) 
+	{
+		readFromNBT(pkt.getNbtCompound());
+	}		
 }

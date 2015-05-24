@@ -1,9 +1,9 @@
 package com.armctec.nl.machines.gui;
 
-import com.armctec.nl.general.entities.TileEntityBasicInventory;
-import com.armctec.nl.machines.entities.TileEntityAdvancedCrafting;
+import com.armctec.nl.general.tileentity.TileEntityBasicInventory;
 import com.armctec.nl.machines.inventory.ContainerAdvancedCrafting;
 import com.armctec.nl.machines.reference.ModConfig;
+import com.armctec.nl.machines.tileentity.TileEntityAdvancedCrafting;
 
 import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.client.gui.inventory.GuiCrafting;
