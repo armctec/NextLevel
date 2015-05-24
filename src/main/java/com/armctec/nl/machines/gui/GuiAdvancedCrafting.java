@@ -21,6 +21,11 @@ public class GuiAdvancedCrafting extends GuiContainer
 	private static final ResourceLocation craftingTableGuiTextures = new ResourceLocation(ModConfig.MOD_ID, "textures/gui/container/advanced_crafting_table.png");
 	TileEntityAdvancedCrafting tileEntity	= null;
 
+	private String getTextI18n(String item)
+	{
+		return I18n.format("container."+ModConfig.MOD_ID.toLowerCase()+":"+item, new Object[0]);
+	}
+	
     public GuiAdvancedCrafting(InventoryPlayer playerInv, World worldIn, BlockPos blockPosition, TileEntityAdvancedCrafting tileEntity) 
     {
 		super(new ContainerAdvancedCrafting(playerInv, worldIn, blockPosition, tileEntity));
@@ -31,9 +36,8 @@ public class GuiAdvancedCrafting extends GuiContainer
      */
     protected void drawGuiContainerForegroundLayer(int mouseX, int mouseY)
     {
-        // Trocar texto en_Us.lang --> I18n.format("container.crafting"
-    	this.fontRendererObj.drawString("Advanced Crafting", 28, 6, 4210752);
-        this.fontRendererObj.drawString(I18n.format("container.inventory", new Object[0]), 8, this.ySize - 96 + 2, 4210752);
+    	this.fontRendererObj.drawString(getTextI18n("advancedcraftingtable.crafting"), 28, 6, 4210752);
+        this.fontRendererObj.drawString(getTextI18n("advancedcraftingtable.inventory"), 8, this.ySize - 96 + 2, 4210752);
     }
 
     /**
