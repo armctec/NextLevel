@@ -101,7 +101,10 @@ public class TileEntityAdvancedCrafting extends TileEntityBasicInventory impleme
 	@Override
 	public ItemStack decrStackSize(int index, int count) 
 	{
-		return super.decrStackSize(index, count);
+		ItemStack item = super.decrStackSize(index, count);
+		container.onCraftMatrixChanged(this);
+		
+		return item;
 	}
     
 	@Override
