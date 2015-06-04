@@ -9,7 +9,11 @@ import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.Blocks;
+import net.minecraft.inventory.Container;
 import net.minecraft.inventory.IInventory;
+import net.minecraft.item.Item;
+import net.minecraft.network.play.server.S22PacketMultiBlockChange.BlockUpdateData;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.BlockPos;
 import net.minecraft.util.EnumFacing;
@@ -25,6 +29,7 @@ import com.armctec.nl.machines.MachinesNL;
 import com.armctec.nl.machines.gui.CreativeTabMachines;
 import com.armctec.nl.machines.handler.GuiHandlerAdvancedCrafting;
 import com.armctec.nl.machines.handler.GuiHandlerGrindstone;
+import com.armctec.nl.machines.init.ModBlocks;
 import com.armctec.nl.machines.reference.ModConfig;
 import com.armctec.nl.machines.reference.Names;
 import com.armctec.nl.machines.tileentity.TileEntityAdvancedCrafting;
@@ -33,6 +38,7 @@ import com.armctec.nl.machines.tileentity.TileEntityGrindstone;
 public class BlockGrindstone extends BlockBasicContainer 
 {
 	public static final PropertyInteger POSICAO = PropertyInteger.create("posicao", 0, 3);
+	private int posicao_ang = 0;
 	
 	public BlockGrindstone() 
 	{
@@ -40,7 +46,7 @@ public class BlockGrindstone extends BlockBasicContainer
 		this.setCreativeTab(CreativeTabMachines.MACHINES_TAB);
 		this.isBlockContainer = true;
 		setBlockName(ModConfig.MOD_ID, Names.Blocks.GRINDSTONE);
-		this.setDefaultState(this.blockState.getBaseState().withProperty(POSICAO, 0));
+		this.setDefaultState(this.blockState.getBaseState().withProperty(POSICAO, posicao_ang));
 		setHarvestLevel("pickaxe", 0);	// Stone Pickaxe
 	}
 
@@ -53,29 +59,39 @@ public class BlockGrindstone extends BlockBasicContainer
 	@Override
 	public IBlockState getStateFromMeta(int meta)
     {
-        return this.getDefaultState().withProperty(POSICAO, Integer.valueOf(meta & 3));
+		ModConfig.Log.info("getStateFromMeta");
+		return this.getDefaultState().withProperty(POSICAO, Integer.valueOf(meta & 3));
     }	
 	
 	@SideOnly(Side.CLIENT)
 	@Override
     public IBlockState getStateForEntityRender(IBlockState state)
     {
-        return this.getDefaultState().withProperty(POSICAO, 0);
+		ModConfig.Log.info("getStateForEntityRender");
+		return this.getDefaultState().withProperty(POSICAO, posicao_ang);
     }
 	
+	@Override
+	public IBlockState getActualState(IBlockState state, IBlockAccess worldIn, BlockPos pos)
+	{
+		ModConfig.Log.info("getActualState");
+		return this.getDefaultState().withProperty(POSICAO, posicao_ang);
+	}
 	/**
      * Convert the BlockState into the correct metadata value
      */
 	@Override
     public int getMetaFromState(IBlockState state)
     {
+		//ModConfig.Log.info("getMetaFromState");
     	return ((Integer)state.getValue(POSICAO)).intValue() & 3;
     }
 
 	@Override
     protected BlockState createBlockState()
     {
-        return new BlockState(this, new IProperty[] {POSICAO});
+		ModConfig.Log.info("createBlockState");
+		return new BlockState(this, new IProperty[] {POSICAO});
     }	
 	
 	@Override
@@ -103,34 +119,30 @@ public class BlockGrindstone extends BlockBasicContainer
         return EnumWorldBlockLayer.CUTOUT;
     }	
     
-    public static void setState(World worldIn, BlockPos pos)
-    {
-    	IBlockState iblockstate = worldIn.getBlockState(pos);
-        TileEntity tileentity = worldIn.getTileEntity(pos);
-        
-    	int posicao = (((Integer)iblockstate.getValue(POSICAO)).intValue() + 1) & 3;
-		worldIn.setBlockState(pos, iblockstate.withProperty(POSICAO, Integer.valueOf(MathHelper.clamp_int(posicao, 0, 3))), 2);
-		
-		if (tileentity != null)
-        {
-            tileentity.validate();
-            worldIn.setTileEntity(pos, tileentity);
-        }
-    }
-    
     public boolean onBlockActivated(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn, EnumFacing side, float hitX, float hitY, float hitZ)
     {
+    	if(playerIn.isSneaking() && !worldIn.isRemote)
+		{
+			if(posicao_ang<3)
+				posicao_ang++;
+			else
+				posicao_ang = 0;
+			
+			worldIn.setBlockState(pos, getActualState(state, worldIn, pos));
+			
+		}
+    	
     	if(!worldIn.isRemote) 
     	{
-    		if(playerIn.isSneaking()) 
-    		{
-    			setState(worldIn, pos);
-    		}
-    		else
+    		if(!playerIn.isSneaking()) 
     		{
     			playerIn.openGui(MachinesNL.instance, GuiHandlerGrindstone.getGuiID(), worldIn, pos.getX(), pos.getY(), pos.getZ());
     		}
     	}
+
+    	
+    	//worldIn.markBlockForUpdate(pos);
+    	
     	return true;
     }
     
@@ -191,5 +203,21 @@ public class BlockGrindstone extends BlockBasicContainer
  		}
  		
  		super.breakBlock(worldIn, pos, state);
-     }    
+     }   
+ 	
+ 	public boolean hasComparatorInputOverride()
+    {
+        return true;
+    }
+
+    public int getComparatorInputOverride(World worldIn, BlockPos pos)
+    {
+        return Container.calcRedstone(worldIn.getTileEntity(pos));
+    }
+    
+    @SideOnly(Side.CLIENT)
+    public Item getItem(World worldIn, BlockPos pos)
+    {
+        return Item.getItemFromBlock(ModBlocks.Grindstone);
+    }    
 }
