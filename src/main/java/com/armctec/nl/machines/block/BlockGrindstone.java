@@ -153,11 +153,12 @@ public class BlockGrindstone extends BlockBasicContainer
     				tilegrid.setPosicao(posicao_ang);
     			}
     			worldIn.markBlockForUpdate(pos);
+    			worldIn.scheduleUpdate(pos, this, 5);
     		}
     		else
     		{
         		//worldIn.markBlockForUpdate(pos);
-    			worldIn.markBlockRangeForRenderUpdate(pos, pos);
+    			//worldIn.markBlockRangeForRenderUpdate(pos, pos);
     		}
     	}
     	

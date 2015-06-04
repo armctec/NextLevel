@@ -130,6 +130,8 @@ public class TileEntityGrindstone extends TileEntityBasicInventory implements IU
 		posicao = parentNBTTagCompound.getInteger("Posicao");
 		super.readFromNBT(parentNBTTagCompound);
 		ModConfig.Log.info("readFromNBT");
+		//Update posicao na visualizacao
+		worldObj.markBlockRangeForRenderUpdate(pos, pos);
 	}
 
 	@Override
