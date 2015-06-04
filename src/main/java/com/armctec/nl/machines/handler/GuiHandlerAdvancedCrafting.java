@@ -2,7 +2,7 @@ package com.armctec.nl.machines.handler;
 
 import com.armctec.nl.general.tileentity.TileEntityBasicInventory;
 import com.armctec.nl.machines.gui.GuiAdvancedCrafting;
-import com.armctec.nl.machines.inventory.ContainerAdvancedCrafting;
+import com.armctec.nl.machines.inventory.container.ContainerAdvancedCrafting;
 import com.armctec.nl.machines.reference.Names;
 import com.armctec.nl.machines.tileentity.TileEntityAdvancedCrafting;
 

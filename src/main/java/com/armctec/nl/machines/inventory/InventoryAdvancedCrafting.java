@@ -10,11 +10,11 @@ import net.minecraft.util.ChatComponentText;
 import net.minecraft.util.ChatComponentTranslation;
 import net.minecraft.util.IChatComponent;
 
-public class AdvancedInventoryCrafting extends InventoryCrafting 
+public class InventoryAdvancedCrafting extends InventoryCrafting 
 {
 	TileEntityAdvancedCrafting tileentity = null;
 	
-	public AdvancedInventoryCrafting(TileEntityAdvancedCrafting tileentity, Container container, int width, int height) 
+	public InventoryAdvancedCrafting(TileEntityAdvancedCrafting tileentity, Container container, int width, int height) 
 	{
 		super(null, 0, 0);
 		this.tileentity = tileentity;

@@ -103,14 +103,28 @@ public class BlockGrindstone extends BlockBasicContainer
         return EnumWorldBlockLayer.CUTOUT;
     }	
     
+    public static void setState(World worldIn, BlockPos pos)
+    {
+    	IBlockState iblockstate = worldIn.getBlockState(pos);
+        TileEntity tileentity = worldIn.getTileEntity(pos);
+        
+    	int posicao = (((Integer)iblockstate.getValue(POSICAO)).intValue() + 1) & 3;
+		worldIn.setBlockState(pos, iblockstate.withProperty(POSICAO, Integer.valueOf(MathHelper.clamp_int(posicao, 0, 3))), 2);
+		
+		if (tileentity != null)
+        {
+            tileentity.validate();
+            worldIn.setTileEntity(pos, tileentity);
+        }
+    }
+    
     public boolean onBlockActivated(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn, EnumFacing side, float hitX, float hitY, float hitZ)
     {
     	if(!worldIn.isRemote) 
     	{
     		if(playerIn.isSneaking()) 
     		{
-    			int posicao =  (((Integer)state.getValue(POSICAO)).intValue() + 1) & 3;
-    			worldIn.setBlockState(pos, state.withProperty(POSICAO, Integer.valueOf(MathHelper.clamp_int(posicao, 0, 3))), 2);
+    			setState(worldIn, pos);
     		}
     		else
     		{
@@ -120,7 +134,7 @@ public class BlockGrindstone extends BlockBasicContainer
     	return true;
     }
     
- // Called when the block is placed or loaded client side to get the tile entity for the block
+    // Called when the block is placed or loaded client side to get the tile entity for the block
  	// Should return a new instance of the tile entity for the block
  	@Override
  	public TileEntity createNewTileEntity(World worldIn, int meta) 

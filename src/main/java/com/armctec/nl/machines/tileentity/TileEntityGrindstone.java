@@ -10,8 +10,8 @@ import net.minecraft.network.play.server.S35PacketUpdateTileEntity;
 import net.minecraft.util.EnumFacing;
 
 import com.armctec.nl.general.tileentity.TileEntityBasicInventory;
-import com.armctec.nl.machines.inventory.ContainerAdvancedCrafting;
-import com.armctec.nl.machines.inventory.ContainerGrindstone;
+import com.armctec.nl.machines.inventory.container.ContainerAdvancedCrafting;
+import com.armctec.nl.machines.inventory.container.ContainerGrindstone;
 import com.armctec.nl.machines.reference.ModConfig;
 
 public class TileEntityGrindstone extends TileEntityBasicInventory implements ISidedInventory

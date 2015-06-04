@@ -1,8 +1,8 @@
 package com.armctec.nl.machines.gui;
 
 import com.armctec.nl.general.tileentity.TileEntityBasicInventory;
-import com.armctec.nl.machines.inventory.ContainerAdvancedCrafting;
-import com.armctec.nl.machines.inventory.ContainerGrindstone;
+import com.armctec.nl.machines.inventory.container.ContainerAdvancedCrafting;
+import com.armctec.nl.machines.inventory.container.ContainerGrindstone;
 import com.armctec.nl.machines.reference.ModConfig;
 import com.armctec.nl.machines.tileentity.TileEntityAdvancedCrafting;
 import com.armctec.nl.machines.tileentity.TileEntityGrindstone;
@@ -38,7 +38,7 @@ public class GuiGrindstone extends GuiContainer
      */
     protected void drawGuiContainerForegroundLayer(int mouseX, int mouseY)
     {
-    	this.fontRendererObj.drawString(getTextI18n("grindstone.crafting"), 28, 6, 4210752);
+    	this.fontRendererObj.drawString(getTextI18n("grindstone.crafting"), 28, 12, 4210752);
         this.fontRendererObj.drawString(getTextI18n("grindstone.inventory"), 8, this.ySize - 96 + 2, 4210752);
     }
 

@@ -21,7 +21,7 @@ import net.minecraftforge.fml.client.config.IConfigElement;
 import com.armctec.nl.ores.reference.ModConfig;
 import com.google.common.collect.ImmutableSet;
 
-public class ModConfigGui implements IModGuiFactory   // extends DefaultGuiFactory
+public class GuiModConfig implements IModGuiFactory   // extends DefaultGuiFactory
 {
     @Override
     public void initialize(Minecraft minecraftInstance)
