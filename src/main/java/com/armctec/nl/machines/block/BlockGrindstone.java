@@ -38,7 +38,6 @@ import com.armctec.nl.machines.tileentity.TileEntityGrindstone;
 public class BlockGrindstone extends BlockBasicContainer 
 {
 	public static final PropertyInteger POSICAO = PropertyInteger.create("posicao", 0, 3);
-	private int posicao_ang = 0;
 	
 	public BlockGrindstone() 
 	{
@@ -46,21 +45,22 @@ public class BlockGrindstone extends BlockBasicContainer
 		this.setCreativeTab(CreativeTabMachines.MACHINES_TAB);
 		this.isBlockContainer = true;
 		setBlockName(ModConfig.MOD_ID, Names.Blocks.GRINDSTONE);
-		this.setDefaultState(this.blockState.getBaseState().withProperty(POSICAO, posicao_ang));
+		this.setDefaultState(this.blockState.getBaseState().withProperty(POSICAO, 0));
 		setHarvestLevel("pickaxe", 0);	// Stone Pickaxe
 	}
 
 	@Override
 	public IBlockState onBlockPlaced(World worldIn, BlockPos pos, EnumFacing facing, float hitX, float hitY, float hitZ, int meta, EntityLivingBase placer) 
 	{
-		return super.onBlockPlaced(worldIn, pos, facing, hitX, hitY, hitZ, meta, placer).withProperty(POSICAO, 0);
+		return super.onBlockPlaced(worldIn, pos, facing, hitX, hitY, hitZ, meta, placer);
 	}
 	
 	@Override
 	public IBlockState getStateFromMeta(int meta)
     {
 		ModConfig.Log.info("getStateFromMeta");
-		return this.getDefaultState().withProperty(POSICAO, Integer.valueOf(meta & 3));
+		//return this.getDefaultState().withProperty(POSICAO, Integer.valueOf(meta & 3));
+		return this.getDefaultState();
     }	
 	
 	@SideOnly(Side.CLIENT)
@@ -68,14 +68,25 @@ public class BlockGrindstone extends BlockBasicContainer
     public IBlockState getStateForEntityRender(IBlockState state)
     {
 		ModConfig.Log.info("getStateForEntityRender");
-		return this.getDefaultState().withProperty(POSICAO, posicao_ang);
+		//return this.getDefaultState().withProperty(POSICAO, 0);
+		return this.getDefaultState();
     }
 	
 	@Override
 	public IBlockState getActualState(IBlockState state, IBlockAccess worldIn, BlockPos pos)
 	{
-		ModConfig.Log.info("getActualState");
-		return this.getDefaultState().withProperty(POSICAO, posicao_ang);
+		TileEntity tileentity = worldIn.getTileEntity(pos);
+		if(tileentity != null && tileentity instanceof TileEntityGrindstone)
+		{
+			TileEntityGrindstone tilegrid = (TileEntityGrindstone)tileentity;
+			
+			ModConfig.Log.info("getActualState:"+tilegrid.getPosicao());
+			return this.getDefaultState().withProperty(POSICAO, tilegrid.getPosicao());
+		}
+		
+		ModConfig.Log.info("getActualState: failed entity");
+		//return this.getDefaultState().withProperty(POSICAO, getMetaFromState(state));
+		return this.getDefaultState();
 	}
 	/**
      * Convert the BlockState into the correct metadata value
@@ -121,16 +132,35 @@ public class BlockGrindstone extends BlockBasicContainer
     
     public boolean onBlockActivated(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn, EnumFacing side, float hitX, float hitY, float hitZ)
     {
-    	if(playerIn.isSneaking() && !worldIn.isRemote)
-		{
-			if(posicao_ang<3)
-				posicao_ang++;
-			else
-				posicao_ang = 0;
-			
-			worldIn.setBlockState(pos, getActualState(state, worldIn, pos));
-			
-		}
+    	// Update client
+    	if(playerIn.isSneaking())
+    	{
+    		if(!worldIn.isRemote)
+    		{
+    			int posicao_ang = 0;
+    		
+    			TileEntity tileentity = worldIn.getTileEntity(pos);
+    			if(tileentity != null && tileentity instanceof TileEntityGrindstone)
+    			{
+    				TileEntityGrindstone tilegrid = (TileEntityGrindstone)tileentity;
+    				posicao_ang = tilegrid.getPosicao();
+    		
+    				if(posicao_ang<3)
+    					posicao_ang++;
+    				else
+    					posicao_ang = 0;
+    				ModConfig.Log.info("?:"+posicao_ang);
+    				tilegrid.setPosicao(posicao_ang);
+    			}
+    			worldIn.markBlockForUpdate(pos);
+    		}
+    		else
+    		{
+        		//worldIn.markBlockForUpdate(pos);
+    			worldIn.markBlockRangeForRenderUpdate(pos, pos);
+    		}
+    	}
+    	
     	
     	if(!worldIn.isRemote) 
     	{

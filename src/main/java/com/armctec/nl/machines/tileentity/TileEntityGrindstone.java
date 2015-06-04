@@ -26,6 +26,7 @@ public class TileEntityGrindstone extends TileEntityBasicInventory implements IU
     private static final int[] slotsBottom = new int[] {2, 1, 0};
     private static final int[] slotsSides = new int[] {3};
     private static final int[] slotsTop = new int[] {};
+    private int posicao = 0;
     
 	public TileEntityGrindstone(String NameEntity) 
 	{
@@ -37,6 +38,16 @@ public class TileEntityGrindstone extends TileEntityBasicInventory implements IU
 	public TileEntityGrindstone()
 	{
 		super();
+	}
+	
+	public void setPosicao(int posicao)
+	{
+		this.posicao = posicao;
+	}
+	
+	public int getPosicao()
+	{
+		return posicao;
 	}
 	
 	public void update()
@@ -107,13 +118,16 @@ public class TileEntityGrindstone extends TileEntityBasicInventory implements IU
 	@Override
 	public void writeToNBT(NBTTagCompound parentNBTTagCompound)
 	{
+		parentNBTTagCompound.setInteger("Posicao", posicao);
 		super.writeToNBT(parentNBTTagCompound);
+		
 		ModConfig.Log.info("writeToNBT");
 	}
 	
 	@Override
 	public void readFromNBT(NBTTagCompound parentNBTTagCompound)
 	{
+		posicao = parentNBTTagCompound.getInteger("Posicao");
 		super.readFromNBT(parentNBTTagCompound);
 		ModConfig.Log.info("readFromNBT");
 	}
@@ -131,6 +145,7 @@ public class TileEntityGrindstone extends TileEntityBasicInventory implements IU
 		ModConfig.Log.info("onDataPacket");
 		super.onDataPacket(net, pkt);
 	}
+	
 	
     /**
      * Returns the itemstack in the slot specified (Top left is 0, 0). Args: row, column
