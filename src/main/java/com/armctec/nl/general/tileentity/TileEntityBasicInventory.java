@@ -19,9 +19,9 @@ import net.minecraft.util.IChatComponent;
 
 public class TileEntityBasicInventory extends TileEntity implements IInventory
 {
-	private ItemStack[] itemStacks = null;
-	private int num_slots = 0;
-	private String NameEntity = null;
+	protected ItemStack[] itemStacks = null;
+	protected int num_slots = 0;
+	protected String NameEntity = null;
 	
 	public TileEntityBasicInventory()
 	{
