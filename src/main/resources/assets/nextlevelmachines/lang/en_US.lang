@@ -1,6 +1,11 @@
 tile.nextlevelmachines:advanced_crafting_table.name=Advanced Crafting Table
+tile.nextlevelmachines:grindstone.name=Grindstone
 
 container.nextlevelmachines:advancedcraftingtable.crafting=Advanced Crafting
 container.nextlevelmachines:advancedcraftingtable.inventory=Inventory
+
+container.nextlevelmachines:grindstone.crafting=Grindstone
+container.nextlevelmachines:grindstone.inventory=Inventory
+
 
 itemGroup.nextlevelmachines=Machines
