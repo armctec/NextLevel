@@ -58,7 +58,7 @@ public class BlockGrindstone extends BlockBasicContainer
 	@Override
 	public IBlockState getStateFromMeta(int meta)
     {
-		ModConfig.Log.info("getStateFromMeta");
+		//ModConfig.Log.info("getStateFromMeta");
 		//return this.getDefaultState().withProperty(POSICAO, Integer.valueOf(meta & 3));
 		return this.getDefaultState();
     }	
@@ -67,7 +67,7 @@ public class BlockGrindstone extends BlockBasicContainer
 	@Override
     public IBlockState getStateForEntityRender(IBlockState state)
     {
-		ModConfig.Log.info("getStateForEntityRender");
+		//ModConfig.Log.info("getStateForEntityRender");
 		//return this.getDefaultState().withProperty(POSICAO, 0);
 		return this.getDefaultState();
     }
@@ -76,12 +76,15 @@ public class BlockGrindstone extends BlockBasicContainer
 	public IBlockState getActualState(IBlockState state, IBlockAccess worldIn, BlockPos pos)
 	{
 		TileEntity tileentity = worldIn.getTileEntity(pos);
-		if(tileentity != null && tileentity instanceof TileEntityGrindstone)
+		if(tileentity != null)
 		{
-			TileEntityGrindstone tilegrid = (TileEntityGrindstone)tileentity;
+			if(tileentity instanceof TileEntityGrindstone)
+			{
+				TileEntityGrindstone tilegrid = (TileEntityGrindstone)tileentity;
 			
-			ModConfig.Log.info("getActualState:"+tilegrid.getPosicao());
-			return this.getDefaultState().withProperty(POSICAO, tilegrid.getPosicao());
+				//ModConfig.Log.info("getActualState:"+tilegrid.getPosicao());
+				return this.getDefaultState().withProperty(POSICAO, tilegrid.getPosicao());
+			}
 		}
 		
 		ModConfig.Log.info("getActualState: failed entity");
@@ -101,7 +104,7 @@ public class BlockGrindstone extends BlockBasicContainer
 	@Override
     protected BlockState createBlockState()
     {
-		ModConfig.Log.info("createBlockState");
+		//ModConfig.Log.info("createBlockState");
 		return new BlockState(this, new IProperty[] {POSICAO});
     }	
 	
@@ -149,11 +152,11 @@ public class BlockGrindstone extends BlockBasicContainer
     					posicao_ang++;
     				else
     					posicao_ang = 0;
-    				ModConfig.Log.info("?:"+posicao_ang);
+    				//ModConfig.Log.info("?:"+posicao_ang);
     				tilegrid.setPosicao(posicao_ang);
     			}
     			worldIn.markBlockForUpdate(pos);
-    			worldIn.scheduleUpdate(pos, this, 5);
+    			//worldIn.scheduleUpdate(pos, this, 0);
     		}
     		else
     		{

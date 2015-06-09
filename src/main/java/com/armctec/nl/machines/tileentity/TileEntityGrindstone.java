@@ -16,6 +16,7 @@ import net.minecraft.server.gui.IUpdatePlayerListBox;
 import net.minecraft.util.EnumFacing;
 
 import com.armctec.nl.general.tileentity.TileEntityBasicInventory;
+import com.armctec.nl.machines.crafting.GrindestoneRecipes;
 import com.armctec.nl.machines.inventory.container.ContainerAdvancedCrafting;
 import com.armctec.nl.machines.inventory.container.ContainerGrindstone;
 import com.armctec.nl.machines.reference.ModConfig;
@@ -27,6 +28,8 @@ public class TileEntityGrindstone extends TileEntityBasicInventory implements IU
     private static final int[] slotsSides = new int[] {3};
     private static final int[] slotsTop = new int[] {};
     private int posicao = 0;
+    private int trabalho = 0;
+    private boolean fullwork = false;
     
 	public TileEntityGrindstone(String NameEntity) 
 	{
@@ -42,6 +45,11 @@ public class TileEntityGrindstone extends TileEntityBasicInventory implements IU
 	
 	public void setPosicao(int posicao)
 	{
+		if(this.posicao!=posicao)
+		{
+			if(fullwork==false)
+				trabalho++;
+		}
 		this.posicao = posicao;
 	}
 	
@@ -70,7 +78,7 @@ public class TileEntityGrindstone extends TileEntityBasicInventory implements IU
         }
         else
         {
-            ItemStack itemstack = FurnaceRecipes.instance().getSmeltingResult(itemStacks[3]);
+            ItemStack itemstack = GrindestoneRecipes.instance().getGrinderResult(itemStacks[3]);
             if (itemstack == null)
             	return false;
             if (itemStacks[0] == null)
@@ -79,7 +87,14 @@ public class TileEntityGrindstone extends TileEntityBasicInventory implements IU
             	return false;
             int result = itemStacks[0].stackSize + itemstack.stackSize;
             
-            return result <= getInventoryStackLimit() && result <= this.itemStacks[0].getMaxStackSize(); //Forge BugFix: Make it respect stack sizes properly.
+            boolean isfull = result <= getInventoryStackLimit();
+            
+            if(isfull)
+            {
+            	fullwork = true;
+            }
+            
+            return  isfull && result <= this.itemStacks[0].getMaxStackSize(); //Forge BugFix: Make it respect stack sizes properly.
         }
     }
 
@@ -88,9 +103,15 @@ public class TileEntityGrindstone extends TileEntityBasicInventory implements IU
      */
     public void GrinderItem()
     {
-        if (canGrinder())
+    	
+    	ModConfig.Log.info("trabalho:"+trabalho+" fullwork:"+fullwork);
+    	
+        if (canGrinder()&&trabalho>4)
         {
-            ItemStack itemstack = FurnaceRecipes.instance().getSmeltingResult(this.itemStacks[3]);
+        	trabalho-=4;
+        	fullwork = false;
+        	
+            ItemStack itemstack = GrindestoneRecipes.instance().getGrinderResult(this.itemStacks[3]);
 
             if (itemStacks[0] == null)
             {
@@ -99,11 +120,6 @@ public class TileEntityGrindstone extends TileEntityBasicInventory implements IU
             else if (itemStacks[0].getItem() == itemstack.getItem())
             {
             	itemStacks[0].stackSize += itemstack.stackSize; // Forge BugFix: Results may have multiple items
-            }
-
-            if (itemStacks[3].getItem() == Item.getItemFromBlock(Blocks.sponge) && itemStacks[3].getMetadata() == 1 && itemStacks[1] != null && itemStacks[1].getItem() == Items.bucket)
-            {
-                this.itemStacks[1] = new ItemStack(Items.water_bucket);
             }
 
             --this.itemStacks[3].stackSize;
@@ -118,22 +134,33 @@ public class TileEntityGrindstone extends TileEntityBasicInventory implements IU
 	@Override
 	public void writeToNBT(NBTTagCompound parentNBTTagCompound)
 	{
+		if(parentNBTTagCompound == null)
+			return;
+		
 		parentNBTTagCompound.setInteger("Posicao", posicao);
 		super.writeToNBT(parentNBTTagCompound);
 		
-		ModConfig.Log.info("writeToNBT");
+		//ModConfig.Log.info("writeToNBT");
 	}
 	
 	@Override
 	public void readFromNBT(NBTTagCompound parentNBTTagCompound)
 	{
+		if(parentNBTTagCompound == null)
+			return;
+		
 		posicao = parentNBTTagCompound.getInteger("Posicao");
 		super.readFromNBT(parentNBTTagCompound);
-		ModConfig.Log.info("readFromNBT");
+		//ModConfig.Log.info("readFromNBT");
 		//Update posicao na visualizacao
-		worldObj.markBlockRangeForRenderUpdate(pos, pos);
+		if(worldObj!=null)
+		{
+			if(worldObj.isRemote)
+				worldObj.markBlockRangeForRenderUpdate(pos, pos);
+		}
 	}
 
+	/*
 	@Override
 	public Packet getDescriptionPacket() 
 	{
@@ -147,14 +174,14 @@ public class TileEntityGrindstone extends TileEntityBasicInventory implements IU
 		ModConfig.Log.info("onDataPacket");
 		super.onDataPacket(net, pkt);
 	}
-	
+	*/
 	
     /**
      * Returns the itemstack in the slot specified (Top left is 0, 0). Args: row, column
      */
     public ItemStack getStackInRowAndColumn(int row, int column)
     {
-        return row >= 0 && row < 3 && column >= 0 && column <= 3 ? this.getStackInSlot(row + column * 3) : null;
+        return row >= 0 && row < 4 && column == 0 ? this.getStackInSlot(row) : null;
     }
 	
     public void setContainer(ContainerGrindstone container)
@@ -176,12 +203,12 @@ public class TileEntityGrindstone extends TileEntityBasicInventory implements IU
 	
     public int getHeight()
     {
-        return 3;
+        return 4;
     }
 
     public int getWidth()
     {
-        return 3;
+        return 1;
     }
 
 	@Override

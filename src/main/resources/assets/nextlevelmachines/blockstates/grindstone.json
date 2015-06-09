@@ -1,8 +1,8 @@
 {
     "variants": {
-        "posicao=0": { "model": "nextlevelmachines:grindstone-p0" },
-        "posicao=1": { "model": "nextlevelmachines:grindstone-p1" },
-        "posicao=2": { "model": "nextlevelmachines:grindstone-p2" },
-        "posicao=3": { "model": "nextlevelmachines:grindstone-p3" }
+        "posicao=0": { "model": "nextlevelmachines:grindstone-p0-v2" },
+        "posicao=1": { "model": "nextlevelmachines:grindstone-p1-v2" },
+        "posicao=2": { "model": "nextlevelmachines:grindstone-p2-v2" },
+        "posicao=3": { "model": "nextlevelmachines:grindstone-p3-v2" }
     }
 }

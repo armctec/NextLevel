@@ -1,5 +1,5 @@
 {
-  "parent": "nextlevelmachines:block/grindstone-p0",
+  "parent": "nextlevelmachines:block/grindstone-p0-v2",
   "display": {
     "thirdperson": {
       "rotation": [ 10, -45, 170 ],

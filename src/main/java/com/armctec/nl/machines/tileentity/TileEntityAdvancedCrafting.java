@@ -33,27 +33,27 @@ public class TileEntityAdvancedCrafting extends TileEntityBasicInventory impleme
 	public void writeToNBT(NBTTagCompound parentNBTTagCompound)
 	{
 		super.writeToNBT(parentNBTTagCompound);
-		ModConfig.Log.info("writeToNBT");
+		//ModConfig.Log.info("writeToNBT");
 	}
 	
 	@Override
 	public void readFromNBT(NBTTagCompound parentNBTTagCompound)
 	{
 		super.readFromNBT(parentNBTTagCompound);
-		ModConfig.Log.info("readFromNBT");
+		//ModConfig.Log.info("readFromNBT");
 	}
 
 	@Override
 	public Packet getDescriptionPacket() 
 	{
-		ModConfig.Log.info("getDescriptionPacket");
+		//ModConfig.Log.info("getDescriptionPacket");
 		return super.getDescriptionPacket();
 	}
 	
 	@Override
 	public void onDataPacket(NetworkManager net, S35PacketUpdateTileEntity pkt) 
 	{
-		ModConfig.Log.info("onDataPacket");
+		//ModConfig.Log.info("onDataPacket");
 		super.onDataPacket(net, pkt);
 	}
 	
