@@ -12,6 +12,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.inventory.Container;
 import net.minecraft.inventory.IInventory;
+import net.minecraft.inventory.InventoryHelper;
 import net.minecraft.item.Item;
 import net.minecraft.network.play.server.S22PacketMultiBlockChange.BlockUpdateData;
 import net.minecraft.tileentity.TileEntity;
@@ -203,6 +204,7 @@ public class BlockGrindstone extends BlockBasicContainer
 
  		if (inventory != null)
  		{
+ 			InventoryHelper.dropInventoryItems(worldIn, pos, inventory);
  			// For each slot in the inventory
  			
  			ModConfig.Log.info("Inventorio tamanho:"+inventory.getSizeInventory());

@@ -101,7 +101,7 @@ public class TileEntityGrindstone extends TileEntityBasicInventory implements IU
     /**
      * Turn one item from the furnace source stack into the appropriate smelted item in the furnace result stack
      */
-    public void GrinderItem()
+    private void GrinderItem()
     {
     	
     	ModConfig.Log.info("trabalho:"+trabalho+" fullwork:"+fullwork);
@@ -176,14 +176,6 @@ public class TileEntityGrindstone extends TileEntityBasicInventory implements IU
 	}
 	*/
 	
-    /**
-     * Returns the itemstack in the slot specified (Top left is 0, 0). Args: row, column
-     */
-    public ItemStack getStackInRowAndColumn(int row, int column)
-    {
-        return row >= 0 && row < 4 && column == 0 ? this.getStackInSlot(row) : null;
-    }
-	
     public void setContainer(ContainerGrindstone container)
     {
     	this.container = container;
@@ -200,16 +192,6 @@ public class TileEntityGrindstone extends TileEntityBasicInventory implements IU
 		}
     	container.onCraftMatrixChanged(this);
 	}
-	
-    public int getHeight()
-    {
-        return 4;
-    }
-
-    public int getWidth()
-    {
-        return 1;
-    }
 
 	@Override
 	public ItemStack getStackInSlot(int index) 
