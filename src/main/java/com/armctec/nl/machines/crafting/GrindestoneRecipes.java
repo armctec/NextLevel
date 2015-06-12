@@ -18,8 +18,6 @@ public class GrindestoneRecipes
     private static final GrindestoneRecipes grinderBase = new GrindestoneRecipes();
     /** The list of grinder results. */
     private Map grinderList = Maps.newHashMap();
-    /** A list which contains how many experience points each recipe output will give. */
-    private Map experienceList = Maps.newHashMap();
     
     /**
      * Returns an instance of FurnaceRecipes.
@@ -32,6 +30,9 @@ public class GrindestoneRecipes
     private GrindestoneRecipes()
     {
     	this.addGrinderRecipeForBlock(Blocks.sandstone, new ItemStack(Blocks.sand, 4), 0.0F);
+    	this.addGrinderRecipeForBlock(Blocks.cobblestone, new ItemStack(Blocks.gravel, 1),  0.0F);
+    	this.addGrinderRecipeForBlock(Blocks.gravel, new RecipesAnexo(new ItemStack(Blocks.sand, 1), 1.0F, new ItemStack(Items.flint), 0.25F, 0.0F));
+    	
         /*
     	this.addSmeltingRecipeForBlock(Blocks.iron_ore, new ItemStack(Items.iron_ingot), 0.7F);
         this.addSmeltingRecipeForBlock(Blocks.gold_ore, new ItemStack(Items.gold_ingot), 1.0F);
@@ -84,6 +85,29 @@ public class GrindestoneRecipes
         this.addGrinderRecipe(new ItemStack(input, 1, 32767), stack, experience);
     }
 
+    
+    /**
+     * Adds a grinder recipe, where the input item is an instance of Block.
+     *  
+     * @param input The block to be used as the input for the grinder recipe.
+     * @param items The output ItemStack and experience for this recipe.
+     */
+    public void addGrinderRecipeForBlock(Block input, RecipesAnexo items)
+    {
+        this.addGrinder(Item.getItemFromBlock(input), items);
+    }
+
+    /**
+     * Adds a grinder recipe using an Item as the input item.
+     *  
+     * @param input The input Item to be used for this recipe.
+     * @param items The output ItemStack and experience for this recipe.
+     */
+    public void addGrinder(Item input, RecipesAnexo items)
+    {
+        this.addGrinderRecipe(new ItemStack(input, 1, 32767), items);
+    }
+    
     /**
      * Adds a grinder recipe using an ItemStack as the input for the recipe.
      *  
@@ -93,14 +117,25 @@ public class GrindestoneRecipes
      */
     public void addGrinderRecipe(ItemStack input, ItemStack stack, float experience)
     {
-        this.grinderList.put(input, stack);
-        this.experienceList.put(stack, Float.valueOf(experience));
+        this.grinderList.put(input, new RecipesAnexo(stack, experience));
     }
 
+    
+    /**
+     * Adds a grinder recipe using an ItemStack as the input for the recipe.
+     *  
+     * @param input The input ItemStack for this recipe.
+     * @param items The output ItemStack and experience for this recipe.
+     */
+    public void addGrinderRecipe(ItemStack input, RecipesAnexo items)
+    {
+        this.grinderList.put(input, items);
+    }
+    
     /**
      * Returns the grinder result of an item.
      */
-    public ItemStack getGrinderResult(ItemStack stack)
+    public RecipesAnexo getGrinderResult(ItemStack stack)
     {
         Iterator iterator = this.grinderList.entrySet().iterator();
         Entry entry;
@@ -116,7 +151,7 @@ public class GrindestoneRecipes
         }
         while (!this.compareItemStacks(stack, (ItemStack)entry.getKey()));
 
-        return (ItemStack)entry.getValue();
+        return (RecipesAnexo)entry.getValue();
     }
 
     /**
@@ -131,26 +166,5 @@ public class GrindestoneRecipes
     {
         return this.grinderList;
     }
-
-    public float getGrinderExperience(ItemStack stack)
-    {
-        float ret = stack.getItem().getSmeltingExperience(stack);
-        if (ret != -1) return ret;
-
-        Iterator iterator = this.experienceList.entrySet().iterator();
-        Entry entry;
-
-        do
-        {
-            if (!iterator.hasNext())
-            {
-                return 0.0F;
-            }
-
-            entry = (Entry)iterator.next();
-        }
-        while (!this.compareItemStacks(stack, (ItemStack)entry.getKey()));
-
-        return ((Float)entry.getValue()).floatValue();
-    }
+    
 }

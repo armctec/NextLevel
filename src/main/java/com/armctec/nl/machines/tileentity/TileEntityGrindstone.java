@@ -1,5 +1,6 @@
 package com.armctec.nl.machines.tileentity;
 
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.inventory.Container;
@@ -17,6 +18,7 @@ import net.minecraft.util.EnumFacing;
 
 import com.armctec.nl.general.tileentity.TileEntityBasicInventory;
 import com.armctec.nl.machines.crafting.GrindestoneRecipes;
+import com.armctec.nl.machines.crafting.RecipesAnexo;
 import com.armctec.nl.machines.inventory.container.ContainerAdvancedCrafting;
 import com.armctec.nl.machines.inventory.container.ContainerGrindstone;
 import com.armctec.nl.machines.reference.ModConfig;
@@ -29,13 +31,12 @@ public class TileEntityGrindstone extends TileEntityBasicInventory implements IU
     private static final int[] slotsTop = new int[] {};
     private int posicao = 0;
     private int trabalho = 0;
-    private boolean fullwork = false;
     
 	public TileEntityGrindstone(String NameEntity) 
 	{
 		super(NameEntity, 4);
 		// TODO Auto-generated constructor stub
-		ModConfig.Log.info("TileEntity Created: Name:"+NameEntity);
+		//ModConfig.Log.info("TileEntity Created: Name:"+NameEntity);
 	}
 	
 	public TileEntityGrindstone()
@@ -46,10 +47,8 @@ public class TileEntityGrindstone extends TileEntityBasicInventory implements IU
 	public void setPosicao(int posicao)
 	{
 		if(this.posicao!=posicao)
-		{
-			if(fullwork==false)
-				trabalho++;
-		}
+			trabalho++;
+
 		this.posicao = posicao;
 	}
 	
@@ -66,7 +65,7 @@ public class TileEntityGrindstone extends TileEntityBasicInventory implements IU
 			markDirty();
         }
     }
-	
+
 	/**
      * Returns true if the furnace can smelt an item, i.e. has a source item, destination stack isn't full, etc.
      */
@@ -78,7 +77,12 @@ public class TileEntityGrindstone extends TileEntityBasicInventory implements IU
         }
         else
         {
-            ItemStack itemstack = GrindestoneRecipes.instance().getGrinderResult(itemStacks[3]);
+            RecipesAnexo items = GrindestoneRecipes.instance().getGrinderResult(itemStacks[3]);
+            if(items == null)
+            	return false;
+            
+            ItemStack itemstack = items.getStack1();
+            
             if (itemstack == null)
             	return false;
             if (itemStacks[0] == null)
@@ -89,10 +93,8 @@ public class TileEntityGrindstone extends TileEntityBasicInventory implements IU
             
             boolean isfull = result <= getInventoryStackLimit();
             
-            if(isfull)
-            {
-            	fullwork = true;
-            }
+            if(!isfull)
+            	trabalho = 0;
             
             return  isfull && result <= this.itemStacks[0].getMaxStackSize(); //Forge BugFix: Make it respect stack sizes properly.
         }
@@ -103,15 +105,17 @@ public class TileEntityGrindstone extends TileEntityBasicInventory implements IU
      */
     private void GrinderItem()
     {
-    	
-    	ModConfig.Log.info("trabalho:"+trabalho+" fullwork:"+fullwork);
-    	
-        if (canGrinder()&&trabalho>4)
+    	if (canGrinder()&&trabalho>3)
         {
-        	trabalho-=4;
-        	fullwork = false;
+    		ModConfig.Log.info("trabalho:"+trabalho);
         	
-            ItemStack itemstack = GrindestoneRecipes.instance().getGrinderResult(this.itemStacks[3]);
+    		trabalho-=4;
+        	
+    		RecipesAnexo items = GrindestoneRecipes.instance().getGrinderResult(itemStacks[3]);
+            if(items == null)
+            	return;
+            
+            ItemStack itemstack = items.getStack1();
 
             if (itemStacks[0] == null)
             {
@@ -181,6 +185,13 @@ public class TileEntityGrindstone extends TileEntityBasicInventory implements IU
     	this.container = container;
     }
     
+    
+    @Override
+	public void closeInventory(EntityPlayer player) 
+	{
+    	this.container = null;
+	}    
+    
     @Override
 	public void setInventorySlotContents(int index, ItemStack stack) 
 	{
@@ -203,7 +214,9 @@ public class TileEntityGrindstone extends TileEntityBasicInventory implements IU
 	public ItemStack decrStackSize(int index, int count) 
 	{
 		ItemStack item = super.decrStackSize(index, count);
-		container.onCraftMatrixChanged(this);
+		
+		if(container != null)
+			container.onCraftMatrixChanged(this);
 		
 		return item;
 	}
