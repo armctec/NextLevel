@@ -4,6 +4,7 @@ import net.minecraftforge.fml.common.registry.GameRegistry;
 
 import com.armctec.nl.machines.reference.Names;
 import com.armctec.nl.machines.tileentity.TileEntityAdvancedCrafting;
+import com.armctec.nl.machines.tileentity.TileEntityBomba;
 import com.armctec.nl.machines.tileentity.TileEntityGrindstone;
 
 public class ModTileEntity 
@@ -12,6 +13,7 @@ public class ModTileEntity
 	{
 		GameRegistry.registerTileEntity(TileEntityAdvancedCrafting.class, Names.Entites.ENTITY_ADVANCED_CRAFTING);
 		GameRegistry.registerTileEntity(TileEntityGrindstone.class, Names.Entites.ENTITY_GRINDSTONE);
+		GameRegistry.registerTileEntity(TileEntityBomba.class, Names.Entites.ENTITY_BOMBA);
 	}
 
 }

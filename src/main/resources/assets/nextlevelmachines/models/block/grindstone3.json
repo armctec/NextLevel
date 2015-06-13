@@ -4,7 +4,8 @@
         "0": "blocks/furnace_side",
         "1": "blocks/furnace_top",
         "2": "blocks/planks_oak",
-        "3": "blocks/dispenser_front_vertical"
+        "3": "blocks/dispenser_front_vertical",
+        "particle": "blocks/furnace_top",
     },
     "elements": [
         {
@@ -24,7 +25,7 @@
             "name": "Center-Circle",
             "from": [ 3.0, 5.0, 3.0 ], 
             "to": [ 13.0, 9.0, 13.0 ], 
-            "rotation": { "origin": [ 8.0, 8.0, 8.0 ], "axis": "y", "angle": -22.5 },
+            "rotation": { "origin": [ 8.0, 8.0, 8.0 ], "axis": "y", "angle": 22.5 },
             "faces": {
                 "north": { "texture": "#1", "uv": [ 3.0, 2.0, 13.0, 8.0 ] },
                 "east": { "texture": "#1", "uv": [ 3.0, 2.0, 13.0, 8.0 ] },
@@ -38,7 +39,7 @@
             "name": "Alavanca1",
             "from": [ 0.0, 13.0, 7.0 ], 
             "to": [ 16.0, 15.0, 9.0 ], 
-            "rotation": { "origin": [ 8.0, 8.0, 8.0 ], "axis": "y", "angle": -22.5 },
+            "rotation": { "origin": [ 8.0, 8.0, 8.0 ], "axis": "y", "angle": 22.5 },
             "faces": {
                 "north": { "texture": "#2", "uv": [ 0.0, 0.0, 16.0, 2.0 ] },
                 "east": { "texture": "#2", "uv": [ 0.0, 0.0, 2.0, 2.0 ], "cullface": "east" },
@@ -52,7 +53,7 @@
             "name": "Eixo",
             "from": [ 7.0, 11.0, 7.0 ], 
             "to": [ 9.0, 16.0, 9.0 ], 
-            "rotation": { "origin": [ 8.0, 8.0, 8.0 ], "axis": "y", "angle": -22.5 },
+            "rotation": { "origin": [ 8.0, 8.0, 8.0 ], "axis": "y", "angle": 22.5 },
             "faces": {
                 "north": { "texture": "#2", "uv": [ 0.0, 0.0, 2.0, 6.0 ] },
                 "east": { "texture": "#2", "uv": [ 0.0, 0.0, 2.0, 6.0 ] },
@@ -66,7 +67,7 @@
             "name": "Alavanca2",
             "from": [ 7.0, 13.0, 0.0 ], 
             "to": [ 9.0, 15.0, 16.0 ], 
-            "rotation": { "origin": [ 8.0, 8.0, 8.0 ], "axis": "y", "angle": -22.5 },
+            "rotation": { "origin": [ 8.0, 8.0, 8.0 ], "axis": "y", "angle": 22.5 },
             "faces": {
                 "north": { "texture": "#2", "uv": [ 0.0, 0.0, 2.0, 2.0 ], "cullface": "north" },
                 "east": { "texture": "#2", "uv": [ 0.0, 0.0, 16.0, 2.0 ] },
@@ -80,7 +81,7 @@
             "name": "North-Circle",
             "from": [ 5.0, 5.0, 1.0 ], 
             "to": [ 11.0, 9.0, 3.0 ], 
-            "rotation": { "origin": [ 8.0, 8.0, 8.0 ], "axis": "y", "angle": -22.5 },
+            "rotation": { "origin": [ 8.0, 8.0, 8.0 ], "axis": "y", "angle": 22.5 },
             "faces": {
                 "north": { "texture": "#1", "uv": [ 5.0, 2.0, 11.0, 6.0 ] },
                 "east": { "texture": "#1", "uv": [ 1.0, 2.0, 3.0, 8.0 ] },
@@ -94,7 +95,7 @@
             "name": "South-Circle",
             "from": [ 5.0, 5.0, 13.0 ], 
             "to": [ 11.0, 9.0, 15.0 ], 
-            "rotation": { "origin": [ 8.0, 8.0, 8.0 ], "axis": "y", "angle": -22.5 },
+            "rotation": { "origin": [ 8.0, 8.0, 8.0 ], "axis": "y", "angle": 22.5 },
             "faces": {
                 "north": { "texture": "#-1", "uv": [ 5.0, 2.0, 11.0, 6.0 ], "cullface": "north" },
                 "east": { "texture": "#1", "uv": [ 1.0, 2.0, 3.0, 8.0 ] },
@@ -108,7 +109,7 @@
             "name": "Right-Circle",
             "from": [ 13.0, 5.0, 5.0 ], 
             "to": [ 15.0, 9.0, 11.0 ], 
-            "rotation": { "origin": [ 8.0, 8.0, 8.0 ], "axis": "y", "angle": -22.5 },
+            "rotation": { "origin": [ 8.0, 8.0, 8.0 ], "axis": "y", "angle": 22.5 },
             "faces": {
                 "north": { "texture": "#1", "uv": [ 1.0, 2.0, 3.0, 8.0 ] },
                 "east": { "texture": "#1", "uv": [ 5.0, 2.0, 11.0, 6.0 ] },
@@ -122,7 +123,7 @@
             "name": "Left-Circle",
             "from": [ 1.0, 5.0, 5.0 ], 
             "to": [ 3.0, 9.0, 11.0 ], 
-            "rotation": { "origin": [ 8.0, 8.0, 8.0 ], "axis": "y", "angle": -22.5 },
+            "rotation": { "origin": [ 8.0, 8.0, 8.0 ], "axis": "y", "angle": 22.5 },
             "faces": {
                 "north": { "texture": "#1", "uv": [ 13.0, 2.0, 15.0, 8.0 ] },
                 "east": { "texture": "#-1", "uv": [ 5.0, 2.0, 11.0, 8.0 ], "cullface": "east" },

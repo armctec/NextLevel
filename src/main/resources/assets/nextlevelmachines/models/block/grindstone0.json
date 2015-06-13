@@ -4,7 +4,8 @@
         "0": "blocks/furnace_side",
         "1": "blocks/furnace_top",
         "2": "blocks/planks_oak",
-        "3": "blocks/dispenser_front_vertical"
+        "3": "blocks/dispenser_front_vertical",
+        "particle": "blocks/furnace_top"
     },
     "elements": [
         {

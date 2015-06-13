@@ -1,19 +1,29 @@
 package com.armctec.nl.machines.tileentity;
 
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.Blocks;
+import net.minecraft.init.Items;
+import net.minecraft.inventory.Container;
 import net.minecraft.inventory.ISidedInventory;
+import net.minecraft.inventory.SlotFurnaceFuel;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.crafting.FurnaceRecipes;
 import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.network.NetworkManager;
+import net.minecraft.network.Packet;
+import net.minecraft.network.play.server.S35PacketUpdateTileEntity;
 import net.minecraft.server.gui.IUpdatePlayerListBox;
 import net.minecraft.util.EnumFacing;
 
 import com.armctec.nl.general.tileentity.TileEntityBasicInventory;
 import com.armctec.nl.machines.crafting.GrindestoneRecipes;
 import com.armctec.nl.machines.crafting.RecipesAnexo;
+import com.armctec.nl.machines.inventory.container.ContainerAdvancedCrafting;
 import com.armctec.nl.machines.inventory.container.ContainerGrindstone;
 import com.armctec.nl.machines.reference.ModConfig;
 
-public class TileEntityGrindstone extends TileEntityBasicInventory implements IUpdatePlayerListBox, ISidedInventory
+public class TileEntityBomba extends TileEntityBasicInventory implements IUpdatePlayerListBox, ISidedInventory
 {
     ContainerGrindstone container = null;
     private static final int[] slotsBottom = new int[] {2, 1, 0};
@@ -22,14 +32,14 @@ public class TileEntityGrindstone extends TileEntityBasicInventory implements IU
     private int posicao = 0;
     private int trabalho = 0;
     
-	public TileEntityGrindstone(String NameEntity) 
+	public TileEntityBomba(String NameEntity) 
 	{
 		super(NameEntity, 4);
 		// TODO Auto-generated constructor stub
 		//ModConfig.Log.info("TileEntity Created: Name:"+NameEntity);
 	}
 	
-	public TileEntityGrindstone()
+	public TileEntityBomba()
 	{
 		super();
 	}

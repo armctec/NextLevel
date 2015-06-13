@@ -12,5 +12,6 @@ public class ModBlocksClient
 		// Blocks
 		RegisterClient.registerBlock(ModConfig.MOD_ID, Names.Blocks.ADVANCED_CRAFTING_TABLE);
 		RegisterClient.registerBlock(ModConfig.MOD_ID, Names.Blocks.GRINDSTONE);
+		RegisterClient.registerBlock(ModConfig.MOD_ID, Names.Blocks.BOMBA);
 	}
 }

@@ -1,0 +1,13 @@
+{
+    "variants": {
+        "facing=south,posicao=0": { "model": "nextlevelmachines:bomba1", "y": 180 },
+        "facing=west,posicao=0":  { "model": "nextlevelmachines:bomba1", "y": 270 },
+        "facing=north,posicao=0": { "model": "nextlevelmachines:bomba1", "y": 0   },
+        "facing=east,posicao=0":  { "model": "nextlevelmachines:bomba1", "y": 90  },
+        
+        "facing=south,posicao=1": { "model": "nextlevelmachines:bomba2", "y": 180 },
+        "facing=west,posicao=1":  { "model": "nextlevelmachines:bomba2", "y": 270 },
+        "facing=north,posicao=1": { "model": "nextlevelmachines:bomba2", "y": 0   },
+        "facing=east,posicao=1":  { "model": "nextlevelmachines:bomba2", "y": 90  }
+    }
+}

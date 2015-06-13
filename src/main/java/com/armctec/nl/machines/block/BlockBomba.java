@@ -33,35 +33,43 @@ import com.armctec.nl.machines.handler.GuiHandlerGrindstone;
 import com.armctec.nl.machines.init.ModBlocks;
 import com.armctec.nl.machines.reference.ModConfig;
 import com.armctec.nl.machines.reference.Names;
-import com.armctec.nl.machines.tileentity.TileEntityAdvancedCrafting;
-import com.armctec.nl.machines.tileentity.TileEntityGrindstone;
+import com.armctec.nl.machines.tileentity.TileEntityBomba;
 
-public class BlockGrindstone extends BlockBasicContainer 
+
+public class BlockBomba extends BlockBasicContainer 
 {
-	public static final PropertyInteger POSICAO = PropertyInteger.create("posicao", 0, 3);
+	public static final PropertyDirection FACING = PropertyDirection.create("facing", EnumFacing.Plane.HORIZONTAL);
+	public static final PropertyInteger POSICAO = PropertyInteger.create("posicao", 0, 1);
 	
-	public BlockGrindstone() 
+	public BlockBomba() 
 	{
 		super();
 		this.setCreativeTab(CreativeTabMachines.MACHINES_TAB);
+		
 		this.isBlockContainer = true;
-		setBlockName(ModConfig.MOD_ID, Names.Blocks.GRINDSTONE);
-		this.setDefaultState(this.blockState.getBaseState().withProperty(POSICAO, 0));
+		setBlockName(ModConfig.MOD_ID, Names.Blocks.BOMBA);
 		setHarvestLevel("pickaxe", 0);	// Stone Pickaxe
+		
+		this.setDefaultState(this.blockState.getBaseState().withProperty(POSICAO, 0).withProperty(FACING, EnumFacing.NORTH));
 	}
 
 	@Override
 	public IBlockState onBlockPlaced(World worldIn, BlockPos pos, EnumFacing facing, float hitX, float hitY, float hitZ, int meta, EntityLivingBase placer) 
 	{
-		return super.onBlockPlaced(worldIn, pos, facing, hitX, hitY, hitZ, meta, placer);
+		EnumFacing enumfacing1 = placer.getHorizontalFacing().rotateY();
+		
+		System.out.println("Facing:"+enumfacing1.toString());
+		
+		return super.onBlockPlaced(worldIn, pos, facing, hitX, hitY, hitZ, meta, placer).withProperty(POSICAO, 0).withProperty(FACING, enumfacing1);
 	}
 	
 	@Override
 	public IBlockState getStateFromMeta(int meta)
     {
 		//ModConfig.Log.info("getStateFromMeta");
-		//return this.getDefaultState().withProperty(POSICAO, Integer.valueOf(meta & 3));
-		return this.getDefaultState();
+		//return this.getDefaultState().withProperty(POSICAO, Integer.valueOf(meta & 1)).withProperty(FACING, EnumFacing.getHorizontal(meta >> 1));
+		
+		return this.getDefaultState().withProperty(FACING, EnumFacing.getHorizontal(meta & 3)).withProperty(POSICAO, Integer.valueOf(meta & 1)>>2);
     }	
 	
 	@SideOnly(Side.CLIENT)
@@ -69,8 +77,7 @@ public class BlockGrindstone extends BlockBasicContainer
     public IBlockState getStateForEntityRender(IBlockState state)
     {
 		//ModConfig.Log.info("getStateForEntityRender");
-		//return this.getDefaultState().withProperty(POSICAO, 0);
-		return this.getDefaultState();
+		return this.getDefaultState().withProperty(POSICAO, 0).withProperty(FACING, state.getValue(FACING));
     }
 	
 	@Override
@@ -79,18 +86,19 @@ public class BlockGrindstone extends BlockBasicContainer
 		TileEntity tileentity = worldIn.getTileEntity(pos);
 		if(tileentity != null)
 		{
-			if(tileentity instanceof TileEntityGrindstone)
+			if(tileentity instanceof TileEntityBomba)
 			{
-				TileEntityGrindstone tilegrid = (TileEntityGrindstone)tileentity;
+				TileEntityBomba tilegrid = (TileEntityBomba)tileentity;
 			
 				//ModConfig.Log.info("getActualState:"+tilegrid.getPosicao());
-				return this.getDefaultState().withProperty(POSICAO, tilegrid.getPosicao());
+				return this.getDefaultState().withProperty(POSICAO, tilegrid.getPosicao()).withProperty(FACING, state.getValue(FACING));
+						
+						
 			}
 		}
 		
 		ModConfig.Log.info("getActualState: failed entity");
-		//return this.getDefaultState().withProperty(POSICAO, getMetaFromState(state));
-		return this.getDefaultState();
+		return this.getDefaultState().withProperty(POSICAO, 0).withProperty(FACING, state.getValue(FACING));
 	}
 	/**
      * Convert the BlockState into the correct metadata value
@@ -98,15 +106,17 @@ public class BlockGrindstone extends BlockBasicContainer
 	@Override
     public int getMetaFromState(IBlockState state)
     {
-		//ModConfig.Log.info("getMetaFromState");
-    	return ((Integer)state.getValue(POSICAO)).intValue() & 3;
+    	byte b0 = 0;
+        int i = b0 | ((EnumFacing)state.getValue(FACING)).getHorizontalIndex();
+        i |= ((Integer)state.getValue(POSICAO)).intValue() << 2;
+        return i;
     }
 
 	@Override
     protected BlockState createBlockState()
     {
 		//ModConfig.Log.info("createBlockState");
-		return new BlockState(this, new IProperty[] {POSICAO});
+		return new BlockState(this, new IProperty[] {POSICAO, FACING});
     }	
 	
 	@Override
@@ -144,12 +154,12 @@ public class BlockGrindstone extends BlockBasicContainer
     			int posicao_ang = 0;
     		
     			TileEntity tileentity = worldIn.getTileEntity(pos);
-    			if(tileentity != null && tileentity instanceof TileEntityGrindstone)
+    			if(tileentity != null && tileentity instanceof TileEntityBomba)
     			{
-    				TileEntityGrindstone tilegrid = (TileEntityGrindstone)tileentity;
+    				TileEntityBomba tilegrid = (TileEntityBomba)tileentity;
     				posicao_ang = tilegrid.getPosicao();
     		
-    				if(posicao_ang<3)
+    				if(posicao_ang<1)
     					posicao_ang++;
     				else
     					posicao_ang = 0;
@@ -186,7 +196,7 @@ public class BlockGrindstone extends BlockBasicContainer
  	@Override
  	public TileEntity createNewTileEntity(World worldIn, int meta) 
  	{
- 		return new TileEntityGrindstone(Names.Entites.ENTITY_GRINDSTONE);
+ 		return new TileEntityBomba(Names.Entites.ENTITY_BOMBA);
  	}
  	
  	public void breakBlock(World worldIn, BlockPos pos, IBlockState state)
@@ -218,6 +228,6 @@ public class BlockGrindstone extends BlockBasicContainer
     @SideOnly(Side.CLIENT)
     public Item getItem(World worldIn, BlockPos pos)
     {
-        return Item.getItemFromBlock(ModBlocks.Grindstone);
+        return Item.getItemFromBlock(ModBlocks.Bomba);
     }    
 }
