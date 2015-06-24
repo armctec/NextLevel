@@ -7,6 +7,7 @@ public class Names
 		public final static String ADVANCED_CRAFTING_TABLE = "advanced_crafting_table";
 		public final static String GRINDSTONE = "grindstone";
 		public final static String BOMBA = "bomba";
+		public final static String TANQUE = "tank";
 	}
 	
 	public static final class Items

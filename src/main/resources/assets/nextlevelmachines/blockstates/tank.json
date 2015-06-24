@@ -1,0 +1,14 @@
+{
+    "variants": {
+        "modo=0": { "model": "nextlevelmachines:tank-0", "x": 0    },
+        "modo=1": { "model": "nextlevelmachines:tank-1", "x": 0    },
+        "modo=2": { "model": "nextlevelmachines:tank-1", "x": 180  },
+        "modo=3": { "model": "nextlevelmachines:tank-1", "x": 90   },
+        "modo=4": { "model": "nextlevelmachines:tank-1", "x": 270  },
+        "modo=5": { "model": "nextlevelmachines:tank-1", "x": 90 , "y": 90   },
+        "modo=6": { "model": "nextlevelmachines:tank-1", "x": 90 , "y": 270  },
+        "modo=7": { "model": "nextlevelmachines:tank-2", "x": 0    },
+        "modo=8": { "model": "nextlevelmachines:tank-2", "x": 90 , "y": 90   },
+        "modo=9": { "model": "nextlevelmachines:tank-2", "x": 90   }
+    }
+}
