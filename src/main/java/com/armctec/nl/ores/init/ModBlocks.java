@@ -1,6 +1,8 @@
 package com.armctec.nl.ores.init;
 
+import net.minecraft.block.Block;
 import net.minecraftforge.fml.common.registry.GameRegistry;
+import net.minecraftforge.oredict.OreDictionary;
 
 import com.armctec.nl.general.reference.ToolRef;
 import com.armctec.nl.ores.block.BlockGem;
@@ -32,22 +34,28 @@ public class ModBlocks
 	public static void init()
 	{
 		// Ores
-        GameRegistry.registerBlock(CopperOre, Names.Blocks.COPPER_ORE);
-        GameRegistry.registerBlock(TinOre, Names.Blocks.TIN_ORE);
-        GameRegistry.registerBlock(LeadOre, Names.Blocks.LEAD_ORE);
-        GameRegistry.registerBlock(AluminiumOre, Names.Blocks.ALUMINIUM_ORE);
-        GameRegistry.registerBlock(ZincOre, Names.Blocks.ZINC_ORE);
-        GameRegistry.registerBlock(TitaniumOre, Names.Blocks.TITANIUM_ORE);
-        GameRegistry.registerBlock(SilverOre, Names.Blocks.SILVER_ORE);
-        GameRegistry.registerBlock(NickelOre, Names.Blocks.NICKEL_ORE);
-        GameRegistry.registerBlock(TungstenOre, Names.Blocks.TUNGSTEN_ORE);
-        GameRegistry.registerBlock(SiliconOre, Names.Blocks.SILICON_ORE);
+        registerBlocks(CopperOre, Names.Blocks.COPPER_ORE,"oreCopper");
+        registerBlocks(TinOre, Names.Blocks.TIN_ORE,"oreTin");
+        registerBlocks(LeadOre, Names.Blocks.LEAD_ORE,"oreLead");
+        registerBlocks(AluminiumOre, Names.Blocks.ALUMINIUM_ORE,"oreAluminium");
+        registerBlocks(ZincOre, Names.Blocks.ZINC_ORE,"oreZinc");
+        registerBlocks(TitaniumOre, Names.Blocks.TITANIUM_ORE,"oreTitanium");
+        registerBlocks(SilverOre, Names.Blocks.SILVER_ORE,"oreSilver");
+        registerBlocks(NickelOre, Names.Blocks.NICKEL_ORE,"oreNickel");
+        registerBlocks(TungstenOre, Names.Blocks.TUNGSTEN_ORE,"oreTungsten");
+        registerBlocks(SiliconOre, Names.Blocks.SILICON_ORE,"oreSilicon");
         // Gems
-        GameRegistry.registerBlock(RubyOre, Names.Blocks.RUBY_ORE);
-        GameRegistry.registerBlock(SapphireOre, Names.Blocks.SAPPHIRE_ORE);
-        GameRegistry.registerBlock(MoonstoneOre, Names.Blocks.MOONSTONE_ORE);
-        GameRegistry.registerBlock(BlackonyxOre, Names.Blocks.BLACKONYX_ORE);
-        GameRegistry.registerBlock(RedonyxOre, Names.Blocks.REDONYX_ORE);
-        GameRegistry.registerBlock(AmethystOre, Names.Blocks.AMETHYST_ORE);
+        registerBlocks(RubyOre, Names.Blocks.RUBY_ORE,"oreRuby");
+        registerBlocks(SapphireOre, Names.Blocks.SAPPHIRE_ORE,"oreSaphire");
+        registerBlocks(MoonstoneOre, Names.Blocks.MOONSTONE_ORE,"oreMoonstone");
+        registerBlocks(BlackonyxOre, Names.Blocks.BLACKONYX_ORE,"oreBlackonyx");
+        registerBlocks(RedonyxOre, Names.Blocks.REDONYX_ORE,"oreRedonyx");
+        registerBlocks(AmethystOre, Names.Blocks.AMETHYST_ORE,"oreAmethyst");
+	}
+	
+	private static void registerBlocks(Block block, String name, String ore)
+	{
+		GameRegistry.registerBlock(block, name);	// Register Minecraft
+		OreDictionary.registerOre(ore, block);		// Register Forge
 	}
 }

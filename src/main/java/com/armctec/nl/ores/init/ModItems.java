@@ -1,6 +1,9 @@
 package com.armctec.nl.ores.init;
 
+import net.minecraft.block.Block;
+import net.minecraft.item.Item;
 import net.minecraftforge.fml.common.registry.GameRegistry;
+import net.minecraftforge.oredict.OreDictionary;
 
 import com.armctec.nl.ores.item.ItemGem;
 import com.armctec.nl.ores.item.ItemIngot;
@@ -44,37 +47,43 @@ public class ModItems
 	public static void init()
 	{
 		// Ingot
-		GameRegistry.registerItem(CopperIngot, Names.Items.COPPER_INGOT);
-		GameRegistry.registerItem(TinIngot, Names.Items.TIN_INGOT);
-		GameRegistry.registerItem(LeadIngot, Names.Items.LEAD_INGOT);
-		GameRegistry.registerItem(AluminiumIngot, Names.Items.ALUMINIUM_INGOT);
-	    GameRegistry.registerItem(ZincIngot, Names.Items.ZINC_INGOT);
-	    GameRegistry.registerItem(TitaniumIngot, Names.Items.TITANIUM_INGOT);		
-	    GameRegistry.registerItem(SilverIngot, Names.Items.SILVER_INGOT);	
-	    GameRegistry.registerItem(NickelIngot, Names.Items.NICKEL_INGOT);		
-	    GameRegistry.registerItem(TungstenIngot, Names.Items.TUNGSTEN_INGOT);
-	    GameRegistry.registerItem(SiliconIngot, Names.Items.SILICON_INGOT);
+		registerItems(CopperIngot, Names.Items.COPPER_INGOT, "ingotCopper");
+		registerItems(TinIngot, Names.Items.TIN_INGOT, "ingotTin");
+		registerItems(LeadIngot, Names.Items.LEAD_INGOT, "ingotLead");
+		registerItems(AluminiumIngot, Names.Items.ALUMINIUM_INGOT, "ingotAluminium");
+	    registerItems(ZincIngot, Names.Items.ZINC_INGOT, "ingotZinc");
+	    registerItems(TitaniumIngot, Names.Items.TITANIUM_INGOT, "ingotTitanium");		
+	    registerItems(SilverIngot, Names.Items.SILVER_INGOT, "ingotSilver");	
+	    registerItems(NickelIngot, Names.Items.NICKEL_INGOT, "ingotNickel");		
+	    registerItems(TungstenIngot, Names.Items.TUNGSTEN_INGOT, "ingotTungsten");
+	    registerItems(SiliconIngot, Names.Items.SILICON_INGOT, "ingotSilicon");
 		// Gems
-		GameRegistry.registerItem(RubyGem, Names.Items.RUBY_GEM);
-		GameRegistry.registerItem(SapphireGem, Names.Items.SAPPHIRE_GEM);
-		GameRegistry.registerItem(MoonstoneGem, Names.Items.MOONSTONE_GEM);
-		GameRegistry.registerItem(BlackonyxGem, Names.Items.BLACKONYX_GEM);
-		GameRegistry.registerItem(RedonyxGem, Names.Items.REDONYX_GEM);
-		GameRegistry.registerItem(AmethystGem, Names.Items.AMETHYST_GEM);
+		registerItems(RubyGem, Names.Items.RUBY_GEM, "gemRuby");
+		registerItems(SapphireGem, Names.Items.SAPPHIRE_GEM, "gemSapphire");
+		registerItems(MoonstoneGem, Names.Items.MOONSTONE_GEM, "gemMoonstone");
+		registerItems(BlackonyxGem, Names.Items.BLACKONYX_GEM, "gemBlackonyx");
+		registerItems(RedonyxGem, Names.Items.REDONYX_GEM, "gemRedonyx");
+		registerItems(AmethystGem, Names.Items.AMETHYST_GEM, "gemAmethyst");
 		// Alloys
-		GameRegistry.registerItem(BronzeIngot, Names.Items.BRONZE_INGOT);
-		GameRegistry.registerItem(BrassIngot, Names.Items.BRASS_INGOT);
-		GameRegistry.registerItem(ZamakIngot, Names.Items.ZAMAK_INGOT);
-		GameRegistry.registerItem(SterlingSilverIngot, Names.Items.STERLING_INGOT);
-		GameRegistry.registerItem(CupronickelIngot, Names.Items.CUPRO_INGOT);
-		GameRegistry.registerItem(InvarIngot, Names.Items.INVAR_INGOT);
-		GameRegistry.registerItem(SteelIngot, Names.Items.STEEL_INGOT);
-		GameRegistry.registerItem(FerrosiliconIngot, Names.Items.FERSILICON_INGOT);
-		GameRegistry.registerItem(ElectrumIngot, Names.Items.ELECTRUM_INGOT);
-		GameRegistry.registerItem(HssIngot, Names.Items.HSS_INGOT);
-		GameRegistry.registerItem(BabbittIngot, Names.Items.BABBITT_INGOT);
-		GameRegistry.registerItem(Grade5Ingot, Names.Items.GRADE_INGOT);
-		GameRegistry.registerItem(CarbonIngot, Names.Items.CARBON_INGOT);		
+		registerItems(BronzeIngot, Names.Items.BRONZE_INGOT, "ingotBronze");
+		registerItems(BrassIngot, Names.Items.BRASS_INGOT, "ingotBrass");
+		registerItems(ZamakIngot, Names.Items.ZAMAK_INGOT, "ingotZamak");
+		registerItems(SterlingSilverIngot, Names.Items.STERLING_INGOT, "ingotSterling");
+		registerItems(CupronickelIngot, Names.Items.CUPRO_INGOT, "ingotCupro");
+		registerItems(InvarIngot, Names.Items.INVAR_INGOT, "ingotInvar");
+		registerItems(SteelIngot, Names.Items.STEEL_INGOT, "ingotSteel");
+		registerItems(FerrosiliconIngot, Names.Items.FERSILICON_INGOT, "ingotFersilicon");
+		registerItems(ElectrumIngot, Names.Items.ELECTRUM_INGOT, "ingotElectrum");
+		registerItems(HssIngot, Names.Items.HSS_INGOT, "ingotHSS");
+		registerItems(BabbittIngot, Names.Items.BABBITT_INGOT, "ingotBabbitt");
+		registerItems(Grade5Ingot, Names.Items.GRADE_INGOT, "ingotGrade5");
+		registerItems(CarbonIngot, Names.Items.CARBON_INGOT, "ingotCarbon");		
 	}
-
+	
+	
+	private static void registerItems(Item item, String name, String ore)
+	{
+		GameRegistry.registerItem(item, name);	// Register Minecraft
+		OreDictionary.registerOre(ore, item);		// Register Forge
+	}	
 }

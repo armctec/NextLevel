@@ -54,6 +54,7 @@ public class WorldOres
         	ModBlocksClient.init();
         }
 		proxy.init();
+		
         Log.info("Initialization Complete!");
 	}
 	
