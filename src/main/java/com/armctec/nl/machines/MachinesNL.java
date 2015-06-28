@@ -12,6 +12,7 @@ import com.armctec.nl.general.utility.LogHelper;
 import com.armctec.nl.machines.handler.ConfigurationHandler;
 import com.armctec.nl.machines.init.ModBlocks;
 import com.armctec.nl.machines.init.ModBlocksClient;
+import com.armctec.nl.machines.init.ModRecipes;
 import com.armctec.nl.machines.init.ModTileEntity;
 import com.armctec.nl.machines.init.ModNetwork;
 import com.armctec.nl.machines.proxy.CommonProxy;
@@ -54,6 +55,9 @@ public class MachinesNL
         	//ModItemsClient.init();
         	ModBlocksClient.init();
         }
+        
+        ModRecipes.init();
+        
 		proxy.init();
         Log.info("Initialization Complete!");
 	}
