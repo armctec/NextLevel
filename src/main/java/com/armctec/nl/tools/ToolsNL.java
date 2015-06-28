@@ -1,5 +1,6 @@
 package com.armctec.nl.tools;
 
+import net.minecraft.item.Item.ToolMaterial;
 import net.minecraftforge.fml.common.FMLCommonHandler;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.SidedProxy;
@@ -9,10 +10,12 @@ import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 
 import com.armctec.nl.general.utility.LogHelper;
 import com.armctec.nl.tools.handler.ConfigurationHandler;
+import com.armctec.nl.tools.init.ModItems;
+import com.armctec.nl.tools.init.ModItemsClient;
 import com.armctec.nl.tools.proxy.CommonProxy;
 import com.armctec.nl.tools.reference.ModConfig;
 
-@Mod(modid = ModConfig.MOD_ID, name = ModConfig.MOD_NAME, version = ModConfig.MOD_VERSION, guiFactory = ModConfig.GUI_FACTORY_CLASS)
+@Mod(modid = ModConfig.MOD_ID, name = ModConfig.MOD_NAME, version = ModConfig.MOD_VERSION, guiFactory = ModConfig.GUI_FACTORY_CLASS, dependencies=ModConfig.DEPENDENCIES)
 public class ToolsNL 
 {
 	LogHelper Log = ModConfig.Log;
@@ -29,7 +32,7 @@ public class ToolsNL
 		ConfigurationHandler.init(event.getSuggestedConfigurationFile());
         FMLCommonHandler.instance().bus().register(new ConfigurationHandler());
 		
-        //ModItems.init();
+        ModItems.init();
 		//ModBlocks.init();
 
 		proxy.preInit();
@@ -44,7 +47,7 @@ public class ToolsNL
 	{
         if(event.getSide().isClient() == true)
         {
-        	//ModItemsClient.init();
+        	ModItemsClient.init();
         	//ModBlocksClient.init();
         }
         
