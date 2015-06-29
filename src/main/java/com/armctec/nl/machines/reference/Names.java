@@ -12,7 +12,7 @@ public class Names
 	
 	public static final class Items
     {
-    
+		public final static String TOOLGRINDER = "toolgrinder";
     }
 	
     public static final class Entites

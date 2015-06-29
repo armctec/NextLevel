@@ -1,7 +1,6 @@
 package com.armctec.nl.tools.item;
 
-import com.armctec.nl.ores.gui.CreativeTabOres;
-import com.armctec.nl.ores.reference.ModConfig;
+import com.armctec.nl.tools.reference.ModConfig;
 import com.armctec.nl.tools.gui.CreativeTabTools;
 
 import net.minecraft.item.ItemPickaxe;

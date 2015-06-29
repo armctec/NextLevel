@@ -1,5 +1,7 @@
 package com.armctec.nl.machines;
 
+import net.minecraft.init.Blocks;
+import net.minecraft.item.ItemStack;
 import net.minecraftforge.fml.common.FMLCommonHandler;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.SidedProxy;
@@ -9,14 +11,17 @@ import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 
 import com.armctec.nl.general.utility.LogHelper;
+import com.armctec.nl.machines.crafting.GrindestoneRecipes;
 import com.armctec.nl.machines.handler.ConfigurationHandler;
 import com.armctec.nl.machines.init.ModBlocks;
 import com.armctec.nl.machines.init.ModBlocksClient;
+import com.armctec.nl.machines.init.ModItems;
 import com.armctec.nl.machines.init.ModRecipes;
 import com.armctec.nl.machines.init.ModTileEntity;
 import com.armctec.nl.machines.init.ModNetwork;
 import com.armctec.nl.machines.proxy.CommonProxy;
 import com.armctec.nl.machines.reference.ModConfig;
+import com.armctec.nl.tools.init.ModItemsClient;
 
 @Mod(modid = ModConfig.MOD_ID, name = ModConfig.MOD_NAME, version = ModConfig.MOD_VERSION, guiFactory = ModConfig.GUI_FACTORY_CLASS, dependencies=ModConfig.DEPENDENCIES)
 public class MachinesNL 
@@ -35,7 +40,7 @@ public class MachinesNL
 		ConfigurationHandler.init(event.getSuggestedConfigurationFile());
         FMLCommonHandler.instance().bus().register(new ConfigurationHandler());
 		
-        //ModItems.init();
+        ModItems.init();
 		ModBlocks.init();
 		ModTileEntity.init();
 		ModNetwork.init();
@@ -52,7 +57,7 @@ public class MachinesNL
 	{
         if(event.getSide().isClient() == true)
         {
-        	//ModItemsClient.init();
+        	ModItemsClient.init();
         	ModBlocksClient.init();
         }
         
@@ -66,7 +71,7 @@ public class MachinesNL
     public void postInit(FMLPostInitializationEvent event)
     {
         proxy.postInit();
-        Log.info("Post Initialization Complete!");       
+        Log.info("Post Initialization Complete!");
     }
 	
 }

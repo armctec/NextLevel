@@ -2,6 +2,7 @@ package com.armctec.nl.machines.block;
 
 import net.minecraft.block.BlockWorkbench;
 import net.minecraft.block.ITileEntityProvider;
+import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
@@ -33,13 +34,12 @@ public class BlockAdvancedCraftingTable extends BlockBasicContainer
 {
 	public BlockAdvancedCraftingTable() 
 	{
-		super();
+		super(Material.wood);
 		this.setCreativeTab(CreativeTabMachines.MACHINES_TAB);
 		this.isBlockContainer = true;
 		setBlockName(ModConfig.MOD_ID, Names.Blocks.ADVANCED_CRAFTING_TABLE);
-		setResistance(2.0F);
-		setHardness(2.5F);
 		setStepSound(soundTypeWood);
+		setHarvestLevel("pickaxe",-1);
 		setHarvestLevel("axe", 0);
 	}
 	

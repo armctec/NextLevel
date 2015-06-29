@@ -1,6 +1,9 @@
 package com.armctec.nl.tools.item;
 
+import com.armctec.nl.ores.init.ModItems;
+
 import net.minecraft.item.Item.ToolMaterial;
+import net.minecraft.item.ItemStack;
 import net.minecraftforge.common.util.EnumHelper;
 
 public class Tools 
@@ -59,5 +62,10 @@ public class Tools
 	but significantly less durable, which I think balances it out some.
 	*/
 	
-	public static ToolMaterial COPPER = EnumHelper.addToolMaterial("COPPER", 2, 160, 8.0F, 1.0F, 10); 
+	public static ToolMaterial COPPER = EnumHelper.addToolMaterial("Copper", 2, 160, 8.0F, 1.0F, 10);
+	
+	public static void init()
+	{
+		COPPER.setRepairItem(new ItemStack(ModItems.CopperIngot));
+	}
 }

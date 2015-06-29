@@ -45,8 +45,6 @@ public class BlockTank extends BlockAdvanced
 		
 		this.isBlockContainer = true;
 		setBlockName(ModConfig.MOD_ID, Names.Blocks.TANQUE);
-		setHarvestLevel("pickaxe", 0);	// Stone Pickaxe
-		
 		this.setDefaultState(this.blockState.getBaseState().withProperty(MODO, 0));
 	}
 	

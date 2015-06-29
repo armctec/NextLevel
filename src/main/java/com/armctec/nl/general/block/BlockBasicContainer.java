@@ -13,6 +13,9 @@ public class BlockBasicContainer extends BlockContainer
 	public BlockBasicContainer(Material material)
     {
         super(material);
+		setHarvestLevel("pickaxe", 0);	// Stone Pickaxe
+		setResistance(2.0F);
+		setHardness(2.5F);        
     }
 
     public BlockBasicContainer()

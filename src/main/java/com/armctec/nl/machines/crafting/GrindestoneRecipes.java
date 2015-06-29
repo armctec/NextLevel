@@ -1,9 +1,13 @@
 package com.armctec.nl.machines.crafting;
 
+import com.armctec.nl.machines.reference.ModConfig;
 import com.google.common.collect.Maps;
+
 import java.util.Iterator;
+import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
+
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockStoneBrick;
 import net.minecraft.init.Blocks;
@@ -12,6 +16,7 @@ import net.minecraft.item.EnumDyeColor;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemFishFood;
 import net.minecraft.item.ItemStack;
+import net.minecraftforge.oredict.OreDictionary;
 
 public class GrindestoneRecipes
 {
@@ -29,9 +34,9 @@ public class GrindestoneRecipes
 
     private GrindestoneRecipes()
     {
-    	this.addGrinderRecipeForBlock(Blocks.sandstone, new ItemStack(Blocks.sand, 4), 0.0F);
-    	this.addGrinderRecipeForBlock(Blocks.cobblestone, new ItemStack(Blocks.gravel, 1),  0.0F);
-    	this.addGrinderRecipeForBlock(Blocks.gravel, new RecipesAnexo(new ItemStack(Blocks.sand, 1), 1.0F, new ItemStack(Items.flint), 0.25F, 0.0F));
+    	this.addGrinderRecipe(Blocks.sandstone, new ItemStack(Blocks.sand, 4), 0.0F);
+    	this.addGrinderRecipe(Blocks.cobblestone, new ItemStack(Blocks.gravel, 1),  0.0F);
+    	this.addGrinderRecipe(Blocks.gravel, new RecipesAnexo(new ItemStack(Blocks.sand, 1), 1.0F, new ItemStack(Items.flint), 0.25F, 0.0F));
     	
         /*
     	this.addSmeltingRecipeForBlock(Blocks.iron_ore, new ItemStack(Items.iron_ingot), 0.7F);
@@ -61,6 +66,42 @@ public class GrindestoneRecipes
         */
     }
 
+    public void addGrinderRecipe(String name, ItemStack stack, float experience)
+    {
+    	List<ItemStack> items = OreDictionary.getOres(name);
+    	
+    	if(items==null)
+    	{
+    		ModConfig.Log.info("Erro ao tentar achar: "+name);
+    		return;
+    	}
+    	
+    	for(int i=0; i<items.size(); i++)
+    	{
+    		ItemStack item = items.get(i);
+    		this.addGrinderRecipe(item.getItem(), stack, experience);
+    		ModConfig.Log.info("Adicionado: "+item.getUnlocalizedName());
+    	}
+    }
+    
+
+    public void addGrinderRecipe(String name, RecipesAnexo listitems)
+    {
+    	List<ItemStack> items = OreDictionary.getOres(name);
+    	
+    	if(items==null)
+    	{
+    		ModConfig.Log.info("Erro ao tentar achar: "+name);
+    		return;
+    	}
+    	
+    	for(int i=0; i<items.size(); i++)
+    	{
+    		ItemStack item = items.get(i);
+    		this.addGrinderRecipe(item.getItem(), listitems);
+    	}
+    }    
+    
     /**
      * Adds a grinder recipe, where the input item is an instance of Block.
      *  
@@ -68,9 +109,9 @@ public class GrindestoneRecipes
      * @param stack The output for this recipe in the form of an ItemStack.
      * @param experience The amount of experience this recipe will give the player.
      */
-    public void addGrinderRecipeForBlock(Block input, ItemStack stack, float experience)
+    public void addGrinderRecipe(Block input, ItemStack stack, float experience)
     {
-        this.addGrinder(Item.getItemFromBlock(input), stack, experience);
+        this.addGrinderRecipe(Item.getItemFromBlock(input), stack, experience);
     }
 
     /**
@@ -80,7 +121,7 @@ public class GrindestoneRecipes
      * @param stack The output ItemStack for this recipe.
      * @param experience The amount of experience this recipe will give the player.
      */
-    public void addGrinder(Item input, ItemStack stack, float experience)
+    public void addGrinderRecipe(Item input, ItemStack stack, float experience)
     {
         this.addGrinderRecipe(new ItemStack(input, 1, 32767), stack, experience);
     }
@@ -92,9 +133,9 @@ public class GrindestoneRecipes
      * @param input The block to be used as the input for the grinder recipe.
      * @param items The output ItemStack and experience for this recipe.
      */
-    public void addGrinderRecipeForBlock(Block input, RecipesAnexo items)
+    public void addGrinderRecipe(Block input, RecipesAnexo items)
     {
-        this.addGrinder(Item.getItemFromBlock(input), items);
+        this.addGrinderRecipe(Item.getItemFromBlock(input), items);
     }
 
     /**
@@ -103,7 +144,7 @@ public class GrindestoneRecipes
      * @param input The input Item to be used for this recipe.
      * @param items The output ItemStack and experience for this recipe.
      */
-    public void addGrinder(Item input, RecipesAnexo items)
+    public void addGrinderRecipe(Item input, RecipesAnexo items)
     {
         this.addGrinderRecipe(new ItemStack(input, 1, 32767), items);
     }

@@ -45,10 +45,8 @@ public class BlockBomba extends BlockBasicContainer
 	{
 		super();
 		this.setCreativeTab(CreativeTabMachines.MACHINES_TAB);
-		
 		this.isBlockContainer = true;
 		setBlockName(ModConfig.MOD_ID, Names.Blocks.BOMBA);
-		setHarvestLevel("pickaxe", 0);	// Stone Pickaxe
 		
 		this.setDefaultState(this.blockState.getBaseState().withProperty(POSICAO, 0).withProperty(FACING, EnumFacing.NORTH));
 	}

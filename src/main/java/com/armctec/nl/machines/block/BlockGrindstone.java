@@ -47,7 +47,6 @@ public class BlockGrindstone extends BlockBasicContainer
 		this.isBlockContainer = true;
 		setBlockName(ModConfig.MOD_ID, Names.Blocks.GRINDSTONE);
 		this.setDefaultState(this.blockState.getBaseState().withProperty(POSICAO, 0));
-		setHarvestLevel("pickaxe", 0);	// Stone Pickaxe
 	}
 
 	@Override

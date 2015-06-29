@@ -12,6 +12,7 @@ import com.armctec.nl.general.utility.LogHelper;
 import com.armctec.nl.tools.handler.ConfigurationHandler;
 import com.armctec.nl.tools.init.ModItems;
 import com.armctec.nl.tools.init.ModItemsClient;
+import com.armctec.nl.tools.item.Tools;
 import com.armctec.nl.tools.proxy.CommonProxy;
 import com.armctec.nl.tools.reference.ModConfig;
 
@@ -33,6 +34,7 @@ public class ToolsNL
         FMLCommonHandler.instance().bus().register(new ConfigurationHandler());
 		
         ModItems.init();
+        Tools.init();
 		//ModBlocks.init();
 
 		proxy.preInit();

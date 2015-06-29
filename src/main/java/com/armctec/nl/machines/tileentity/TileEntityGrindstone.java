@@ -24,7 +24,7 @@ public class TileEntityGrindstone extends TileEntityBasicInventory implements IU
     
 	public TileEntityGrindstone(String NameEntity) 
 	{
-		super(NameEntity, 4);
+		super(NameEntity, 5);
 		// TODO Auto-generated constructor stub
 		//ModConfig.Log.info("TileEntity Created: Name:"+NameEntity);
 	}
@@ -36,6 +36,13 @@ public class TileEntityGrindstone extends TileEntityBasicInventory implements IU
 	
 	public void setPosicao(int posicao)
 	{
+		if (this.itemStacks[3] == null || this.itemStacks[4]==null)
+		{
+			this.posicao = 0;
+			trabalho = 0;
+			return;
+		}
+		
 		if(this.posicao!=posicao)
 			trabalho++;
 
@@ -61,7 +68,7 @@ public class TileEntityGrindstone extends TileEntityBasicInventory implements IU
      */
     private boolean canGrinder()
     {
-        if (this.itemStacks[3] == null)
+        if (this.itemStacks[3] == null || this.itemStacks[4]==null)
         {
             return false;
         }
@@ -95,11 +102,22 @@ public class TileEntityGrindstone extends TileEntityBasicInventory implements IU
      */
     private void GrinderItem()
     {
-    	if (canGrinder()&&trabalho>3)
+    	if(canGrinder() && trabalho>3)
         {
     		ModConfig.Log.info("trabalho:"+trabalho);
         	
     		trabalho-=4;
+    		
+    		itemStacks[4].setItemDamage(itemStacks[4].getItemDamage()+1);
+    		if(itemStacks[4].getItemDamage()>=itemStacks[4].getMaxDamage())
+    		{
+    			System.out.println("Negativo:"+itemStacks[4].getItemDamage());
+    			if (!this.worldObj.isRemote)
+    	        {
+    				itemStacks[4] = null;
+    				markDirty();
+    	        }
+    		}
         	
     		RecipesAnexo items = GrindestoneRecipes.instance().getGrinderResult(itemStacks[3]);
             if(items == null)

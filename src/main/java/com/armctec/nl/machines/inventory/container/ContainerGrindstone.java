@@ -41,12 +41,13 @@ public class ContainerGrindstone extends Container
         int j;
 
         // Saidas
-        this.addSlotToContainer(new SlotGrindstone(tileEntity, 0, 90, 34));
-        this.addSlotToContainer(new SlotGrindstone(tileEntity, 1, 110, 34));
-        this.addSlotToContainer(new SlotGrindstone(tileEntity, 2, 130, 34));
+        this.addSlotToContainer(new SlotGrindstone(tileEntity, 0, 90, 25, true));
+        this.addSlotToContainer(new SlotGrindstone(tileEntity, 1, 110, 25, true));
+        this.addSlotToContainer(new SlotGrindstone(tileEntity, 2, 130, 25, true));
 
         // Entrada
-        this.addSlotToContainer(new Slot(tileEntity, 3, 31, 34));
+        this.addSlotToContainer(new Slot(tileEntity, 3, 31, 25));
+        this.addSlotToContainer(new SlotGrindstone(tileEntity, 4, 31, 45, false));
 
         for (i = 0; i < 3; ++i)
         {
