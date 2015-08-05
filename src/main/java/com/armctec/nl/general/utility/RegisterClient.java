@@ -17,6 +17,11 @@ public class RegisterClient
 		registerItem(ModName, BlockName, 0);
 	}
 	
+	public static void registerItem(String ModName, String ItemName)
+	{
+		registerItem(ModName, ItemName, 0);
+	}
+	
 	public static void registerItem(String ModName, String ItemName, int metadata)
 	{
 		Item itemBlockSimple = GameRegistry.findItem(ModName, ItemName);
