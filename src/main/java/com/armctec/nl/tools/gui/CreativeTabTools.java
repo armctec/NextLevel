@@ -4,7 +4,7 @@ import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 
-import com.armctec.nl.ores.reference.ModConfig;
+import com.armctec.nl.tools.reference.ModConfig;
 
 public class CreativeTabTools 
 {
