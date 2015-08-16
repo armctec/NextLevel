@@ -4,7 +4,7 @@ import net.minecraft.item.Item;
 
 public class ItemBasic extends Item
 {
-	String ItemName = null;
+	private String ItemName = null;
 	
 	public ItemBasic() 
 	{

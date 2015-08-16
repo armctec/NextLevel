@@ -11,6 +11,7 @@ public class ModRecipes
 {
 	public static void init()
 	{
+		/* Pickaxe */
 		makePickaxe(ModItems.CopperPickaxe, 	"ingotCopper");
 		makePickaxe(ModItems.TinPickaxe, 		"ingotTin");
 		makePickaxe(ModItems.LeadPickaxe, 		"ingotLead");

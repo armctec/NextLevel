@@ -7,7 +7,7 @@ import net.minecraft.item.ItemPickaxe;
 
 public class Pickaxe extends ItemPickaxe
 {
-	String ItemName = null;
+	private String ItemName = null;
 	
 	public Pickaxe(String name, ToolMaterial material) 
 	{

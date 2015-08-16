@@ -39,35 +39,41 @@ public class ModItems
 	
 	public static void init()
 	{
-		GameRegistry.registerItem(CopperPickaxe, Names.Items.COPPER_PICKAXE);
-		GameRegistry.registerItem(TinPickaxe, Names.Items.TIN_PICKAXE);
-		GameRegistry.registerItem(LeadPickaxe, Names.Items.LEAD_PICKAXE);
-		GameRegistry.registerItem(AluminiumPickaxe, Names.Items.ALUMINIUM_PICKAXE);
-		GameRegistry.registerItem(ZincPickaxe ,Names.Items.ZINC_PICKAXE);
-		GameRegistry.registerItem(TitaniumPickaxe ,Names.Items.TITANIUM_PICKAXE);
-		GameRegistry.registerItem(SilverPickaxe ,Names.Items.SILVER_PICKAXE);
-		GameRegistry.registerItem(NickelPickaxe ,Names.Items.NICKEL_PICKAXE);
-		GameRegistry.registerItem(TungstenPickaxe ,Names.Items.TUNGSTEN_PICKAXE);
-		GameRegistry.registerItem(SiliconPickaxe ,Names.Items.SILICON_PICKAXE);
+		/* Pickaxe */
+		registerItem(CopperPickaxe);
+		registerItem(TinPickaxe);
+		registerItem(LeadPickaxe);
+		registerItem(AluminiumPickaxe);
+		registerItem(ZincPickaxe);
+		registerItem(TitaniumPickaxe);
+		registerItem(SilverPickaxe);
+		registerItem(NickelPickaxe);
+		registerItem(TungstenPickaxe);
+		registerItem(SiliconPickaxe);
 		
-		GameRegistry.registerItem(RubyPickaxe ,Names.Items.RUBY_PICKAXE);
-		GameRegistry.registerItem(SapphirePickaxe ,Names.Items.SAPPHIRE_PICKAXE);
-		GameRegistry.registerItem(BlackonyxPickaxe ,Names.Items.BLACKONYX_PICKAXE);
-		GameRegistry.registerItem(RedonyxPickaxe ,Names.Items.REDONYX_PICKAXE);
-		GameRegistry.registerItem(AmethystPickaxe ,Names.Items.AMETHYST_PICKAXE);
+		registerItem(RubyPickaxe);
+		registerItem(SapphirePickaxe);
+		registerItem(BlackonyxPickaxe);
+		registerItem(RedonyxPickaxe);
+		registerItem(AmethystPickaxe);
 		
-		GameRegistry.registerItem(BronzePickaxe ,Names.Items.BRONZE_PICKAXE);
-		GameRegistry.registerItem(BrassPickaxe ,Names.Items.BRASS_PICKAXE);
-		GameRegistry.registerItem(ZamakPickaxe ,Names.Items.ZAMAK_PICKAXE);
-		GameRegistry.registerItem(SterlingPickaxe ,Names.Items.STERLING_PICKAXE);
-		GameRegistry.registerItem(CuproPickaxe ,Names.Items.CUPRO_PICKAXE);
-		GameRegistry.registerItem(InvarPickaxe ,Names.Items.INVAR_PICKAXE);
-		GameRegistry.registerItem(SteelPickaxe ,Names.Items.STEEL_PICKAXE);
-		GameRegistry.registerItem(FersiliconPickaxe ,Names.Items.FERSILICON_PICKAXE);
-		GameRegistry.registerItem(ElectrumPickaxe ,Names.Items.ELECTRUM_PICKAXE);
-		GameRegistry.registerItem(HSSPickaxe ,Names.Items.HSS_PICKAXE);
-		GameRegistry.registerItem(BabbittPickaxe ,Names.Items.BABBITT_PICKAXE);
-		GameRegistry.registerItem(GradePickaxe ,Names.Items.GRADE_PICKAXE);
-		GameRegistry.registerItem(CarbonPickaxe ,Names.Items.CARBON_PICKAXE);
+		registerItem(BronzePickaxe);
+		registerItem(BrassPickaxe);
+		registerItem(ZamakPickaxe);
+		registerItem(SterlingPickaxe);
+		registerItem(CuproPickaxe);
+		registerItem(InvarPickaxe);
+		registerItem(SteelPickaxe);
+		registerItem(FersiliconPickaxe);
+		registerItem(ElectrumPickaxe);
+		registerItem(HSSPickaxe);
+		registerItem(BabbittPickaxe);
+		registerItem(GradePickaxe);
+		registerItem(CarbonPickaxe);
+	}
+	
+	public static void registerItem(Pickaxe item)
+	{
+		GameRegistry.registerItem(item ,item.getName());
 	}
 }
