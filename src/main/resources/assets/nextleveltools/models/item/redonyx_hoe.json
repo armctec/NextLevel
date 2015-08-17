@@ -1,7 +1,7 @@
 {
 	"parent": "builtin/generated",
 	"textures": {
-	    "layer0": "nextleveltools:items/redonyx_hoe.png"
+	    "layer0": "nextleveltools:items/redonyx_hoe"
 	},
 	"display": {
 	    "thirdperson": {

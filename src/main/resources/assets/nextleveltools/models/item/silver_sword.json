@@ -1,7 +1,7 @@
 {
 	"parent": "builtin/generated",
 	"textures": {
-	    "layer0": "nextleveltools:items/silver_sword.png"
+	    "layer0": "nextleveltools:items/silver_sword"
 	},
 	"display": {
 	    "thirdperson": {

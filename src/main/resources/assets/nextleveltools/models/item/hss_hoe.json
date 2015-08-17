@@ -1,7 +1,7 @@
 {
 	"parent": "builtin/generated",
 	"textures": {
-	    "layer0": "nextleveltools:items/hss_hoe.png"
+	    "layer0": "nextleveltools:items/hss_hoe"
 	},
 	"display": {
 	    "thirdperson": {

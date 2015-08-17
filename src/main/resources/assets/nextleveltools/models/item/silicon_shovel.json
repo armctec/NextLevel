@@ -1,7 +1,7 @@
 {
 	"parent": "builtin/generated",
 	"textures": {
-	    "layer0": "nextleveltools:items/silicon_shovel.png"
+	    "layer0": "nextleveltools:items/silicon_shovel"
 	},
 	"display": {
 	    "thirdperson": {

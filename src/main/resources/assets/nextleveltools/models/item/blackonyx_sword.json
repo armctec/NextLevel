@@ -1,7 +1,7 @@
 {
 	"parent": "builtin/generated",
 	"textures": {
-	    "layer0": "nextleveltools:items/blackonyx_sword.png"
+	    "layer0": "nextleveltools:items/blackonyx_sword"
 	},
 	"display": {
 	    "thirdperson": {

@@ -1,7 +1,7 @@
 {
 	"parent": "builtin/generated",
 	"textures": {
-	    "layer0": "nextleveltools:items/zinc_sword.png"
+	    "layer0": "nextleveltools:items/zinc_sword"
 	},
 	"display": {
 	    "thirdperson": {

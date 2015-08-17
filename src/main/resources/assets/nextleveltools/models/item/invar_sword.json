@@ -1,7 +1,7 @@
 {
 	"parent": "builtin/generated",
 	"textures": {
-	    "layer0": "nextleveltools:items/invar_sword.png"
+	    "layer0": "nextleveltools:items/invar_sword"
 	},
 	"display": {
 	    "thirdperson": {

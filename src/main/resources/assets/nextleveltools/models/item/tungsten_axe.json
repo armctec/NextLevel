@@ -1,7 +1,7 @@
 {
 	"parent": "builtin/generated",
 	"textures": {
-	    "layer0": "nextleveltools:items/tungsten_axe.png"
+	    "layer0": "nextleveltools:items/tungsten_axe"
 	},
 	"display": {
 	    "thirdperson": {

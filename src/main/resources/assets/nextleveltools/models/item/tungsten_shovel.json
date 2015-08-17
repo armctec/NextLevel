@@ -1,7 +1,7 @@
 {
 	"parent": "builtin/generated",
 	"textures": {
-	    "layer0": "nextleveltools:items/tungsten_shovel.png"
+	    "layer0": "nextleveltools:items/tungsten_shovel"
 	},
 	"display": {
 	    "thirdperson": {

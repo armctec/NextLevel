@@ -1,7 +1,7 @@
 {
 	"parent": "builtin/generated",
 	"textures": {
-	    "layer0": "nextleveltools:items/moonstone_hoe.png"
+	    "layer0": "nextleveltools:items/moonstone_hoe"
 	},
 	"display": {
 	    "thirdperson": {
