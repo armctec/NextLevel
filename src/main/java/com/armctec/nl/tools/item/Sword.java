@@ -1,11 +1,12 @@
 package com.armctec.nl.tools.item;
 
-import net.minecraft.item.ItemSpade;
+import net.minecraft.item.Item.ToolMaterial;
+import net.minecraft.item.ItemSword;
 
 import com.armctec.nl.tools.gui.CreativeTabTools;
 import com.armctec.nl.tools.reference.ModConfig;
 
-public class Sword extends ItemSpade
+public class Sword extends ItemSword
 {
 	private String ItemName = null;
 	
