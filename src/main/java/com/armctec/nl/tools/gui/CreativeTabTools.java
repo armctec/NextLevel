@@ -16,4 +16,14 @@ public class CreativeTabTools
             return Items.diamond_pickaxe;
         }
     };
+
+    public static final CreativeTabs ARMOR_TAB = new CreativeTabs(ModConfig.MOD_ID.toLowerCase())
+    {
+        @Override
+        public Item getTabIconItem()
+        {
+            return Items.diamond_chestplate;
+        }
+    };
+    
 }

@@ -174,9 +174,131 @@ public class ModItemsClient
 		RegisterClient.registerItem(ModConfig.MOD_ID, Names.Items.CARBON_SHOVEL);
 		
 		// Armor
+		// Helmet
+		RegisterClient.registerItem(ModConfig.MOD_ID, Names.Items.ALUMINIUM_HELMET);
+		RegisterClient.registerItem(ModConfig.MOD_ID, Names.Items.AMETHYST_HELMET);
+		RegisterClient.registerItem(ModConfig.MOD_ID, Names.Items.BABBITT_HELMET);
+		RegisterClient.registerItem(ModConfig.MOD_ID, Names.Items.BLACKONYX_HELMET);
+		RegisterClient.registerItem(ModConfig.MOD_ID, Names.Items.BRASS_HELMET);
+		RegisterClient.registerItem(ModConfig.MOD_ID, Names.Items.BRONZE_HELMET);
+		RegisterClient.registerItem(ModConfig.MOD_ID, Names.Items.CARBON_HELMET);
 		RegisterClient.registerItem(ModConfig.MOD_ID, Names.Items.COPPER_HELMET);
+		RegisterClient.registerItem(ModConfig.MOD_ID, Names.Items.CUPRO_HELMET);
+		RegisterClient.registerItem(ModConfig.MOD_ID, Names.Items.ELECTRUM_HELMET);
+		RegisterClient.registerItem(ModConfig.MOD_ID, Names.Items.FERSILICON_HELMET);
+		RegisterClient.registerItem(ModConfig.MOD_ID, Names.Items.GRADE_HELMET);
+		RegisterClient.registerItem(ModConfig.MOD_ID, Names.Items.HSS_HELMET);
+		RegisterClient.registerItem(ModConfig.MOD_ID, Names.Items.INVAR_HELMET);
+		RegisterClient.registerItem(ModConfig.MOD_ID, Names.Items.LEAD_HELMET);
+		RegisterClient.registerItem(ModConfig.MOD_ID, Names.Items.MOONSTONE_HELMET);
+		RegisterClient.registerItem(ModConfig.MOD_ID, Names.Items.NICKEL_HELMET);
+		RegisterClient.registerItem(ModConfig.MOD_ID, Names.Items.REDONYX_HELMET);
+		RegisterClient.registerItem(ModConfig.MOD_ID, Names.Items.RUBY_HELMET);
+		RegisterClient.registerItem(ModConfig.MOD_ID, Names.Items.SAPPHIRE_HELMET);
+		RegisterClient.registerItem(ModConfig.MOD_ID, Names.Items.SILICON_HELMET);
+		RegisterClient.registerItem(ModConfig.MOD_ID, Names.Items.SILVER_HELMET);
+		RegisterClient.registerItem(ModConfig.MOD_ID, Names.Items.STEEL_HELMET);
+		RegisterClient.registerItem(ModConfig.MOD_ID, Names.Items.STERLING_HELMET);
+		RegisterClient.registerItem(ModConfig.MOD_ID, Names.Items.TIN_HELMET);
+		RegisterClient.registerItem(ModConfig.MOD_ID, Names.Items.TITANIUM_HELMET);
+		RegisterClient.registerItem(ModConfig.MOD_ID, Names.Items.TUNGSTEN_HELMET);
+		RegisterClient.registerItem(ModConfig.MOD_ID, Names.Items.ZAMAK_HELMET);
+		RegisterClient.registerItem(ModConfig.MOD_ID, Names.Items.ZINC_HELMET);
+
+		// Armor
+		// Chestplate
+		RegisterClient.registerItem(ModConfig.MOD_ID, Names.Items.ALUMINIUM_CHESTPLATE);
+		RegisterClient.registerItem(ModConfig.MOD_ID, Names.Items.AMETHYST_CHESTPLATE);
+		RegisterClient.registerItem(ModConfig.MOD_ID, Names.Items.BABBITT_CHESTPLATE);
+		RegisterClient.registerItem(ModConfig.MOD_ID, Names.Items.BLACKONYX_CHESTPLATE);
+		RegisterClient.registerItem(ModConfig.MOD_ID, Names.Items.BRASS_CHESTPLATE);
+		RegisterClient.registerItem(ModConfig.MOD_ID, Names.Items.BRONZE_CHESTPLATE);
+		RegisterClient.registerItem(ModConfig.MOD_ID, Names.Items.CARBON_CHESTPLATE);
 		RegisterClient.registerItem(ModConfig.MOD_ID, Names.Items.COPPER_CHESTPLATE);
+		RegisterClient.registerItem(ModConfig.MOD_ID, Names.Items.CUPRO_CHESTPLATE);
+		RegisterClient.registerItem(ModConfig.MOD_ID, Names.Items.ELECTRUM_CHESTPLATE);
+		RegisterClient.registerItem(ModConfig.MOD_ID, Names.Items.FERSILICON_CHESTPLATE);
+		RegisterClient.registerItem(ModConfig.MOD_ID, Names.Items.GRADE_CHESTPLATE);
+		RegisterClient.registerItem(ModConfig.MOD_ID, Names.Items.HSS_CHESTPLATE);
+		RegisterClient.registerItem(ModConfig.MOD_ID, Names.Items.INVAR_CHESTPLATE);
+		RegisterClient.registerItem(ModConfig.MOD_ID, Names.Items.LEAD_CHESTPLATE);
+		RegisterClient.registerItem(ModConfig.MOD_ID, Names.Items.MOONSTONE_CHESTPLATE);
+		RegisterClient.registerItem(ModConfig.MOD_ID, Names.Items.NICKEL_CHESTPLATE);
+		RegisterClient.registerItem(ModConfig.MOD_ID, Names.Items.REDONYX_CHESTPLATE);
+		RegisterClient.registerItem(ModConfig.MOD_ID, Names.Items.RUBY_CHESTPLATE);
+		RegisterClient.registerItem(ModConfig.MOD_ID, Names.Items.SAPPHIRE_CHESTPLATE);
+		RegisterClient.registerItem(ModConfig.MOD_ID, Names.Items.SILICON_CHESTPLATE);
+		RegisterClient.registerItem(ModConfig.MOD_ID, Names.Items.SILVER_CHESTPLATE);
+		RegisterClient.registerItem(ModConfig.MOD_ID, Names.Items.STEEL_CHESTPLATE);
+		RegisterClient.registerItem(ModConfig.MOD_ID, Names.Items.STERLING_CHESTPLATE);
+		RegisterClient.registerItem(ModConfig.MOD_ID, Names.Items.TIN_CHESTPLATE);
+		RegisterClient.registerItem(ModConfig.MOD_ID, Names.Items.TITANIUM_CHESTPLATE);
+		RegisterClient.registerItem(ModConfig.MOD_ID, Names.Items.TUNGSTEN_CHESTPLATE);
+		RegisterClient.registerItem(ModConfig.MOD_ID, Names.Items.ZAMAK_CHESTPLATE);
+		RegisterClient.registerItem(ModConfig.MOD_ID, Names.Items.ZINC_CHESTPLATE);
+
+		// Armor
+		// Leggings
+		RegisterClient.registerItem(ModConfig.MOD_ID, Names.Items.ALUMINIUM_LEGGINGS);
+		RegisterClient.registerItem(ModConfig.MOD_ID, Names.Items.AMETHYST_LEGGINGS);
+		RegisterClient.registerItem(ModConfig.MOD_ID, Names.Items.BABBITT_LEGGINGS);
+		RegisterClient.registerItem(ModConfig.MOD_ID, Names.Items.BLACKONYX_LEGGINGS);
+		RegisterClient.registerItem(ModConfig.MOD_ID, Names.Items.BRASS_LEGGINGS);
+		RegisterClient.registerItem(ModConfig.MOD_ID, Names.Items.BRONZE_LEGGINGS);
+		RegisterClient.registerItem(ModConfig.MOD_ID, Names.Items.CARBON_LEGGINGS);
 		RegisterClient.registerItem(ModConfig.MOD_ID, Names.Items.COPPER_LEGGINGS);
+		RegisterClient.registerItem(ModConfig.MOD_ID, Names.Items.CUPRO_LEGGINGS);
+		RegisterClient.registerItem(ModConfig.MOD_ID, Names.Items.ELECTRUM_LEGGINGS);
+		RegisterClient.registerItem(ModConfig.MOD_ID, Names.Items.FERSILICON_LEGGINGS);
+		RegisterClient.registerItem(ModConfig.MOD_ID, Names.Items.GRADE_LEGGINGS);
+		RegisterClient.registerItem(ModConfig.MOD_ID, Names.Items.HSS_LEGGINGS);
+		RegisterClient.registerItem(ModConfig.MOD_ID, Names.Items.INVAR_LEGGINGS);
+		RegisterClient.registerItem(ModConfig.MOD_ID, Names.Items.LEAD_LEGGINGS);
+		RegisterClient.registerItem(ModConfig.MOD_ID, Names.Items.MOONSTONE_LEGGINGS);
+		RegisterClient.registerItem(ModConfig.MOD_ID, Names.Items.NICKEL_LEGGINGS);
+		RegisterClient.registerItem(ModConfig.MOD_ID, Names.Items.REDONYX_LEGGINGS);
+		RegisterClient.registerItem(ModConfig.MOD_ID, Names.Items.RUBY_LEGGINGS);
+		RegisterClient.registerItem(ModConfig.MOD_ID, Names.Items.SAPPHIRE_LEGGINGS);
+		RegisterClient.registerItem(ModConfig.MOD_ID, Names.Items.SILICON_LEGGINGS);
+		RegisterClient.registerItem(ModConfig.MOD_ID, Names.Items.SILVER_LEGGINGS);
+		RegisterClient.registerItem(ModConfig.MOD_ID, Names.Items.STEEL_LEGGINGS);
+		RegisterClient.registerItem(ModConfig.MOD_ID, Names.Items.STERLING_LEGGINGS);
+		RegisterClient.registerItem(ModConfig.MOD_ID, Names.Items.TIN_LEGGINGS);
+		RegisterClient.registerItem(ModConfig.MOD_ID, Names.Items.TITANIUM_LEGGINGS);
+		RegisterClient.registerItem(ModConfig.MOD_ID, Names.Items.TUNGSTEN_LEGGINGS);
+		RegisterClient.registerItem(ModConfig.MOD_ID, Names.Items.ZAMAK_LEGGINGS);
+		RegisterClient.registerItem(ModConfig.MOD_ID, Names.Items.ZINC_LEGGINGS);
+
+		// Armor
+		// Boots
+		RegisterClient.registerItem(ModConfig.MOD_ID, Names.Items.ALUMINIUM_BOOTS);
+		RegisterClient.registerItem(ModConfig.MOD_ID, Names.Items.AMETHYST_BOOTS);
+		RegisterClient.registerItem(ModConfig.MOD_ID, Names.Items.BABBITT_BOOTS);
+		RegisterClient.registerItem(ModConfig.MOD_ID, Names.Items.BLACKONYX_BOOTS);
+		RegisterClient.registerItem(ModConfig.MOD_ID, Names.Items.BRASS_BOOTS);
+		RegisterClient.registerItem(ModConfig.MOD_ID, Names.Items.BRONZE_BOOTS);
+		RegisterClient.registerItem(ModConfig.MOD_ID, Names.Items.CARBON_BOOTS);
 		RegisterClient.registerItem(ModConfig.MOD_ID, Names.Items.COPPER_BOOTS);
+		RegisterClient.registerItem(ModConfig.MOD_ID, Names.Items.CUPRO_BOOTS);
+		RegisterClient.registerItem(ModConfig.MOD_ID, Names.Items.ELECTRUM_BOOTS);
+		RegisterClient.registerItem(ModConfig.MOD_ID, Names.Items.FERSILICON_BOOTS);
+		RegisterClient.registerItem(ModConfig.MOD_ID, Names.Items.GRADE_BOOTS);
+		RegisterClient.registerItem(ModConfig.MOD_ID, Names.Items.HSS_BOOTS);
+		RegisterClient.registerItem(ModConfig.MOD_ID, Names.Items.INVAR_BOOTS);
+		RegisterClient.registerItem(ModConfig.MOD_ID, Names.Items.LEAD_BOOTS);
+		RegisterClient.registerItem(ModConfig.MOD_ID, Names.Items.MOONSTONE_BOOTS);
+		RegisterClient.registerItem(ModConfig.MOD_ID, Names.Items.NICKEL_BOOTS);
+		RegisterClient.registerItem(ModConfig.MOD_ID, Names.Items.REDONYX_BOOTS);
+		RegisterClient.registerItem(ModConfig.MOD_ID, Names.Items.RUBY_BOOTS);
+		RegisterClient.registerItem(ModConfig.MOD_ID, Names.Items.SAPPHIRE_BOOTS);
+		RegisterClient.registerItem(ModConfig.MOD_ID, Names.Items.SILICON_BOOTS);
+		RegisterClient.registerItem(ModConfig.MOD_ID, Names.Items.SILVER_BOOTS);
+		RegisterClient.registerItem(ModConfig.MOD_ID, Names.Items.STEEL_BOOTS);
+		RegisterClient.registerItem(ModConfig.MOD_ID, Names.Items.STERLING_BOOTS);
+		RegisterClient.registerItem(ModConfig.MOD_ID, Names.Items.TIN_BOOTS);
+		RegisterClient.registerItem(ModConfig.MOD_ID, Names.Items.TITANIUM_BOOTS);
+		RegisterClient.registerItem(ModConfig.MOD_ID, Names.Items.TUNGSTEN_BOOTS);
+		RegisterClient.registerItem(ModConfig.MOD_ID, Names.Items.ZAMAK_BOOTS);
+		RegisterClient.registerItem(ModConfig.MOD_ID, Names.Items.ZINC_BOOTS);
 	}
 }

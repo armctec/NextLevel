@@ -63,7 +63,7 @@ public class MyArmor
 	
 	public static ArmorMaterial addArmorMaterial(String name, int durability, int[] reductionAmounts, int enchantability)
 	{
-		return EnumHelper.addArmorMaterial(name, "", durability, reductionAmounts, enchantability);
+		return EnumHelper.addArmorMaterial(name, name.toLowerCase(), durability, reductionAmounts, enchantability);
 	}
 	
 	public static void init()

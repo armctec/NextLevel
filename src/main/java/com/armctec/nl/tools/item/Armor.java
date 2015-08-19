@@ -1,5 +1,8 @@
 package com.armctec.nl.tools.item;
 
+import com.armctec.nl.tools.gui.CreativeTabTools;
+import com.armctec.nl.tools.reference.ModConfig;
+
 import net.minecraft.entity.Entity;
 import net.minecraft.item.ItemArmor;
 import net.minecraft.item.ItemStack;
@@ -19,13 +22,16 @@ public class Armor extends ItemArmor
 	{
 		super(material, 0, tipo);
 		nameMaterial = material.getName();
+
+		setItemName(ModConfig.MOD_ID, name);
+		this.setCreativeTab(CreativeTabTools.ARMOR_TAB);
 	}
 	
 	public void setItemName(String ModIdName, String name)
     {
         this.ItemName = name;
     	setUnlocalizedName(ModIdName.toLowerCase() + ":" + name);
-    	ModelArmor = ModIdName.toLowerCase() + ":textures/armor/" + nameMaterial + "_" + (this.armorType == 2 ? "2" : "1") + ".png";	
+    	ModelArmor = ModIdName.toLowerCase() + ":textures/models/armor/" + nameMaterial + "_layer_" + (this.armorType == 2 ? "2" : "1") + ".png";	
     }
     
     public String getName()
