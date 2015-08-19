@@ -1,4 +1,4 @@
-package com.armctec.nl.tools.item;
+package com.armctec.nl.tools.item.material;
 
 import com.armctec.nl.ores.init.ModItems;
 

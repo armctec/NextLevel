@@ -7,7 +7,7 @@ import com.armctec.nl.tools.item.Hoe;
 import com.armctec.nl.tools.item.Pickaxe;
 import com.armctec.nl.tools.item.Shovel;
 import com.armctec.nl.tools.item.Sword;
-import com.armctec.nl.tools.item.Tools;
+import com.armctec.nl.tools.item.material.Tools;
 import com.armctec.nl.tools.reference.Names;
 
 public class ModItems 
