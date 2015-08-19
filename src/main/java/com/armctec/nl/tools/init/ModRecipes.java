@@ -171,6 +171,129 @@ public class ModRecipes
 		makeShovel(ModItems.GradeShovel, 		"ingotGrade");
 		makeShovel(ModItems.CarbonShovel, 	    "ingotCarbon");
 
+		// Armor Helmet
+		makeHelmet(ModItems.AluminiumHelmet,	 	"ingotAluminium");
+		makeHelmet(ModItems.AmethystHelmet,	 		"ingotAmethyst");
+		makeHelmet(ModItems.BabbittHelmet,	 		"ingotBabbitt");
+		makeHelmet(ModItems.BlackonyxHelmet,	 	"ingotBlackonyx");
+		makeHelmet(ModItems.BrassHelmet,	 		"ingotBrass");
+		makeHelmet(ModItems.BronzeHelmet,	 		"ingotBronze");
+		makeHelmet(ModItems.CarbonHelmet,	 		"ingotCarbon");
+		makeHelmet(ModItems.CopperHelmet,	 		"ingotCopper");
+		makeHelmet(ModItems.CuproHelmet,	 		"ingotCupro");
+		makeHelmet(ModItems.ElectrumHelmet,	 		"ingotElectrum");
+		makeHelmet(ModItems.FersiliconHelmet,	 	"ingotFersilicon");
+		makeHelmet(ModItems.GradeHelmet,	 		"ingotGrade");
+		makeHelmet(ModItems.HssHelmet,	 		    "ingotHss");
+		makeHelmet(ModItems.InvarHelmet,	 		"ingotInvar");
+		makeHelmet(ModItems.LeadHelmet,	 		    "ingotLead");
+		makeHelmet(ModItems.MoonstoneHelmet,	 	"ingotMoonstone");
+		makeHelmet(ModItems.NickelHelmet,	 		"ingotNickel");
+		makeHelmet(ModItems.RedonyxHelmet,	 		"ingotRedonyx");
+		makeHelmet(ModItems.RubyHelmet,	 		    "ingotRuby");
+		makeHelmet(ModItems.SapphireHelmet,	 		"ingotSapphire");
+		makeHelmet(ModItems.SiliconHelmet,	 		"ingotSilicon");
+		makeHelmet(ModItems.SilverHelmet,	 		"ingotSilver");
+		makeHelmet(ModItems.SteelHelmet,	 		"ingotSteel");
+		makeHelmet(ModItems.SterlingHelmet,	 		"ingotSterling");
+		makeHelmet(ModItems.TinHelmet,	 		    "ingotTin");
+		makeHelmet(ModItems.TitaniumHelmet,	 		"ingotTitanium");
+		makeHelmet(ModItems.TungstenHelmet,	 		"ingotTungsten");
+		makeHelmet(ModItems.ZamakHelmet,	 		"ingotZamak");
+		makeHelmet(ModItems.ZincHelmet,	 		    "ingotZinc");
+
+		// Armor Chestplate
+		makeChestplate(ModItems.AluminiumChestplate,	"ingotAluminium");
+		makeChestplate(ModItems.AmethystChestplate,	    "ingotAmethyst");
+		makeChestplate(ModItems.BabbittChestplate,	    "ingotBabbitt");
+		makeChestplate(ModItems.BlackonyxChestplate,	"ingotBlackonyx");
+		makeChestplate(ModItems.BrassChestplate,	    "ingotBrass");
+		makeChestplate(ModItems.BronzeChestplate,	    "ingotBronze");
+		makeChestplate(ModItems.CarbonChestplate,	    "ingotCarbon");
+		makeChestplate(ModItems.CopperChestplate,	    "ingotCopper");
+		makeChestplate(ModItems.CuproChestplate,	    "ingotCupro");
+		makeChestplate(ModItems.ElectrumChestplate,	    "ingotElectrum");
+		makeChestplate(ModItems.FersiliconChestplate,	"ingotFersilicon");
+		makeChestplate(ModItems.GradeChestplate,	    "ingotGrade");
+		makeChestplate(ModItems.HssChestplate,	        "ingotHss");
+		makeChestplate(ModItems.InvarChestplate,	    "ingotInvar");
+		makeChestplate(ModItems.LeadChestplate,	        "ingotLead");
+		makeChestplate(ModItems.MoonstoneChestplate,	"ingotMoonstone");
+		makeChestplate(ModItems.NickelChestplate,	    "ingotNickel");
+		makeChestplate(ModItems.RedonyxChestplate,	    "ingotRedonyx");
+		makeChestplate(ModItems.RubyChestplate,	        "ingotRuby");
+		makeChestplate(ModItems.SapphireChestplate,	    "ingotSapphire");
+		makeChestplate(ModItems.SiliconChestplate,	    "ingotSilicon");
+		makeChestplate(ModItems.SilverChestplate,	    "ingotSilver");
+		makeChestplate(ModItems.SteelChestplate,	    "ingotSteel");
+		makeChestplate(ModItems.SterlingChestplate,	    "ingotSterling");
+		makeChestplate(ModItems.TinChestplate,	        "ingotTin");
+		makeChestplate(ModItems.TitaniumChestplate,	    "ingotTitanium");
+		makeChestplate(ModItems.TungstenChestplate,	    "ingotTungsten");
+		makeChestplate(ModItems.ZamakChestplate,	    "ingotZamak");
+		makeChestplate(ModItems.ZincChestplate,	        "ingotZinc");
+
+		// Armor Leggings
+		makeLeggings(ModItems.AluminiumLeggings,	 	"ingotAluminium");
+		makeLeggings(ModItems.AmethystLeggings,	 	    "ingotAmethyst");
+		makeLeggings(ModItems.BabbittLeggings,	 	    "ingotBabbitt");
+		makeLeggings(ModItems.BlackonyxLeggings,	 	"ingotBlackonyx");
+		makeLeggings(ModItems.BrassLeggings,	 	    "ingotBrass");
+		makeLeggings(ModItems.BronzeLeggings,	 	    "ingotBronze");
+		makeLeggings(ModItems.CarbonLeggings,	 	    "ingotCarbon");
+		makeLeggings(ModItems.CopperLeggings,	 	    "ingotCopper");
+		makeLeggings(ModItems.CuproLeggings,	 	    "ingotCupro");
+		makeLeggings(ModItems.ElectrumLeggings,	 	    "ingotElectrum");
+		makeLeggings(ModItems.FersiliconLeggings,	 	"ingotFersilicon");
+		makeLeggings(ModItems.GradeLeggings,	 	    "ingotGrade");
+		makeLeggings(ModItems.HssLeggings,	 	        "ingotHss");
+		makeLeggings(ModItems.InvarLeggings,	 	    "ingotInvar");
+		makeLeggings(ModItems.LeadLeggings,	 	        "ingotLead");
+		makeLeggings(ModItems.MoonstoneLeggings,	 	"ingotMoonstone");
+		makeLeggings(ModItems.NickelLeggings,	 	    "ingotNickel");
+		makeLeggings(ModItems.RedonyxLeggings,	 	    "ingotRedonyx");
+		makeLeggings(ModItems.RubyLeggings,	 	        "ingotRuby");
+		makeLeggings(ModItems.SapphireLeggings,	 	    "ingotSapphire");
+		makeLeggings(ModItems.SiliconLeggings,	 	    "ingotSilicon");
+		makeLeggings(ModItems.SilverLeggings,	 	    "ingotSilver");
+		makeLeggings(ModItems.SteelLeggings,	 	    "ingotSteel");
+		makeLeggings(ModItems.SterlingLeggings,	 	    "ingotSterling");
+		makeLeggings(ModItems.TinLeggings,	 	        "ingotTin");
+		makeLeggings(ModItems.TitaniumLeggings,	 	    "ingotTitanium");
+		makeLeggings(ModItems.TungstenLeggings,	 	    "ingotTungsten");
+		makeLeggings(ModItems.ZamakLeggings,	 	    "ingotZamak");
+		makeLeggings(ModItems.ZincLeggings,	 	        "ingotZinc");
+
+		// Armor Boots
+		makeBoots(ModItems.AluminiumBoots,	 	"ingotAluminium");
+		makeBoots(ModItems.AmethystBoots,	 	"ingotAmethyst");
+		makeBoots(ModItems.BabbittBoots,	 	"ingotBabbitt");
+		makeBoots(ModItems.BlackonyxBoots,	 	"ingotBlackonyx");
+		makeBoots(ModItems.BrassBoots,	 		"ingotBrass");
+		makeBoots(ModItems.BronzeBoots,	 		"ingotBronze");
+		makeBoots(ModItems.CarbonBoots,	 		"ingotCarbon");
+		makeBoots(ModItems.CopperBoots,	 		"ingotCopper");
+		makeBoots(ModItems.CuproBoots,	 		"ingotCupro");
+		makeBoots(ModItems.ElectrumBoots,	 	"ingotElectrum");
+		makeBoots(ModItems.FersiliconBoots,	 	"ingotFersilicon");
+		makeBoots(ModItems.GradeBoots,	 		"ingotGrade");
+		makeBoots(ModItems.HssBoots,	 		"ingotHss");
+		makeBoots(ModItems.InvarBoots,	 		"ingotInvar");
+		makeBoots(ModItems.LeadBoots,	 		"ingotLead");
+		makeBoots(ModItems.MoonstoneBoots,	 	"ingotMoonstone");
+		makeBoots(ModItems.NickelBoots,	 		"ingotNickel");
+		makeBoots(ModItems.RedonyxBoots,	 	"ingotRedonyx");
+		makeBoots(ModItems.RubyBoots,	 		"ingotRuby");
+		makeBoots(ModItems.SapphireBoots,	 	"ingotSapphire");
+		makeBoots(ModItems.SiliconBoots,	 	"ingotSilicon");
+		makeBoots(ModItems.SilverBoots,	 		"ingotSilver");
+		makeBoots(ModItems.SteelBoots,	 		"ingotSteel");
+		makeBoots(ModItems.SterlingBoots,	 	"ingotSterling");
+		makeBoots(ModItems.TinBoots,	 		"ingotTin");
+		makeBoots(ModItems.TitaniumBoots,	 	"ingotTitanium");
+		makeBoots(ModItems.TungstenBoots,	 	"ingotTungsten");
+		makeBoots(ModItems.ZamakBoots,	 		"ingotZamak");
+		makeBoots(ModItems.ZincBoots,	 		"ingotZinc");
 	}
 	
 	private static void makePickaxe(Item item, String material)
@@ -197,4 +320,24 @@ public class ModRecipes
 	{
 		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(item), new Object[]{" C "," S "," S ",'C',material,'S',"stickWood"}));
 	}	
+	
+	private static void makeHelmet(Item item, String material)
+	{
+		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(item), new Object[]{"CCC","C C","   ",'C',material}));
+	}
+
+	private static void makeChestplate(Item item, String material)
+	{
+		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(item), new Object[]{"C C","CCC","CCC",'C',material}));
+	}
+
+	private static void makeLeggings(Item item, String material)
+	{
+		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(item), new Object[]{"CCC","C C","C C",'C',material}));
+	}
+
+	private static void makeBoots(Item item, String material)
+	{
+		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(item), new Object[]{"   ","C C","C C",'C',material}));
+	}
 }
