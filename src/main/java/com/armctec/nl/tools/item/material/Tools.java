@@ -30,7 +30,7 @@ public class Tools
 	Stone 131
 	Iron 250
 	Diamond 1561
-	So our tools made from our material are less durable than iron, but moreso than stone.
+	So our tools made from our material are less durable than iron, but mores than stone.
 
 	float efficiency indicates the speed at which the tool mines, digs, swings, or whatever it does.
 	Vanilla efficiency levels are:
