@@ -171,6 +171,12 @@ public class ModItemsClient
 		RegisterClient.registerItem(ModConfig.MOD_ID, Names.Items.HSS_SHOVEL);
 		RegisterClient.registerItem(ModConfig.MOD_ID, Names.Items.BABBITT_SHOVEL);
 		RegisterClient.registerItem(ModConfig.MOD_ID, Names.Items.GRADE_SHOVEL);
-		RegisterClient.registerItem(ModConfig.MOD_ID, Names.Items.CARBON_SHOVEL);	
+		RegisterClient.registerItem(ModConfig.MOD_ID, Names.Items.CARBON_SHOVEL);
+		
+		// Armor
+		RegisterClient.registerItem(ModConfig.MOD_ID, Names.Items.COPPER_HELMET);
+		RegisterClient.registerItem(ModConfig.MOD_ID, Names.Items.COPPER_CHESTPLATE);
+		RegisterClient.registerItem(ModConfig.MOD_ID, Names.Items.COPPER_LEGGINGS);
+		RegisterClient.registerItem(ModConfig.MOD_ID, Names.Items.COPPER_BOOTS);
 	}
 }

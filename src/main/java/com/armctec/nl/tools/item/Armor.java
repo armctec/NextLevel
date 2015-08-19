@@ -6,6 +6,11 @@ import net.minecraft.item.ItemStack;
 
 public class Armor extends ItemArmor 
 {
+	public final static int HELMET = 0;
+	public final static int CHESTPLATE = 1;
+	public final static int LEGGINGS = 2;
+	public final static int BOOTS = 3;
+	
 	private String ItemName = null;
 	private String ModelArmor = "";
 	private String nameMaterial = "";

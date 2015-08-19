@@ -13,7 +13,8 @@ import com.armctec.nl.tools.handler.ConfigurationHandler;
 import com.armctec.nl.tools.init.ModItems;
 import com.armctec.nl.tools.init.ModItemsClient;
 import com.armctec.nl.tools.init.ModRecipes;
-import com.armctec.nl.tools.item.material.Tools;
+import com.armctec.nl.tools.item.material.MyArmor;
+import com.armctec.nl.tools.item.material.MyTools;
 import com.armctec.nl.tools.proxy.CommonProxy;
 import com.armctec.nl.tools.reference.ModConfig;
 
@@ -35,7 +36,8 @@ public class ToolsNL
         FMLCommonHandler.instance().bus().register(new ConfigurationHandler());
 		
         ModItems.init();
-        Tools.init();
+        MyTools.init();
+        MyArmor.init();
 		//ModBlocks.init();
 
 		proxy.preInit();

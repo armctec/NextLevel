@@ -6,7 +6,7 @@ import net.minecraft.item.Item.ToolMaterial;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.common.util.EnumHelper;
 
-public class Tools 
+public class MyTools 
 {
 	/*
 	String Name is just the String name of the material.
