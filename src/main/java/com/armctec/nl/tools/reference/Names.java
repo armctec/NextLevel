@@ -178,6 +178,147 @@ public class Names
 		public final static String BABBITT_SWORD   		= "babbitt_sword"; 			    // Lead, Tin
 		public final static String GRADE_SWORD   		= "grade_5_sword"; 			    // Titanium, Aluminium
 		public final static String CARBON_SWORD   		= "carbon_sword"; 			    // Coal, Charcoal
+		
+		// Armor
+		// Helmet
+        // Originais
+		public final static String COPPER_HELMET   		= "copper_helmet";
+		public final static String TIN_HELMET   		= "tin_helmet";
+		public final static String LEAD_HELMET   		= "lead_helmet";
+		public final static String ALUMINIUM_HELMET  	= "aluminium_helmet";
+		public final static String ZINC_HELMET   		= "zinc_helmet";
+		public final static String TITANIUM_HELMET   	= "titanium_helmet";
+		public final static String SILVER_HELMET   		= "silver_helmet";
+		public final static String NICKEL_HELMET   		= "nickel_helmet";
+		public final static String TUNGSTEN_HELMET   	= "tungsten_helmet";
+		public final static String SILICON_HELMET   	= "silicon_helmet";
+		// Gemstones
+		public final static String RUBY_HELMET   		= "ruby_helmet";
+		public final static String SAPPHIRE_HELMET   	= "sapphire_helmet";
+		public final static String MOONSTONE_HELMET   	= "moonstone_helmet";
+		public final static String BLACKONYX_HELMET   	= "blackonyx_helmet";
+		public final static String REDONYX_HELMET   	= "redonyx_helmet";
+		public final static String AMETHYST_HELMET   	= "amethyst_helmet";
+		// Alloys
+		public final static String BRONZE_HELMET   		= "bronze_helmet"; 			    // Copper, Tin
+		public final static String BRASS_HELMET   		= "brass_helmet"; 				// Copper, Zinc
+		public final static String ZAMAK_HELMET   		= "zamak_helmet"; 				// Copper, Aluminium
+		public final static String STERLING_HELMET   	= "sterling_silver_helmet"; 	// Copper, Silver
+		public final static String CUPRO_HELMET   		= "cupronickel_helmet"; 		// Copper, Nickel
+		public final static String INVAR_HELMET   		= "invar_helmet"; 				// Iron, Nickel
+		public final static String STEEL_HELMET   		= "steel_helmet"; 				// Iron, Carbon
+		public final static String FERSILICON_HELMET   	= "ferrosilicon_helmet"; 		// Iron, Silicon
+		public final static String ELECTRUM_HELMET   	= "electrum_helmet"; 			// Silver, Gold
+		public final static String HSS_HELMET   		= "hss_helmet"; 				// Steel, Tungsten
+		public final static String BABBITT_HELMET   	= "babbitt_helmet"; 			// Lead, Tin
+		public final static String GRADE_HELMET   		= "grade_5_helmet"; 			// Titanium, Aluminium
+		public final static String CARBON_HELMET   		= "carbon_helmet"; 			    // Coal, Charcoal
+		
+		// Armor
+		// Chestplate
+        // Originais
+		public final static String COPPER_CHESTPLATE   		= "copper_chestplate";
+		public final static String TIN_CHESTPLATE   		= "tin_chestplate";
+		public final static String LEAD_CHESTPLATE   		= "lead_chestplate";
+		public final static String ALUMINIUM_CHESTPLATE  	= "aluminium_chestplate";
+		public final static String ZINC_CHESTPLATE   		= "zinc_chestplate";
+		public final static String TITANIUM_CHESTPLATE   	= "titanium_chestplate";
+		public final static String SILVER_CHESTPLATE   		= "silver_chestplate";
+		public final static String NICKEL_CHESTPLATE   		= "nickel_chestplate";
+		public final static String TUNGSTEN_CHESTPLATE   	= "tungsten_chestplate";
+		public final static String SILICON_CHESTPLATE   	= "silicon_chestplate";
+		// Gemstones
+		public final static String RUBY_CHESTPLATE   		= "ruby_chestplate";
+		public final static String SAPPHIRE_CHESTPLATE   	= "sapphire_chestplate";
+		public final static String MOONSTONE_CHESTPLATE   	= "moonstone_chestplate";
+		public final static String BLACKONYX_CHESTPLATE   	= "blackonyx_chestplate";
+		public final static String REDONYX_CHESTPLATE   	= "redonyx_chestplate";
+		public final static String AMETHYST_CHESTPLATE   	= "amethyst_chestplate";
+		// Alloys
+		public final static String BRONZE_CHESTPLATE   		= "bronze_chestplate"; 			    // Copper, Tin
+		public final static String BRASS_CHESTPLATE   		= "brass_chestplate"; 				// Copper, Zinc
+		public final static String ZAMAK_CHESTPLATE   		= "zamak_chestplate"; 				// Copper, Aluminium
+		public final static String STERLING_CHESTPLATE   	= "sterling_silver_chestplate"; 	// Copper, Silver
+		public final static String CUPRO_CHESTPLATE   		= "cupronickel_chestplate"; 		// Copper, Nickel
+		public final static String INVAR_CHESTPLATE   		= "invar_chestplate"; 				// Iron, Nickel
+		public final static String STEEL_CHESTPLATE   		= "steel_chestplate"; 				// Iron, Carbon
+		public final static String FERSILICON_CHESTPLATE   	= "ferrosilicon_chestplate"; 		// Iron, Silicon
+		public final static String ELECTRUM_CHESTPLATE   	= "electrum_chestplate"; 			// Silver, Gold
+		public final static String HSS_CHESTPLATE   		= "hss_chestplate"; 				// Steel, Tungsten
+		public final static String BABBITT_CHESTPLATE   	= "babbitt_chestplate"; 			// Lead, Tin
+		public final static String GRADE_CHESTPLATE   		= "grade_5_chestplate"; 			// Titanium, Aluminium
+		public final static String CARBON_CHESTPLATE   		= "carbon_chestplate"; 			    // Coal, Charcoal
+		
+		// Armor
+		// Leggings
+        // Originais
+		public final static String COPPER_LEGGINGS   	= "copper_leggings";
+		public final static String TIN_LEGGINGS   		= "tin_leggings";
+		public final static String LEAD_LEGGINGS   		= "lead_leggings";
+		public final static String ALUMINIUM_LEGGINGS  	= "aluminium_leggings";
+		public final static String ZINC_LEGGINGS   		= "zinc_leggings";
+		public final static String TITANIUM_LEGGINGS   	= "titanium_leggings";
+		public final static String SILVER_LEGGINGS   	= "silver_leggings";
+		public final static String NICKEL_LEGGINGS   	= "nickel_leggings";
+		public final static String TUNGSTEN_LEGGINGS   	= "tungsten_leggings";
+		public final static String SILICON_LEGGINGS   	= "silicon_leggings";
+		// Gemstones
+		public final static String RUBY_LEGGINGS   		= "ruby_leggings";
+		public final static String SAPPHIRE_LEGGINGS   	= "sapphire_leggings";
+		public final static String MOONSTONE_LEGGINGS   = "moonstone_leggings";
+		public final static String BLACKONYX_LEGGINGS   = "blackonyx_leggings";
+		public final static String REDONYX_LEGGINGS   	= "redonyx_leggings";
+		public final static String AMETHYST_LEGGINGS   	= "amethyst_leggings";
+		// Alloys
+		public final static String BRONZE_LEGGINGS   	= "bronze_leggings"; 			// Copper, Tin
+		public final static String BRASS_LEGGINGS   	= "brass_leggings"; 			// Copper, Zinc
+		public final static String ZAMAK_LEGGINGS   	= "zamak_leggings"; 			// Copper, Aluminium
+		public final static String STERLING_LEGGINGS   	= "sterling_silver_leggings"; 	// Copper, Silver
+		public final static String CUPRO_LEGGINGS   	= "cupronickel_leggings"; 		// Copper, Nickel
+		public final static String INVAR_LEGGINGS   	= "invar_leggings"; 			// Iron, Nickel
+		public final static String STEEL_LEGGINGS   	= "steel_leggings"; 			// Iron, Carbon
+		public final static String FERSILICON_LEGGINGS  = "ferrosilicon_leggings"; 		// Iron, Silicon
+		public final static String ELECTRUM_LEGGINGS   	= "electrum_leggings"; 			// Silver, Gold
+		public final static String HSS_LEGGINGS   		= "hss_leggings"; 				// Steel, Tungsten
+		public final static String BABBITT_LEGGINGS   	= "babbitt_leggings"; 			// Lead, Tin
+		public final static String GRADE_LEGGINGS   	= "grade_5_leggings"; 			// Titanium, Aluminium
+		public final static String CARBON_LEGGINGS   	= "carbon_leggings"; 			// Coal, Charcoal
+		
+		// Armor
+		// Boots
+        // Originais
+		public final static String COPPER_BOOTS   	    = "copper_boots";
+		public final static String TIN_BOOTS   		    = "tin_boots";
+		public final static String LEAD_BOOTS   		= "lead_boots";
+		public final static String ALUMINIUM_BOOTS  	= "aluminium_boots";
+		public final static String ZINC_BOOTS   		= "zinc_boots";
+		public final static String TITANIUM_BOOTS   	= "titanium_boots";
+		public final static String SILVER_BOOTS   	    = "silver_boots";
+		public final static String NICKEL_BOOTS   	    = "nickel_boots";
+		public final static String TUNGSTEN_BOOTS   	= "tungsten_boots";
+		public final static String SILICON_BOOTS   	    = "silicon_boots";
+		// Gemstones
+		public final static String RUBY_BOOTS   		= "ruby_boots";
+		public final static String SAPPHIRE_BOOTS   	= "sapphire_boots";
+		public final static String MOONSTONE_BOOTS      = "moonstone_boots";
+		public final static String BLACKONYX_BOOTS      = "blackonyx_boots";
+		public final static String REDONYX_BOOTS   	    = "redonyx_boots";
+		public final static String AMETHYST_BOOTS   	= "amethyst_boots";
+		// Alloys
+		public final static String BRONZE_BOOTS   	    = "bronze_boots"; 			// Copper, Tin
+		public final static String BRASS_BOOTS   	    = "brass_boots"; 			// Copper, Zinc
+		public final static String ZAMAK_BOOTS   	    = "zamak_boots"; 			// Copper, Aluminium
+		public final static String STERLING_BOOTS   	= "sterling_silver_boots"; 	// Copper, Silver
+		public final static String CUPRO_BOOTS   	    = "cupronickel_boots"; 		// Copper, Nickel
+		public final static String INVAR_BOOTS   	    = "invar_boots"; 			// Iron, Nickel
+		public final static String STEEL_BOOTS   	    = "steel_boots"; 			// Iron, Carbon
+		public final static String FERSILICON_BOOTS     = "ferrosilicon_boots"; 	// Iron, Silicon
+		public final static String ELECTRUM_BOOTS   	= "electrum_boots"; 		// Silver, Gold
+		public final static String HSS_BOOTS   		    = "hss_boots"; 				// Steel, Tungsten
+		public final static String BABBITT_BOOTS   	    = "babbitt_boots"; 			// Lead, Tin
+		public final static String GRADE_BOOTS   	    = "grade_5_boots"; 			// Titanium, Aluminium
+		public final static String CARBON_BOOTS   	    = "carbon_boots"; 			// Coal, Charcoal
+		
     }
 
     public static final class Entites
