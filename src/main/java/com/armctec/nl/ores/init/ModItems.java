@@ -77,7 +77,7 @@ public class ModItems
 		RegisterServer.registerItems(ElectrumIngot, Names.Items.ELECTRUM_INGOT, "ingotElectrum");
 		RegisterServer.registerItems(HssIngot, Names.Items.HSS_INGOT, "ingotHSS");
 		RegisterServer.registerItems(BabbittIngot, Names.Items.BABBITT_INGOT, "ingotBabbitt");
-		RegisterServer.registerItems(Grade5Ingot, Names.Items.GRADE_INGOT, "ingotGrade5");
+		RegisterServer.registerItems(Grade5Ingot, Names.Items.GRADE_INGOT, "ingotGrade");
 		RegisterServer.registerItems(CarbonIngot, Names.Items.CARBON_INGOT, "ingotCarbon");		
 	}
 }
