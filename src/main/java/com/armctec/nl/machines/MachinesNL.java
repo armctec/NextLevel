@@ -12,9 +12,11 @@ import net.minecraftforge.fml.common.registry.GameRegistry;
 
 import com.armctec.nl.general.utility.LogHelper;
 import com.armctec.nl.machines.crafting.GrindestoneRecipes;
+import com.armctec.nl.machines.enchantment.EnchantmentDouble;
 import com.armctec.nl.machines.handler.ConfigurationHandler;
 import com.armctec.nl.machines.init.ModBlocks;
 import com.armctec.nl.machines.init.ModBlocksClient;
+import com.armctec.nl.machines.init.ModEnchants;
 import com.armctec.nl.machines.init.ModItems;
 import com.armctec.nl.machines.init.ModRecipes;
 import com.armctec.nl.machines.init.ModTileEntity;
@@ -43,7 +45,7 @@ public class MachinesNL
         ModItems.init();
 		ModBlocks.init();
 		ModTileEntity.init();
-		ModNetwork.init();
+		ModNetwork.init();	
 
 		proxy.preInit();
 
@@ -70,7 +72,9 @@ public class MachinesNL
 	@Mod.EventHandler
     public void postInit(FMLPostInitializationEvent event)
     {
-        proxy.postInit();
+        ModEnchants.init();
+        
+		proxy.postInit();
         Log.info("Post Initialization Complete!");
     }
 	

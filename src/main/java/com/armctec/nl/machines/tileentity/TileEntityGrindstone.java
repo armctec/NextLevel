@@ -1,5 +1,7 @@
 package com.armctec.nl.machines.tileentity;
 
+import net.minecraft.enchantment.Enchantment;
+import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.ISidedInventory;
 import net.minecraft.item.ItemStack;
@@ -78,6 +80,8 @@ public class TileEntityGrindstone extends TileEntityBasicInventory implements IU
             if(items == null)
             	return false;
             
+            //System.out.println(items.getStack1().getDisplayName());
+            
             ItemStack itemstack = items.getStack1();
             
             if (itemstack == null)
@@ -102,45 +106,63 @@ public class TileEntityGrindstone extends TileEntityBasicInventory implements IU
      */
     private void GrinderItem()
     {
-    	if(canGrinder() && trabalho>3)
-        {
-    		ModConfig.Log.info("trabalho:"+trabalho);
+    	if(canGrinder()==false)
+    		trabalho=0;
+    	else
+    	{
+    		if(trabalho>3)
+        	{
+    			ModConfig.Log.info("trabalho:"+trabalho);
         	
-    		trabalho-=4;
+    			trabalho-=4;
     		
-    		itemStacks[4].setItemDamage(itemStacks[4].getItemDamage()+1);
-    		if(itemStacks[4].getItemDamage()>=itemStacks[4].getMaxDamage())
-    		{
-    			System.out.println("Negativo:"+itemStacks[4].getItemDamage());
-    			if (!this.worldObj.isRemote)
-    	        {
-    				itemStacks[4] = null;
-    				markDirty();
-    	        }
-    		}
+    			int enchant = EnchantmentHelper.getEnchantmentLevel(Enchantment.fortune.effectId, itemStacks[4]);
+    			if(enchant > 0)
+    				enchant = 1 + worldObj.rand.nextInt(enchant);
+    			else
+    				enchant = 1;
+    			
+    			//itemStacks[4].setItemDamage(itemStacks[4].getItemDamage()+1);
+    			itemStacks[4].attemptDamageItem(1,worldObj.rand);
+    			if(itemStacks[4].getItemDamage()>=itemStacks[4].getMaxDamage())
+    			{
+    				System.out.println("Negativo:"+itemStacks[4].getItemDamage());
+    				if (!this.worldObj.isRemote)
+    	        	{
+    					itemStacks[4] = null;
+    					markDirty();
+    	        	}
+    			}
         	
-    		RecipesAnexo items = GrindestoneRecipes.instance().getGrinderResult(itemStacks[3]);
-            if(items == null)
-            	return;
+    			RecipesAnexo items = GrindestoneRecipes.instance().getGrinderResult(itemStacks[3]);
+            	if(items == null)
+            		return;
             
-            ItemStack itemstack = items.getStack1();
+            	ItemStack itemstack = items.getStack1();
+            	
+            	for(int r = 0; r<enchant; r++)
+            	{
+            		if (itemStacks[0] == null)
+            		{
+            			itemStacks[0] = itemstack.copy();
+            		}
+            		else 
+            		{
+            			if (itemStacks[0].getItem() == itemstack.getItem())
+            			{
+	            			itemStacks[0].stackSize += itemstack.stackSize; // Forge BugFix: Results may have multiple items
+            			}
+            		}
+            	}
 
-            if (itemStacks[0] == null)
-            {
-            	itemStacks[0] = itemstack.copy();
-            }
-            else if (itemStacks[0].getItem() == itemstack.getItem())
-            {
-            	itemStacks[0].stackSize += itemstack.stackSize; // Forge BugFix: Results may have multiple items
-            }
+            	--this.itemStacks[3].stackSize;
 
-            --this.itemStacks[3].stackSize;
-
-            if (this.itemStacks[3].stackSize <= 0)
-            {
-                this.itemStacks[3] = null;
-            }
-        }
+            	if (this.itemStacks[3].stackSize <= 0)
+            	{
+                	this.itemStacks[3] = null;
+            	}
+        	}
+    	}
     }	
 	
 	@Override
