@@ -15,7 +15,7 @@ public class RegisterServer
 	
 	public static void registerItems(Item item, String name, String ore)
 	{
-		GameRegistry.registerItem(item, name);	// Register Minecraft
+		GameRegistry.registerItem(item, name);		// Register Minecraft
 		OreDictionary.registerOre(ore, item);		// Register Forge
 	}	
 }

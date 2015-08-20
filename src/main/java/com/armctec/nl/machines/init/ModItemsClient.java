@@ -8,6 +8,6 @@ public class ModItemsClient
 {
 	public static void init()
 	{
-		RegisterClient.registerItem(ModConfig.MOD_ID, Names.Items.TOOLGRINDER, 0);
+		RegisterClient.registerItem(ModConfig.MOD_ID, Names.Items.TOOLGRINDER);
 	}
 }

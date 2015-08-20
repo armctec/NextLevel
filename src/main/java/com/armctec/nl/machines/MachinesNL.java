@@ -21,7 +21,7 @@ import com.armctec.nl.machines.init.ModTileEntity;
 import com.armctec.nl.machines.init.ModNetwork;
 import com.armctec.nl.machines.proxy.CommonProxy;
 import com.armctec.nl.machines.reference.ModConfig;
-import com.armctec.nl.tools.init.ModItemsClient;
+import com.armctec.nl.machines.init.ModItemsClient;
 
 @Mod(modid = ModConfig.MOD_ID, name = ModConfig.MOD_NAME, version = ModConfig.MOD_VERSION, guiFactory = ModConfig.GUI_FACTORY_CLASS, dependencies=ModConfig.DEPENDENCIES)
 public class MachinesNL 

@@ -8,6 +8,7 @@ public class ItemBasic extends Item
 	
 	public ItemBasic() 
 	{
+		super();
 	}
 	
 	public void setItemName(String ModIdName, String name)

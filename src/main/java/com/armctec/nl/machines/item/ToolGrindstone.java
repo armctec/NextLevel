@@ -6,6 +6,8 @@ import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.BlockPos;
 import net.minecraft.world.World;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
 import com.armctec.nl.general.item.ItemBasic;
 import com.armctec.nl.machines.gui.CreativeTabMachines;
@@ -16,12 +18,10 @@ public class ToolGrindstone extends ItemBasic
 {
 	public ToolGrindstone() 
 	{
-		super();
 		setItemName(ModConfig.MOD_ID, Names.Items.TOOLGRINDER);
-		this.setMaxStackSize(1);
-		this.setCreativeTab(CreativeTabMachines.MACHINES_TAB);
-		hasSubtypes = false;
+		this.maxStackSize = 1;
 		setMaxDamage(64);
+		this.setCreativeTab(CreativeTabMachines.MACHINES_TAB);
 	}
 	
 	@Override
@@ -38,5 +38,5 @@ public class ToolGrindstone extends ItemBasic
 			return false;
 		
 		return true;
-	}
+	}	
 }
