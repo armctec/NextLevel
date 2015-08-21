@@ -53,7 +53,7 @@ public class RecipesAnexo
 		this.loto3 = loto3;
 	}
 	
-	public RecipesAnexo(String name, float loto1, float experience)
+	public RecipesAnexo(String name, int stack, float loto1, float experience)
 	{
 		this.experience = experience;
 		this.loto1 = loto1;
@@ -67,7 +67,7 @@ public class RecipesAnexo
 			
 			if(items.size()>0)
 			{
-				this.stack1 = items.get(0);
+				this.stack1 = new ItemStack(items.get(0).getItem(), stack);
 			}
 		}
 		else

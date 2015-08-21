@@ -3,7 +3,9 @@ package com.armctec.nl.machines.init;
 import java.lang.reflect.Field;
 
 import net.minecraft.enchantment.Enchantment;
+import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.enchantment.EnumEnchantmentType;
+import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.common.util.EnumHelper;
 import net.minecraftforge.fml.relauncher.ReflectionHelper;
@@ -63,4 +65,14 @@ public class ModEnchants
 		
 		CreativeTabMachines.MACHINES_TAB.setRelevantEnchantmentTypes(EnchantMachines);
 	}
+	
+	public static int getDoubleLevel(ItemStack stack)
+    {
+		return EnchantmentHelper.getEnchantmentLevel(double_output.effectId, stack);
+    }
+
+	public static int getThroughputLevel(ItemStack stack)
+    {
+		return EnchantmentHelper.getEnchantmentLevel(throughput.effectId, stack);
+    }	
 }

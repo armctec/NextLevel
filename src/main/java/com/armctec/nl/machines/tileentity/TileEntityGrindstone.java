@@ -1,7 +1,5 @@
 package com.armctec.nl.machines.tileentity;
 
-import net.minecraft.enchantment.Enchantment;
-import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.ISidedInventory;
 import net.minecraft.item.ItemStack;
@@ -12,6 +10,7 @@ import net.minecraft.util.EnumFacing;
 import com.armctec.nl.general.tileentity.TileEntityBasicInventory;
 import com.armctec.nl.machines.crafting.GrindestoneRecipes;
 import com.armctec.nl.machines.crafting.RecipesAnexo;
+import com.armctec.nl.machines.init.ModEnchants;
 import com.armctec.nl.machines.inventory.container.ContainerGrindstone;
 import com.armctec.nl.machines.reference.ModConfig;
 
@@ -100,14 +99,17 @@ public class TileEntityGrindstone extends TileEntityBasicInventory implements IU
             return  isfull && result <= this.itemStacks[0].getMaxStackSize(); //Forge BugFix: Make it respect stack sizes properly.
         }
     }
-
+    
     /**
      * Turn one item from the furnace source stack into the appropriate smelted item in the furnace result stack
      */
     private void GrinderItem()
     {
     	if(canGrinder()==false)
+    	{
     		trabalho=0;
+    		posicao=0;
+    	}
     	else
     	{
     		if(trabalho>3)
@@ -116,12 +118,8 @@ public class TileEntityGrindstone extends TileEntityBasicInventory implements IU
         	
     			trabalho-=4;
     		
-    			int enchant = EnchantmentHelper.getEnchantmentLevel(Enchantment.fortune.effectId, itemStacks[4]);
-    			if(enchant > 0)
-    				enchant = 1 + worldObj.rand.nextInt(enchant);
-    			else
-    				enchant = 1;
     			
+    			// Usa toolgrinder para a operacao, com Enchantment Unbreak
     			//itemStacks[4].setItemDamage(itemStacks[4].getItemDamage()+1);
     			itemStacks[4].attemptDamageItem(1,worldObj.rand);
     			if(itemStacks[4].getItemDamage()>=itemStacks[4].getMaxDamage())
@@ -133,33 +131,48 @@ public class TileEntityGrindstone extends TileEntityBasicInventory implements IU
     					markDirty();
     	        	}
     			}
-        	
+    			
+    			// Obtem double_out
+    			int double_out = ModEnchants.getDoubleLevel(itemStacks[4]);
+    			double_out = double_out>0?worldObj.rand.nextInt(double_out):0;
+    			double_out += 1;
+    			
+    			// Obtem throughput
+    			int throughput = ModEnchants.getThroughputLevel(itemStacks[4]);
+    			throughput = throughput>0?worldObj.rand.nextInt(throughput):0;
+    			throughput += 1;
+    			
     			RecipesAnexo items = GrindestoneRecipes.instance().getGrinderResult(itemStacks[3]);
             	if(items == null)
             		return;
             
             	ItemStack itemstack = items.getStack1();
             	
-            	for(int r = 0; r<enchant; r++)
+            	while(throughput > 0 && this.itemStacks[3]!=null)
             	{
-            		if (itemStacks[0] == null)
+            		for(int r = 0; r<double_out; r++)
             		{
-            			itemStacks[0] = itemstack.copy();
-            		}
-            		else 
-            		{
-            			if (itemStacks[0].getItem() == itemstack.getItem())
+            			if (itemStacks[0] == null)
             			{
-	            			itemStacks[0].stackSize += itemstack.stackSize; // Forge BugFix: Results may have multiple items
+            				itemStacks[0] = itemstack.copy();
+            			}
+            			else 
+            			{
+            				if (itemStacks[0].getItem() == itemstack.getItem())
+            				{
+            					itemStacks[0].stackSize += itemstack.stackSize; // Forge BugFix: Results may have multiple items
+            				}
             			}
             		}
-            	}
 
-            	--this.itemStacks[3].stackSize;
+            		--this.itemStacks[3].stackSize;
 
-            	if (this.itemStacks[3].stackSize <= 0)
-            	{
-                	this.itemStacks[3] = null;
+            		if (this.itemStacks[3].stackSize <= 0)
+            		{
+                		this.itemStacks[3] = null;
+            		}
+            		
+            		throughput--;
             	}
         	}
     	}

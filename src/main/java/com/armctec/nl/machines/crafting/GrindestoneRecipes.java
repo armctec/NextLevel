@@ -33,43 +33,54 @@ public class GrindestoneRecipes
     private GrindestoneRecipes()
     {
     	// Init Static items
+    	// Diversos
     	this.addGrinderRecipe(Blocks.sandstone, new ItemStack(Blocks.sand, 4), 0.0F);
     	this.addGrinderRecipe(Blocks.cobblestone, new ItemStack(Blocks.gravel, 1),  0.0F);
     	this.addGrinderRecipe(Blocks.gravel, new RecipesAnexo(new ItemStack(Blocks.sand, 1), 1.0F, new ItemStack(Items.flint), 0.25F, 0.0F));
-    	
-        /*
-    	this.addSmeltingRecipeForBlock(Blocks.iron_ore, new ItemStack(Items.iron_ingot), 0.7F);
-        this.addSmeltingRecipeForBlock(Blocks.gold_ore, new ItemStack(Items.gold_ingot), 1.0F);
-        this.addSmeltingRecipeForBlock(Blocks.diamond_ore, new ItemStack(Items.diamond), 1.0F);
-        this.addSmeltingRecipeForBlock(Blocks.sand, new ItemStack(Blocks.glass), 0.1F);
-        this.addSmelting(Items.porkchop, new ItemStack(Items.cooked_porkchop), 0.35F);
-        this.addSmelting(Items.beef, new ItemStack(Items.cooked_beef), 0.35F);
-        this.addSmelting(Items.chicken, new ItemStack(Items.cooked_chicken), 0.35F);
-        this.addSmelting(Items.rabbit, new ItemStack(Items.cooked_rabbit), 0.35F);
-        this.addSmelting(Items.mutton, new ItemStack(Items.cooked_mutton), 0.35F);
-        this.addSmeltingRecipeForBlock(Blocks.cobblestone, new ItemStack(Blocks.stone), 0.1F);
-        this.addSmeltingRecipe(new ItemStack(Blocks.stonebrick, 1, BlockStoneBrick.DEFAULT_META), new ItemStack(Blocks.stonebrick, 1, BlockStoneBrick.CRACKED_META), 0.1F);
-        this.addSmelting(Items.clay_ball, new ItemStack(Items.brick), 0.3F);
-        this.addSmeltingRecipeForBlock(Blocks.clay, new ItemStack(Blocks.hardened_clay), 0.35F);
-        this.addSmeltingRecipeForBlock(Blocks.cactus, new ItemStack(Items.dye, 1, EnumDyeColor.GREEN.getDyeDamage()), 0.2F);
-        this.addSmeltingRecipeForBlock(Blocks.log, new ItemStack(Items.coal, 1, 1), 0.15F);
-        this.addSmeltingRecipeForBlock(Blocks.log2, new ItemStack(Items.coal, 1, 1), 0.15F);
-        this.addSmeltingRecipeForBlock(Blocks.emerald_ore, new ItemStack(Items.emerald), 1.0F);
-        this.addSmelting(Items.potato, new ItemStack(Items.baked_potato), 0.35F);
-        this.addSmeltingRecipeForBlock(Blocks.netherrack, new ItemStack(Items.netherbrick), 0.1F);
-        this.addSmeltingRecipe(new ItemStack(Blocks.sponge, 1, 1), new ItemStack(Blocks.sponge, 1, 0), 0.15F);
-        this.addSmeltingRecipeForBlock(Blocks.coal_ore, new ItemStack(Items.coal), 0.1F);
-        this.addSmeltingRecipeForBlock(Blocks.redstone_ore, new ItemStack(Items.redstone), 0.7F);
-        this.addSmeltingRecipeForBlock(Blocks.lapis_ore, new ItemStack(Items.dye, 1, EnumDyeColor.BLUE.getDyeDamage()), 0.2F);
-        this.addSmeltingRecipeForBlock(Blocks.quartz_ore, new ItemStack(Items.quartz), 0.2F);
-        */
     }
     
     // Init Dynamic Items (mod items)
     public void initDynamic()
     {
     	// Dust for Ingots,  Gems
-    	this.addGrinderRecipe("ingotAluminium", new RecipesAnexo("dustAluminium", 1.0f, 0.8f));
+    	this.addGrinderRecipe("ingotAluminium", new RecipesAnexo("dustAluminium", 1, 1.0f, 0.0f));
+    	this.addGrinderRecipe("gemAmethyst", new RecipesAnexo("dustAmethyst", 1, 1.0f, 0.0f));
+    	this.addGrinderRecipe("ingotBabbitt", new RecipesAnexo("dustBabbitt", 1, 1.0f, 0.0f));
+    	this.addGrinderRecipe("gemBlackonyx", new RecipesAnexo("dustBlackonyx", 1, 1.0f, 0.0f));
+    	this.addGrinderRecipe("ingotBrass", new RecipesAnexo("dustBrass", 1, 1.0f, 0.0f));
+    	this.addGrinderRecipe("ingotBronze", new RecipesAnexo("dustBronze", 1, 1.0f, 0.0f));
+    	this.addGrinderRecipe("ingotCarbon", new RecipesAnexo("dustCarbon", 1, 1.0f, 0.0f));
+    	this.addGrinderRecipe("ingotCopper", new RecipesAnexo("dustCopper", 1, 1.0f, 0.0f));
+    	this.addGrinderRecipe("ingotCupro", new RecipesAnexo("dustCupro", 1, 1.0f, 0.0f));
+    	this.addGrinderRecipe("ingotElectrum", new RecipesAnexo("dustElectrum", 1, 1.0f, 0.0f));
+    	this.addGrinderRecipe("ingotFersilicon", new RecipesAnexo("dustFersilicon", 1, 1.0f, 0.0f));
+    	this.addGrinderRecipe("ingotGrade", new RecipesAnexo("dustGrade", 1, 1.0f, 0.0f));
+    	this.addGrinderRecipe("ingotHss", new RecipesAnexo("dustHss", 1, 1.0f, 0.0f));
+    	this.addGrinderRecipe("ingotInvar", new RecipesAnexo("dustInvar", 1, 1.0f, 0.0f));
+    	this.addGrinderRecipe("ingotLead", new RecipesAnexo("dustLead", 1, 1.0f, 0.0f));
+    	this.addGrinderRecipe("gemMoonstone", new RecipesAnexo("dustMoonstone", 1, 1.0f, 0.0f));
+    	this.addGrinderRecipe("ingotNickel", new RecipesAnexo("dustNickel", 1, 1.0f, 0.0f));
+    	this.addGrinderRecipe("gemRedonyx", new RecipesAnexo("dustRedonyx", 1, 1.0f, 0.0f));
+    	this.addGrinderRecipe("gemRuby", new RecipesAnexo("dustRuby", 1, 1.0f, 0.0f));
+    	this.addGrinderRecipe("gemSapphire", new RecipesAnexo("dustSapphire", 1, 1.0f, 0.0f));
+    	this.addGrinderRecipe("ingotSilicon", new RecipesAnexo("dustSilicon", 1, 1.0f, 0.0f));
+    	this.addGrinderRecipe("ingotSilver", new RecipesAnexo("dustSilver", 1, 1.0f, 0.0f));
+    	this.addGrinderRecipe("ingotSteel", new RecipesAnexo("dustSteel", 1, 1.0f, 0.0f));
+    	this.addGrinderRecipe("ingotSterling", new RecipesAnexo("dustSterling", 1, 1.0f, 0.0f));
+    	this.addGrinderRecipe("ingotTin", new RecipesAnexo("dustTin", 1, 1.0f, 0.0f));
+    	this.addGrinderRecipe("ingotTitanium", new RecipesAnexo("dustTitanium", 1, 1.0f, 0.0f));
+    	this.addGrinderRecipe("ingotTungsten", new RecipesAnexo("dustTungsten", 1, 1.0f, 0.0f));
+    	this.addGrinderRecipe("ingotZamak", new RecipesAnexo("dustZamak", 1, 1.0f, 0.0f));
+    	this.addGrinderRecipe("ingotZinc", new RecipesAnexo("dustZinc", 1, 1.0f, 0.0f));
+    	
+    	// Dust for Vanilla
+    	this.addGrinderRecipe("ingotIron", new RecipesAnexo("dustIron", 1, 1.0f, 0.0f));
+    	this.addGrinderRecipe("ingotGold", new RecipesAnexo("dustGold", 1, 1.0f, 0.0f));
+    	this.addGrinderRecipe(Items.ender_pearl, new RecipesAnexo("dustEnder", 1, 1.0f, 0.0f));
+    	this.addGrinderRecipe("gemDiamond", new RecipesAnexo("dustDiamond", 1, 1.0f, 0.0f));
+    	this.addGrinderRecipe("gemEmerald", new RecipesAnexo("dustEmerald", 1, 1.0f, 0.0f));
+    	
+    	
     }
 
     public void addGrinderRecipe(String name, ItemStack stack, float experience)

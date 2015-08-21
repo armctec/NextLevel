@@ -108,7 +108,7 @@ public class ModItems
 		RegisterServer.registerItems(SteelIngot, Names.Items.STEEL_INGOT, "ingotSteel");
 		RegisterServer.registerItems(FersiliconIngot, Names.Items.FERSILICON_INGOT, "ingotFersilicon");
 		RegisterServer.registerItems(ElectrumIngot, Names.Items.ELECTRUM_INGOT, "ingotElectrum");
-		RegisterServer.registerItems(HssIngot, Names.Items.HSS_INGOT, "ingotHSS");
+		RegisterServer.registerItems(HssIngot, Names.Items.HSS_INGOT, "ingotHss");
 		RegisterServer.registerItems(BabbittIngot, Names.Items.BABBITT_INGOT, "ingotBabbitt");
 		RegisterServer.registerItems(GradeIngot, Names.Items.GRADE_INGOT, "ingotGrade");
 		RegisterServer.registerItems(CarbonIngot, Names.Items.CARBON_INGOT, "ingotCarbon");	
@@ -145,8 +145,9 @@ public class ModItems
 		// Vanilla Dust
 		RegisterServer.registerItems(DiamondDust, Names.Items.DIAMOND_DUST, "dustDiamond");
 		RegisterServer.registerItems(EmeraldDust, Names.Items.EMERALD_DUST, "dustEmerald");
-		RegisterServer.registerItems(EnderDust, Names.Items.ENDER_PEARL_DUST, "dustEnderPearl");
+		RegisterServer.registerItems(EnderDust, Names.Items.ENDER_PEARL_DUST, "dustEnder");
 		RegisterServer.registerItems(GoldDust, Names.Items.GOLD_DUST, "dustGold");
 		RegisterServer.registerItems(IronDust, Names.Items.IRON_DUST, "dustIron");
+		// Falta Obsidian dust
 	}
 }
