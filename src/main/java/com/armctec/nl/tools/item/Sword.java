@@ -1,6 +1,5 @@
 package com.armctec.nl.tools.item;
 
-import net.minecraft.item.Item.ToolMaterial;
 import net.minecraft.item.ItemSword;
 
 import com.armctec.nl.tools.gui.CreativeTabTools;

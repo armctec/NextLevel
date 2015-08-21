@@ -1,25 +1,19 @@
 package com.armctec.nl.machines.block;
 
-import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.IProperty;
-import net.minecraft.block.properties.PropertyDirection;
 import net.minecraft.block.properties.PropertyInteger;
 import net.minecraft.block.state.BlockState;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.init.Blocks;
 import net.minecraft.inventory.Container;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.inventory.InventoryHelper;
 import net.minecraft.item.Item;
-import net.minecraft.network.play.server.S22PacketMultiBlockChange.BlockUpdateData;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.BlockPos;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumWorldBlockLayer;
-import net.minecraft.util.MathHelper;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
@@ -28,12 +22,10 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 import com.armctec.nl.general.block.BlockBasicContainer;
 import com.armctec.nl.machines.MachinesNL;
 import com.armctec.nl.machines.gui.CreativeTabMachines;
-import com.armctec.nl.machines.handler.GuiHandlerAdvancedCrafting;
 import com.armctec.nl.machines.handler.GuiHandlerGrindstone;
 import com.armctec.nl.machines.init.ModBlocks;
 import com.armctec.nl.machines.reference.ModConfig;
 import com.armctec.nl.machines.reference.Names;
-import com.armctec.nl.machines.tileentity.TileEntityAdvancedCrafting;
 import com.armctec.nl.machines.tileentity.TileEntityGrindstone;
 
 public class BlockGrindstone extends BlockBasicContainer 

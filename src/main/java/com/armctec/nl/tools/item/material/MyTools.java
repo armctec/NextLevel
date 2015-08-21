@@ -1,10 +1,10 @@
 package com.armctec.nl.tools.item.material;
 
-import com.armctec.nl.ores.init.ModItems;
-
 import net.minecraft.item.Item.ToolMaterial;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.common.util.EnumHelper;
+
+import com.armctec.nl.ores.init.ModItems;
 
 public class MyTools 
 {
@@ -123,15 +123,15 @@ public class MyTools
 		BRONZE.setRepairItem(new ItemStack(ModItems.BronzeIngot));
 		BRASS.setRepairItem(new ItemStack(ModItems.BrassIngot));
 		ZAMAK.setRepairItem(new ItemStack(ModItems.ZamakIngot));
-		STERLING.setRepairItem(new ItemStack(ModItems.SterlingSilverIngot));
-		CUPRO.setRepairItem(new ItemStack(ModItems.CupronickelIngot));
+		STERLING.setRepairItem(new ItemStack(ModItems.SterlingIngot));
+		CUPRO.setRepairItem(new ItemStack(ModItems.CuproIngot));
 		INVAR.setRepairItem(new ItemStack(ModItems.InvarIngot));
 		STEEL.setRepairItem(new ItemStack(ModItems.SteelIngot));
-		FERSILICON.setRepairItem(new ItemStack(ModItems.FerrosiliconIngot));
+		FERSILICON.setRepairItem(new ItemStack(ModItems.FersiliconIngot));
 		ELECTRUM.setRepairItem(new ItemStack(ModItems.ElectrumIngot));
 		HSS.setRepairItem(new ItemStack(ModItems.HssIngot));
 		BABBITT.setRepairItem(new ItemStack(ModItems.BabbittIngot));
-		GRADE.setRepairItem(new ItemStack(ModItems.Grade5Ingot));
+		GRADE.setRepairItem(new ItemStack(ModItems.GradeIngot));
 		CARBON.setRepairItem(new ItemStack(ModItems.CarbonIngot));
 	}
 }

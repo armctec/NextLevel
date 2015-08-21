@@ -1,6 +1,5 @@
 package com.armctec.nl.tools;
 
-import net.minecraft.item.Item.ToolMaterial;
 import net.minecraftforge.fml.common.FMLCommonHandler;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.SidedProxy;

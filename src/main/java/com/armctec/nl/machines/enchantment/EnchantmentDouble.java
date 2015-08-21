@@ -1,15 +1,11 @@
 package com.armctec.nl.machines.enchantment;
 
-import com.armctec.nl.machines.item.ToolGrindstone;
-import com.armctec.nl.machines.reference.ModConfig;
-
 import net.minecraft.enchantment.Enchantment;
-import net.minecraft.enchantment.EnchantmentLootBonus;
 import net.minecraft.enchantment.EnumEnchantmentType;
-import net.minecraft.item.ItemBook;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
-import net.minecraftforge.common.util.EnumHelper;
+
+import com.armctec.nl.machines.item.ToolGrindstone;
 
 public class EnchantmentDouble extends Enchantment
 {

@@ -1,10 +1,5 @@
 package com.armctec.nl.ores.init;
 
-import net.minecraft.block.Block;
-import net.minecraft.item.Item;
-import net.minecraftforge.fml.common.registry.GameRegistry;
-import net.minecraftforge.oredict.OreDictionary;
-
 import com.armctec.nl.general.utility.RegisterServer;
 import com.armctec.nl.ores.item.ItemDust;
 import com.armctec.nl.ores.item.ItemGem;

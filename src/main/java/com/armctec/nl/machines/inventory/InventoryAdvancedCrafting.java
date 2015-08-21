@@ -1,14 +1,12 @@
 package com.armctec.nl.machines.inventory;
 
-import com.armctec.nl.machines.tileentity.TileEntityAdvancedCrafting;
-
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.Container;
 import net.minecraft.inventory.InventoryCrafting;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.ChatComponentText;
-import net.minecraft.util.ChatComponentTranslation;
 import net.minecraft.util.IChatComponent;
+
+import com.armctec.nl.machines.tileentity.TileEntityAdvancedCrafting;
 
 public class InventoryAdvancedCrafting extends InventoryCrafting 
 {

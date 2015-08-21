@@ -1,20 +1,16 @@
 package com.armctec.nl.machines.gui;
 
-import com.armctec.nl.general.tileentity.TileEntityBasicInventory;
-import com.armctec.nl.machines.inventory.container.ContainerAdvancedCrafting;
-import com.armctec.nl.machines.reference.ModConfig;
-import com.armctec.nl.machines.tileentity.TileEntityAdvancedCrafting;
-
 import net.minecraft.client.gui.inventory.GuiContainer;
-import net.minecraft.client.gui.inventory.GuiCrafting;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.resources.I18n;
 import net.minecraft.entity.player.InventoryPlayer;
-import net.minecraft.inventory.Container;
-import net.minecraft.inventory.ContainerWorkbench;
 import net.minecraft.util.BlockPos;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.World;
+
+import com.armctec.nl.machines.inventory.container.ContainerAdvancedCrafting;
+import com.armctec.nl.machines.reference.ModConfig;
+import com.armctec.nl.machines.tileentity.TileEntityAdvancedCrafting;
 
 public class GuiAdvancedCrafting extends GuiContainer
 {

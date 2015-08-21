@@ -1,9 +1,9 @@
 package com.armctec.nl.tools.item;
 
-import com.armctec.nl.tools.reference.ModConfig;
-import com.armctec.nl.tools.gui.CreativeTabTools;
-
 import net.minecraft.item.ItemPickaxe;
+
+import com.armctec.nl.tools.gui.CreativeTabTools;
+import com.armctec.nl.tools.reference.ModConfig;
 
 public class Pickaxe extends ItemPickaxe
 {

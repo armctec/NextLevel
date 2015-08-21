@@ -1,16 +1,15 @@
 package com.armctec.nl.machines.handler;
 
-import com.armctec.nl.general.tileentity.TileEntityBasicInventory;
-import com.armctec.nl.machines.gui.GuiAdvancedCrafting;
-import com.armctec.nl.machines.inventory.container.ContainerAdvancedCrafting;
-import com.armctec.nl.machines.reference.Names;
-import com.armctec.nl.machines.tileentity.TileEntityAdvancedCrafting;
-
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.BlockPos;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.common.network.IGuiHandler;
+
+import com.armctec.nl.machines.gui.GuiAdvancedCrafting;
+import com.armctec.nl.machines.inventory.container.ContainerAdvancedCrafting;
+import com.armctec.nl.machines.reference.Names;
+import com.armctec.nl.machines.tileentity.TileEntityAdvancedCrafting;
 
 public class GuiHandlerAdvancedCrafting implements IGuiHandler
 {

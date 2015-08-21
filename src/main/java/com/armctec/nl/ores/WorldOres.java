@@ -9,12 +9,12 @@ import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 
 import com.armctec.nl.general.utility.LogHelper;
-import com.armctec.nl.ores.init.ModRecipes;
 import com.armctec.nl.ores.handler.ConfigurationHandler;
 import com.armctec.nl.ores.init.ModBlocks;
 import com.armctec.nl.ores.init.ModBlocksClient;
 import com.armctec.nl.ores.init.ModItems;
 import com.armctec.nl.ores.init.ModItemsClient;
+import com.armctec.nl.ores.init.ModRecipes;
 import com.armctec.nl.ores.proxy.CommonProxy;
 import com.armctec.nl.ores.reference.ModConfig;
 import com.armctec.nl.ores.world.gen.WorldGenOre;

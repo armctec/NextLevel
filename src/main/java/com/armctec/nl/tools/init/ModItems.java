@@ -8,9 +8,9 @@ import com.armctec.nl.tools.item.Hoe;
 import com.armctec.nl.tools.item.Pickaxe;
 import com.armctec.nl.tools.item.Shovel;
 import com.armctec.nl.tools.item.Sword;
-import com.armctec.nl.tools.reference.Names;
 import com.armctec.nl.tools.item.material.MyArmor;
 import com.armctec.nl.tools.item.material.MyTools;
+import com.armctec.nl.tools.reference.Names;
 
 public class ModItems 
 {

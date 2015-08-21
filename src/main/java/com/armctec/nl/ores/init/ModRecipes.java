@@ -2,7 +2,6 @@ package com.armctec.nl.ores.init;
 
 import net.minecraft.block.Block;
 import net.minecraft.init.Items;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.oredict.ShapedOreRecipe;
@@ -14,20 +13,20 @@ public class ModRecipes
 		// Smelting Ore
 		GameRegistry.addSmelting(ModBlocks.AluminiumOre, new ItemStack(ModItems.AluminiumIngot), 0.5F);
 		GameRegistry.addSmelting(ModBlocks.AmethystOre, new ItemStack(ModItems.AmethystGem), 0.5F);
-		GameRegistry.addSmelting(ModBlocks.BlackonyxOre, new ItemStack(ModItems.BlackonyxGem), 0.5F);
+		GameRegistry.addSmelting(ModBlocks.BlackonyxOre, new ItemStack(ModItems.BlackonyxGem), 0.7F);
 		GameRegistry.addSmelting(ModBlocks.CopperOre, new ItemStack(ModItems.CopperIngot), 0.5F);
-		GameRegistry.addSmelting(ModBlocks.LeadOre, new ItemStack(ModItems.LeadIngot), 0.5F);
-		GameRegistry.addSmelting(ModBlocks.MoonstoneOre, new ItemStack(ModItems.MoonstoneGem), 0.5F);
-		GameRegistry.addSmelting(ModBlocks.NickelOre, new ItemStack(ModItems.NickelIngot), 0.5F);
-		GameRegistry.addSmelting(ModBlocks.RedonyxOre, new ItemStack(ModItems.RedonyxGem), 0.5F);
-		GameRegistry.addSmelting(ModBlocks.RubyOre, new ItemStack(ModItems.RubyGem), 0.5F);
-		GameRegistry.addSmelting(ModBlocks.SapphireOre, new ItemStack(ModItems.SapphireGem), 0.5F);
+		GameRegistry.addSmelting(ModBlocks.LeadOre, new ItemStack(ModItems.LeadIngot), 0.8F);
+		GameRegistry.addSmelting(ModBlocks.MoonstoneOre, new ItemStack(ModItems.MoonstoneGem), 0.8F);
+		GameRegistry.addSmelting(ModBlocks.NickelOre, new ItemStack(ModItems.NickelIngot), 0.9F);
+		GameRegistry.addSmelting(ModBlocks.RedonyxOre, new ItemStack(ModItems.RedonyxGem), 0.7F);
+		GameRegistry.addSmelting(ModBlocks.RubyOre, new ItemStack(ModItems.RubyGem), 1.0F);
+		GameRegistry.addSmelting(ModBlocks.SapphireOre, new ItemStack(ModItems.SapphireGem), 1.0F);
 		GameRegistry.addSmelting(ModBlocks.SiliconOre, new ItemStack(ModItems.SiliconIngot), 0.5F);
-		GameRegistry.addSmelting(ModBlocks.SilverOre, new ItemStack(ModItems.SilverIngot), 0.5F);
+		GameRegistry.addSmelting(ModBlocks.SilverOre, new ItemStack(ModItems.SilverIngot), 0.7F);
 		GameRegistry.addSmelting(ModBlocks.TinOre, new ItemStack(ModItems.TinIngot), 0.5F);
-		GameRegistry.addSmelting(ModBlocks.TitaniumOre, new ItemStack(ModItems.TitaniumIngot), 0.5F);
-		GameRegistry.addSmelting(ModBlocks.TungstenOre, new ItemStack(ModItems.TungstenIngot), 0.5F);
-		GameRegistry.addSmelting(ModBlocks.ZincOre, new ItemStack(ModItems.ZincIngot), 0.5F);
+		GameRegistry.addSmelting(ModBlocks.TitaniumOre, new ItemStack(ModItems.TitaniumIngot), 1.0F);
+		GameRegistry.addSmelting(ModBlocks.TungstenOre, new ItemStack(ModItems.TungstenIngot), 1.0F);
+		GameRegistry.addSmelting(ModBlocks.ZincOre, new ItemStack(ModItems.ZincIngot), 0.8F);
 		
 		// Smelting Dust
 		GameRegistry.addSmelting(ModItems.AluminiumDust, new ItemStack(ModItems.AluminiumIngot), 0.0F);
@@ -60,9 +59,9 @@ public class ModRecipes
 		
 		// Block recipes
 		makeBlock(ModBlocks.AluminiumBlock, "ingotAluminium");
-		makeBlock(ModBlocks.AmethystBlock, "ingotAmethyst");
+		makeBlock(ModBlocks.AmethystBlock, "gemAmethyst");
 		makeBlock(ModBlocks.BabbittBlock, "ingotBabbitt");
-		makeBlock(ModBlocks.BlackonyxBlock, "ingotBlackonyx");
+		makeBlock(ModBlocks.BlackonyxBlock, "gemBlackonyx");
 		makeBlock(ModBlocks.BrassBlock, "ingotBrass");
 		makeBlock(ModBlocks.BronzeBlock, "ingotBronze");
 		makeBlock(ModBlocks.CarbonBlock, "ingotCarbon");
@@ -74,11 +73,11 @@ public class ModRecipes
 		makeBlock(ModBlocks.HssBlock, "ingotHss");
 		makeBlock(ModBlocks.InvarBlock, "ingotInvar");
 		makeBlock(ModBlocks.LeadBlock, "ingotLead");
-		makeBlock(ModBlocks.MoonstoneBlock, "ingotMoonstone");
+		makeBlock(ModBlocks.MoonstoneBlock, "gemMoonstone");
 		makeBlock(ModBlocks.NickelBlock, "ingotNickel");
-		makeBlock(ModBlocks.RedonyxBlock, "ingotRedonyx");
-		makeBlock(ModBlocks.RubyBlock, "ingotRuby");
-		makeBlock(ModBlocks.SapphireBlock, "ingotSapphire");
+		makeBlock(ModBlocks.RedonyxBlock, "gemRedonyx");
+		makeBlock(ModBlocks.RubyBlock, "gemRuby");
+		makeBlock(ModBlocks.SapphireBlock, "gemSapphire");
 		makeBlock(ModBlocks.SiliconBlock, "ingotSilicon");
 		makeBlock(ModBlocks.SilverBlock, "ingotSilver");
 		makeBlock(ModBlocks.SteelBlock, "ingotSteel");

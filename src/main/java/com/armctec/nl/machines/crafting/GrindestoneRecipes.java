@@ -1,22 +1,19 @@
 package com.armctec.nl.machines.crafting;
 
-import com.armctec.nl.machines.reference.ModConfig;
-import com.google.common.collect.Maps;
-
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 
 import net.minecraft.block.Block;
-import net.minecraft.block.BlockStoneBrick;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
-import net.minecraft.item.EnumDyeColor;
 import net.minecraft.item.Item;
-import net.minecraft.item.ItemFishFood;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.oredict.OreDictionary;
+
+import com.armctec.nl.machines.reference.ModConfig;
+import com.google.common.collect.Maps;
 
 public class GrindestoneRecipes
 {

@@ -1,11 +1,11 @@
 package com.armctec.nl.tools.item;
 
-import com.armctec.nl.tools.gui.CreativeTabTools;
-import com.armctec.nl.tools.reference.ModConfig;
-
 import net.minecraft.entity.Entity;
 import net.minecraft.item.ItemArmor;
 import net.minecraft.item.ItemStack;
+
+import com.armctec.nl.tools.gui.CreativeTabTools;
+import com.armctec.nl.tools.reference.ModConfig;
 
 public class Armor extends ItemArmor 
 {

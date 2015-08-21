@@ -1,10 +1,9 @@
 package com.armctec.nl.tools.item.material;
 
-import com.armctec.nl.ores.init.ModItems;
-
-import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemArmor.ArmorMaterial;
 import net.minecraftforge.common.util.EnumHelper;
+
+import com.armctec.nl.ores.init.ModItems;
 
 public class MyArmor 
 {
@@ -89,15 +88,15 @@ public class MyArmor
 		BRONZE.customCraftingMaterial = ModItems.BronzeIngot;
 		BRASS.customCraftingMaterial = ModItems.BrassIngot;
 		ZAMAK.customCraftingMaterial = ModItems.ZamakIngot;
-		STERLING.customCraftingMaterial = ModItems.SterlingSilverIngot;
-		CUPRO.customCraftingMaterial = ModItems.CupronickelIngot;
+		STERLING.customCraftingMaterial = ModItems.SterlingIngot;
+		CUPRO.customCraftingMaterial = ModItems.CuproIngot;
 		INVAR.customCraftingMaterial = ModItems.InvarIngot;
 		STEEL.customCraftingMaterial = ModItems.SteelIngot;
-		FERSILICON.customCraftingMaterial = ModItems.FerrosiliconIngot;
+		FERSILICON.customCraftingMaterial = ModItems.FersiliconIngot;
 		ELECTRUM.customCraftingMaterial = ModItems.ElectrumIngot;
 		HSS.customCraftingMaterial = ModItems.HssIngot;
 		BABBITT.customCraftingMaterial = ModItems.BabbittIngot;
-		GRADE.customCraftingMaterial = ModItems.Grade5Ingot;
+		GRADE.customCraftingMaterial = ModItems.GradeIngot;
 		CARBON.customCraftingMaterial = ModItems.CarbonIngot;
 	}	
 }

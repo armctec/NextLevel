@@ -1,10 +1,10 @@
 package com.armctec.nl.machines.inventory.slot;
 
-import com.armctec.nl.machines.init.ModItems;
-
 import net.minecraft.inventory.IInventory;
 import net.minecraft.inventory.Slot;
 import net.minecraft.item.ItemStack;
+
+import com.armctec.nl.machines.init.ModItems;
 
 public class SlotGrindstone extends Slot 
 {
