@@ -1,5 +1,6 @@
 package com.armctec.nl.machines.crafting;
 
+import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
@@ -19,7 +20,7 @@ public class GrindestoneRecipes
 {
     private static final GrindestoneRecipes grinderBase = new GrindestoneRecipes();
     /** The list of grinder results. */
-    private Map grinderList = Maps.newHashMap();
+    private HashMap<ItemStack, RecipesAnexo> grinderList = Maps.newHashMap();
     
     /**
      * Returns an instance of FurnaceRecipes.
@@ -31,6 +32,7 @@ public class GrindestoneRecipes
 
     private GrindestoneRecipes()
     {
+    	// Init Static items
     	this.addGrinderRecipe(Blocks.sandstone, new ItemStack(Blocks.sand, 4), 0.0F);
     	this.addGrinderRecipe(Blocks.cobblestone, new ItemStack(Blocks.gravel, 1),  0.0F);
     	this.addGrinderRecipe(Blocks.gravel, new RecipesAnexo(new ItemStack(Blocks.sand, 1), 1.0F, new ItemStack(Items.flint), 0.25F, 0.0F));
@@ -62,6 +64,13 @@ public class GrindestoneRecipes
         this.addSmeltingRecipeForBlock(Blocks.quartz_ore, new ItemStack(Items.quartz), 0.2F);
         */
     }
+    
+    // Init Dynamic Items (mod items)
+    public void initDynamic()
+    {
+    	// Dust for Ingots,  Gems
+    	this.addGrinderRecipe("ingotAluminium", new RecipesAnexo("dustAluminium", 1.0f, 0.8f));
+    }
 
     public void addGrinderRecipe(String name, ItemStack stack, float experience)
     {
@@ -72,6 +81,8 @@ public class GrindestoneRecipes
     		ModConfig.Log.info("Erro ao tentar achar: "+name);
     		return;
     	}
+    	
+    	ModConfig.Log.info("addGrinderRecipe: items.size = "+items.size());
     	
     	for(int i=0; i<items.size(); i++)
     	{
@@ -91,6 +102,8 @@ public class GrindestoneRecipes
     		ModConfig.Log.info("Erro ao tentar achar: "+name);
     		return;
     	}
+    	
+    	ModConfig.Log.info("addGrinderRecipe: items.size = "+items.size());
     	
     	for(int i=0; i<items.size(); i++)
     	{
@@ -175,8 +188,8 @@ public class GrindestoneRecipes
      */
     public RecipesAnexo getGrinderResult(ItemStack stack)
     {
-        Iterator iterator = this.grinderList.entrySet().iterator();
-        Entry entry;
+        Iterator<Entry<ItemStack, RecipesAnexo>> iterator = this.grinderList.entrySet().iterator();
+        Entry<ItemStack, RecipesAnexo> entry;
 
         do
         {
@@ -185,7 +198,7 @@ public class GrindestoneRecipes
                 return null;
             }
 
-            entry = (Entry)iterator.next();
+            entry = (Entry<ItemStack, RecipesAnexo>)iterator.next();
         }
         while (!this.compareItemStacks(stack, (ItemStack)entry.getKey()));
 
@@ -200,7 +213,7 @@ public class GrindestoneRecipes
         return stack2.getItem() == stack1.getItem() && (stack2.getMetadata() == 32767 || stack2.getMetadata() == stack1.getMetadata());
     }
 
-    public Map getGrinderList()
+    public Map<ItemStack, RecipesAnexo> getGrinderList()
     {
         return this.grinderList;
     }

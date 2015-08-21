@@ -55,10 +55,10 @@ public class ModEnchants
 		initReflect();
 		
 		double_output = new EnchantmentDouble(getEmptyEnchantId(), new ResourceLocation(ModConfig.MOD_ID, "Double"), 3, EnchantMachines);
-		double_output.addToBookList(double_output);
+		Enchantment.addToBookList(double_output);
 		
 		throughput = new EnchantmentThroughput(getEmptyEnchantId(), new ResourceLocation(ModConfig.MOD_ID, "Throughput"), 10, EnchantMachines);
-		throughput.addToBookList(throughput);
+		Enchantment.addToBookList(throughput);
 
 		
 		CreativeTabMachines.MACHINES_TAB.setRelevantEnchantmentTypes(EnchantMachines);

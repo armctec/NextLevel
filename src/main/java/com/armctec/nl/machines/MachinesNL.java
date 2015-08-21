@@ -8,6 +8,7 @@ import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 
 import com.armctec.nl.general.utility.LogHelper;
+import com.armctec.nl.machines.crafting.GrindestoneRecipes;
 import com.armctec.nl.machines.handler.ConfigurationHandler;
 import com.armctec.nl.machines.init.ModBlocks;
 import com.armctec.nl.machines.init.ModBlocksClient;
@@ -68,6 +69,7 @@ public class MachinesNL
     public void postInit(FMLPostInitializationEvent event)
     {
         ModEnchants.init();
+        GrindestoneRecipes.instance().initDynamic();
         
 		proxy.postInit();
         Log.info("Post Initialization Complete!");

@@ -1,6 +1,11 @@
 package com.armctec.nl.machines.crafting;
 
+import java.util.List;
+
+import com.armctec.nl.machines.reference.ModConfig;
+
 import net.minecraft.item.ItemStack;
+import net.minecraftforge.oredict.OreDictionary;
 
 public class RecipesAnexo 
 {
@@ -46,6 +51,29 @@ public class RecipesAnexo
 		this.loto2 = loto2;
 		this.stack3 = stack3;
 		this.loto3 = loto3;
+	}
+	
+	public RecipesAnexo(String name, float loto1, float experience)
+	{
+		this.experience = experience;
+		this.loto1 = loto1;
+		this.stack1 = null;
+
+		List<ItemStack> items = OreDictionary.getOres(name);
+
+		if(items!=null)
+		{
+			ModConfig.Log.info("RecipesAnexo: items.size = "+items.size());
+			
+			if(items.size()>0)
+			{
+				this.stack1 = items.get(0);
+			}
+		}
+		else
+		{
+			ModConfig.Log.info("RecipesAnexo: Nao encontrado:"+name);
+		}
 	}
 	
 	public ItemStack getStack1()
