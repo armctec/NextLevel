@@ -1,6 +1,6 @@
 {
     "parent": "block/cube_all",
     "textures": {
-        "all": "nextlevelores:blocks/sapphire_block_block"
+        "all": "nextlevelores:blocks/sapphire_block"
     }
 }

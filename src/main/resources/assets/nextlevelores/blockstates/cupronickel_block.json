@@ -1,5 +1,5 @@
 {
     "variants": {
-        "normal": { "model": "nextlevelores:cupronickel_block_block" }
+        "normal": { "model": "nextlevelores:cupronickel_block" }
     }
 }

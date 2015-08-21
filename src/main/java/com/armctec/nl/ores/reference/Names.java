@@ -24,7 +24,7 @@ public class Names
 		public final static String REDONYX_ORE = "redonyx_ore";
 		public final static String AMETHYST_ORE = "amethyst_ore";
 		
-		//BLOCKS
+		// Blocks
 		public final static String ALUMINIUM_BLOCK = "aluminium_block";
 		public final static String AMETHYST_BLOCK = "amethyst_block";
 		public final static String BABBITT_BLOCK = "babbitt_block";
@@ -92,7 +92,42 @@ public class Names
 		public final static String BABBITT_INGOT = "babbitt_ingot"; // Lead, Tin
 		public final static String GRADE_INGOT = "grade_5_ingot"; // Titanium, Aluminium
 		public final static String CARBON_INGOT = "carbon_ingot"; // Coal, Charcoal
-
+		// Dusts
+		public final static String ALUMINIUM_DUST = "aluminium_dust";
+		public final static String AMETHYST_DUST = "amethyst_dust";
+		public final static String BABBITT_DUST = "babbitt_dust";
+		public final static String BLACKONYX_DUST = "blackonyx_dust";
+		public final static String BRASS_DUST = "brass_dust";
+		public final static String BRONZE_DUST = "bronze_dust";
+		public final static String CARBON_DUST = "carbon_dust";
+		public final static String COPPER_DUST = "copper_dust";
+		public final static String CUPRO_DUST = "cupronickel_dust";
+		public final static String ELECTRUM_DUST = "electrum_dust";
+		public final static String FERSILICON_DUST = "ferrosilicon_dust";
+		public final static String GRADE_DUST = "grade_5_dust";
+		public final static String HSS_DUST = "hss_dust";
+		public final static String INVAR_DUST = "invar_dust";
+		public final static String LEAD_DUST = "lead_dust";
+		public final static String MOONSTONE_DUST = "moonstone_dust";
+		public final static String NICKEL_DUST = "nickel_dust";
+		public final static String REDONYX_DUST = "redonyx_dust";
+		public final static String RUBY_DUST = "ruby_dust";
+		public final static String SAPPHIRE_DUST = "sapphire_dust";
+		public final static String SILICON_DUST = "silicon_dust";
+		public final static String SILVER_DUST = "silver_dust";
+		public final static String STEEL_DUST = "steel_dust";
+		public final static String STERLING_DUST = "sterling_silver_dust";
+		public final static String TIN_DUST = "tin_dust";
+		public final static String TITANIUM_DUST = "titanium_dust";
+		public final static String TUNGSTEN_DUST = "tungsten_dust";
+		public final static String ZAMAK_DUST = "zamak_dust";
+		public final static String ZINC_DUST = "zinc_dust";
+		// Vanilla dusts
+		public final static String DIAMOND_DUST = "diamond_dust";
+		public final static String EMERALD_DUST = "emerald_dust";
+		public final static String ENDER_PEARL_DUST = "ender_pearl_dust";
+		public final static String GOLD_DUST = "gold_dust";
+		public final static String IRON_DUST = "iron_dust";
     }
 
     public static final class Entites

@@ -1,5 +1,5 @@
 {
     "variants": {
-        "normal": { "model": "nextlevelores:bronze_block_block" }
+        "normal": { "model": "nextlevelores:bronze_block" }
     }
 }

@@ -1,5 +1,5 @@
 {
     "variants": {
-        "normal": { "model": "nextlevelores:moonstone_block_block" }
+        "normal": { "model": "nextlevelores:moonstone_block" }
     }
 }

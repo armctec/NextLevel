@@ -1,5 +1,5 @@
 {
     "variants": {
-        "normal": { "model": "nextlevelores:hss_block_block" }
+        "normal": { "model": "nextlevelores:hss_block" }
     }
 }

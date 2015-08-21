@@ -1,5 +1,5 @@
 {
     "variants": {
-        "normal": { "model": "nextlevelores:grade_5_block_block" }
+        "normal": { "model": "nextlevelores:grade_5_block" }
     }
 }

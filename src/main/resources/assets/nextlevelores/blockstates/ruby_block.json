@@ -1,5 +1,5 @@
 {
     "variants": {
-        "normal": { "model": "nextlevelores:ruby_block_block" }
+        "normal": { "model": "nextlevelores:ruby_block" }
     }
 }

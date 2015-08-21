@@ -1,6 +1,6 @@
 {
     "parent": "block/cube_all",
     "textures": {
-        "all": "nextlevelores:blocks/amethyst_block_block"
+        "all": "nextlevelores:blocks/amethyst_block"
     }
 }

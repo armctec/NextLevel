@@ -1,5 +1,5 @@
 {
     "variants": {
-        "normal": { "model": "nextlevelores:silicon_block_block" }
+        "normal": { "model": "nextlevelores:silicon_block" }
     }
 }

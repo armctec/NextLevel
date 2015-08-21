@@ -8,7 +8,7 @@ public class ModBlocksClient
 {
 	public static void init()
 	{
-		// Blocks
+		// Ores
 		RegisterClient.registerBlock(ModConfig.MOD_ID, Names.Blocks.COPPER_ORE);
 		RegisterClient.registerBlock(ModConfig.MOD_ID, Names.Blocks.TIN_ORE);
 		RegisterClient.registerBlock(ModConfig.MOD_ID, Names.Blocks.LEAD_ORE);

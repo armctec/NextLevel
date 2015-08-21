@@ -1,5 +1,5 @@
 {
     "variants": {
-        "normal": { "model": "nextlevelores:tin_block_block" }
+        "normal": { "model": "nextlevelores:tin_block" }
     }
 }

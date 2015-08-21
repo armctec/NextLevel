@@ -1,5 +1,5 @@
 {
     "variants": {
-        "normal": { "model": "nextlevelores:titanium_block_block" }
+        "normal": { "model": "nextlevelores:titanium_block" }
     }
 }

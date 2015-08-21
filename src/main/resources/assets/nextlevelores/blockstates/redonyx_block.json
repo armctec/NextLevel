@@ -1,5 +1,5 @@
 {
     "variants": {
-        "normal": { "model": "nextlevelores:redonyx_block_block" }
+        "normal": { "model": "nextlevelores:redonyx_block" }
     }
 }
