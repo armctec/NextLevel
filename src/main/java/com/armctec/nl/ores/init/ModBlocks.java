@@ -75,7 +75,7 @@ public class ModBlocks
         RegisterServer.registerBlocks(SiliconOre, Names.Blocks.SILICON_ORE, "oreSilicon");
         // Gems
         RegisterServer.registerBlocks(RubyOre, Names.Blocks.RUBY_ORE, "oreRuby");
-        RegisterServer.registerBlocks(SapphireOre, Names.Blocks.SAPPHIRE_ORE, "oreSaphire");
+        RegisterServer.registerBlocks(SapphireOre, Names.Blocks.SAPPHIRE_ORE, "oreSapphire");
         RegisterServer.registerBlocks(MoonstoneOre, Names.Blocks.MOONSTONE_ORE, "oreMoonstone");
         RegisterServer.registerBlocks(BlackonyxOre, Names.Blocks.BLACKONYX_ORE, "oreBlackonyx");
         RegisterServer.registerBlocks(RedonyxOre, Names.Blocks.REDONYX_ORE, "oreRedonyx");

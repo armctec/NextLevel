@@ -37,6 +37,11 @@ public class GrindestoneRecipes
     	this.addGrinderRecipe(Blocks.sandstone, new ItemStack(Blocks.sand, 4), 0.0F);
     	this.addGrinderRecipe(Blocks.cobblestone, new ItemStack(Blocks.gravel, 1),  0.0F);
     	this.addGrinderRecipe(Blocks.gravel, new RecipesAnexo(new ItemStack(Blocks.sand, 1), 1.0F, new ItemStack(Items.flint), 0.25F, 0.0F));
+    	
+    	// Dust
+    	this.addGrinderRecipe(Blocks.redstone_ore, new ItemStack(Items.redstone, 1), 0.8F);
+    	this.addGrinderRecipe(Blocks.lapis_ore, new ItemStack(Items.dye, 1, 4), 0.8F);
+    	
     }
     
     // Init Dynamic Items (mod items)
@@ -80,7 +85,24 @@ public class GrindestoneRecipes
     	this.addGrinderRecipe("gemDiamond", new RecipesAnexo("dustDiamond", 1, 1.0f, 0.0f));
     	this.addGrinderRecipe("gemEmerald", new RecipesAnexo("dustEmerald", 1, 1.0f, 0.0f));
     	
-    	
+    	// Ores
+    	this.addGrinderRecipe("oreAluminium", new RecipesAnexo("dustAluminium", 1, 1.0f, 0.5f));
+    	this.addGrinderRecipe("oreAmethyst", new RecipesAnexo("gemAmethyst", 1, 1.0f, 0.5f));
+    	this.addGrinderRecipe("oreBlackonyx", new RecipesAnexo("gemBlackonyx", 1, 1.0f, 0.7f));
+    	this.addGrinderRecipe("oreCopper", new RecipesAnexo("dustCopper", 1, 1.0f, 0.5f));
+    	this.addGrinderRecipe("oreLead", new RecipesAnexo("dustLead", 1, 1.0f, 0.8f));
+    	this.addGrinderRecipe("oreMoonstone", new RecipesAnexo("gemMoonstone", 1, 1.0f, 0.8f));
+    	this.addGrinderRecipe("oreNickel", new RecipesAnexo("dustNickel", 1, 1.0f, 0.9f));
+    	this.addGrinderRecipe("oreRedonyx", new RecipesAnexo("gemRedonyx", 1, 1.0f, 0.7f));
+    	this.addGrinderRecipe("oreRuby", new RecipesAnexo("gemRuby", 1, 1.0f, 1.0f));
+    	this.addGrinderRecipe("oreSapphire", new RecipesAnexo("gemSapphire", 1, 1.0f, 1.0f));
+    	this.addGrinderRecipe("oreSilicon", new RecipesAnexo("dustSilicon", 1, 1.0f, 0.5f));
+    	this.addGrinderRecipe("oreSilver", new RecipesAnexo("dustSilver", 1, 1.0f, 0.7f));
+    	this.addGrinderRecipe("oreTin", new RecipesAnexo("dustTin", 1, 1.0f, 0.5f));
+    	this.addGrinderRecipe("oreTitanium", new RecipesAnexo("dustTitanium", 1, 1.0f, 1.0f));
+    	this.addGrinderRecipe("oreTungsten", new RecipesAnexo("dustTungsten", 1, 1.0f, 1.0f));
+    	this.addGrinderRecipe("oreZinc", new RecipesAnexo("dustZinc", 1, 1.0f, 0.8f));
+
     }
 
     public void addGrinderRecipe(String name, ItemStack stack, float experience)
