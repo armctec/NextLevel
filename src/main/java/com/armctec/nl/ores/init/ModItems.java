@@ -35,15 +35,15 @@ public class ModItems
 	public final static ItemIngot BronzeIngot = new ItemIngot(Names.Items.BRONZE_INGOT, 64);	
 	public final static ItemIngot BrassIngot = new ItemIngot(Names.Items.BRASS_INGOT, 64);	
 	public final static ItemIngot ZamakIngot = new ItemIngot(Names.Items.ZAMAK_INGOT, 64);	
-	public final static ItemIngot SterlingSilverIngot = new ItemIngot(Names.Items.STERLING_INGOT, 64);	
-	public final static ItemIngot CupronickelIngot = new ItemIngot(Names.Items.CUPRO_INGOT, 64);	
+	public final static ItemIngot SterlingIngot = new ItemIngot(Names.Items.STERLING_INGOT, 64);	
+	public final static ItemIngot CuproIngot = new ItemIngot(Names.Items.CUPRO_INGOT, 64);	
 	public final static ItemIngot InvarIngot = new ItemIngot(Names.Items.INVAR_INGOT, 64);	
 	public final static ItemIngot SteelIngot = new ItemIngot(Names.Items.STEEL_INGOT, 64);	
-	public final static ItemIngot FerrosiliconIngot = new ItemIngot(Names.Items.FERSILICON_INGOT, 64);	
+	public final static ItemIngot FersiliconIngot = new ItemIngot(Names.Items.FERSILICON_INGOT, 64);	
 	public final static ItemIngot ElectrumIngot = new ItemIngot(Names.Items.ELECTRUM_INGOT, 64);	
 	public final static ItemIngot HssIngot = new ItemIngot(Names.Items.HSS_INGOT, 64);	
 	public final static ItemIngot BabbittIngot = new ItemIngot(Names.Items.BABBITT_INGOT, 64);	
-	public final static ItemIngot Grade5Ingot = new ItemIngot(Names.Items.GRADE_INGOT, 64);
+	public final static ItemIngot GradeIngot = new ItemIngot(Names.Items.GRADE_INGOT, 64);
 	public final static ItemIngot CarbonIngot = new ItemIngot(Names.Items.CARBON_INGOT, 64);
 	// Dust
 	public final static ItemDust AluminiumDust = new ItemDust(Names.Items.ALUMINIUM_DUST, 64);
@@ -78,7 +78,7 @@ public class ModItems
 	// Vanilla Dust
 	public final static ItemDust DiamondDust = new ItemDust(Names.Items.DIAMOND_DUST, 64);
 	public final static ItemDust EmeraldDust = new ItemDust(Names.Items.EMERALD_DUST, 64);
-	public final static ItemDust Ender_pearlDust = new ItemDust(Names.Items.ENDER_PEARL_DUST, 64);
+	public final static ItemDust EnderDust = new ItemDust(Names.Items.ENDER_PEARL_DUST, 64);
 	public final static ItemDust GoldDust = new ItemDust(Names.Items.GOLD_DUST, 64);
 	public final static ItemDust IronDust = new ItemDust(Names.Items.IRON_DUST, 64);
 
@@ -107,15 +107,15 @@ public class ModItems
 		RegisterServer.registerItems(BronzeIngot, Names.Items.BRONZE_INGOT, "ingotBronze");
 		RegisterServer.registerItems(BrassIngot, Names.Items.BRASS_INGOT, "ingotBrass");
 		RegisterServer.registerItems(ZamakIngot, Names.Items.ZAMAK_INGOT, "ingotZamak");
-		RegisterServer.registerItems(SterlingSilverIngot, Names.Items.STERLING_INGOT, "ingotSterling");
-		RegisterServer.registerItems(CupronickelIngot, Names.Items.CUPRO_INGOT, "ingotCupro");
+		RegisterServer.registerItems(SterlingIngot, Names.Items.STERLING_INGOT, "ingotSterling");
+		RegisterServer.registerItems(CuproIngot, Names.Items.CUPRO_INGOT, "ingotCupro");
 		RegisterServer.registerItems(InvarIngot, Names.Items.INVAR_INGOT, "ingotInvar");
 		RegisterServer.registerItems(SteelIngot, Names.Items.STEEL_INGOT, "ingotSteel");
-		RegisterServer.registerItems(FerrosiliconIngot, Names.Items.FERSILICON_INGOT, "ingotFersilicon");
+		RegisterServer.registerItems(FersiliconIngot, Names.Items.FERSILICON_INGOT, "ingotFersilicon");
 		RegisterServer.registerItems(ElectrumIngot, Names.Items.ELECTRUM_INGOT, "ingotElectrum");
 		RegisterServer.registerItems(HssIngot, Names.Items.HSS_INGOT, "ingotHSS");
 		RegisterServer.registerItems(BabbittIngot, Names.Items.BABBITT_INGOT, "ingotBabbitt");
-		RegisterServer.registerItems(Grade5Ingot, Names.Items.GRADE_INGOT, "ingotGrade");
+		RegisterServer.registerItems(GradeIngot, Names.Items.GRADE_INGOT, "ingotGrade");
 		RegisterServer.registerItems(CarbonIngot, Names.Items.CARBON_INGOT, "ingotCarbon");	
 		// Dust
 		RegisterServer.registerItems(AluminiumDust, Names.Items.ALUMINIUM_DUST, "dustAluminium");
@@ -150,7 +150,7 @@ public class ModItems
 		// Vanilla Dust
 		RegisterServer.registerItems(DiamondDust, Names.Items.DIAMOND_DUST, "dustDiamond");
 		RegisterServer.registerItems(EmeraldDust, Names.Items.EMERALD_DUST, "dustEmerald");
-		RegisterServer.registerItems(Ender_pearlDust, Names.Items.ENDER_PEARL_DUST, "dustEnderPearl");
+		RegisterServer.registerItems(EnderDust, Names.Items.ENDER_PEARL_DUST, "dustEnderPearl");
 		RegisterServer.registerItems(GoldDust, Names.Items.GOLD_DUST, "dustGold");
 		RegisterServer.registerItems(IronDust, Names.Items.IRON_DUST, "dustIron");
 	}
