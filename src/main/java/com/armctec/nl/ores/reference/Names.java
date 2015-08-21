@@ -23,6 +23,39 @@ public class Names
 		public final static String BLACKONYX_ORE = "blackonyx_ore";
 		public final static String REDONYX_ORE = "redonyx_ore";
 		public final static String AMETHYST_ORE = "amethyst_ore";
+		
+		//BLOCKS
+		public final static String ALUMINIUM_BLOCK = "aluminium_block";
+		public final static String AMETHYST_BLOCK = "amethyst_block";
+		public final static String BABBITT_BLOCK = "babbitt_block";
+		public final static String BLACKONYX_BLOCK = "blackonyx_block";
+		public final static String BRASS_BLOCK = "brass_block";
+		public final static String BRONZE_BLOCK = "bronze_block";
+		public final static String CARBON_BLOCK = "carbon_block";
+		public final static String COPPER_BLOCK = "copper_block";
+		public final static String CUPRO_BLOCK = "cupronickel_block";
+		public final static String ELECTRUM_BLOCK = "electrum_block";
+		public final static String FERSILICON_BLOCK = "ferrosilicon_block";
+		public final static String GRADE_BLOCK = "grade_5_block";
+		public final static String HSS_BLOCK = "hss_block";
+		public final static String INVAR_BLOCK = "invar_block";
+		public final static String LEAD_BLOCK = "lead_block";
+		public final static String MOONSTONE_BLOCK = "moonstone_block";
+		public final static String NICKEL_BLOCK = "nickel_block";
+		public final static String REDONYX_BLOCK = "redonyx_block";
+		public final static String RUBY_BLOCK = "ruby_block";
+		public final static String SAPPHIRE_BLOCK = "sapphire_block";
+		public final static String SILICON_BLOCK = "silicon_block";
+		public final static String SILVER_BLOCK = "silver_block";
+		public final static String STEEL_BLOCK = "steel_block";
+		public final static String STERLING_BLOCK = "sterling_silver_block";
+		public final static String TIN_BLOCK = "tin_block";
+		public final static String TITANIUM_BLOCK = "titanium_block";
+		public final static String TUNGSTEN_BLOCK = "tungsten_block";
+		public final static String ZAMAK_BLOCK = "zamak_block";
+		public final static String ZINC_BLOCK = "zinc_block";
+
+
 	}
 	
     public static final class Items
