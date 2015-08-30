@@ -71,6 +71,7 @@ public class ContainerGrindstone extends Container
 	{
 		super.onContainerClosed(playerIn);
 		this.tileEntity.closeInventory(playerIn);
+		worldObj.markBlockForUpdate(blockPosition);
 	}	
 	
 	/**

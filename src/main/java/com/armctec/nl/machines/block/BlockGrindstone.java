@@ -1,6 +1,7 @@
 package com.armctec.nl.machines.block;
 
 import net.minecraft.block.properties.IProperty;
+import net.minecraft.block.properties.PropertyBool;
 import net.minecraft.block.properties.PropertyInteger;
 import net.minecraft.block.state.BlockState;
 import net.minecraft.block.state.IBlockState;
@@ -30,8 +31,8 @@ import com.armctec.nl.machines.tileentity.TileEntityGrindstone;
 
 public class BlockGrindstone extends BlockBasicContainer 
 {
-	public static final PropertyInteger POSICAO = PropertyInteger.create("posicao", 0, 3);
-	
+	public static final PropertyInteger POSICAO = PropertyInteger.create("posicao", 0, 4);
+
 	public BlockGrindstone() 
 	{
 		super();
@@ -73,7 +74,10 @@ public class BlockGrindstone extends BlockBasicContainer
 			if(tileentity instanceof TileEntityGrindstone)
 			{
 				TileEntityGrindstone tilegrid = (TileEntityGrindstone)tileentity;
-			
+				if(tilegrid.getItemGrinder() == false)
+				{
+					return this.getDefaultState().withProperty(POSICAO, 4);
+				}
 				//ModConfig.Log.info("getActualState:"+tilegrid.getPosicao());
 				return this.getDefaultState().withProperty(POSICAO, tilegrid.getPosicao());
 			}

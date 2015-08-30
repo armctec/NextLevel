@@ -33,7 +33,7 @@ public class EnchantmentThroughput extends Enchantment
 	@Override
     public int getMinEnchantability(int enchantmentLevel)
     {
-		return 1 + 10 * (enchantmentLevel - 1);
+		return 1 + 9 * (enchantmentLevel - 1);
     }
 
     /**

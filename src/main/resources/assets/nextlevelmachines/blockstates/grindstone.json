@@ -3,6 +3,7 @@
         "posicao=0": { "model": "nextlevelmachines:grindstone0" },
         "posicao=1": { "model": "nextlevelmachines:grindstone1" },
         "posicao=2": { "model": "nextlevelmachines:grindstone2" },
-        "posicao=3": { "model": "nextlevelmachines:grindstone3" }
+        "posicao=3": { "model": "nextlevelmachines:grindstone3" },
+        "posicao=4": { "model": "nextlevelmachines:grindstone4" }
     }
 }

@@ -16,7 +16,7 @@ import com.armctec.nl.machines.reference.ModConfig;
 
 public class TileEntityGrindstone extends TileEntityBasicInventory implements IUpdatePlayerListBox, ISidedInventory
 {
-    ContainerGrindstone container = null;
+    private ContainerGrindstone container = null;
     private static final int[] slotsBottom = new int[] {2, 1, 0};
     private static final int[] slotsSides = new int[] {3};
     private static final int[] slotsTop = new int[] {};
@@ -33,6 +33,11 @@ public class TileEntityGrindstone extends TileEntityBasicInventory implements IU
 	public TileEntityGrindstone()
 	{
 		super();
+	}
+	
+	public boolean getItemGrinder()
+	{
+		return itemStacks[4]!=null;
 	}
 	
 	public void setPosicao(int posicao)
