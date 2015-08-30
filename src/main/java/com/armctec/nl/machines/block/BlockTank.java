@@ -65,7 +65,7 @@ public class BlockTank extends BlockAdvanced
 		return new BlockState(this, new IProperty[] {MODO});
     }
 	
-	private boolean checkBreakBlock(World worldIn, BlockPos pos, BlockPos posini, ArrayList list, int z)
+	private boolean checkBreakBlock(World worldIn, BlockPos pos, BlockPos posini, ArrayList<BlockPos> list, int z)
 	{
 		if(list.contains(pos))
 			return false;
@@ -184,12 +184,12 @@ public class BlockTank extends BlockAdvanced
 	{
 		super.breakBlock(worldIn, pos, state);
 		
-		ArrayList list = new ArrayList();
+		ArrayList<BlockPos> list = new ArrayList<BlockPos>();
 		checkBreakBlock(worldIn, pos, pos, list, 3);
 		list.clear();
 	}
 	
-	private boolean checkPlaceBlock(World worldIn, BlockPos pos, ArrayList list, int z)
+	private boolean checkPlaceBlock(World worldIn, BlockPos pos, ArrayList<BlockPos> list, int z)
 	{
 		if(list.contains(pos))
 			return false;
@@ -282,7 +282,7 @@ public class BlockTank extends BlockAdvanced
 	@Override
 	public IBlockState onBlockPlaced(World worldIn, BlockPos pos, EnumFacing facing, float hitX, float hitY, float hitZ, int meta, EntityLivingBase placer)
 	{
-		ArrayList list = new ArrayList();
+		ArrayList<BlockPos> list = new ArrayList<BlockPos>();
 		IBlockState retorno = super.onBlockPlaced(worldIn, pos, facing, hitX, hitY, hitZ, meta, placer).withProperty(MODO, 0);
 		
 		if(checkPlaceBlock(worldIn, pos, list, 3)==false)

@@ -13,7 +13,7 @@ import com.armctec.nl.machines.tileentity.TileEntityGrindstone;
 
 public class ContainerGrindstone extends Container
 {
-	TileEntityGrindstone tileEntity = null;
+	private TileEntityGrindstone tileEntity = null;
     private World worldObj;
     private BlockPos blockPosition;
     

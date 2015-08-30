@@ -17,11 +17,11 @@ import com.armctec.nl.machines.tileentity.TileEntityAdvancedCrafting;
 
 public class ContainerAdvancedCrafting extends Container
 {
-	TileEntityAdvancedCrafting tileEntity = null;
+	private TileEntityAdvancedCrafting tileEntity = null;
     public IInventory craftResult = new InventoryCraftResult();
     private World worldObj;
     private BlockPos blockPosition;
-    InventoryAdvancedCrafting advcrafting = null;
+    private InventoryAdvancedCrafting advcrafting = null;
     
 	public ContainerAdvancedCrafting(InventoryPlayer playerInventory, World worldIn, BlockPos blockPosition, TileEntityAdvancedCrafting tileEntity) 
 	{
