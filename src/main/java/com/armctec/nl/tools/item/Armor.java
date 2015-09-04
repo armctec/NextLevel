@@ -25,6 +25,7 @@ public class Armor extends ItemArmor
 	private String nameMaterial = "";
 	private static Field fieldName = null;
 	
+	// Reflection for field MaterialArmor.name
 	static 
 	{
 		try
@@ -59,13 +60,8 @@ public class Armor extends ItemArmor
 	public Armor(String name, ArmorMaterial material, int tipo)  
 	{
 		super(material, 0, tipo);
-		
-		String nameMat = getArmorName(material);
-		
-		System.out.println("Name:"+nameMat);
-		
-		
-		nameMaterial = nameMat; //material.getName();
+
+		nameMaterial = getArmorName(material); //material.getName();
 
 		setItemName(ModConfig.MOD_ID, name);
 		this.setCreativeTab(CreativeTabTools.ARMOR_TAB);
