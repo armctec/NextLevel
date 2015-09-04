@@ -1,8 +1,14 @@
 package com.armctec.nl.tools.item;
 
+import java.lang.reflect.Field;
+
+import net.minecraft.enchantment.Enchantment;
 import net.minecraft.entity.Entity;
 import net.minecraft.item.ItemArmor;
 import net.minecraft.item.ItemStack;
+import net.minecraftforge.fml.relauncher.ReflectionHelper;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
 import com.armctec.nl.tools.gui.CreativeTabTools;
 import com.armctec.nl.tools.reference.ModConfig;
@@ -17,11 +23,49 @@ public class Armor extends ItemArmor
 	private String ItemName = null;
 	private String ModelArmor = "";
 	private String nameMaterial = "";
+	private static Field fieldName = null;
+	
+	static 
+	{
+		try
+		{
+			fieldName = ReflectionHelper.findField(ArmorMaterial.class, "field_179243_f", "name");
+		}
+		catch(Throwable e) 
+		{
+			e.printStackTrace();
+		}
+	}
+	
+	private String getArmorName(ArmorMaterial material)
+	{
+		String name = "";
+		
+		if(fieldName == null)
+			return name;
+		
+		try
+		{
+			name = (String) fieldName.get(material);
+		}
+		catch(Throwable e) 
+		{
+			e.printStackTrace();
+		}
+		
+		return name;
+	}	
 	
 	public Armor(String name, ArmorMaterial material, int tipo)  
 	{
 		super(material, 0, tipo);
-		nameMaterial = material.getName();
+		
+		String nameMat = getArmorName(material);
+		
+		System.out.println("Name:"+nameMat);
+		
+		
+		nameMaterial = nameMat; //material.getName();
 
 		setItemName(ModConfig.MOD_ID, name);
 		this.setCreativeTab(CreativeTabTools.ARMOR_TAB);
