@@ -100,7 +100,6 @@ public class TileEntityBasicInventory extends TileEntity implements IInventory
         }
 	}
 
-	@Override
 	public ItemStack getStackInSlotOnClosing(int index) 
 	{
         if (itemStacks[index] != null)
@@ -271,5 +270,11 @@ public class TileEntityBasicInventory extends TileEntity implements IInventory
 	public void onDataPacket(NetworkManager net, S35PacketUpdateTileEntity pkt) 
 	{
 		readFromNBT(pkt.getNbtCompound());
+	}
+
+	@Override
+	public ItemStack removeStackFromSlot(int index) {
+		// TODO Auto-generated method stub
+		return null;
 	}		
 }

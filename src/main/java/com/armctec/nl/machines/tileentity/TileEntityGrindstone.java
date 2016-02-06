@@ -4,8 +4,8 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.ISidedInventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.server.gui.IUpdatePlayerListBox;
 import net.minecraft.util.EnumFacing;
+import net.minecraft.util.ITickable;
 
 import com.armctec.nl.general.tileentity.TileEntityBasicInventory;
 import com.armctec.nl.machines.crafting.GrindestoneRecipes;
@@ -14,7 +14,7 @@ import com.armctec.nl.machines.init.ModEnchants;
 import com.armctec.nl.machines.inventory.container.ContainerGrindstone;
 import com.armctec.nl.machines.reference.ModConfig;
 
-public class TileEntityGrindstone extends TileEntityBasicInventory implements IUpdatePlayerListBox, ISidedInventory
+public class TileEntityGrindstone extends TileEntityBasicInventory implements ITickable, ISidedInventory
 {
     private ContainerGrindstone container = null;
     private static final int[] slotsBottom = new int[] {2, 1, 0};
@@ -59,15 +59,6 @@ public class TileEntityGrindstone extends TileEntityBasicInventory implements IU
 	{
 		return posicao;
 	}
-	
-	public void update()
-    {
-		if (!this.worldObj.isRemote)
-        {
-			GrinderItem();
-			markDirty();
-        }
-    }
 
 	/**
      * Returns true if the furnace can smelt an item, i.e. has a source item, destination stack isn't full, etc.
@@ -293,5 +284,16 @@ public class TileEntityGrindstone extends TileEntityBasicInventory implements IU
 	public boolean canExtractItem(int index, ItemStack stack, EnumFacing direction) 
 	{
 		return true;
+	}
+
+	@Override
+	public void update()
+	{
+		if (!this.worldObj.isRemote)
+        {
+			GrinderItem();
+			markDirty();
+        }
+		
 	}    
 }

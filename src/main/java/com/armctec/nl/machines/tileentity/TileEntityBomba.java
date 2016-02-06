@@ -1,11 +1,12 @@
 package com.armctec.nl.machines.tileentity;
 
+
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.ISidedInventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.server.gui.IUpdatePlayerListBox;
 import net.minecraft.util.EnumFacing;
+import net.minecraft.util.ITickable;
 
 import com.armctec.nl.general.tileentity.TileEntityBasicInventory;
 import com.armctec.nl.machines.crafting.GrindestoneRecipes;
@@ -13,7 +14,7 @@ import com.armctec.nl.machines.crafting.RecipesAnexo;
 import com.armctec.nl.machines.inventory.container.ContainerGrindstone;
 import com.armctec.nl.machines.reference.ModConfig;
 
-public class TileEntityBomba extends TileEntityBasicInventory implements IUpdatePlayerListBox, ISidedInventory
+public class TileEntityBomba extends TileEntityBasicInventory implements ITickable , ISidedInventory
 {
     ContainerGrindstone container = null;
     private static final int[] slotsBottom = new int[] {2, 1, 0};
@@ -46,15 +47,6 @@ public class TileEntityBomba extends TileEntityBasicInventory implements IUpdate
 	{
 		return posicao;
 	}
-	
-	public void update()
-    {
-		if (!this.worldObj.isRemote)
-        {
-			GrinderItem();
-			markDirty();
-        }
-    }
 
 	/**
      * Returns true if the furnace can smelt an item, i.e. has a source item, destination stack isn't full, etc.
@@ -235,5 +227,15 @@ public class TileEntityBomba extends TileEntityBasicInventory implements IUpdate
 	public boolean canExtractItem(int index, ItemStack stack, EnumFacing direction) 
 	{
 		return true;
+	}
+
+	@Override
+	public void update() {
+		// TODO Auto-generated method stub
+		if (!this.worldObj.isRemote)
+        {
+			GrinderItem();
+			markDirty();
+        }
 	}    
 }

@@ -73,8 +73,7 @@ public class InventoryAdvancedCrafting extends InventoryCrafting
      * When some containers are closed they call this on each slot, then drop whatever it returns as an EntityItem -
      * like when you close a workbench GUI.
      */
-	@Override
-    public ItemStack getStackInSlotOnClosing(int index)
+	public ItemStack getStackInSlotOnClosing(int index)
     {
         return tileentity.getStackInSlotOnClosing(index);
     }
