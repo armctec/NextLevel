@@ -14,6 +14,7 @@ import com.armctec.nl.machines.crafting.GrindestoneRecipes;
 import com.armctec.nl.machines.handler.ConfigurationHandler;
 import com.armctec.nl.machines.init.ModBlocks;
 import com.armctec.nl.machines.init.ModBlocksClient;
+import com.armctec.nl.machines.init.ModBlocksRenderClient;
 import com.armctec.nl.machines.init.ModEnchants;
 import com.armctec.nl.machines.init.ModItems;
 import com.armctec.nl.machines.init.ModItemsClient;
@@ -60,6 +61,7 @@ public class MachinesNL
         {
         	ModItemsClient.init();
         	ModBlocksClient.init();
+        	ModBlocksRenderClient.init();
         }
         
         ModRecipes.init();

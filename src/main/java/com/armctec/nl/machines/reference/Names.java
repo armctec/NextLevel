@@ -34,4 +34,9 @@ public class Names
     	public final static int GUI_ADVANCED_CRAFTING = 1;
     	public final static int GUI_GRINDSTONE = 2;
     }
+    
+    public static final class Models
+    {
+    	public final static String BARRIL_MODEL = "models/block/barril-";
+    }
 }
