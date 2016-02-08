@@ -8,6 +8,7 @@ public class Names
 		public final static String GRINDSTONE = "grindstone";
 		public final static String BOMBA = "bomba";
 		public final static String TANQUE = "tank";
+		public final static String BARRIL = "barril";
 	}
 	
 	public static final class Items
@@ -15,11 +16,12 @@ public class Names
 		public final static String TOOLGRINDER = "toolgrinder";
     }
 	
-    public static final class Entites
+    public static final class Entities
     {
     	public final static String ENTITY_ADVANCED_CRAFTING = "entity_advanced_crafting";
     	public final static String ENTITY_GRINDSTONE = "entity_grindstone";
     	public final static String ENTITY_BOMBA = "entity_bomba";
+    	public final static String ENTITY_BARRIL = "entity_barril";
     }
     
     public static final class Keys

@@ -321,6 +321,6 @@ public class BlockTank extends BlockAdvanced
 	@SideOnly(Side.CLIENT)
     public EnumWorldBlockLayer getBlockLayer()
     {
-        return EnumWorldBlockLayer.TRANSLUCENT;
+        return EnumWorldBlockLayer.CUTOUT_MIPPED;
     }
 }

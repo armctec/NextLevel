@@ -1,5 +1,5 @@
 {
-  "parent": "nextlevelmachines:block/tank",
+  "parent": "nextlevelmachines:block/tank-0",
   "display": {
     "thirdperson": {
       "rotation": [ 10, -45, 170 ],

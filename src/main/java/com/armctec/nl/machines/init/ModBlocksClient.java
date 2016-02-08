@@ -14,5 +14,6 @@ public class ModBlocksClient
 		RegisterClient.registerBlock(ModConfig.MOD_ID, Names.Blocks.GRINDSTONE);
 		RegisterClient.registerBlock(ModConfig.MOD_ID, Names.Blocks.BOMBA);
 		RegisterClient.registerBlock(ModConfig.MOD_ID, Names.Blocks.TANQUE);
+		RegisterClient.registerBlock(ModConfig.MOD_ID, Names.Blocks.BARRIL);
 	}
 }

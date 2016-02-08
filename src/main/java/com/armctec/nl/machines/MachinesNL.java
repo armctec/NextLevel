@@ -1,5 +1,7 @@
 package com.armctec.nl.machines;
 
+import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.event.entity.minecart.MinecartEvent;
 import net.minecraftforge.fml.common.FMLCommonHandler;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.SidedProxy;
@@ -36,7 +38,8 @@ public class MachinesNL
     public void preInit(FMLPreInitializationEvent event)
 	{
 		ConfigurationHandler.init(event.getSuggestedConfigurationFile());
-        FMLCommonHandler.instance().bus().register(new ConfigurationHandler());
+		MinecraftForge.EVENT_BUS.register(new ConfigurationHandler());
+        //FMLCommonHandler.instance().bus().register(new ConfigurationHandler());
 		
         ModItems.init();
 		ModBlocks.init();

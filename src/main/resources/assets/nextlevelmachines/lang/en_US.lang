@@ -2,6 +2,7 @@ tile.nextlevelmachines:advanced_crafting_table.name=Advanced Crafting Table
 tile.nextlevelmachines:grindstone.name=Grindstone
 tile.nextlevelmachines:bomba.name=Bomba Manual
 tile.nextlevelmachines:tank.name=Tanque
+tile.nextlevelmachines:barril.name=Barril
 
 item.nextlevelmachines:toolgrinder.name=Grinder Tool
 

@@ -181,7 +181,7 @@ public class BlockGrindstone extends BlockBasicContainer
  	@Override
  	public TileEntity createNewTileEntity(World worldIn, int meta) 
  	{
- 		return new TileEntityGrindstone(Names.Entites.ENTITY_GRINDSTONE);
+ 		return new TileEntityGrindstone(Names.Entities.ENTITY_GRINDSTONE);
  	}
  	
  	public void breakBlock(World worldIn, BlockPos pos, IBlockState state)

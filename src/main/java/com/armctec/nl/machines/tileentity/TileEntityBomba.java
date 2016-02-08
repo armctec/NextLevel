@@ -47,75 +47,6 @@ public class TileEntityBomba extends TileEntityBasicInventory implements ITickab
 	{
 		return posicao;
 	}
-
-	/**
-     * Returns true if the furnace can smelt an item, i.e. has a source item, destination stack isn't full, etc.
-     */
-    private boolean canGrinder()
-    {
-        if (this.itemStacks[3] == null)
-        {
-            return false;
-        }
-        else
-        {
-            RecipesAnexo items = GrindestoneRecipes.instance().getGrinderResult(itemStacks[3]);
-            if(items == null)
-            	return false;
-            
-            ItemStack itemstack = items.getStack1();
-            
-            if (itemstack == null)
-            	return false;
-            if (itemStacks[0] == null)
-            	return true;
-            if (!itemStacks[0].isItemEqual(itemstack))
-            	return false;
-            int result = itemStacks[0].stackSize + itemstack.stackSize;
-            
-            boolean isfull = result <= getInventoryStackLimit();
-            
-            if(!isfull)
-            	trabalho = 0;
-            
-            return  isfull && result <= this.itemStacks[0].getMaxStackSize(); //Forge BugFix: Make it respect stack sizes properly.
-        }
-    }
-
-    /**
-     * Turn one item from the furnace source stack into the appropriate smelted item in the furnace result stack
-     */
-    private void GrinderItem()
-    {
-    	if (canGrinder()&&trabalho>3)
-        {
-    		ModConfig.Log.info("trabalho:"+trabalho);
-        	
-    		trabalho-=4;
-        	
-    		RecipesAnexo items = GrindestoneRecipes.instance().getGrinderResult(itemStacks[3]);
-            if(items == null)
-            	return;
-            
-            ItemStack itemstack = items.getStack1();
-
-            if (itemStacks[0] == null)
-            {
-            	itemStacks[0] = itemstack.copy();
-            }
-            else if (itemStacks[0].getItem() == itemstack.getItem())
-            {
-            	itemStacks[0].stackSize += itemstack.stackSize; // Forge BugFix: Results may have multiple items
-            }
-
-            --this.itemStacks[3].stackSize;
-
-            if (this.itemStacks[3].stackSize <= 0)
-            {
-                this.itemStacks[3] = null;
-            }
-        }
-    }	
 	
 	@Override
 	public void writeToNBT(NBTTagCompound parentNBTTagCompound)
@@ -230,12 +161,13 @@ public class TileEntityBomba extends TileEntityBasicInventory implements ITickab
 	}
 
 	@Override
-	public void update() {
+	public void update() 
+	{
 		// TODO Auto-generated method stub
 		if (!this.worldObj.isRemote)
         {
-			GrinderItem();
-			markDirty();
+			//GrinderItem();
+			//markDirty();
         }
 	}    
 }

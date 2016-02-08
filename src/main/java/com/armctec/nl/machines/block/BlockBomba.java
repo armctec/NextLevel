@@ -69,7 +69,7 @@ public class BlockBomba extends BlockBasicContainer
     public IBlockState getStateForEntityRender(IBlockState state)
     {
 		//ModConfig.Log.info("getStateForEntityRender");
-		return this.getDefaultState().withProperty(POSICAO, 0).withProperty(FACING, state.getValue(FACING));
+		return this.getDefaultState();
     }
 	
 	@Override
@@ -82,15 +82,13 @@ public class BlockBomba extends BlockBasicContainer
 			{
 				TileEntityBomba tilegrid = (TileEntityBomba)tileentity;
 			
-				//ModConfig.Log.info("getActualState:"+tilegrid.getPosicao());
+				ModConfig.Log.info("getActualState:"+tilegrid.getPosicao());
 				return this.getDefaultState().withProperty(POSICAO, tilegrid.getPosicao()).withProperty(FACING, state.getValue(FACING));
-						
-						
 			}
 		}
 		
 		ModConfig.Log.info("getActualState: failed entity");
-		return this.getDefaultState().withProperty(POSICAO, 0).withProperty(FACING, state.getValue(FACING));
+		return this.getDefaultState();
 	}
 	/**
      * Convert the BlockState into the correct metadata value
@@ -155,7 +153,8 @@ public class BlockBomba extends BlockBasicContainer
     					posicao_ang++;
     				else
     					posicao_ang = 0;
-    				//ModConfig.Log.info("?:"+posicao_ang);
+    				
+    				ModConfig.Log.info("?:"+posicao_ang);
     				tilegrid.setPosicao(posicao_ang);
     			}
     			worldIn.markBlockForUpdate(pos);
@@ -188,7 +187,7 @@ public class BlockBomba extends BlockBasicContainer
  	@Override
  	public TileEntity createNewTileEntity(World worldIn, int meta) 
  	{
- 		return new TileEntityBomba(Names.Entites.ENTITY_BOMBA);
+ 		return new TileEntityBomba(Names.Entities.ENTITY_BOMBA);
  	}
  	
  	public void breakBlock(World worldIn, BlockPos pos, IBlockState state)
