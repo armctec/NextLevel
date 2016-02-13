@@ -48,43 +48,11 @@ import com.armctec.nl.machines.tileentity.TileEntityGrindstone;
 
 public class BlockBarril extends BlockAdvanced implements ITileEntityProvider, IFluidBlock
 {
-	public static final PropertyInteger NIVEL = PropertyInteger.create("nivel", 0, 10);
-	
 	public BlockBarril()
 	{
 		super();
-		
 		this.setCreativeTab(CreativeTabMachines.MACHINES_TAB);
-		
 		setBlockName(ModConfig.MOD_ID, Names.Blocks.BARRIL);
-		this.setDefaultState(this.blockState.getBaseState().withProperty(NIVEL, 0));
-	}
-	
-	@Override
-	public IBlockState getStateFromMeta(int meta)
-    {
-		if(meta > 10)
-			meta = 10;
-		return this.getDefaultState().withProperty(NIVEL, Integer.valueOf(meta));
-    }
-	
-	@Override
-    public int getMetaFromState(IBlockState state)
-    {
-        return ((Integer)state.getValue(NIVEL)).intValue();
-    }
-	
-	@Override
-    protected BlockState createBlockState()
-    {
-		//ModConfig.Log.info("createBlockState");
-		return new BlockState(this, new IProperty[] {NIVEL});
-    }
-	
-	@Override
-	public IBlockState onBlockPlaced(World worldIn, BlockPos pos, EnumFacing facing, float hitX, float hitY, float hitZ, int meta, EntityLivingBase placer)
-	{
-		return super.onBlockPlaced(worldIn, pos, facing, hitX, hitY, hitZ, meta, placer).withProperty(NIVEL, 0);
 	}
 	
 	@Override
@@ -125,22 +93,16 @@ public class BlockBarril extends BlockAdvanced implements ITileEntityProvider, I
 						ModConfig.Log.info("Quant:"+ quant);
 		            }
 		        }
+		        //tilebarril.updateComparator();
 		        
-				worldIn.markBlockForUpdate(pos);
-
+		        /** Garante atualizacao do comparator */
+		        worldIn.markBlockForUpdate(pos);
+		        worldIn.updateComparatorOutputLevel(pos, this);
     		}
     	}
 
 		return true;
 	}	
-	
-	@SideOnly(Side.CLIENT)
-	@Override
-    public IBlockState getStateForEntityRender(IBlockState state)
-    {
-		ModConfig.Log.info("getStateForEntityRender: call");
-		return this.getDefaultState();
-    }
 	
 	public TileEntityBarril getTileEntity(IBlockAccess worldIn, BlockPos pos)
 	{
@@ -154,32 +116,7 @@ public class BlockBarril extends BlockAdvanced implements ITileEntityProvider, I
 		}
 		return null;
 	}
-	
-	@Override
-	public IBlockState getActualState(IBlockState state, IBlockAccess worldIn, BlockPos pos)
-	{
-		TileEntityBarril tilebarril = getTileEntity(worldIn, pos);
-		if(tilebarril != null)
-		{
-			int amount = tilebarril.getAmount();
-			int capacity = tilebarril.getCapacity();
-			
-				
-			ModConfig.Log.info("Amount:"+ amount + " - Capacity: ");
-				
-			if(tilebarril.getAmount()>0)
-				amount = (int)(((float)(amount) / (float)(capacity)) * 10.0f);
-			ModConfig.Log.info("Amount State:"+ amount);
-			if(amount>10)
-				amount = 10;
-				
-			return this.getDefaultState().withProperty(NIVEL, amount);
-		}	
-		
-		ModConfig.Log.info("getActualState: failed entity");
-		return this.getDefaultState();
-	}
-	
+
 	@SideOnly(Side.CLIENT)
     public EnumWorldBlockLayer getBlockLayer()
     {
@@ -195,8 +132,10 @@ public class BlockBarril extends BlockAdvanced implements ITileEntityProvider, I
     {
     	TileEntityBarril tilebarril = getTileEntity(worldIn, pos);
     	if(tilebarril!=null)
+    	{
+    		//ModConfig.Log.info("getComparator()");
     		return tilebarril.getComparator();
-    	
+    	}
     	return 0; 
     }
 

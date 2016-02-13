@@ -101,6 +101,7 @@ public class TileEntitityBasicFluidTank extends TileEntity implements IFluidHand
     public void readFromNBT(NBTTagCompound tag)
     {
         super.readFromNBT(tag);
+        
         tank.readFromNBT(tag);
         updateComparator();
     }
@@ -109,6 +110,7 @@ public class TileEntitityBasicFluidTank extends TileEntity implements IFluidHand
     public void writeToNBT(NBTTagCompound tag)
     {
         super.writeToNBT(tag);
+        
         tank.writeToNBT(tag);
     }
     
@@ -139,6 +141,15 @@ public class TileEntitityBasicFluidTank extends TileEntity implements IFluidHand
     public FluidStack getFluid()
     {
     	return tank.getFluid();
+    }
+    
+    public String getFluidName()
+    {
+    	FluidStack fstack = tank.getFluid();
+    	if(fstack==null)
+    		return null;
+    	
+    	return fstack.getFluid().getName();
     }
     
 	public void updateComparator()

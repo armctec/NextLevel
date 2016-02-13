@@ -1,15 +1,5 @@
 {
     "variants": {
-        "nivel=0": { "model": "nextlevelmachines:barril-vazio" },
-        "nivel=1": { "model": "nextlevelmachines:barril-lv1" },
-        "nivel=2": { "model": "nextlevelmachines:barril-lv2" },
-        "nivel=3": { "model": "nextlevelmachines:barril-lv3" },
-        "nivel=4": { "model": "nextlevelmachines:barril-lv4" },
-        "nivel=5": { "model": "nextlevelmachines:barril-lv5" },
-        "nivel=6": { "model": "nextlevelmachines:barril-lv6" },
-        "nivel=7": { "model": "nextlevelmachines:barril-lv7" },
-        "nivel=8": { "model": "nextlevelmachines:barril-lv8" },
-        "nivel=9": { "model": "nextlevelmachines:barril-lv9" },
-        "nivel=10": { "model": "nextlevelmachines:barril-lv0" }
+        "normal": { "model": "nextlevelmachines:barril-vazio" }
     }
 }

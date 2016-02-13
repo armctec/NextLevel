@@ -29,143 +29,115 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.World;
 import net.minecraftforge.fluids.Fluid;
 import net.minecraftforge.fluids.FluidRegistry;
+import net.minecraftforge.fluids.FluidStack;
 import net.minecraftforge.fml.client.registry.ClientRegistry;
 
 public class TileEntityRenderBarril extends TileEntitySpecialRenderer<TileEntityBarril> 
 {
     /** The texture for the liquid inside of barril */
-    private static ResourceLocation FLUIDS_TEXTURES[] = null;
-    private BlockRendererDispatcher blockRenderer;
     private static Map<String, Fluid> fluidos = null;
-    		
+    private static float fatory = 1.0f / 16.0f;
+    private static float tamanhoy = fatory * 10;
+    private static float miny = fatory*2;
+    private static float maxy = (1.0f - miny);
+    
     public static void initTextures()
     {
+    	/** Obtem fluidos registrados */
     	fluidos = FluidRegistry.getRegisteredFluids();
     	
+    	/** Mostra todos registrados */
     	for (Map.Entry<String, Fluid> entry : fluidos.entrySet()) 
     	{
     		ModConfig.Log.info("Key : " + entry.getKey() + " Value : " + entry.getValue().getStill().toString());
     	}
-    	
-    	FLUIDS_TEXTURES = new ResourceLocation[2];
-    	FLUIDS_TEXTURES[0] = new ResourceLocation("textures/blocks/water_still.png");
-    	FLUIDS_TEXTURES[1] = new ResourceLocation("textures/blocks/lava_still.png");
-    	/*
-        TextureManager texturemanager = Minecraft.getMinecraft().renderEngine;  
-        
-        TEXTURE_IDs = new ITextureObject[2];
-        TEXTURE_IDs[0] = texturemanager.getTexture(FLUIDS_TEXTURES[0]);
-        TEXTURE_IDs[1] = texturemanager.getTexture(FLUIDS_TEXTURES[1]);
-        */
     }
     
 	@Override
 	public void renderTileEntityAt(TileEntityBarril te, double x, double y, double z, float partialTicks, int destroyStage) 
 	{
-		// TODO Auto-generated method stub
-		if(blockRenderer == null) 
-			blockRenderer = Minecraft.getMinecraft().getBlockRendererDispatcher();
-		//ModConfig.Log.info("Chamado");
+		if(te==null)
+			return;
+		
+		if(te.getAmount() == 0)
+			return;
+		
+		FluidStack fstack = te.getFluid();
+		if(fstack == null)
+			return;
+		
+		String fname = te.getFluidName();
+		if(fname == null)
+			return;
+	
+		Fluid liquid =  fstack.getFluid();
+        if(liquid == null)		
+        	return;
+		
+        /* Inicializa todos que seram chamados depois */
         Tessellator tessellator = Tessellator.getInstance();
-        WorldRenderer worldrenderer = tessellator.getWorldRenderer();
+        if(tessellator == null)
+        	return;
         
+        WorldRenderer worldrenderer = tessellator.getWorldRenderer();
+        if(worldrenderer == null)
+        	return; 
+        			
+        TextureMap texturemap = Minecraft.getMinecraft().getTextureMapBlocks();
+        if(texturemap == null)
+        	return;
+        
+        /* Guarda informacoes */
 		GlStateManager.pushMatrix();
 		GlStateManager.pushAttrib();
 		
+		/* Configura render */
+		GlStateManager.disableFog();
 		GlStateManager.disableLighting();
+        GlStateManager.enableBlend();
+        GlStateManager.enableDepth();
         GlStateManager.disableCull();
-        GlStateManager.disableBlend();
-        GlStateManager.depthMask(true);
+        GlStateManager.resetColor();
         
-        Fluid liquid =  fluidos.get("water");
-        if(liquid != null)
-        {
-        	//ModConfig.Log.info("Chamado");
-        	float ui = 0.0f;
-        	float uf = 1.0f;
-        	float vi = 0.0f;
-        	float vf = 0.05f;
+        /** Seleciona textura */
+        bindTexture(TextureMap.locationBlocksTexture);
         	
-        	Minecraft.getMinecraft().getTextureManager().bindTexture(TextureMap.locationBlocksTexture);
-        	
-        	Block blockliquid = liquid.getBlock();
-        	ResourceLocation liquidTexture = liquid.getStill();
-        	
-        	TextureMap texturemap = Minecraft.getMinecraft().getTextureMapBlocks();
-        	if(texturemap!=null)
-        	{
-        		TextureAtlasSprite[] atlasSprites = new TextureAtlasSprite[2];
-        		atlasSprites[0] = texturemap.getAtlasSprite("minecraft:blocks/lava_still");
-        		atlasSprites[1] = texturemap.getAtlasSprite("minecraft:blocks/water_still");
-            
-        		if(atlasSprites[1]!=null)
-        		{
-        			//ModConfig.Log.info("lava:"+atlasSprites[0].hasAnimationMetadata());
-        			//ModConfig.Log.info("Frames:"+atlasSprites[0].getFrameCount());
+        Block blockliquid = liquid.getBlock();
+        ResourceLocation liquidTexture = liquid.getStill();
+        
+        /** Obtem textura liquido */
+        TextureAtlasSprite atlasSprites = texturemap.getAtlasSprite(liquidTexture.toString());
+        if(atlasSprites==null)
+        	return;
+        
+        /** Atualiza animacao */
+        atlasSprites.updateAnimation();
         			
-        			atlasSprites[1].updateAnimation();
-        			
-        			ui = atlasSprites[1].getMinU();
-        			uf = atlasSprites[1].getMaxU();
-        			vi = atlasSprites[1].getMinV();
-        			vf = atlasSprites[1].getMaxV();
-        			
-        		}
-        		//if(atlasSprites[1]!=null)
-        		//	ModConfig.Log.info("water:"+atlasSprites[1].hasAnimationMetadata());
-        	}
-        	//ModConfig.Log.info(liquidTexture.getResourceDomain());
-        	if(liquidTexture.getResourceDomain()=="minecraft")
-        	{
-        		liquidTexture = new ResourceLocation("textures/"+liquid.getStill().getResourcePath()+".png");
-        		//ModConfig.Log.info(liquidTexture);
-        	}
-        	
-        	
-        	
-        	/*
-        	if(liquidTexture!=null)
-        		ModConfig.Log.info(liquidTexture);
-        	*/
-        	
-        	//bindTexture(FLUIDS_TEXTURES[0]);
-        	//bindTexture(liquidTexture);
-        	
-        	/*
-            ITextureObject itextureobject = rendererDispatcher.renderEngine.getTexture(liquidTexture);
+        /* Obtem coordenadas textura */
+        float ui = atlasSprites.getMinU();
+        float uf = atlasSprites.getMaxU();
+        float vi = atlasSprites.getMinV();
+        float vf = atlasSprites.getMaxV();
+        
+        float yoffset = ((float)(te.getAmount()) / (float)(te.getCapacity()));
+        yoffset = yoffset*tamanhoy + fatory + fatory; 
+        
+        /** Desloca render para o bloco atual */
+        GlStateManager.translate(x,y,z);
 
-            if (itextureobject != null)
-            {
-            	//ModConfig.Log.info("OK");
-            	GlStateManager.bindTexture(itextureobject.getGlTextureId());
-            }
-            else
-            {
-            	bindTexture(FLUIDS_TEXTURES[0]);
-            }
-        	*/
-        	
-        	GlStateManager.translate(x,y,z);
-        	//modelbase.render((Entity)null, 0.0F, 0.0F, 0.0F, 0.0f, 0.0F, 0.9f);
-            worldrenderer.begin(7, DefaultVertexFormats.POSITION_TEX);
-            worldrenderer.pos(0.1f, 0.2f, 0.1f).tex( ui,  vi).endVertex();
-            worldrenderer.pos(0.1f, 0.2f, 0.9f).tex( ui,  vf).endVertex();
-            worldrenderer.pos(0.9f, 0.2f, 0.9f).tex( uf,  vf).endVertex();
-            worldrenderer.pos(0.9f, 0.2f, 0.1f).tex( uf,  vi).endVertex();
-            
-            tessellator.draw();
-        }
-        /*
-		this.bindTexture(FLUIDS_TEXTURES[1]);
-		GlStateManager.translate(x,y,z);
-		worldrenderer.begin(7, DefaultVertexFormats.POSITION_TEX);
-        worldrenderer.pos(0.0f, 1.2f, 0.0f).tex( 0.0f,  0.0f).endVertex();
-        worldrenderer.pos(0.0f, 1.2f, 1.0f).tex( 0.0f,  0.1f).endVertex();
-        worldrenderer.pos(1.0f, 1.2f, 1.0f).tex( 1.0f,  0.1f).endVertex();
-        worldrenderer.pos(1.0f, 1.2f, 0.0f).tex( 1.0f,  0.0f).endVertex();
-        tessellator.draw();
-        */
+        /** Inicia render */
+        worldrenderer.begin(7, DefaultVertexFormats.POSITION_TEX);
         
+        /* Vextex */
+        worldrenderer.pos(miny, yoffset, miny).tex(ui, vi).endVertex();
+        worldrenderer.pos(miny, yoffset, maxy).tex(ui, vf).endVertex();
+        worldrenderer.pos(maxy, yoffset, maxy).tex(uf, vf).endVertex();
+        worldrenderer.pos(maxy, yoffset, miny).tex(uf, vi).endVertex();
+        
+        /** Desenha */
+        tessellator.draw();
+
+        /* Volta configuracoes antigas */
         GlStateManager.popAttrib();
 		GlStateManager.popMatrix();
     } 
