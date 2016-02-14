@@ -12,6 +12,7 @@ import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelBook;
 import net.minecraft.client.renderer.BlockRendererDispatcher;
 import net.minecraft.client.renderer.GlStateManager;
+import net.minecraft.client.renderer.RenderHelper;
 import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.client.renderer.WorldRenderer;
 import net.minecraft.client.renderer.texture.ITextureObject;
@@ -27,6 +28,7 @@ import net.minecraft.util.BlockPos;
 import net.minecraft.util.MathHelper;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.World;
+import net.minecraftforge.client.model.pipeline.LightUtil;
 import net.minecraftforge.fluids.Fluid;
 import net.minecraftforge.fluids.FluidRegistry;
 import net.minecraftforge.fluids.FluidStack;
@@ -89,19 +91,15 @@ public class TileEntityRenderBarril extends TileEntitySpecialRenderer<TileEntity
         
         /* Guarda informacoes */
 		GlStateManager.pushMatrix();
-		GlStateManager.pushAttrib();
 		
-		/* Configura render */
-		GlStateManager.disableFog();
-		GlStateManager.disableLighting();
+		/** Configura */
         GlStateManager.enableBlend();
+        GlStateManager.disableLighting();
         GlStateManager.enableDepth();
-        GlStateManager.disableCull();
-        GlStateManager.resetColor();
-        
+		
         /** Seleciona textura */
         bindTexture(TextureMap.locationBlocksTexture);
-        	
+
         Block blockliquid = liquid.getBlock();
         ResourceLocation liquidTexture = liquid.getStill();
         
@@ -112,7 +110,7 @@ public class TileEntityRenderBarril extends TileEntitySpecialRenderer<TileEntity
         
         /** Atualiza animacao */
         atlasSprites.updateAnimation();
-        			
+        
         /* Obtem coordenadas textura */
         float ui = atlasSprites.getMinU();
         float uf = atlasSprites.getMaxU();
@@ -124,21 +122,29 @@ public class TileEntityRenderBarril extends TileEntitySpecialRenderer<TileEntity
         
         /** Desloca render para o bloco atual */
         GlStateManager.translate(x,y,z);
+        
+        /*
+        int color = liquid.getColor();
+        float red = (color >> 16 & 0xFF) / 255.0F;
+        float green = (color >> 8 & 0xFF) / 255.0F;
+        float blue = (color & 0xFF) / 255.0F;
 
+        GlStateManager.color(red, green, blue, 1.0F);
+        */        
+        
         /** Inicia render */
         worldrenderer.begin(7, DefaultVertexFormats.POSITION_TEX);
         
         /* Vextex */
-        worldrenderer.pos(miny, yoffset, miny).tex(ui, vi).endVertex();
-        worldrenderer.pos(miny, yoffset, maxy).tex(ui, vf).endVertex();
         worldrenderer.pos(maxy, yoffset, maxy).tex(uf, vf).endVertex();
         worldrenderer.pos(maxy, yoffset, miny).tex(uf, vi).endVertex();
+        worldrenderer.pos(miny, yoffset, miny).tex(ui, vi).endVertex();
+        worldrenderer.pos(miny, yoffset, maxy).tex(ui, vf).endVertex();
         
         /** Desenha */
         tessellator.draw();
 
         /* Volta configuracoes antigas */
-        GlStateManager.popAttrib();
 		GlStateManager.popMatrix();
     } 
 
