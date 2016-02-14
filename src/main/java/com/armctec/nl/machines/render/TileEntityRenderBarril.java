@@ -15,6 +15,8 @@ import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.RenderHelper;
 import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.client.renderer.WorldRenderer;
+import net.minecraft.client.renderer.block.model.ItemCameraTransforms;
+import net.minecraft.client.renderer.entity.RenderItem;
 import net.minecraft.client.renderer.texture.ITextureObject;
 import net.minecraft.client.renderer.texture.SimpleTexture;
 import net.minecraft.client.renderer.texture.TextureAtlasSprite;
@@ -24,6 +26,9 @@ import net.minecraft.client.renderer.texture.TextureUtil;
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
 import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
 import net.minecraft.entity.Entity;
+import net.minecraft.entity.item.EntityItem;
+import net.minecraft.init.Blocks;
+import net.minecraft.item.ItemStack;
 import net.minecraft.util.BlockPos;
 import net.minecraft.util.MathHelper;
 import net.minecraft.util.ResourceLocation;
@@ -146,6 +151,38 @@ public class TileEntityRenderBarril extends TileEntitySpecialRenderer<TileEntity
 
         /* Volta configuracoes antigas */
 		GlStateManager.popMatrix();
+		
+		GlStateManager.pushMatrix();
+		GlStateManager.translate(x, y, z);
+		renderItem(getWorld(),new ItemStack(Blocks.anvil),1);
+		GlStateManager.popMatrix();
     } 
 
+	
+	private void renderItem(World world, ItemStack stack, float partialTicks)
+    {
+        RenderItem itemRenderer = Minecraft.getMinecraft().getRenderItem();
+        if (stack != null)
+        {
+            GlStateManager.translate(0.5, 1, 0.5);
+            EntityItem entityitem = new EntityItem(world, 0.0D, 0.0D, 0.0D, stack);
+            entityitem.getEntityItem().stackSize = 1;
+            entityitem.hoverStart = 0.0F;
+            GlStateManager.pushMatrix();
+            GlStateManager.disableLighting();
+
+            float rotation = (float) (720.0 * (System.currentTimeMillis() & 0x3FFFL) / 0x3FFFL);
+
+            GlStateManager.rotate(rotation, 0.0F, 1.0F, 0);
+            GlStateManager.scale(0.5F, 0.5F, 0.5F);
+            GlStateManager.pushAttrib();
+            RenderHelper.enableStandardItemLighting();
+            itemRenderer.renderItem(entityitem.getEntityItem(), ItemCameraTransforms.TransformType.FIXED);
+            RenderHelper.disableStandardItemLighting();
+            GlStateManager.popAttrib();
+
+            GlStateManager.enableLighting();
+            GlStateManager.popMatrix();
+        }
+    }	
 }
