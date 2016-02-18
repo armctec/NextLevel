@@ -114,7 +114,8 @@ public class TileEntityRenderBarril extends TileEntitySpecialRenderer<TileEntity
         	return;
         
         /** Atualiza animacao */
-        atlasSprites.updateAnimation();
+        // Habilitado aumenta velociade de animacao
+        // atlasSprites.updateAnimation();
         
         /* Obtem coordenadas textura */
         float ui = atlasSprites.getMinU();
