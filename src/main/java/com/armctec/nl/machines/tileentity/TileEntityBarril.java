@@ -19,9 +19,9 @@ import com.armctec.nl.general.tileentity.TileEntitityBasicFluidTank;
 
 public class TileEntityBarril extends TileEntitityBasicFluidTank implements ITickable
 {
-	public TileEntityBarril(String NameEntity) 
+	public TileEntityBarril(String NameEntity, int Capacity) 
 	{
-		super(FluidContainerRegistry.BUCKET_VOLUME * 2, NameEntity);
+		super(Capacity, NameEntity);
 	}
 	
 	/** Precisa se nao o inutil do createAndLoadEntity da erro */

@@ -48,6 +48,8 @@ import com.armctec.nl.machines.tileentity.TileEntityGrindstone;
 
 public class BlockBarril extends BlockAdvanced implements ITileEntityProvider, IFluidBlock
 {
+	public static final int capacity = FluidContainerRegistry.BUCKET_VOLUME * 2;
+	
 	public BlockBarril()
 	{
 		super();
@@ -87,8 +89,11 @@ public class BlockBarril extends BlockAdvanced implements ITileEntityProvider, I
 						int quant = tilebarril.fill(null, liquid, true);
 						if(quant != 0)
 						{
-							ItemStack newitem = FluidContainerRegistry.drainFluidContainer(current);
-							playerIn.inventory.setInventorySlotContents(playerIn.inventory.currentItem, newitem);
+							if(!playerIn.capabilities.isCreativeMode)
+							{
+								ItemStack newitem = FluidContainerRegistry.drainFluidContainer(current);
+								playerIn.inventory.setInventorySlotContents(playerIn.inventory.currentItem, newitem);
+							}
 						}
 						ModConfig.Log.info("Quant:"+ quant);
 		            }
@@ -177,7 +182,7 @@ public class BlockBarril extends BlockAdvanced implements ITileEntityProvider, I
  	public TileEntity createNewTileEntity(World worldIn, int meta) 
  	{
  		ModConfig.Log.info("createNewTileEntity");
- 		return new TileEntityBarril(Names.Entities.ENTITY_BARRIL);
+ 		return new TileEntityBarril(Names.Entities.ENTITY_BARRIL, capacity);
  	}
  	
  	public void breakBlock(World worldIn, BlockPos pos, IBlockState state)
@@ -189,7 +194,6 @@ public class BlockBarril extends BlockAdvanced implements ITileEntityProvider, I
  			if(fluidsblock!=null)
  			{
  				ItemStack itembarril = new ItemStack(ModBlocks.Barril);
- 				itembarril.stackSize = 1;
  		
  				ModConfig.Log.info("Barril encontrado");
  			
@@ -207,7 +211,6 @@ public class BlockBarril extends BlockAdvanced implements ITileEntityProvider, I
  				if(!nomeFluid.isEmpty())
  				{
  	 				itembarril.setTagCompound(nbtstack); 					
- 					itembarril.setStackDisplayName(nomeFluid+" = "+quantFluid);
  				}
  			
  				UtilityFunctions.spawnItemStack(worldIn, pos, itembarril);

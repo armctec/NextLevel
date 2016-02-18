@@ -8,6 +8,7 @@ import net.minecraftforge.fluids.FluidRegistry;
 import net.minecraftforge.fml.client.registry.ClientRegistry;
 
 import com.armctec.nl.general.utility.RegisterClient;
+import com.armctec.nl.machines.item.ItemBarril;
 import com.armctec.nl.machines.reference.ModConfig;
 import com.armctec.nl.machines.reference.Names;
 import com.armctec.nl.machines.tileentity.TileEntityBarril;

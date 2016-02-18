@@ -9,5 +9,6 @@ public class ModItemsClient
 	public static void init()
 	{
 		RegisterClient.registerItem(ModConfig.MOD_ID, Names.Items.TOOLGRINDER);
+		//RegisterClient.registerItem(ModConfig.MOD_ID, Names.Items.ITEMBARRIL);
 	}
 }

@@ -5,6 +5,7 @@ tile.nextlevelmachines:tank.name=Tanque
 tile.nextlevelmachines:barril.name=Barril
 
 item.nextlevelmachines:toolgrinder.name=Grinder Tool
+item.nextlevelmachines:itembarril.name=Barril
 
 container.nextlevelmachines:advancedcraftingtable.crafting=Advanced Crafting
 container.nextlevelmachines:advancedcraftingtable.inventory=Inventory

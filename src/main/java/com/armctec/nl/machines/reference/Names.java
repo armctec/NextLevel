@@ -14,6 +14,7 @@ public class Names
 	public static final class Items
     {
 		public final static String TOOLGRINDER = "toolgrinder";
+		//public final static String ITEMBARRIL = "itembarril";
     }
 	
     public static final class Entities

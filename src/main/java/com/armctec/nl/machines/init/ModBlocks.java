@@ -7,6 +7,7 @@ import com.armctec.nl.machines.block.BlockBarril;
 import com.armctec.nl.machines.block.BlockBomba;
 import com.armctec.nl.machines.block.BlockGrindstone;
 import com.armctec.nl.machines.block.BlockTank;
+import com.armctec.nl.machines.item.ItemBarril;
 import com.armctec.nl.machines.reference.Names;
 
 
@@ -25,6 +26,6 @@ public class ModBlocks
         GameRegistry.registerBlock(Grindstone, Names.Blocks.GRINDSTONE);
         GameRegistry.registerBlock(Bomba, Names.Blocks.BOMBA);
         GameRegistry.registerBlock(Tanque, Names.Blocks.TANQUE);
-        GameRegistry.registerBlock(Barril, Names.Blocks.BARRIL);
+        GameRegistry.registerBlock(Barril, ItemBarril.class ,Names.Blocks.BARRIL);
 	}
 }
