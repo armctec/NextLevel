@@ -45,6 +45,7 @@ import com.armctec.nl.machines.reference.Names;
 import com.armctec.nl.machines.tileentity.TileEntityBarril;
 import com.armctec.nl.machines.tileentity.TileEntityBomba;
 import com.armctec.nl.machines.tileentity.TileEntityGrindstone;
+import com.sun.corba.se.spi.ior.TaggedComponent;
 
 public class BlockBarril extends BlockAdvanced implements ITileEntityProvider, IFluidBlock
 {
@@ -71,7 +72,17 @@ public class BlockBarril extends BlockAdvanced implements ITileEntityProvider, I
 				// Handle FluidContainerRegistry
 		        if (FluidContainerRegistry.isContainer(current))
 		        {
-		            liquid = FluidContainerRegistry.getFluidForFilledItem(current);
+		        	NBTTagCompound tag;
+		        	
+		        	liquid = FluidContainerRegistry.getFluidForFilledItem(current);
+		        	
+		        	tag = current.getTagCompound();
+		        	if(tag!=null)
+		        	{
+		        		if(tag.hasKey("Amount"))
+		        			liquid = new FluidStack(liquid, tag.getInteger("Amount"));
+		        	}
+		            
 		            // Handle filled containers
 		            if (liquid == null)
 		            {
@@ -91,8 +102,36 @@ public class BlockBarril extends BlockAdvanced implements ITileEntityProvider, I
 						{
 							if(!playerIn.capabilities.isCreativeMode)
 							{
-								ItemStack newitem = FluidContainerRegistry.drainFluidContainer(current);
-								playerIn.inventory.setInventorySlotContents(playerIn.inventory.currentItem, newitem);
+								tag = current.getTagCompound();
+								if(tag!=null)
+					        	{
+									if(tag.hasKey("Amount"))
+									{
+										int capacity = FluidContainerRegistry.getContainerCapacity(current);
+										int amount = tag.getInteger("Amount");
+										int diff = amount - quant;
+
+										if(diff > 0)
+										{
+											tag.setInteger("Amount", diff);
+										}
+										else
+										{
+											ItemStack newitem = FluidContainerRegistry.drainFluidContainer(current);
+											playerIn.inventory.setInventorySlotContents(playerIn.inventory.currentItem, newitem);
+										}
+									}
+									else
+									{
+										ItemStack newitem = FluidContainerRegistry.drainFluidContainer(current);
+										playerIn.inventory.setInventorySlotContents(playerIn.inventory.currentItem, newitem);
+									}
+					        	}
+								else
+								{
+									ItemStack newitem = FluidContainerRegistry.drainFluidContainer(current);
+									playerIn.inventory.setInventorySlotContents(playerIn.inventory.currentItem, newitem);
+								}
 							}
 						}
 						ModConfig.Log.info("Quant:"+ quant);
