@@ -5,6 +5,7 @@ import java.util.List;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockLiquid;
 import net.minecraft.block.material.Material;
+import net.minecraft.block.state.BlockState;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
@@ -55,8 +56,25 @@ public class ItemBarril extends ItemBlock implements IFluidContainerItem
 	            {
 	            	Material material = worldIn.getBlockState(pos).getBlock().getMaterial();
 
-	            	if (!worldIn.isAirBlock(pos) && !material.isSolid())
-	            		return itemStackIn;
+	            	if(material.isLiquid())
+	            	{
+	            		IBlockState stateWorld = worldIn.getBlockState(pos); 
+	            		Block blockWorld = stateWorld.getBlock();
+	            		
+	            		if(blockWorld instanceof BlockLiquid)
+	            		{
+	            			if(((Integer)stateWorld.getValue(BlockLiquid.LEVEL)).intValue() == 0)
+	            				return itemStackIn;
+	            		}
+            			if (blockWorld instanceof BlockFluidBase)
+            			{
+	            			if(((Integer)stateWorld.getValue(BlockFluidBase.LEVEL)).intValue() == 0)
+	            				return itemStackIn;
+            			}
+	            	}
+	            	
+	            	//if (!worldIn.isAirBlock(pos) && !material.isSolid())
+	            	//	return itemStackIn;
 
 	            	FluidStack liquid_1 = getFluid(itemStackIn);
 	            	FluidStack liquid_2 = drain(itemStackIn, FluidContainerRegistry.BUCKET_VOLUME, true);

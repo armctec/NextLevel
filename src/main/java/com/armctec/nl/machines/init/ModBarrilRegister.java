@@ -13,6 +13,7 @@ public class ModBarrilRegister
 {
 	public static void init()
 	{
+		/*
 		ItemStack stackempty = new ItemStack(ModBlocks.Barril);
 		ItemBarril itemBarril  = new ItemBarril(ModBlocks.Barril);
 		
@@ -26,5 +27,6 @@ public class ModBarrilRegister
             
             FluidContainerRegistry.registerFluidContainer(fs, stack, stackempty);
         }
+        */
 	}
 }

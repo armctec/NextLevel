@@ -31,6 +31,7 @@ import net.minecraftforge.fluids.FluidRegistry;
 import net.minecraftforge.fluids.FluidStack;
 import net.minecraftforge.fluids.FluidTankInfo;
 import net.minecraftforge.fluids.IFluidBlock;
+import net.minecraftforge.fluids.IFluidContainerItem;
 import net.minecraftforge.fluids.IFluidHandler;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
@@ -69,28 +70,18 @@ public class BlockBarril extends BlockAdvanced implements ITileEntityProvider, I
 			TileEntityBarril tilebarril = getTileEntity(worldIn, pos);
 			if(tilebarril != null)
 			{		
-				// Handle FluidContainerRegistry
 		        if (FluidContainerRegistry.isContainer(current))
 		        {
-		        	NBTTagCompound tag;
-		        	
 		        	liquid = FluidContainerRegistry.getFluidForFilledItem(current);
-		        	
-		        	tag = current.getTagCompound();
-		        	if(tag!=null)
-		        	{
-		        		if(tag.hasKey("Amount"))
-		        			liquid = new FluidStack(liquid, tag.getInteger("Amount"));
-		        	}
-		            
-		            // Handle filled containers
 		            if (liquid == null)
 		            {
 		            	ItemStack filled = FluidContainerRegistry.fillFluidContainer(tilebarril.getFluid(), current);
 		            	liquid = FluidContainerRegistry.getFluidForFilledItem(filled);
 		            	if(liquid != null)
 		            	{
-		            		playerIn.inventory.setInventorySlotContents(playerIn.inventory.currentItem, filled);
+		            		if(!playerIn.capabilities.isCreativeMode)
+		            			playerIn.inventory.setInventorySlotContents(playerIn.inventory.currentItem, filled);
+
 		            		tilebarril.drain(null, liquid.amount, true);
 			            	ModConfig.Log.info("Quant:"+ liquid.amount);
 		            	}
@@ -102,40 +93,62 @@ public class BlockBarril extends BlockAdvanced implements ITileEntityProvider, I
 						{
 							if(!playerIn.capabilities.isCreativeMode)
 							{
-								tag = current.getTagCompound();
-								if(tag!=null)
-					        	{
-									if(tag.hasKey("Amount"))
-									{
-										int capacity = FluidContainerRegistry.getContainerCapacity(current);
-										int amount = tag.getInteger("Amount");
-										int diff = amount - quant;
-
-										if(diff > 0)
-										{
-											tag.setInteger("Amount", diff);
-										}
-										else
-										{
-											ItemStack newitem = FluidContainerRegistry.drainFluidContainer(current);
-											playerIn.inventory.setInventorySlotContents(playerIn.inventory.currentItem, newitem);
-										}
-									}
-									else
-									{
-										ItemStack newitem = FluidContainerRegistry.drainFluidContainer(current);
-										playerIn.inventory.setInventorySlotContents(playerIn.inventory.currentItem, newitem);
-									}
-					        	}
-								else
-								{
-									ItemStack newitem = FluidContainerRegistry.drainFluidContainer(current);
-									playerIn.inventory.setInventorySlotContents(playerIn.inventory.currentItem, newitem);
-								}
+								ItemStack newitem = FluidContainerRegistry.drainFluidContainer(current);
+								playerIn.inventory.setInventorySlotContents(playerIn.inventory.currentItem, newitem);
 							}
 						}
 						ModConfig.Log.info("Quant:"+ quant);
 		            }
+		        }
+		        else
+		        {
+		        	if(current.hasTagCompound())
+		        	{
+		        		NBTTagCompound tag = current.getTagCompound();
+		        		
+		        		if(tag.hasKey("FluidName") && tag.hasKey("Amount"))
+		        		{
+		        			String FluidName = tag.getString("FluidName");
+		        			int quantdisp = tag.getInteger("Amount");
+
+			        		ModConfig.Log.info("tag: FluidName:"+FluidName+" Amount:"+quantdisp);
+			        		
+
+		        			if(quantdisp == 0)
+		        			{
+		        				
+		        			}
+		        			else
+		        			{
+		        				ModConfig.Log.info("Name:"+tilebarril.getFluidName());
+		        				
+		        				if(tilebarril.getFluidName() == FluidName || tilebarril.getFluidName()==null)
+		        				{
+		        					ModConfig.Log.info("Modo manual");
+		        					
+		        					liquid = FluidRegistry.getFluidStack(FluidName, quantdisp);
+
+		        					int quant_fill = tilebarril.fill(null, liquid, true);
+		        					int diff = quantdisp - quant_fill;
+
+		        					if(diff == 0)
+		        					{
+		        						tag.removeTag("FluidName");
+		        						tag.removeTag("Amount");
+		        						if(tag.hasNoTags())
+		        							current.setTagCompound(null);
+		        					}
+		        					else
+		        					{
+		        						tag.setInteger("Amount", diff);
+		        						current.setTagCompound(tag);
+		        					}
+		        					
+		        					
+		        				}
+		        			}
+		        		}
+		        	}
 		        }
 		        //tilebarril.updateComparator();
 		        
