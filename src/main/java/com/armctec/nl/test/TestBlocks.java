@@ -1,5 +1,6 @@
 package com.armctec.nl.test;
 
+import net.minecraftforge.fluids.FluidRegistry;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.SidedProxy;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
@@ -15,6 +16,11 @@ import com.armctec.nl.test.reference.ModConfig;
 @Mod(modid = ModConfig.MOD_ID, name = ModConfig.MOD_NAME, version = ModConfig.MOD_VERSION)
 public class TestBlocks 
 {
+	// Static Calls
+	{
+		FluidRegistry.enableUniversalBucket();
+	}
+	
 	LogHelper Log = ModConfig.Log;
 	
 	@Mod.Instance(ModConfig.MOD_ID)

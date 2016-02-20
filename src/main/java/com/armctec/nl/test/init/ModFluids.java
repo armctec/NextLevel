@@ -28,6 +28,7 @@ public class ModFluids
 	{
 		FluidRegistry.registerFluid(milkFluid);
 		GameRegistry.registerBlock(MilkFluidBlock.instance, MilkFluidBlock.name);
+		FluidRegistry.addBucketForFluid(milkFluid);
 	}
 	
 	public static void preinitclient()
@@ -90,5 +91,6 @@ public class ModFluids
             setCreativeTab(CreativeTabTest.TEST_TAB);
             setUnlocalizedName(ModConfig.MOD_ID.toLowerCase() + ":" + name);
         }
+        
     }	
 }
