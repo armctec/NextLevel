@@ -15,7 +15,9 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.BlockPos;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumParticleTypes;
+import net.minecraft.util.MathHelper;
 import net.minecraft.util.MovingObjectPosition;
+import net.minecraft.util.Vec3;
 import net.minecraft.world.World;
 import net.minecraftforge.fluids.BlockFluidBase;
 import net.minecraftforge.fluids.FluidContainerRegistry;
@@ -47,7 +49,7 @@ public class ItemBarril extends ItemBlock implements IFluidContainerItem
 	{
 		if(playerIn.isSneaking())
 		{
-			MovingObjectPosition mop = this.getMovingObjectPositionFromPlayer(worldIn, playerIn, false);
+			MovingObjectPosition mop = getMovingObjectPositionFromPlayer(worldIn, playerIn, false);
 			if (mop != null && mop.typeOfHit == MovingObjectPosition.MovingObjectType.BLOCK)
 	        {
 				BlockPos pos = mop.getBlockPos().offset(mop.sideHit);

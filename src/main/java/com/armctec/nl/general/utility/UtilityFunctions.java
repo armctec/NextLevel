@@ -3,9 +3,13 @@ package com.armctec.nl.general.utility;
 import java.util.Random;
 
 import net.minecraft.entity.item.EntityItem;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.BlockPos;
+import net.minecraft.util.MathHelper;
+import net.minecraft.util.MovingObjectPosition;
+import net.minecraft.util.Vec3;
 import net.minecraft.world.World;
 
 public class UtilityFunctions 
@@ -51,4 +55,28 @@ public class UtilityFunctions
             worldIn.spawnEntityInWorld(entityitem);
         }
     }
+	
+	public static MovingObjectPosition getMovingObjectPositionFromPlayer(World worldIn, EntityPlayer playerIn, boolean useLiquids)
+    {
+        float f = playerIn.rotationPitch;
+        float f1 = playerIn.rotationYaw;
+        double d0 = playerIn.posX;
+        double d1 = playerIn.posY + (double)playerIn.getEyeHeight();
+        double d2 = playerIn.posZ;
+        Vec3 vec3 = new Vec3(d0, d1, d2);
+        float f2 = MathHelper.cos(-f1 * 0.017453292F - (float)Math.PI);
+        float f3 = MathHelper.sin(-f1 * 0.017453292F - (float)Math.PI);
+        float f4 = -MathHelper.cos(-f * 0.017453292F);
+        float f5 = MathHelper.sin(-f * 0.017453292F);
+        float f6 = f3 * f4;
+        float f7 = f2 * f4;
+        double d3 = 5.0D;
+        if (playerIn instanceof net.minecraft.entity.player.EntityPlayerMP)
+        {
+            d3 = ((net.minecraft.entity.player.EntityPlayerMP)playerIn).theItemInWorldManager.getBlockReachDistance();
+        }
+        Vec3 vec31 = vec3.addVector((double)f6 * d3, (double)f5 * d3, (double)f7 * d3);
+        return worldIn.rayTraceBlocks(vec3, vec31, useLiquids, !useLiquids, false);
+    }
+	
 }

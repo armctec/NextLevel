@@ -10,12 +10,14 @@ import net.minecraft.client.renderer.ItemMeshDefinition;
 import net.minecraft.client.renderer.block.statemap.StateMapperBase;
 import net.minecraft.client.resources.model.ModelBakery;
 import net.minecraft.client.resources.model.ModelResourceLocation;
+import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.fluids.BlockFluidClassic;
 import net.minecraftforge.fluids.Fluid;
+import net.minecraftforge.fluids.FluidContainerRegistry;
 import net.minecraftforge.fluids.FluidRegistry;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 
@@ -28,7 +30,9 @@ public class ModFluids
 	{
 		FluidRegistry.registerFluid(milkFluid);
 		GameRegistry.registerBlock(MilkFluidBlock.instance, MilkFluidBlock.name);
-		FluidRegistry.addBucketForFluid(milkFluid);
+		
+		//FluidRegistry.addBucketForFluid(milkFluid);
+		FluidContainerRegistry.registerFluidContainer(milkFluid, new ItemStack(Items.milk_bucket), FluidContainerRegistry.EMPTY_BUCKET);
 	}
 	
 	public static void preinitclient()
