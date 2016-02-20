@@ -26,7 +26,7 @@ public class BlockCano extends BlockAdvanced
 	public BlockCano()
 	{
 		super();
-		this.setCreativeTab(CreativeTabTest.ORES_TAB);
+		this.setCreativeTab(CreativeTabTest.TEST_TAB);
 		
 		this.setDefaultState(this.blockState.getBaseState().withProperty(FACING, EnumFacing.NORTH).withProperty(DIRECAO, 1));
 		setBlockName(ModConfig.MOD_ID, Names.Blocks.CANO);

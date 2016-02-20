@@ -8,7 +8,7 @@ import com.armctec.nl.test.reference.ModConfig;
 
 public class CreativeTabTest 
 {
-    public static final CreativeTabs ORES_TAB = new CreativeTabs(ModConfig.MOD_ID.toLowerCase())
+    public static final CreativeTabs TEST_TAB = new CreativeTabs(ModConfig.MOD_ID.toLowerCase())
     {
         @Override
         public Item getTabIconItem()

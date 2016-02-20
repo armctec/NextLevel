@@ -102,6 +102,9 @@ public class BlockBarril extends BlockAdvanced implements ITileEntityProvider, I
 		        }
 		        else
 		        {
+		        	if(current == null)
+		        		return false;
+		        	
 		        	if(current.hasTagCompound())
 		        	{
 		        		NBTTagCompound tag = current.getTagCompound();

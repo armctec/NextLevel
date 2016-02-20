@@ -56,7 +56,14 @@ public class TileEntityRenderBarril extends TileEntitySpecialRenderer<TileEntity
     	/** Mostra todos registrados */
     	for (Map.Entry<String, Fluid> entry : fluidos.entrySet()) 
     	{
-    		ModConfig.Log.info("Key : " + entry.getKey() + " Value : " + entry.getValue().getStill().toString());
+    		Fluid achado = entry.getValue();
+    		if(achado!=null)
+    		{
+    			if(achado.getStill()!=null)
+    				ModConfig.Log.info("Key : " + entry.getKey() + " Value : " + achado.getStill().toString());
+    			else
+    				ModConfig.Log.info("Key : " + entry.getKey());
+    		}
     	}
     }
     

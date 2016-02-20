@@ -38,7 +38,7 @@ public class WorldOres
 		
         ModItems.init();
 		ModBlocks.init();
-
+		
 		proxy.preInit();
 
 		GameRegistry.registerWorldGenerator(new WorldGenOre(), 0);

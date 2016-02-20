@@ -8,6 +8,7 @@ import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 
 import com.armctec.nl.general.utility.LogHelper;
 import com.armctec.nl.test.init.ModBlocks;
+import com.armctec.nl.test.init.ModFluids;
 import com.armctec.nl.test.proxy.CommonProxy;
 import com.armctec.nl.test.reference.ModConfig;
 
@@ -26,6 +27,13 @@ public class TestBlocks
     public void preInit(FMLPreInitializationEvent event)
 	{
 		ModBlocks.init();
+		ModFluids.preinit();
+		
+		if(event.getSide().isClient() == true)
+        {
+			ModFluids.preinitclient();	
+        }
+		
 		proxy.preInit();
 		Log.info("Pre Initialization Complete!");
 	}
