@@ -24,15 +24,22 @@ import net.minecraftforge.fml.common.registry.GameRegistry;
 public class ModFluids 
 {
 	public static final Fluid milkFluid = new Fluid("milk", new ResourceLocation(ModConfig.MOD_ID.toLowerCase(), "blocks/milk_still"), new ResourceLocation(ModConfig.MOD_ID.toLowerCase(), "blocks/milk_flow"));
+	public static final Fluid oilFluid = new Fluid("oil", new ResourceLocation(ModConfig.MOD_ID.toLowerCase(), "blocks/oil_still"), new ResourceLocation(ModConfig.MOD_ID.toLowerCase(), "blocks/oil_flow"));
+	
 	private static ModelResourceLocation milkLocation = new ModelResourceLocation(ModConfig.MOD_ID.toLowerCase() + ":" + TestFluidBlock.name, "milk");
+	private static ModelResourceLocation oilLocation = new ModelResourceLocation(ModConfig.MOD_ID.toLowerCase() + ":" + TestFluidBlock.name, "oil");
 	
 	public static void preinit()
 	{
 		FluidRegistry.registerFluid(milkFluid);
 		GameRegistry.registerBlock(MilkFluidBlock.instance, MilkFluidBlock.name);
+
+		FluidRegistry.registerFluid(oilFluid);
+		GameRegistry.registerBlock(OilFluidBlock.instance, OilFluidBlock.name);
 		
 		//FluidRegistry.addBucketForFluid(milkFluid);
 		FluidContainerRegistry.registerFluidContainer(milkFluid, new ItemStack(Items.milk_bucket), FluidContainerRegistry.EMPTY_BUCKET);
+		FluidContainerRegistry.registerFluidContainer(oilFluid, new ItemStack(ModItems.oil_bucket), FluidContainerRegistry.EMPTY_BUCKET);
 	}
 	
 	public static void preinitclient()
@@ -53,6 +60,24 @@ public class ModFluids
                 return milkLocation;
             }
         });		
+
+		Item oil = Item.getItemFromBlock(OilFluidBlock.instance);
+		ModelBakery.registerItemVariants(oil);
+		ModelLoader.setCustomMeshDefinition(oil, new ItemMeshDefinition()
+        {
+            public ModelResourceLocation getModelLocation(ItemStack stack)
+            {
+                return oilLocation;
+            }
+        });
+		ModelLoader.setCustomStateMapper(OilFluidBlock.instance, new StateMapperBase()
+        {
+            protected ModelResourceLocation getModelResourceLocation(IBlockState state)
+            {
+                return oilLocation;
+            }
+        });		
+	
 	}
 	
 	public static final class TestFluid extends Fluid
@@ -92,6 +117,20 @@ public class ModFluids
         private MilkFluidBlock()
         {
             super(milkFluid, Material.water);
+            setCreativeTab(CreativeTabTest.TEST_TAB);
+            setUnlocalizedName(ModConfig.MOD_ID.toLowerCase() + ":" + name);
+        }
+        
+    }	
+	
+	public static final class OilFluidBlock extends BlockFluidClassic
+    {
+        public static final MilkFluidBlock instance = new MilkFluidBlock();
+        public static final String name = "OilFluidBlock";
+
+        private OilFluidBlock()
+        {
+            super(oilFluid, Material.water);
             setCreativeTab(CreativeTabTest.TEST_TAB);
             setUnlocalizedName(ModConfig.MOD_ID.toLowerCase() + ":" + name);
         }

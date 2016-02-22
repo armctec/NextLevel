@@ -9,7 +9,7 @@ public class Names
 	
     public static final class Items
     {
-        
+        public final static String OIL_BUCKET = "oil_bucket";
     }
 
     public static final class Entites

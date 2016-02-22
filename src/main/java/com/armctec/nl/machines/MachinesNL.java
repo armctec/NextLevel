@@ -61,13 +61,13 @@ public class MachinesNL
 	@Mod.EventHandler
     public void init(FMLInitializationEvent event)
 	{
-        if(event.getSide().isClient() == true)
+		if(event.getSide().isClient() == true)
         {
         	ModItemsClient.init();
         	ModBlocksClient.init();
         	ModBlocksRenderClient.init();
         }
-        
+		
         ModRecipes.init();
         
 		proxy.init();

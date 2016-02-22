@@ -30,8 +30,12 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
 import com.armctec.nl.general.utility.LogHelper;
 import com.armctec.nl.general.utility.UtilityFunctions;
+import com.armctec.nl.test.events.Event_onBucketEmpty;
 import com.armctec.nl.test.init.ModBlocks;
+import com.armctec.nl.test.init.ModEvents;
 import com.armctec.nl.test.init.ModFluids;
+import com.armctec.nl.test.init.ModItems;
+import com.armctec.nl.test.init.ModItemsClient;
 import com.armctec.nl.test.proxy.CommonProxy;
 import com.armctec.nl.test.reference.ModConfig;
 
@@ -54,16 +58,15 @@ public class TestBlocks
 	@Mod.EventHandler
     public void preInit(FMLPreInitializationEvent event)
 	{
+		ModItems.init();
 		ModBlocks.init();
 		ModFluids.preinit();
-		
+		ModEvents.init();
+
 		if(event.getSide().isClient() == true)
         {
-			ModFluids.preinitclient();	
+			ModFluids.preinitclient();
         }
-		
-		
-		MinecraftForge.EVENT_BUS.register(this);
 		
 		proxy.preInit();
 		Log.info("Pre Initialization Complete!");
@@ -72,6 +75,11 @@ public class TestBlocks
 	@Mod.EventHandler
     public void init(FMLInitializationEvent event)
 	{
+		if(event.getSide().isClient() == true)
+        {
+			ModItemsClient.init();
+        }
+		
         proxy.init();
         Log.info("Initialization Complete!");
 	}
@@ -83,102 +91,4 @@ public class TestBlocks
         Log.info("Post Initialization Complete!");
     }
 	
-    @SubscribeEvent
-    public void onBucketFill(FillBucketEvent event)
-    {
-        IBlockState state = event.world.getBlockState(event.target.getBlockPos());
-        if (state.getBlock() instanceof IFluidBlock)
-        {
-            Fluid fluid = ((IFluidBlock) state.getBlock()).getFluid();
-            FluidStack fs = new FluidStack(fluid, FluidContainerRegistry.BUCKET_VOLUME);
-
-            ItemStack filled = FluidContainerRegistry.fillFluidContainer(fs, event.current);
-            if (filled != null)
-            {
-                event.result = filled;
-                event.world.setBlockToAir(event.target.getBlockPos());
-
-                event.setResult(Result.ALLOW);
-            }
-        }
-        
-        //Log.info("onBucketFill");
-    }
-    
-    @SubscribeEvent
-    public void onBucketEmpty(PlayerUseItemEvent.Start event)
-    {
-    	ItemStack current = event.entityPlayer.inventory.getCurrentItem();
-    	if(current != null)
-    	{
-    		if(current.getItem() == Items.milk_bucket)
-    		{
-    			EntityPlayer playerIn = event.entityPlayer;
-    			World worldIn = playerIn.worldObj;
-    			
-    			if(playerIn.isSneaking())
-    			{
-    				MovingObjectPosition mop = UtilityFunctions.getMovingObjectPositionFromPlayer(worldIn, playerIn, false);
-    				if (mop != null && mop.typeOfHit == MovingObjectPosition.MovingObjectType.BLOCK)
-    		        {
-    					BlockPos pos = mop.getBlockPos().offset(mop.sideHit);
-    					// can we place liquid there?
-    		            if (worldIn.isBlockModifiable(playerIn, pos))
-    		            {
-    		            	Material material = worldIn.getBlockState(pos).getBlock().getMaterial();
-
-    		            	if(material.isLiquid())
-    		            	{
-    		            		IBlockState stateWorld = worldIn.getBlockState(pos); 
-    		            		Block blockWorld = stateWorld.getBlock();
-    		            		
-    		            		if(blockWorld instanceof BlockLiquid)
-    		            		{
-    		            			if(((Integer)stateWorld.getValue(BlockLiquid.LEVEL)).intValue() == 0)
-    		            				return;
-    		            		}
-    	            			if (blockWorld instanceof BlockFluidBase)
-    	            			{
-    		            			if(((Integer)stateWorld.getValue(BlockFluidBase.LEVEL)).intValue() == 0)
-    		            				return;
-    	            			}
-    		            	}
-    		            	
-    		            	FluidStack liquid_1 = FluidContainerRegistry.getFluidForFilledItem(current);
-    	            	
-    		            	if(liquid_1!=null)
-    		            	{
-    		            		Block fluid = liquid_1.getFluid().getBlock();
-    	            			
-    		            		if (!worldIn.isRemote && !material.isSolid() && !material.isLiquid())
-    		            			worldIn.destroyBlock(pos, true);
-    		            			
-    		            		IBlockState state = fluid.getDefaultState();
-
-    		            		worldIn.setBlockState(pos, state, 3);
-
-    		            		// Nao sei como atualizar a nao ser assim
-    		            		if (fluid instanceof BlockLiquid)
-    		            			((BlockLiquid)fluid).onNeighborBlockChange(worldIn, pos, state, null);
-    		            			
-    		            		if (fluid instanceof BlockFluidBase)
-    		            			((BlockFluidBase)fluid).onNeighborBlockChange(worldIn, pos, state, null);
-    		            		
-    		            		ItemStack newitem = FluidContainerRegistry.drainFluidContainer(current);
-    		            		playerIn.inventory.setInventorySlotContents(playerIn.inventory.currentItem, newitem);
-
-    		            		event.setResult(Result.ALLOW);
-    		            		event.setCanceled(false);
-    		            		// Prevent for duplications
-    		            		event.duration = 10;
-    		            		
-    		            		return;
-    		            	}
-    		            }
-    		        }
-    				//Log.info("onBucketEmpty");
-    			}
-    		}
-    	}
-    }
 }

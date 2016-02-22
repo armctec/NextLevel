@@ -13,6 +13,9 @@
         }],
         "milk": [{
             "custom": { "fluid": "milk" }
+        }],
+        "oil": [{
+            "custom": { "fluid": "oil" }
         }]
     }
 }
