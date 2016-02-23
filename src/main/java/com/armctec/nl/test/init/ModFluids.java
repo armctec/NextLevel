@@ -26,16 +26,18 @@ public class ModFluids
 	public static final Fluid milkFluid = new Fluid("milk", new ResourceLocation(ModConfig.MOD_ID.toLowerCase(), "blocks/milk_still"), new ResourceLocation(ModConfig.MOD_ID.toLowerCase(), "blocks/milk_flow"));
 	public static final Fluid oilFluid = new Fluid("oil", new ResourceLocation(ModConfig.MOD_ID.toLowerCase(), "blocks/oil_still"), new ResourceLocation(ModConfig.MOD_ID.toLowerCase(), "blocks/oil_flow"));
 	
-	private static ModelResourceLocation milkLocation = new ModelResourceLocation(ModConfig.MOD_ID.toLowerCase() + ":" + TestFluidBlock.name, "milk");
-	private static ModelResourceLocation oilLocation = new ModelResourceLocation(ModConfig.MOD_ID.toLowerCase() + ":" + TestFluidBlock.name, "oil");
+	private static ModelResourceLocation milkLocation = new ModelResourceLocation(ModConfig.MOD_ID.toLowerCase() + ":" + MilkFluidBlock.name, "milk");
+	private static ModelResourceLocation oilLocation = new ModelResourceLocation(ModConfig.MOD_ID.toLowerCase() + ":" + OilFluidBlock.name, "oil");
 	
 	public static void preinit()
 	{
 		FluidRegistry.registerFluid(milkFluid);
 		GameRegistry.registerBlock(MilkFluidBlock.instance, MilkFluidBlock.name);
+		milkFluid.setBlock(MilkFluidBlock.instance);
 
 		FluidRegistry.registerFluid(oilFluid);
 		GameRegistry.registerBlock(OilFluidBlock.instance, OilFluidBlock.name);
+		oilFluid.setBlock(OilFluidBlock.instance);
 		
 		//FluidRegistry.addBucketForFluid(milkFluid);
 		FluidContainerRegistry.registerFluidContainer(milkFluid, new ItemStack(Items.milk_bucket), FluidContainerRegistry.EMPTY_BUCKET);
@@ -80,6 +82,7 @@ public class ModFluids
 	
 	}
 	
+	/*
 	public static final class TestFluid extends Fluid
     {
         public static final String name = "testfluid";
@@ -107,12 +110,13 @@ public class ModFluids
             setCreativeTab(CreativeTabTest.TEST_TAB);
             setUnlocalizedName(ModConfig.MOD_ID.toLowerCase() + ":" + name);
         }
-    }	
+    }
+    */	
 	
 	public static final class MilkFluidBlock extends BlockFluidClassic
     {
         public static final MilkFluidBlock instance = new MilkFluidBlock();
-        public static final String name = "MilkFluidBlock";
+        public static final String name = "milkfluidblock";
 
         private MilkFluidBlock()
         {
@@ -125,8 +129,8 @@ public class ModFluids
 	
 	public static final class OilFluidBlock extends BlockFluidClassic
     {
-        public static final MilkFluidBlock instance = new MilkFluidBlock();
-        public static final String name = "OilFluidBlock";
+        public static final OilFluidBlock instance = new OilFluidBlock();
+        public static final String name = "oilfluidblock";
 
         private OilFluidBlock()
         {

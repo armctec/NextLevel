@@ -9,7 +9,7 @@ public class ModEvents
 {
 	public static void init()
 	{
-		MinecraftForge.EVENT_BUS.register(new Event_onBucketEmpty());
+		//MinecraftForge.EVENT_BUS.register(new Event_onBucketEmpty());
 		MinecraftForge.EVENT_BUS.register(new Event_onBucketFill());
 	}
 }

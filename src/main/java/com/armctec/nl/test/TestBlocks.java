@@ -32,6 +32,7 @@ import com.armctec.nl.general.utility.LogHelper;
 import com.armctec.nl.general.utility.UtilityFunctions;
 import com.armctec.nl.test.events.Event_onBucketEmpty;
 import com.armctec.nl.test.init.ModBlocks;
+import com.armctec.nl.test.init.ModBlocksClient;
 import com.armctec.nl.test.init.ModEvents;
 import com.armctec.nl.test.init.ModFluids;
 import com.armctec.nl.test.init.ModItems;
@@ -61,10 +62,12 @@ public class TestBlocks
 		ModItems.init();
 		ModBlocks.init();
 		ModFluids.preinit();
+		
 		ModEvents.init();
 
 		if(event.getSide().isClient() == true)
         {
+			// Precisa estar no preinit
 			ModFluids.preinitclient();
         }
 		
@@ -78,6 +81,7 @@ public class TestBlocks
 		if(event.getSide().isClient() == true)
         {
 			ModItemsClient.init();
+			ModBlocksClient.init();
         }
 		
         proxy.init();

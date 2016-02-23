@@ -79,8 +79,11 @@ public class BlockBarril extends BlockAdvanced implements ITileEntityProvider, I
 		            	liquid = FluidContainerRegistry.getFluidForFilledItem(filled);
 		            	if(liquid != null)
 		            	{
-		            		if(!playerIn.capabilities.isCreativeMode)
+		            		if(!playerIn.capabilities.isCreativeMode && !worldIn.isRemote)
+		            		{
 		            			playerIn.inventory.setInventorySlotContents(playerIn.inventory.currentItem, filled);
+		            			playerIn.inventory.markDirty();
+		            		}
 
 		            		tilebarril.drain(null, liquid.amount, true);
 			            	ModConfig.Log.info("Quant:"+ liquid.amount);
@@ -91,10 +94,11 @@ public class BlockBarril extends BlockAdvanced implements ITileEntityProvider, I
 						int quant = tilebarril.fill(null, liquid, true);
 						if(quant != 0)
 						{
-							if(!playerIn.capabilities.isCreativeMode)
+							if(!playerIn.capabilities.isCreativeMode && !worldIn.isRemote)
 							{
 								ItemStack newitem = FluidContainerRegistry.drainFluidContainer(current);
 								playerIn.inventory.setInventorySlotContents(playerIn.inventory.currentItem, newitem);
+								playerIn.inventory.markDirty();
 							}
 						}
 						ModConfig.Log.info("Quant:"+ quant);

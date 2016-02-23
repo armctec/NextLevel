@@ -19,17 +19,25 @@ import net.minecraftforge.fml.common.eventhandler.Event.Result;
 
 import com.armctec.nl.general.utility.UtilityFunctions;
 import com.armctec.nl.test.init.ModItems;
+import com.armctec.nl.test.reference.ModConfig;
 
 public class Event_onBucketEmpty
 {
     @SubscribeEvent
     public void onBucketEmpty(PlayerUseItemEvent.Start event)
     {
+    	if(!event.entityPlayer.worldObj.isRemote)
+    		return;
+    	
     	ItemStack current = event.entityPlayer.inventory.getCurrentItem();
     	if(current != null)
     	{
+    		ModConfig.Log.info("onBucketEmpty");
+    		
     		if(current.getItem() == Items.milk_bucket || current.getItem() == ModItems.oil_bucket)
     		{
+    			ModConfig.Log.info("onBucketEmpty");
+    			
     			EntityPlayer playerIn = event.entityPlayer;
     			World worldIn = playerIn.worldObj;
     			
@@ -67,8 +75,8 @@ public class Event_onBucketEmpty
     		            	{
     		            		Block fluid = liquid_1.getFluid().getBlock();
     	            			
-    		            		if (!worldIn.isRemote && !material.isSolid() && !material.isLiquid())
-    		            			worldIn.destroyBlock(pos, true);
+    		            		//if (!worldIn.isRemote && !material.isSolid() && !material.isLiquid())
+    		            		//	worldIn.destroyBlock(pos, true);
     		            			
     		            		IBlockState state = fluid.getDefaultState();
 
@@ -81,8 +89,12 @@ public class Event_onBucketEmpty
     		            		if (fluid instanceof BlockFluidBase)
     		            			((BlockFluidBase)fluid).onNeighborBlockChange(worldIn, pos, state, null);
     		            		
-        		            	ItemStack newitem = FluidContainerRegistry.drainFluidContainer(current);
-    		            		playerIn.inventory.setInventorySlotContents(playerIn.inventory.currentItem, newitem);
+        		            	if(!worldIn.isRemote)
+        		            	{
+        		            		ItemStack newitem = FluidContainerRegistry.drainFluidContainer(current);
+        		            		playerIn.inventory.setInventorySlotContents(playerIn.inventory.currentItem, newitem);
+        		            		playerIn.inventory.markDirty();
+        		            	}
     		            		
     		            		event.setResult(Result.ALLOW);
     		            		event.setCanceled(false);

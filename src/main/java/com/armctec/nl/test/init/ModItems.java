@@ -1,13 +1,14 @@
 package com.armctec.nl.test.init;
 
+import net.minecraftforge.fluids.FluidContainerRegistry;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 
 import com.armctec.nl.test.reference.Names;
-import com.armctec.nl.test.item.oilBucket;
+import com.armctec.nl.test.item.BucketOil;
 
 public class ModItems 
 {
-	public final static oilBucket oil_bucket = new oilBucket();
+	public final static BucketOil oil_bucket = new BucketOil();
 	
 	public static void init()
 	{

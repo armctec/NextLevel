@@ -1,3 +1,11 @@
+nextleveltest:milkfluidblock=Milk
+nextleveltest:oilfluidblock=Oil
+
+tile.nextleveltest:milkfluidblock.name=Milk
+tile.nextleveltest:oilfluidblock.name=Oil
+
 tile.nextleveltest:blockcano.name=Cano
+
+item.nextleveltest:oil_bucket.name=Oil Bucket
 
 itemGroup.nextleveltest=Encanamento
