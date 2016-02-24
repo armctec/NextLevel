@@ -1,8 +1,11 @@
 package com.armctec.nl.test.init;
 
 import com.armctec.nl.general.utility.UtilityFunctions;
+import com.armctec.nl.test.fluids.FluidMilk;
+import com.armctec.nl.test.fluids.FluidOil;
 import com.armctec.nl.test.gui.CreativeTabTest;
 import com.armctec.nl.test.reference.ModConfig;
+import com.armctec.nl.test.reference.Names;
 
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
@@ -23,121 +26,34 @@ import net.minecraftforge.fml.common.registry.GameRegistry;
 
 public class ModFluids 
 {
-	public static final Fluid milkFluid = new Fluid("milk", new ResourceLocation(ModConfig.MOD_ID.toLowerCase(), "blocks/milk_still"), new ResourceLocation(ModConfig.MOD_ID.toLowerCase(), "blocks/milk_flow"));
-	public static final Fluid oilFluid = new Fluid("oil", new ResourceLocation(ModConfig.MOD_ID.toLowerCase(), "blocks/oil_still"), new ResourceLocation(ModConfig.MOD_ID.toLowerCase(), "blocks/oil_flow"));
+	public static FluidMilk block_milk = null;
+	public static Fluid fluid_milk = null;
 	
-	private static ModelResourceLocation milkLocation = new ModelResourceLocation(ModConfig.MOD_ID.toLowerCase() + ":" + MilkFluidBlock.name, "milk");
-	private static ModelResourceLocation oilLocation = new ModelResourceLocation(ModConfig.MOD_ID.toLowerCase() + ":" + OilFluidBlock.name, "oil");
+	public static FluidOil block_oil = null;
+	public static Fluid fluid_oil = null;
 	
-	public static void preinit()
+	public static void init()
 	{
-		FluidRegistry.registerFluid(milkFluid);
-		GameRegistry.registerBlock(MilkFluidBlock.instance, MilkFluidBlock.name);
-		milkFluid.setBlock(MilkFluidBlock.instance);
-
-		FluidRegistry.registerFluid(oilFluid);
-		GameRegistry.registerBlock(OilFluidBlock.instance, OilFluidBlock.name);
-		oilFluid.setBlock(OilFluidBlock.instance);
+		fluid_milk = block_milk.milkFluid;
+		fluid_oil = block_oil.oilFluid;
 		
-		//FluidRegistry.addBucketForFluid(milkFluid);
-		FluidContainerRegistry.registerFluidContainer(milkFluid, new ItemStack(Items.milk_bucket), FluidContainerRegistry.EMPTY_BUCKET);
-		FluidContainerRegistry.registerFluidContainer(oilFluid, new ItemStack(ModItems.oil_bucket), FluidContainerRegistry.EMPTY_BUCKET);
+		FluidRegistry.registerFluid(fluid_milk);
+		block_milk = new FluidMilk();
+		GameRegistry.registerBlock(block_milk, Names.Fluids.MILK_FLUID);
+		fluid_milk.setBlock(block_milk);
+
+		FluidRegistry.registerFluid(fluid_oil);
+		block_oil = new FluidOil();
+		GameRegistry.registerBlock(block_oil, Names.Fluids.OIL_FLUID);
+		fluid_oil.setBlock(block_oil);
+		
+		FluidContainerRegistry.registerFluidContainer(fluid_milk, new ItemStack(Items.milk_bucket), FluidContainerRegistry.EMPTY_BUCKET);
+		FluidContainerRegistry.registerFluidContainer(fluid_oil, new ItemStack(ModItems.oil_bucket), FluidContainerRegistry.EMPTY_BUCKET);
 	}
 	
-	public static void preinitclient()
+	public static void initclient()
 	{
-		Item milk = Item.getItemFromBlock(MilkFluidBlock.instance);
-		ModelBakery.registerItemVariants(milk);
-		ModelLoader.setCustomMeshDefinition(milk, new ItemMeshDefinition()
-        {
-            public ModelResourceLocation getModelLocation(ItemStack stack)
-            {
-                return milkLocation;
-            }
-        });
-		ModelLoader.setCustomStateMapper(MilkFluidBlock.instance, new StateMapperBase()
-        {
-            protected ModelResourceLocation getModelResourceLocation(IBlockState state)
-            {
-                return milkLocation;
-            }
-        });		
-
-		Item oil = Item.getItemFromBlock(OilFluidBlock.instance);
-		ModelBakery.registerItemVariants(oil);
-		ModelLoader.setCustomMeshDefinition(oil, new ItemMeshDefinition()
-        {
-            public ModelResourceLocation getModelLocation(ItemStack stack)
-            {
-                return oilLocation;
-            }
-        });
-		ModelLoader.setCustomStateMapper(OilFluidBlock.instance, new StateMapperBase()
-        {
-            protected ModelResourceLocation getModelResourceLocation(IBlockState state)
-            {
-                return oilLocation;
-            }
-        });		
-	
+		block_milk.RegisterItemClient(block_milk);
+		block_oil.RegisterItemClient(block_oil);
 	}
-	
-	/*
-	public static final class TestFluid extends Fluid
-    {
-        public static final String name = "testfluid";
-        public static final TestFluid instance = new TestFluid();
-
-        private TestFluid()
-        {
-            super(name, new ResourceLocation("blocks/water_still"), new ResourceLocation("blocks/water_flow"));
-        }
-
-        @Override
-        public int getColor()
-        {
-            return 0xFF00FF00;
-        }
-    }	
-	public static final class TestFluidBlock extends BlockFluidClassic
-    {
-        public static final TestFluidBlock instance = new TestFluidBlock();
-        public static final String name = "TestFluidBlock";
-
-        private TestFluidBlock()
-        {
-            super(TestFluid.instance, Material.water);
-            setCreativeTab(CreativeTabTest.TEST_TAB);
-            setUnlocalizedName(ModConfig.MOD_ID.toLowerCase() + ":" + name);
-        }
-    }
-    */	
-	
-	public static final class MilkFluidBlock extends BlockFluidClassic
-    {
-        public static final MilkFluidBlock instance = new MilkFluidBlock();
-        public static final String name = "milkfluidblock";
-
-        private MilkFluidBlock()
-        {
-            super(milkFluid, Material.water);
-            setCreativeTab(CreativeTabTest.TEST_TAB);
-            setUnlocalizedName(ModConfig.MOD_ID.toLowerCase() + ":" + name);
-        }
-        
-    }	
-	
-	public static final class OilFluidBlock extends BlockFluidClassic
-    {
-        public static final OilFluidBlock instance = new OilFluidBlock();
-        public static final String name = "oilfluidblock";
-
-        private OilFluidBlock()
-        {
-            super(oilFluid, Material.water);
-            setCreativeTab(CreativeTabTest.TEST_TAB);
-            setUnlocalizedName(ModConfig.MOD_ID.toLowerCase() + ":" + name);
-        }
-        
-    }	
 }

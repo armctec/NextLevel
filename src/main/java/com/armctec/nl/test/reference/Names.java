@@ -11,6 +11,12 @@ public class Names
     {
         public final static String OIL_BUCKET = "oil_bucket";
     }
+    
+    public static final class Fluids
+    {
+    	public final static String MILK_FLUID = "fluid_milk";
+    	public final static String OIL_FLUID = "fluid_oil";
+    }
 
     public static final class Entites
     {
