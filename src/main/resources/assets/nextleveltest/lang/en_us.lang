@@ -9,3 +9,7 @@ tile.nextleveltest:blockcano.name=Cano
 item.nextleveltest:oil_bucket.name=Oil Bucket
 
 itemGroup.nextleveltest=Encanamento
+
+commands.tpd.success=Teleported %s to %s
+commands.tpd.success.coordinates=Teleported %s to %s
+commands.tpd.usage=/tpd [target player] [dimmension id]

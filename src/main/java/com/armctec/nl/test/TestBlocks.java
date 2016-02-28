@@ -4,12 +4,17 @@ import net.minecraft.block.Block;
 import net.minecraft.block.BlockLiquid;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.client.Minecraft;
+import net.minecraft.command.ICommandManager;
+import net.minecraft.command.ServerCommandManager;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
+import net.minecraft.server.MinecraftServer;
 import net.minecraft.util.BlockPos;
 import net.minecraft.util.MovingObjectPosition;
 import net.minecraft.world.World;
+import net.minecraftforge.common.DimensionManager;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.entity.player.FillBucketEvent;
 import net.minecraftforge.event.entity.player.PlayerUseItemEvent;
@@ -24,12 +29,14 @@ import net.minecraftforge.fml.common.SidedProxy;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
+import net.minecraftforge.fml.common.event.FMLServerStartingEvent;
 import net.minecraftforge.fml.common.eventhandler.Event.Result;
 import net.minecraftforge.fml.common.eventhandler.EventPriority;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
 import com.armctec.nl.general.utility.LogHelper;
 import com.armctec.nl.general.utility.UtilityFunctions;
+import com.armctec.nl.test.command.server.CommandTeleportDimension;
 import com.armctec.nl.test.events.Event_onBucketEmpty;
 import com.armctec.nl.test.init.ModBlocks;
 import com.armctec.nl.test.init.ModBlocksClient;
@@ -38,8 +45,10 @@ import com.armctec.nl.test.init.ModFluids;
 import com.armctec.nl.test.init.ModFluids;
 import com.armctec.nl.test.init.ModItems;
 import com.armctec.nl.test.init.ModItemsClient;
+import com.armctec.nl.test.init.ModWorld;
 import com.armctec.nl.test.proxy.CommonProxy;
 import com.armctec.nl.test.reference.ModConfig;
+import com.armctec.nl.test.world.WorldProviderVoid;
 
 @Mod(modid = ModConfig.MOD_ID, name = ModConfig.MOD_NAME, version = ModConfig.MOD_VERSION)
 public class TestBlocks 
@@ -72,8 +81,19 @@ public class TestBlocks
 			ModFluids.initclient();
         }
 		
+		ModWorld.init();
+		
+		//ServerCommandManager mananger = (ServerCommandManager) MinecraftServer.getServer().getCommandManager();
+		//mananger.registerCommand(new CommandTeleportDimension());
+		
 		proxy.preInit();
 		Log.info("Pre Initialization Complete!");
+	}
+	
+	@Mod.EventHandler
+	public void serverLoad(FMLServerStartingEvent event)
+	{
+		event.registerServerCommand(new CommandTeleportDimension());
 	}
 	
 	@Mod.EventHandler
