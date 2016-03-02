@@ -36,7 +36,8 @@ public class VoidTeleporter extends Teleporter
 	@Override
 	public void placeInPortal(Entity entityIn, float rotationYaw) 
 	{
-        int i = MathHelper.floor_double(entityIn.posX);
+        /*
+		int i = MathHelper.floor_double(entityIn.posX);
         int j = MathHelper.floor_double(entityIn.posY) - 1;
         int k = MathHelper.floor_double(entityIn.posZ);
         int l = 1;
@@ -58,6 +59,7 @@ public class VoidTeleporter extends Teleporter
         }
 
         entityIn.setLocationAndAngles((double)i, (double)j, (double)k, entityIn.rotationYaw, 0.0F);
+        */
         entityIn.motionX = entityIn.motionY = entityIn.motionZ = 0.0D;
 	}
 }

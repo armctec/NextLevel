@@ -2,6 +2,7 @@ package com.armctec.nl.test.command.server;
 
 import java.util.List;
 
+import com.armctec.nl.general.utility.UtilityFunctions;
 import com.armctec.nl.test.world.VoidTeleporter;
 
 import net.minecraft.command.CommandBase;
@@ -49,17 +50,14 @@ public class CommandTeleportDimension extends CommandBase {
         }
 		else
         {
-			EntityPlayerMP entity;
-			
-			entity = (EntityPlayerMP) func_175768_b(sender, args[0]);
+			Entity entity;
+			entity = func_175768_b(sender, args[0]);
 
 			if(entity == null)
 				throw new WrongUsageException("commands.tpd.usage", new Object[0]);
 			
-			//entity.travelToDimension(parseInt(args[1]));
-			
-			WorldServer worldserver1 = entity.mcServer.worldServerForDimension(entity.dimension);
-			entity.mcServer.getConfigurationManager().transferPlayerToDimension(entity, parseInt(args[1]), new VoidTeleporter(worldserver1));;
+			if(UtilityFunctions.travelToDimensionEntityPlayer((EntityPlayerMP) entity, parseInt(args[1])) == false)
+				throw new WrongUsageException("commands.tpd.usage", new Object[0]);
         }
 	}
 
