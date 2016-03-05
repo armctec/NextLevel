@@ -2,6 +2,8 @@ package com.armctec.nl.general.utility;
 
 import java.util.Random;
 
+import com.armctec.nl.test.world.VoidTeleporter;
+
 import net.minecraft.client.Minecraft;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityList;
@@ -10,6 +12,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.network.play.server.S06PacketUpdateHealth;
 import net.minecraft.network.play.server.S07PacketRespawn;
 import net.minecraft.network.play.server.S1DPacketEntityEffect;
 import net.minecraft.network.play.server.S2BPacketChangeGameState;
@@ -91,121 +94,69 @@ public class UtilityFunctions
         return worldIn.rayTraceBlocks(vec3, vec31, useLiquids, !useLiquids, false);
     }
 	
-	public static boolean travelToDimensionEntity(Entity entityorigem, int dimensionId)
+	public static boolean travelToDimensionEntity(Entity entityIn, int dimensionId)
 	{
-		if(entityorigem == null)
-			return false;
-		
-		World worldIn = entityorigem.worldObj;
-		
-		if (worldIn.isRemote || entityorigem.isDead)
-			return false;
-		
-		MinecraftServer minecraftserver = MinecraftServer.getServer();
-		if(minecraftserver == null)
-		{
-			System.out.println("minecraftserver == null");
-			return false;
-		}
-		
-		/** Getting world */
-		WorldServer worldorigem = minecraftserver.worldServerForDimension(entityorigem.dimension);
-        WorldServer worlddestino = minecraftserver.worldServerForDimension(dimensionId);
-        
-        if(worldorigem == null || worlddestino == null || worlddestino == worldorigem)
-        	return false;
-        
-        worldIn.removeEntity(entityorigem);
-        entityorigem.isDead = false;
-        
-        /** transferEntityToWorld */
-        if (entityorigem.isEntityAlive())
+		if (!entityIn.worldObj.isRemote)
         {
-        	worlddestino.spawnEntityInWorld(entityorigem);
-        	worlddestino.updateEntityWithOptionalForce(entityorigem, false);
-        }
-        entityorigem.setWorld(worlddestino);        
-        
-        /** Spawn in new world */
-        Entity entitydestino = EntityList.createEntityByName(EntityList.getEntityString(entityorigem), worlddestino);
-        if (entitydestino != null)
-        {
-        	entitydestino.copyDataFromOld(entityorigem);
-            worlddestino.spawnEntityInWorld(entitydestino);
-        }
+			 MinecraftServer server = MinecraftServer.getServer();
+			 WorldServer oldWorldServer = server.worldServerForDimension(entityIn.dimension);
+			 WorldServer newWorldServer = server.worldServerForDimension(dimensionId);
+			 
+             NBTTagCompound tag = new NBTTagCompound();
+             
+             entityIn.writeToNBTOptional(tag);
+             entityIn.setDead();
+             oldWorldServer.playSoundEffect(entityIn.posX, entityIn.posY, entityIn.posZ, "mob.endermen.portal", 1.0F, 1.0F);
 
-        entityorigem.isDead = true;
+             Entity teleportedEntity = EntityList.createEntityFromNBT(tag, newWorldServer);
+             if (teleportedEntity != null)
+             {
+                 //teleportedEntity.setLocationAndAngles(x + 0.5, y + 0.5, z + 0.5, entity.rotationYaw, entity.rotationPitch);
+                 teleportedEntity.forceSpawn = true;
+                 newWorldServer.spawnEntityInWorld(teleportedEntity);
+                 teleportedEntity.setWorld(newWorldServer);
+                 teleportedEntity.timeUntilPortal = 150;
+             }
 
-        /** Update entity list */
-        worldorigem.resetUpdateEntityTick();
-        worlddestino.resetUpdateEntityTick();
-        
-		return true;
+             oldWorldServer.resetUpdateEntityTick();
+             newWorldServer.resetUpdateEntityTick();
+             
+             return true;
+        }
+		return false;
 	}
 
-	public static boolean travelToDimensionEntityPlayer(EntityPlayerMP entityorigem, int dimensionId)
+	public static boolean travelToDimensionEntityPlayer(EntityPlayerMP entityIn, int dimensionId)
 	{
-		int dimension;
-		
-		if (!net.minecraftforge.common.ForgeHooks.onTravelToDimension(entityorigem, dimensionId)) 
-			return false;
-		
-		if(entityorigem == null)
-			return false;
-		
-		MinecraftServer minecraftserver = MinecraftServer.getServer();
-		if(minecraftserver == null)
-		{
-			System.out.println("minecraftserver == null");
-			return false;
-		}
-		
-		ServerConfigurationManager servercfg = minecraftserver.getConfigurationManager();
-		if(servercfg == null)
-		{
-			System.out.println("servercfg == null");
-			return false;	
-		}
-		
-		/** Getting world */
-		WorldServer worldorigem = minecraftserver.worldServerForDimension(entityorigem.dimension);
-        WorldServer worlddestino = minecraftserver.worldServerForDimension(dimensionId);
-        
-        if(worldorigem == null || worlddestino == null || worlddestino == worldorigem)
-        	return false;
-        
-        dimension = entityorigem.dimension;
-        entityorigem.dimension = dimensionId; 
-        
-        entityorigem.playerNetServerHandler.sendPacket(new S07PacketRespawn(dimensionId, worlddestino.getDifficulty(), worlddestino.getWorldInfo().getTerrainType(), entityorigem.theItemInWorldManager.getGameType()));
-        worldorigem.removePlayerEntityDangerously(entityorigem);
-        entityorigem.isDead = false;
-        
-        /** transferEntityToWorld */
-        if (entityorigem.isEntityAlive())
-        {
-        	worlddestino.spawnEntityInWorld(entityorigem);
-        	worlddestino.updateEntityWithOptionalForce(entityorigem, false);
-        }
-        entityorigem.setWorld(worlddestino);  
+		 if (entityIn != null)
+         {
+			 MinecraftServer server = MinecraftServer.getServer();
+			 WorldServer oldWorld = server.worldServerForDimension(entityIn.dimension);
+			 WorldServer newWorldServer = server.worldServerForDimension(dimensionId);
+			 
+             if (entityIn.timeUntilPortal <= 0)
+             {
+                 if (entityIn instanceof EntityPlayer)
+                 {
+                     EntityPlayerMP player = (EntityPlayerMP) entityIn;
 
-        
-        servercfg.preparePlayer(entityorigem, worldorigem);
-        
-        entityorigem.playerNetServerHandler.setPlayerLocation(entityorigem.posX, entityorigem.posY, entityorigem.posZ, entityorigem.rotationYaw, entityorigem.rotationPitch);
-        entityorigem.theItemInWorldManager.setWorld(worlddestino);
-        
-        servercfg.updateTimeAndWeatherForPlayer(entityorigem, worlddestino);
-        servercfg.syncPlayerInventory(entityorigem);
+                     if (!player.worldObj.isRemote)
+                     {
+                         server.getConfigurationManager().transferPlayerToDimension(player, dimensionId, new VoidTeleporter(newWorldServer));
+                         //player.setPositionAndUpdate(x + 0.5, y + 0.5, z + 0.5);
+                         player.worldObj.updateEntityWithOptionalForce(player, false);
+                     }
 
-        for (PotionEffect potioneffect : entityorigem.getActivePotionEffects())
-        {
-        	entityorigem.playerNetServerHandler.sendPacket(new S1DPacketEntityEffect(entityorigem.getEntityId(), potioneffect));
-        }        
-        
-        net.minecraftforge.fml.common.FMLCommonHandler.instance().firePlayerChangedDimensionEvent(entityorigem, dimension, dimensionId);
-        
-		return true;
+                 }
+                 entityIn.timeUntilPortal = 150;
+
+                 newWorldServer.playSoundEffect(entityIn.posX, entityIn.posY, entityIn.posZ, "mob.endermen.portal", 1.0F, 1.0F);
+                 
+                 return true;
+             }
+         }
+		 
+		 return false;
 	}
 	
 }
