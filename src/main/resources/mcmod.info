@@ -3,8 +3,38 @@
   "modid": "NextLevelOres",
   "name": "Next Level Ores",
   "description": "Bring minecraft for the next level.",
+  "version": "0.3.0",
+  "mcversion": "1.8.9",
+  "url": "",
+  "updateUrl": "",
+  "authorList": ["armctec"],
+  "credits": "The Forge and FML guys, for possible to make this",
+  "logoFile": "",
+  "screenshots": [],
+  "dependencies": []
+},
+
+{
+  "modid": "NextLevelMachines",
+  "name": "Next Level Machines",
+  "description": "Bring minecraft for the next level.",
   "version": "0.2.5",
-  "mcversion": "1.8.4",
+  "mcversion": "1.8.9",
+  "url": "",
+  "updateUrl": "",
+  "authorList": ["armctec"],
+  "credits": "The Forge and FML guys, for possible to make this",
+  "logoFile": "",
+  "screenshots": [],
+  "dependencies": []
+},
+
+{
+  "modid": "NextLevelTools",
+  "name": "Next Level Tools",
+  "description": "Bring minecraft for the next level.",
+  "version": "0.1.5",
+  "mcversion": "1.8.9",
   "url": "",
   "updateUrl": "",
   "authorList": ["armctec"],
@@ -19,37 +49,7 @@
   "name": "Next Level Test",
   "description": "Bring minecraft for the next level.",
   "version": "0.0.1",
-  "mcversion": "1.8.4",
-  "url": "",
-  "updateUrl": "",
-  "authorList": ["armctec"],
-  "credits": "The Forge and FML guys, for possible to make this",
-  "logoFile": "",
-  "screenshots": [],
-  "dependencies": []
-},
-
-{
-  "modid": "NextLevelMachines",
-  "name": "Next Level Machines",
-  "description": "Bring minecraft for the next level.",
-  "version": "0.2.0",
-  "mcversion": "1.8.4",
-  "url": "",
-  "updateUrl": "",
-  "authorList": ["armctec"],
-  "credits": "The Forge and FML guys, for possible to make this",
-  "logoFile": "",
-  "screenshots": [],
-  "dependencies": []
-},
-
-{
-  "modid": "NextLevelTools",
-  "name": "Next Level Tools",
-  "description": "Bring minecraft for the next level.",
-  "version": "0.0.1",
-  "mcversion": "1.8.4",
+  "mcversion": "1.8.9",
   "url": "",
   "updateUrl": "",
   "authorList": ["armctec"],
@@ -58,4 +58,5 @@
   "screenshots": [],
   "dependencies": []
 }
+
 ]
