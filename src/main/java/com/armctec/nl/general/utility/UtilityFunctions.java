@@ -96,6 +96,11 @@ public class UtilityFunctions
 	
 	public static boolean travelToDimensionEntity(Entity entityIn, int dimensionId)
 	{
+		return travelToDimensionEntity(entityIn, dimensionId, entityIn.posX, entityIn.posY, entityIn.posZ);
+	}
+	
+	public static boolean travelToDimensionEntity(Entity entityIn, int dimensionId, double x, double y, double z)
+	{
 		if (!entityIn.worldObj.isRemote)
         {
 			 MinecraftServer server = MinecraftServer.getServer();
@@ -111,7 +116,7 @@ public class UtilityFunctions
              Entity teleportedEntity = EntityList.createEntityFromNBT(tag, newWorldServer);
              if (teleportedEntity != null)
              {
-                 //teleportedEntity.setLocationAndAngles(x + 0.5, y + 0.5, z + 0.5, entity.rotationYaw, entity.rotationPitch);
+                 teleportedEntity.setLocationAndAngles(x, y , z, entityIn.rotationYaw, entityIn.rotationPitch);
                  teleportedEntity.forceSpawn = true;
                  newWorldServer.spawnEntityInWorld(teleportedEntity);
                  teleportedEntity.setWorld(newWorldServer);
@@ -128,6 +133,11 @@ public class UtilityFunctions
 
 	public static boolean travelToDimensionEntityPlayer(EntityPlayerMP entityIn, int dimensionId)
 	{
+		return travelToDimensionEntityPlayer(entityIn, dimensionId, entityIn.posX, entityIn.posY, entityIn.posZ);
+	}
+	
+	public static boolean travelToDimensionEntityPlayer(EntityPlayerMP entityIn, int dimensionId, double x, double y, double z)
+	{
 		 if (entityIn != null)
          {
 			 MinecraftServer server = MinecraftServer.getServer();
@@ -143,14 +153,14 @@ public class UtilityFunctions
                      if (!player.worldObj.isRemote)
                      {
                          server.getConfigurationManager().transferPlayerToDimension(player, dimensionId, new VoidTeleporter(newWorldServer));
-                         //player.setPositionAndUpdate(x + 0.5, y + 0.5, z + 0.5);
+                         player.setPositionAndUpdate(x, y, z);
                          player.worldObj.updateEntityWithOptionalForce(player, false);
                      }
 
                  }
                  entityIn.timeUntilPortal = 150;
 
-                 newWorldServer.playSoundEffect(entityIn.posX, entityIn.posY, entityIn.posZ, "mob.endermen.portal", 1.0F, 1.0F);
+                 newWorldServer.playSoundEffect(x, y, z, "mob.endermen.portal", 1.0F, 1.0F);
                  
                  return true;
              }

@@ -87,4 +87,5 @@ public class WorldProviderVoid extends WorldProvider
     {
         return 0.03125;
     }
+
 }

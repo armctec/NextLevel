@@ -37,6 +37,8 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import com.armctec.nl.general.utility.LogHelper;
 import com.armctec.nl.general.utility.UtilityFunctions;
 import com.armctec.nl.test.command.server.CommandTeleportDimension;
+import com.armctec.nl.test.events.Event_InitBiomeGens;
+import com.armctec.nl.test.events.Event_PopulateEventChunk;
 import com.armctec.nl.test.events.Event_onBucketEmpty;
 import com.armctec.nl.test.init.ModBlocks;
 import com.armctec.nl.test.init.ModBlocksClient;
@@ -112,7 +114,10 @@ public class TestBlocks
 	@Mod.EventHandler
     public void postInit(FMLPostInitializationEvent event)
     {
-        proxy.postInit();
+		MinecraftForge.TERRAIN_GEN_BUS.register(new Event_InitBiomeGens());
+		MinecraftForge.EVENT_BUS.register(new Event_PopulateEventChunk());
+		
+		proxy.postInit();
         Log.info("Post Initialization Complete!");
     }
 	
