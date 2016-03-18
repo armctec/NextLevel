@@ -23,29 +23,36 @@ public class Event_PopulateEventChunk
 	@SubscribeEvent
     public void populate(PopulateChunkEvent.Post event)
 	{
-        event.setResult(Result.ALLOW);
 		generateOil(event.world, event.rand, event.chunkX, event.chunkZ);
+		
+        event.setResult(Result.ALLOW);
     }
 	
     public void generateOil(World world, Random rand, int chunkX, int chunkZ) 
     {
-        // shift to world coordinates
-        int x = chunkX * 16 + 8 + rand.nextInt(16);
-        int z = chunkZ * 16 + 8 + rand.nextInt(16);
-
-        BiomeGenBase biome = world.getBiomeGenForCoords(new BlockPos(x, 0, z));
-
-        // Do not generate oil in the End or Nether
-        if (biome.biomeID != ModWorld.biomeDeepOil.biomeID)
-        {
-            return;
-        }
-        //ModConfig.Log.info("Mudando em X:"+x+" Z:"+z);
-        
-        for (int y = 60; y < 100; y++)
-        {
-        	BlockPos pos = new BlockPos(x, y, z);
-            world.setBlockState(pos, Blocks.brick_block.getDefaultState(), 2);
-        }        
+    	// shift to world coordinates
+    	int x = chunkX * 16 + 8;
+    	int z = chunkZ * 16 + 8;
+    	
+    	for(int xi=0;xi<16;xi++)
+    	{
+			for(int zi=0;zi<16;zi++)
+    		{
+    			BlockPos pos = new BlockPos(x+xi, 60, z+zi);
+    			BiomeGenBase biome = world.getBiomeGenForCoords(pos);
+    			
+    			// Do not generate oil in the End or Nether
+    			if (biome.biomeID == ModWorld.biomeDeepOil.biomeID)
+    			{
+    				//ModConfig.Log.info("Mudando em X:"+x+" Z:"+z);
+    				
+    				for (int y = 60; y < 80; y++)
+    				{
+    					world.setBlockState(pos, Blocks.brick_block.getDefaultState(), 2);
+    					pos = pos.add(0,1,0);
+    				}
+    			}
+    		}
+    	}
     }
 }
