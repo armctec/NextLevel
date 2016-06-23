@@ -4,7 +4,6 @@ import java.util.Random;
 
 import com.armctec.nl.test.world.VoidTeleporter;
 
-import net.minecraft.client.Minecraft;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityList;
 import net.minecraft.entity.item.EntityItem;
@@ -12,20 +11,13 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.network.play.server.S06PacketUpdateHealth;
-import net.minecraft.network.play.server.S07PacketRespawn;
-import net.minecraft.network.play.server.S1DPacketEntityEffect;
-import net.minecraft.network.play.server.S2BPacketChangeGameState;
-import net.minecraft.potion.PotionEffect;
 import net.minecraft.server.MinecraftServer;
-import net.minecraft.server.management.ServerConfigurationManager;
 import net.minecraft.util.BlockPos;
 import net.minecraft.util.MathHelper;
 import net.minecraft.util.MovingObjectPosition;
 import net.minecraft.util.Vec3;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldServer;
-import net.minecraftforge.client.MinecraftForgeClient;
 
 public class UtilityFunctions 
 {
@@ -141,7 +133,7 @@ public class UtilityFunctions
 		 if (entityIn != null)
          {
 			 MinecraftServer server = MinecraftServer.getServer();
-			 WorldServer oldWorld = server.worldServerForDimension(entityIn.dimension);
+			 //WorldServer oldWorld = server.worldServerForDimension(entityIn.dimension);
 			 WorldServer newWorldServer = server.worldServerForDimension(dimensionId);
 			 
              if (entityIn.timeUntilPortal <= 0)

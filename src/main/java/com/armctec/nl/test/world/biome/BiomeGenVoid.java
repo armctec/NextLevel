@@ -4,7 +4,6 @@ import java.util.Random;
 
 import com.armctec.nl.test.reference.ModConfig;
 
-import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.BlockPos;
 import net.minecraft.world.World;

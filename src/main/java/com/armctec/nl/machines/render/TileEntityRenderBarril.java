@@ -5,40 +5,27 @@ import java.util.Map;
 import com.armctec.nl.machines.reference.ModConfig;
 import com.armctec.nl.machines.tileentity.TileEntityBarril;
 
-import net.minecraft.block.Block;
-import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.Minecraft;
-import net.minecraft.client.model.ModelBase;
-import net.minecraft.client.model.ModelBook;
-import net.minecraft.client.renderer.BlockRendererDispatcher;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.RenderHelper;
 import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.client.renderer.WorldRenderer;
 import net.minecraft.client.renderer.block.model.ItemCameraTransforms;
 import net.minecraft.client.renderer.entity.RenderItem;
-import net.minecraft.client.renderer.texture.ITextureObject;
-import net.minecraft.client.renderer.texture.SimpleTexture;
 import net.minecraft.client.renderer.texture.TextureAtlasSprite;
-import net.minecraft.client.renderer.texture.TextureManager;
 import net.minecraft.client.renderer.texture.TextureMap;
-import net.minecraft.client.renderer.texture.TextureUtil;
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
 import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
-import net.minecraft.entity.Entity;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.BlockPos;
-import net.minecraft.util.MathHelper;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.World;
-import net.minecraftforge.client.model.pipeline.LightUtil;
 import net.minecraftforge.fluids.Fluid;
 import net.minecraftforge.fluids.FluidRegistry;
 import net.minecraftforge.fluids.FluidStack;
-import net.minecraftforge.fml.client.registry.ClientRegistry;
 
+@SuppressWarnings("deprecation")
 public class TileEntityRenderBarril extends TileEntitySpecialRenderer<TileEntityBarril> 
 {
     /** The texture for the liquid inside of barril */
@@ -112,7 +99,7 @@ public class TileEntityRenderBarril extends TileEntitySpecialRenderer<TileEntity
         /** Seleciona textura */
         bindTexture(TextureMap.locationBlocksTexture);
 
-        Block blockliquid = liquid.getBlock();
+        //Block blockliquid = liquid.getBlock();
         ResourceLocation liquidTexture = liquid.getStill();
         
         /** Obtem textura liquido */

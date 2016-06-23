@@ -1,7 +1,5 @@
 package com.armctec.nl.general.tileentity;
 
-import com.armctec.nl.machines.reference.ModConfig;
-
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.network.NetworkManager;
 import net.minecraft.network.Packet;
@@ -114,6 +112,7 @@ public class TileEntitityBasicFluidTank extends TileEntity implements IFluidHand
         tank.writeToNBT(tag);
     }
     
+    @SuppressWarnings("rawtypes")
     @Override
 	public Packet getDescriptionPacket() 
 	{

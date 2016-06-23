@@ -1,9 +1,9 @@
 package com.armctec.nl.tools.item;
 
-import net.minecraft.item.ItemSword;
-
 import com.armctec.nl.tools.gui.CreativeTabTools;
 import com.armctec.nl.tools.reference.ModConfig;
+
+import net.minecraft.item.ItemSword;
 
 public class Sword extends ItemSword
 {

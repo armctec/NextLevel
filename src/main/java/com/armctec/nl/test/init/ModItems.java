@@ -1,10 +1,9 @@
 package com.armctec.nl.test.init;
 
-import net.minecraftforge.fluids.FluidContainerRegistry;
-import net.minecraftforge.fml.common.registry.GameRegistry;
-
-import com.armctec.nl.test.reference.Names;
 import com.armctec.nl.test.item.BucketOil;
+import com.armctec.nl.test.reference.Names;
+
+import net.minecraftforge.fml.common.registry.GameRegistry;
 
 public class ModItems 
 {

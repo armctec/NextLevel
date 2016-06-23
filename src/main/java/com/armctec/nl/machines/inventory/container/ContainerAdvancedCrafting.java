@@ -1,5 +1,8 @@
 package com.armctec.nl.machines.inventory.container;
 
+import com.armctec.nl.machines.inventory.InventoryAdvancedCrafting;
+import com.armctec.nl.machines.tileentity.TileEntityAdvancedCrafting;
+
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.inventory.Container;
@@ -11,9 +14,6 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.CraftingManager;
 import net.minecraft.util.BlockPos;
 import net.minecraft.world.World;
-
-import com.armctec.nl.machines.inventory.InventoryAdvancedCrafting;
-import com.armctec.nl.machines.tileentity.TileEntityAdvancedCrafting;
 
 public class ContainerAdvancedCrafting extends Container
 {

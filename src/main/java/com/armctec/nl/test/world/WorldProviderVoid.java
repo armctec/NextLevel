@@ -1,15 +1,9 @@
 package com.armctec.nl.test.world;
 
-import com.armctec.nl.test.init.ModWorld;
 import com.armctec.nl.test.world.biome.WorldChunkManagerVoid;
 import com.armctec.nl.test.world.gen.ChunkProviderVoid;
 
-import net.minecraft.entity.Entity;
-import net.minecraft.util.BlockPos;
-import net.minecraft.util.Vec3;
 import net.minecraft.world.WorldProvider;
-import net.minecraft.world.biome.BiomeGenBase;
-import net.minecraft.world.biome.WorldChunkManagerHell;
 import net.minecraft.world.chunk.Chunk;
 import net.minecraft.world.chunk.IChunkProvider;
 import net.minecraftforge.fml.relauncher.Side;

@@ -1,9 +1,9 @@
 package com.armctec.nl.tools.item;
 
-import net.minecraft.item.ItemHoe;
-
 import com.armctec.nl.tools.gui.CreativeTabTools;
 import com.armctec.nl.tools.reference.ModConfig;
+
+import net.minecraft.item.ItemHoe;
 
 public class Hoe extends ItemHoe
 {

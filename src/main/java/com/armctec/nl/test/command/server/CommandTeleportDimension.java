@@ -3,7 +3,6 @@ package com.armctec.nl.test.command.server;
 import java.util.List;
 
 import com.armctec.nl.general.utility.UtilityFunctions;
-import com.armctec.nl.test.world.VoidTeleporter;
 
 import net.minecraft.command.CommandBase;
 import net.minecraft.command.CommandException;
@@ -13,7 +12,6 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.util.BlockPos;
-import net.minecraft.world.WorldServer;
 import net.minecraftforge.common.DimensionManager;
 
 public class CommandTeleportDimension extends CommandBase {

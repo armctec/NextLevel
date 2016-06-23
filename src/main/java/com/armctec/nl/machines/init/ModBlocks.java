@@ -1,7 +1,5 @@
 package com.armctec.nl.machines.init;
 
-import net.minecraftforge.fml.common.registry.GameRegistry;
-
 import com.armctec.nl.machines.block.BlockAdvancedCraftingTable;
 import com.armctec.nl.machines.block.BlockBarril;
 import com.armctec.nl.machines.block.BlockBomba;
@@ -9,6 +7,8 @@ import com.armctec.nl.machines.block.BlockGrindstone;
 import com.armctec.nl.machines.block.BlockTank;
 import com.armctec.nl.machines.item.ItemBarril;
 import com.armctec.nl.machines.reference.Names;
+
+import net.minecraftforge.fml.common.registry.GameRegistry;
 
 
 public class ModBlocks 

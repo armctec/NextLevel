@@ -1,8 +1,5 @@
 package com.armctec.nl.ores.init;
 
-import net.minecraft.block.material.Material;
-import net.minecraftforge.fml.common.registry.GameRegistry;
-
 import com.armctec.nl.general.reference.ToolRef;
 import com.armctec.nl.general.utility.RegisterServer;
 import com.armctec.nl.ores.block.BlockCompressed;

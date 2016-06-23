@@ -1,7 +1,15 @@
 package com.armctec.nl.machines.block;
 
+import com.armctec.nl.general.block.BlockBasicContainer;
+import com.armctec.nl.machines.MachinesNL;
+import com.armctec.nl.machines.gui.CreativeTabMachines;
+import com.armctec.nl.machines.handler.GuiHandlerGrindstone;
+import com.armctec.nl.machines.init.ModBlocks;
+import com.armctec.nl.machines.reference.ModConfig;
+import com.armctec.nl.machines.reference.Names;
+import com.armctec.nl.machines.tileentity.TileEntityGrindstone;
+
 import net.minecraft.block.properties.IProperty;
-import net.minecraft.block.properties.PropertyBool;
 import net.minecraft.block.properties.PropertyInteger;
 import net.minecraft.block.state.BlockState;
 import net.minecraft.block.state.IBlockState;
@@ -19,15 +27,6 @@ import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
-
-import com.armctec.nl.general.block.BlockBasicContainer;
-import com.armctec.nl.machines.MachinesNL;
-import com.armctec.nl.machines.gui.CreativeTabMachines;
-import com.armctec.nl.machines.handler.GuiHandlerGrindstone;
-import com.armctec.nl.machines.init.ModBlocks;
-import com.armctec.nl.machines.reference.ModConfig;
-import com.armctec.nl.machines.reference.Names;
-import com.armctec.nl.machines.tileentity.TileEntityGrindstone;
 
 public class BlockGrindstone extends BlockBasicContainer 
 {

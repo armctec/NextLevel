@@ -2,15 +2,11 @@ package com.armctec.nl.test.world.biome;
 
 import java.util.Random;
 
-import com.armctec.nl.test.init.ModWorld;
 import com.armctec.nl.test.reference.ModConfig;
 
-import net.minecraft.init.Blocks;
 import net.minecraft.util.BlockPos;
 import net.minecraft.world.World;
-import net.minecraft.world.biome.BiomeDecorator;
 import net.minecraft.world.biome.BiomeGenBase;
-import net.minecraft.world.biome.BiomeGenOcean;
 import net.minecraft.world.chunk.ChunkPrimer;
 
 public class BiomeGenDeepOceanOil extends BiomeGenBase

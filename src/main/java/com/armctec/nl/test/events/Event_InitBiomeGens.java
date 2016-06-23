@@ -1,16 +1,11 @@
 package com.armctec.nl.test.events;
 
-import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
-
 import com.armctec.nl.test.init.ModWorld;
 import com.armctec.nl.test.reference.ModConfig;
 import com.armctec.nl.test.world.gen.layer.GenLayerDeepOcenOil;
-import com.armctec.nl.test.world.gen.layer.GenLayerModded;
 
-import net.minecraft.world.gen.layer.GenLayer;
-import net.minecraft.world.gen.layer.GenLayerIsland;
-import net.minecraftforge.event.terraingen.WorldTypeEvent.BiomeSize;
 import net.minecraftforge.event.terraingen.WorldTypeEvent.InitBiomeGens;
+import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
 public class Event_InitBiomeGens 
 {

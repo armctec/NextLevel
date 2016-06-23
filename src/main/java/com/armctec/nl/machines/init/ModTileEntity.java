@@ -1,12 +1,12 @@
 package com.armctec.nl.machines.init;
 
-import net.minecraftforge.fml.common.registry.GameRegistry;
-
 import com.armctec.nl.machines.reference.Names;
 import com.armctec.nl.machines.tileentity.TileEntityAdvancedCrafting;
 import com.armctec.nl.machines.tileentity.TileEntityBarril;
 import com.armctec.nl.machines.tileentity.TileEntityBomba;
 import com.armctec.nl.machines.tileentity.TileEntityGrindstone;
+
+import net.minecraftforge.fml.common.registry.GameRegistry;
 
 public class ModTileEntity 
 {

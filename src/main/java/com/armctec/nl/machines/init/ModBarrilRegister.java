@@ -1,14 +1,5 @@
 package com.armctec.nl.machines.init;
 
-import com.armctec.nl.machines.item.ItemBarril;
-
-import net.minecraft.item.ItemStack;
-import net.minecraftforge.fluids.Fluid;
-import net.minecraftforge.fluids.FluidContainerRegistry;
-import net.minecraftforge.fluids.FluidContainerRegistry.FluidContainerData;
-import net.minecraftforge.fluids.FluidRegistry;
-import net.minecraftforge.fluids.FluidStack;
-
 public class ModBarrilRegister 
 {
 	public static void init()

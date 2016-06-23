@@ -1,9 +1,9 @@
 package com.armctec.nl.tools.item;
 
-import net.minecraft.item.ItemSpade;
-
 import com.armctec.nl.tools.gui.CreativeTabTools;
 import com.armctec.nl.tools.reference.ModConfig;
+
+import net.minecraft.item.ItemSpade;
 
 public class Shovel extends ItemSpade
 {

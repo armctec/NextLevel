@@ -2,16 +2,13 @@ package com.armctec.nl.tools.item;
 
 import java.lang.reflect.Field;
 
-import net.minecraft.enchantment.Enchantment;
+import com.armctec.nl.tools.gui.CreativeTabTools;
+import com.armctec.nl.tools.reference.ModConfig;
+
 import net.minecraft.entity.Entity;
 import net.minecraft.item.ItemArmor;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.fml.relauncher.ReflectionHelper;
-import net.minecraftforge.fml.relauncher.Side;
-import net.minecraftforge.fml.relauncher.SideOnly;
-
-import com.armctec.nl.tools.gui.CreativeTabTools;
-import com.armctec.nl.tools.reference.ModConfig;
 
 public class Armor extends ItemArmor 
 {

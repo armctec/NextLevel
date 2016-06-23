@@ -2,6 +2,11 @@ package com.armctec.nl.machines.init;
 
 import java.lang.reflect.Field;
 
+import com.armctec.nl.machines.enchantment.EnchantmentDouble;
+import com.armctec.nl.machines.enchantment.EnchantmentThroughput;
+import com.armctec.nl.machines.gui.CreativeTabMachines;
+import com.armctec.nl.machines.reference.ModConfig;
+
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.enchantment.EnumEnchantmentType;
@@ -9,11 +14,6 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.common.util.EnumHelper;
 import net.minecraftforge.fml.relauncher.ReflectionHelper;
-
-import com.armctec.nl.machines.enchantment.EnchantmentDouble;
-import com.armctec.nl.machines.enchantment.EnchantmentThroughput;
-import com.armctec.nl.machines.gui.CreativeTabMachines;
-import com.armctec.nl.machines.reference.ModConfig;
 
 public class ModEnchants 
 {

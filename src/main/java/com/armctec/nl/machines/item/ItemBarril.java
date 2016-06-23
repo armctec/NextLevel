@@ -2,22 +2,20 @@ package com.armctec.nl.machines.item;
 
 import java.util.List;
 
+import com.armctec.nl.machines.block.BlockBarril;
+import com.armctec.nl.machines.gui.CreativeTabMachines;
+
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockLiquid;
 import net.minecraft.block.material.Material;
-import net.minecraft.block.state.BlockState;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.BlockPos;
 import net.minecraft.util.EnumFacing;
-import net.minecraft.util.EnumParticleTypes;
-import net.minecraft.util.MathHelper;
 import net.minecraft.util.MovingObjectPosition;
-import net.minecraft.util.Vec3;
 import net.minecraft.world.World;
 import net.minecraftforge.fluids.BlockFluidBase;
 import net.minecraftforge.fluids.FluidContainerRegistry;
@@ -25,12 +23,6 @@ import net.minecraftforge.fluids.FluidStack;
 import net.minecraftforge.fluids.IFluidContainerItem;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
-
-import com.armctec.nl.general.item.ItemBasic;
-import com.armctec.nl.machines.block.BlockBarril;
-import com.armctec.nl.machines.gui.CreativeTabMachines;
-import com.armctec.nl.machines.reference.ModConfig;
-import com.armctec.nl.machines.reference.Names;
 
 public class ItemBarril extends ItemBlock implements IFluidContainerItem
 {

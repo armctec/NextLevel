@@ -1,18 +1,15 @@
 package com.armctec.nl.machines.tileentity;
 
 
+import com.armctec.nl.general.tileentity.TileEntityBasicInventory;
+import com.armctec.nl.machines.inventory.container.ContainerGrindstone;
+
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.ISidedInventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.ITickable;
-
-import com.armctec.nl.general.tileentity.TileEntityBasicInventory;
-import com.armctec.nl.machines.crafting.GrindestoneRecipes;
-import com.armctec.nl.machines.crafting.RecipesAnexo;
-import com.armctec.nl.machines.inventory.container.ContainerGrindstone;
-import com.armctec.nl.machines.reference.ModConfig;
 
 public class TileEntityBomba extends TileEntityBasicInventory implements ITickable , ISidedInventory
 {

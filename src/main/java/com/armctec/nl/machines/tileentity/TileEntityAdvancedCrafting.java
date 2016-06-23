@@ -42,6 +42,7 @@ public class TileEntityAdvancedCrafting extends TileEntityBasicInventory impleme
 		//ModConfig.Log.info("readFromNBT");
 	}
 
+	@SuppressWarnings("rawtypes")
 	@Override
 	public Packet getDescriptionPacket() 
 	{

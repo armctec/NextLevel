@@ -3,8 +3,6 @@ package com.armctec.nl.test.proxy;
 import net.minecraft.client.Minecraft;
 import net.minecraft.entity.player.EntityPlayer;
 
-import com.armctec.nl.test.init.ModBlocksClient;
-
 public class ClientProxy extends CommonProxy {
 
 	@Override

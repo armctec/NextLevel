@@ -1,12 +1,12 @@
 package com.armctec.nl.test.init;
 
+import com.armctec.nl.test.reference.ModConfig;
+import com.armctec.nl.test.reference.Names;
+
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.resources.model.ModelResourceLocation;
 import net.minecraft.item.Item;
 import net.minecraftforge.fml.common.registry.GameRegistry;
-
-import com.armctec.nl.test.reference.ModConfig;
-import com.armctec.nl.test.reference.Names;
 
 public class ModBlocksClient 
 {

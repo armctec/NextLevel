@@ -1,5 +1,10 @@
 package com.armctec.nl.test.block;
 
+import com.armctec.nl.general.block.BlockAdvanced;
+import com.armctec.nl.test.gui.CreativeTabTest;
+import com.armctec.nl.test.reference.ModConfig;
+import com.armctec.nl.test.reference.Names;
+
 import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.properties.PropertyDirection;
 import net.minecraft.block.properties.PropertyInteger;
@@ -12,11 +17,6 @@ import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
-
-import com.armctec.nl.general.block.BlockAdvanced;
-import com.armctec.nl.test.gui.CreativeTabTest;
-import com.armctec.nl.test.reference.ModConfig;
-import com.armctec.nl.test.reference.Names;
 
 public class BlockCano extends BlockAdvanced
 {
@@ -67,7 +67,7 @@ public class BlockCano extends BlockAdvanced
         int dir_bloco = facing.getAxis().ordinal();
         
         String text = enumfacing1.toString();
-        String indexX = facing.getAxisDirection().toString();
+        //String indexX = facing.getAxisDirection().toString();
 
         
         ModConfig.Log.info("Index x:"+text);

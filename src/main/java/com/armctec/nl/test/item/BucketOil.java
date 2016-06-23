@@ -1,17 +1,14 @@
 package com.armctec.nl.test.item;
 
+import com.armctec.nl.general.item.ItemBasic;
+import com.armctec.nl.test.gui.CreativeTabTest;
+import com.armctec.nl.test.reference.ModConfig;
+import com.armctec.nl.test.reference.Names;
+
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.BlockPos;
-import net.minecraft.util.EnumFacing;
 import net.minecraft.util.MovingObjectPosition;
 import net.minecraft.world.World;
-
-import com.armctec.nl.general.item.ItemBasic;
-import com.armctec.nl.test.reference.ModConfig;
-import com.armctec.nl.test.gui.CreativeTabTest;
-import com.armctec.nl.test.reference.Names;
 
 public class BucketOil extends ItemBasic 
 {

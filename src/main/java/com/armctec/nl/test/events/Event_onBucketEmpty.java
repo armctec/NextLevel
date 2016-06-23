@@ -1,5 +1,9 @@
 package com.armctec.nl.test.events;
 
+import com.armctec.nl.general.utility.UtilityFunctions;
+import com.armctec.nl.test.init.ModItems;
+import com.armctec.nl.test.reference.ModConfig;
+
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockLiquid;
 import net.minecraft.block.material.Material;
@@ -14,12 +18,8 @@ import net.minecraftforge.event.entity.player.PlayerUseItemEvent;
 import net.minecraftforge.fluids.BlockFluidBase;
 import net.minecraftforge.fluids.FluidContainerRegistry;
 import net.minecraftforge.fluids.FluidStack;
-import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.eventhandler.Event.Result;
-
-import com.armctec.nl.general.utility.UtilityFunctions;
-import com.armctec.nl.test.init.ModItems;
-import com.armctec.nl.test.reference.ModConfig;
+import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
 public class Event_onBucketEmpty
 {

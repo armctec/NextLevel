@@ -1,16 +1,5 @@
 package com.armctec.nl.machines;
 
-import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.event.entity.minecart.MinecartEvent;
-import net.minecraftforge.fluids.FluidContainerRegistry;
-import net.minecraftforge.fluids.FluidStack;
-import net.minecraftforge.fml.common.FMLCommonHandler;
-import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.fml.common.SidedProxy;
-import net.minecraftforge.fml.common.event.FMLInitializationEvent;
-import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
-import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
-
 import com.armctec.nl.general.utility.LogHelper;
 import com.armctec.nl.machines.crafting.GrindestoneRecipes;
 import com.armctec.nl.machines.handler.ConfigurationHandler;
@@ -27,6 +16,13 @@ import com.armctec.nl.machines.init.ModTileEntity;
 import com.armctec.nl.machines.proxy.CommonProxy;
 import com.armctec.nl.machines.reference.ModConfig;
 import com.armctec.nl.machines.render.TileEntityRenderBarril;
+
+import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.fml.common.SidedProxy;
+import net.minecraftforge.fml.common.event.FMLInitializationEvent;
+import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
+import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 
 @Mod(modid = ModConfig.MOD_ID, name = ModConfig.MOD_NAME, version = ModConfig.MOD_VERSION, guiFactory = ModConfig.GUI_FACTORY_CLASS, dependencies=ModConfig.DEPENDENCIES)
 public class MachinesNL 

@@ -1,24 +1,11 @@
 package com.armctec.nl.test.init;
 
-import com.armctec.nl.general.utility.UtilityFunctions;
 import com.armctec.nl.test.fluids.FluidMilk;
 import com.armctec.nl.test.fluids.FluidOil;
-import com.armctec.nl.test.gui.CreativeTabTest;
-import com.armctec.nl.test.reference.ModConfig;
 import com.armctec.nl.test.reference.Names;
 
-import net.minecraft.block.material.Material;
-import net.minecraft.block.state.IBlockState;
-import net.minecraft.client.renderer.ItemMeshDefinition;
-import net.minecraft.client.renderer.block.statemap.StateMapperBase;
-import net.minecraft.client.resources.model.ModelBakery;
-import net.minecraft.client.resources.model.ModelResourceLocation;
 import net.minecraft.init.Items;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.ResourceLocation;
-import net.minecraftforge.client.model.ModelLoader;
-import net.minecraftforge.fluids.BlockFluidClassic;
 import net.minecraftforge.fluids.Fluid;
 import net.minecraftforge.fluids.FluidContainerRegistry;
 import net.minecraftforge.fluids.FluidRegistry;

@@ -2,7 +2,6 @@ package com.armctec.nl.test.world.gen.layer;
 
 import com.armctec.nl.general.utility.NoiseGenerator;
 import com.armctec.nl.test.init.ModWorld;
-import com.armctec.nl.test.reference.ModConfig;
 
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.gen.layer.GenLayer;

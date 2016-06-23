@@ -1,21 +1,19 @@
 package com.armctec.nl.machines.block;
 
-import java.util.ArrayList;
-import java.util.Map;
 import java.util.Random;
 
+import com.armctec.nl.general.block.BlockAdvanced;
+import com.armctec.nl.general.utility.UtilityFunctions;
+import com.armctec.nl.machines.gui.CreativeTabMachines;
+import com.armctec.nl.machines.init.ModBlocks;
+import com.armctec.nl.machines.reference.ModConfig;
+import com.armctec.nl.machines.reference.Names;
+import com.armctec.nl.machines.tileentity.TileEntityBarril;
+
 import net.minecraft.block.ITileEntityProvider;
-import net.minecraft.block.properties.IProperty;
-import net.minecraft.block.properties.PropertyInteger;
-import net.minecraft.block.state.BlockState;
 import net.minecraft.block.state.IBlockState;
-import net.minecraft.client.particle.EntityDropParticleFX.WaterFactory;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.init.Items;
-import net.minecraft.inventory.Container;
-import net.minecraft.inventory.IInventory;
-import net.minecraft.inventory.InventoryHelper;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
@@ -29,24 +27,9 @@ import net.minecraftforge.fluids.Fluid;
 import net.minecraftforge.fluids.FluidContainerRegistry;
 import net.minecraftforge.fluids.FluidRegistry;
 import net.minecraftforge.fluids.FluidStack;
-import net.minecraftforge.fluids.FluidTankInfo;
 import net.minecraftforge.fluids.IFluidBlock;
-import net.minecraftforge.fluids.IFluidContainerItem;
-import net.minecraftforge.fluids.IFluidHandler;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
-
-import com.armctec.nl.general.block.BlockAdvanced;
-import com.armctec.nl.general.block.BlockBasic;
-import com.armctec.nl.general.utility.UtilityFunctions;
-import com.armctec.nl.machines.gui.CreativeTabMachines;
-import com.armctec.nl.machines.init.ModBlocks;
-import com.armctec.nl.machines.reference.ModConfig;
-import com.armctec.nl.machines.reference.Names;
-import com.armctec.nl.machines.tileentity.TileEntityBarril;
-import com.armctec.nl.machines.tileentity.TileEntityBomba;
-import com.armctec.nl.machines.tileentity.TileEntityGrindstone;
-import com.sun.corba.se.spi.ior.TaggedComponent;
 
 public class BlockBarril extends BlockAdvanced implements ITileEntityProvider, IFluidBlock
 {

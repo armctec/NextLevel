@@ -3,7 +3,6 @@ package com.armctec.nl.test.events;
 import java.util.Random;
 
 import com.armctec.nl.test.init.ModWorld;
-import com.armctec.nl.test.reference.ModConfig;
 
 import net.minecraft.init.Blocks;
 import net.minecraft.util.BlockPos;
@@ -12,7 +11,6 @@ import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraftforge.common.util.EnumHelper;
 import net.minecraftforge.event.terraingen.PopulateChunkEvent;
 import net.minecraftforge.event.terraingen.PopulateChunkEvent.Populate.EventType;
-import net.minecraftforge.event.terraingen.TerrainGen;
 import net.minecraftforge.fml.common.eventhandler.Event.Result;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 

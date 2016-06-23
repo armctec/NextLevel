@@ -1,9 +1,8 @@
 package com.armctec.nl.test.init;
 
-import net.minecraftforge.common.MinecraftForge;
-
 import com.armctec.nl.test.events.Event_onBucketFill;
-import com.armctec.nl.test.events.Event_onBucketEmpty;
+
+import net.minecraftforge.common.MinecraftForge;
 
 public class ModEvents 
 {

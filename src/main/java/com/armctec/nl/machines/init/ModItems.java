@@ -1,10 +1,9 @@
 package com.armctec.nl.machines.init;
 
-import net.minecraftforge.fml.common.registry.GameRegistry;
-
-import com.armctec.nl.machines.item.ItemBarril;
 import com.armctec.nl.machines.item.ToolGrindstone;
 import com.armctec.nl.machines.reference.Names;
+
+import net.minecraftforge.fml.common.registry.GameRegistry;
 
 public class ModItems
 {

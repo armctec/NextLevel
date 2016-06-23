@@ -1,11 +1,11 @@
 package com.armctec.nl.machines.init;
 
-import net.minecraftforge.fml.common.network.NetworkRegistry;
-
 import com.armctec.nl.general.gui.GuiHandlerRegistry;
 import com.armctec.nl.machines.MachinesNL;
 import com.armctec.nl.machines.handler.GuiHandlerAdvancedCrafting;
 import com.armctec.nl.machines.handler.GuiHandlerGrindstone;
+
+import net.minecraftforge.fml.common.network.NetworkRegistry;
 
 public class ModNetwork 
 {

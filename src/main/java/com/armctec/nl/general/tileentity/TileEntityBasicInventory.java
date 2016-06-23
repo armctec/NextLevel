@@ -258,6 +258,7 @@ public class TileEntityBasicInventory extends TileEntity implements IInventory
 		//}
 	}	
 	
+	@SuppressWarnings("rawtypes")
 	@Override
 	public Packet getDescriptionPacket() 
 	{

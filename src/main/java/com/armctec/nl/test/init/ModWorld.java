@@ -11,7 +11,6 @@ import com.armctec.nl.test.world.WorldProviderVoid;
 import com.armctec.nl.test.world.biome.BiomeGenDeepOceanOil;
 import com.armctec.nl.test.world.biome.BiomeGenVoid;
 
-import net.minecraft.world.biome.BiomeCache;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.gen.structure.StructureOceanMonument;
 import net.minecraftforge.common.BiomeDictionary;
