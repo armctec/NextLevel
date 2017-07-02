@@ -9,7 +9,7 @@ public class MaterialAdvanced extends Material
 	
 	public MaterialAdvanced() 
 	{
-		super(MapColor.airColor);
+		super(MapColor.AIR);
 		setRequiresTool();
 	}
 

@@ -8,12 +8,11 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
 import net.minecraft.network.NetworkManager;
-import net.minecraft.network.Packet;
-import net.minecraft.network.play.server.S35PacketUpdateTileEntity;
+import net.minecraft.network.play.server.SPacketUpdateTileEntity;
 import net.minecraft.tileentity.TileEntity;
-import net.minecraft.util.ChatComponentText;
-import net.minecraft.util.ChatComponentTranslation;
-import net.minecraft.util.IChatComponent;
+import net.minecraft.util.text.ITextComponent;
+import net.minecraft.util.text.TextComponentString;
+import net.minecraft.util.text.TextComponentTranslation;
 
 public class TileEntityBasicInventory extends TileEntity implements IInventory
 {
@@ -48,9 +47,9 @@ public class TileEntityBasicInventory extends TileEntity implements IInventory
 	}
 
 	@Override
-	public IChatComponent getDisplayName() 
+	public ITextComponent getDisplayName() 
 	{
-		return this.hasCustomName() ? new ChatComponentText(this.getName()) : new ChatComponentTranslation(this.getName());
+		return this.hasCustomName() ? new TextComponentString(this.getName()) : new TextComponentTranslation(this.getName());
 	}
 
 	@Override
@@ -200,14 +199,14 @@ public class TileEntityBasicInventory extends TileEntity implements IInventory
 	// This is where you save any data that you don't want to lose when the tile entity unloads
 	// In this case, it saves the itemstacks stored in the container
 	@Override
-	public void writeToNBT(NBTTagCompound parentNBTTagCompound)
+	public NBTTagCompound writeToNBT(NBTTagCompound parentNBTTagCompound)
 	{
 		super.writeToNBT(parentNBTTagCompound); // The super call is required to save and load the tileEntity's location
 
 		parentNBTTagCompound.setInteger("QuantSlots", num_slots);
 		
 		// to use an analogy with Java, this code generates an array of hashmaps
-		// The itemStack in each slot is converted to an NBTTagCompound, which is effectively a hashmap of key->value pairs such
+		// The itemStack in eac+h slot is converted to an NBTTagCompound, which is effectively a hashmap of key->value pairs such
 		//   as slot=1, id=2353, count=1, etc
 		// Each of these NBTTagCompound are then inserted into NBTTagList, which is similar to an array.
 		NBTTagList dataForAllSlots = new NBTTagList();
@@ -223,8 +222,12 @@ public class TileEntityBasicInventory extends TileEntity implements IInventory
 		}
 		// the array of hashmaps is then inserted into the parent hashmap for the container
 		parentNBTTagCompound.setTag("Items", dataForAllSlots);
+		
+		return parentNBTTagCompound;
 	}
 
+
+	
 	// This is where you load the data that you saved in writeToNBT
 	@Override
 	public void readFromNBT(NBTTagCompound parentNBTTagCompound)
@@ -258,21 +261,34 @@ public class TileEntityBasicInventory extends TileEntity implements IInventory
 		//}
 	}	
 	
-	@SuppressWarnings("rawtypes")
 	@Override
-	public Packet getDescriptionPacket() 
+	public SPacketUpdateTileEntity getUpdatePacket() 
 	{
 		NBTTagCompound nbtTagCompound = new NBTTagCompound();
 		writeToNBT(nbtTagCompound);
-		return new S35PacketUpdateTileEntity(this.pos, 0, nbtTagCompound);
+		return new SPacketUpdateTileEntity(this.pos, 0, nbtTagCompound);
 	}
 
 	@Override
-	public void onDataPacket(NetworkManager net, S35PacketUpdateTileEntity pkt) 
+	public void onDataPacket(NetworkManager net, SPacketUpdateTileEntity pkt) 
 	{
 		readFromNBT(pkt.getNbtCompound());
 	}
+	
+	@Override
+	public NBTTagCompound getUpdateTag()
+	{
+	    NBTTagCompound nbtTagCompound = new NBTTagCompound();
+	    writeToNBT(nbtTagCompound);
+	    return nbtTagCompound;
+	}	
 
+	@Override
+	public void handleUpdateTag(NBTTagCompound tag)
+	{
+		this.readFromNBT(tag);
+	}
+	
 	@Override
 	public ItemStack removeStackFromSlot(int index) {
 		// TODO Auto-generated method stub

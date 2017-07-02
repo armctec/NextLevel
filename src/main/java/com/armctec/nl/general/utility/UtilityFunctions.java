@@ -12,12 +12,14 @@ import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.server.MinecraftServer;
-import net.minecraft.util.BlockPos;
-import net.minecraft.util.MathHelper;
-import net.minecraft.util.MovingObjectPosition;
-import net.minecraft.util.Vec3;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.MathHelper;
+import net.minecraft.util.math.RayTraceResult;
+import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldServer;
+import net.minecraftforge.fml.common.FMLCommonHandler;
+import net.minecraftforge.fml.server.FMLServerHandler;
 
 public class UtilityFunctions 
 {
@@ -63,14 +65,14 @@ public class UtilityFunctions
         }
     }
 	
-	public static MovingObjectPosition getMovingObjectPositionFromPlayer(World worldIn, EntityPlayer playerIn, boolean useLiquids)
+	public static RayTraceResult getMovingObjectPositionFromPlayer(World worldIn, EntityPlayer playerIn, boolean useLiquids)
     {
         float f = playerIn.rotationPitch;
         float f1 = playerIn.rotationYaw;
         double d0 = playerIn.posX;
         double d1 = playerIn.posY + (double)playerIn.getEyeHeight();
         double d2 = playerIn.posZ;
-        Vec3 vec3 = new Vec3(d0, d1, d2);
+        Vec3d vec3 = new Vec3d(d0, d1, d2);
         float f2 = MathHelper.cos(-f1 * 0.017453292F - (float)Math.PI);
         float f3 = MathHelper.sin(-f1 * 0.017453292F - (float)Math.PI);
         float f4 = -MathHelper.cos(-f * 0.017453292F);
@@ -82,7 +84,7 @@ public class UtilityFunctions
         {
             d3 = ((net.minecraft.entity.player.EntityPlayerMP)playerIn).theItemInWorldManager.getBlockReachDistance();
         }
-        Vec3 vec31 = vec3.addVector((double)f6 * d3, (double)f5 * d3, (double)f7 * d3);
+        Vec3d vec31 = vec3.addVector((double)f6 * d3, (double)f5 * d3, (double)f7 * d3);
         return worldIn.rayTraceBlocks(vec3, vec31, useLiquids, !useLiquids, false);
     }
 	
@@ -95,7 +97,7 @@ public class UtilityFunctions
 	{
 		if (!entityIn.worldObj.isRemote)
         {
-			 MinecraftServer server = MinecraftServer.getServer();
+			 MinecraftServer server = FMLServerHandler.instance().getServer();
 			 WorldServer oldWorldServer = server.worldServerForDimension(entityIn.dimension);
 			 WorldServer newWorldServer = server.worldServerForDimension(dimensionId);
 			 
@@ -103,7 +105,7 @@ public class UtilityFunctions
              
              entityIn.writeToNBTOptional(tag);
              entityIn.setDead();
-             oldWorldServer.playSoundEffect(entityIn.posX, entityIn.posY, entityIn.posZ, "mob.endermen.portal", 1.0F, 1.0F);
+             oldWorldServer.playSound(entityIn.posX, entityIn.posY, entityIn.posZ, "mob.endermen.portal", 1.0F, 1.0F);
 
              Entity teleportedEntity = EntityList.createEntityFromNBT(tag, newWorldServer);
              if (teleportedEntity != null)
@@ -132,7 +134,7 @@ public class UtilityFunctions
 	{
 		 if (entityIn != null)
          {
-			 MinecraftServer server = MinecraftServer.getServer();
+			 MinecraftServer server = FMLServerHandler.instance().getServer();
 			 //WorldServer oldWorld = server.worldServerForDimension(entityIn.dimension);
 			 WorldServer newWorldServer = server.worldServerForDimension(dimensionId);
 			 
@@ -152,7 +154,7 @@ public class UtilityFunctions
                  }
                  entityIn.timeUntilPortal = 150;
 
-                 newWorldServer.playSoundEffect(x, y, z, "mob.endermen.portal", 1.0F, 1.0F);
+                 newWorldServer.playSound(x, y, z, "mob.endermen.portal", 1.0F, 1.0F);
                  
                  return true;
              }

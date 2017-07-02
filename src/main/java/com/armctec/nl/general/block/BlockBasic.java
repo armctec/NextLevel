@@ -17,7 +17,7 @@ public class BlockBasic extends Block
 
     public BlockBasic()
     {
-        this(Material.rock);
+        this(Material.ROCK);
     }
 
     public void setBlockName(String ModIdName, String name)

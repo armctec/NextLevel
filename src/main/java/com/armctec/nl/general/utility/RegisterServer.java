@@ -9,13 +9,17 @@ public class RegisterServer
 {
 	public static void registerBlocks(Block block, String name, String ore)
 	{
-		GameRegistry.registerBlock(block, name);	// Register Minecraft
+		//GameRegistry.registerBlock(block, name);	// Register Minecraft
+		block.setRegistryName(name);
+		GameRegistry.register(block);
 		OreDictionary.registerOre(ore, block);		// Register Forge
 	}
 	
 	public static void registerItems(Item item, String name, String ore)
 	{
-		GameRegistry.registerItem(item, name);		// Register Minecraft
+		//GameRegistry.registerItem(item, name);		// Register Minecraft
+		item.setRegistryName(name);
+		GameRegistry.register(item);
 		OreDictionary.registerOre(ore, item);		// Register Forge
 	}	
 }

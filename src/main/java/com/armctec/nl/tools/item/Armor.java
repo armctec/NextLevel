@@ -6,6 +6,7 @@ import com.armctec.nl.tools.gui.CreativeTabTools;
 import com.armctec.nl.tools.reference.ModConfig;
 
 import net.minecraft.entity.Entity;
+import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.ItemArmor;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.fml.relauncher.ReflectionHelper;
@@ -54,7 +55,7 @@ public class Armor extends ItemArmor
 		return name;
 	}	
 	
-	public Armor(String name, ArmorMaterial material, int tipo)  
+	public Armor(String name, ArmorMaterial material, EntityEquipmentSlot tipo)  
 	{
 		super(material, 0, tipo);
 

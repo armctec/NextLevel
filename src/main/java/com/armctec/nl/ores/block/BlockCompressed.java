@@ -1,6 +1,7 @@
 package com.armctec.nl.ores.block;
 
-import net.minecraft.util.BlockPos;
+import net.minecraft.block.SoundType;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
 
 import com.armctec.nl.general.block.BlockBasic;
@@ -22,7 +23,7 @@ public class BlockCompressed extends BlockBasic
 		setBlockName(ModConfig.MOD_ID, NameBlock);
 		setHardness(5.0F);
 		setResistance(10.0F);
-		setStepSound(soundTypeMetal);
+		this.blockSoundType = SoundType.METAL;
 		setHarvestLevel(NameTool, ToolLevel);
 	}
 	
