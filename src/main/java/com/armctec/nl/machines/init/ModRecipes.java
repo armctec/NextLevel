@@ -14,8 +14,8 @@ public class ModRecipes
 	
 	public static void init()
 	{
-		GameRegistry.addShapelessRecipe(AdvancedCraftingStatck, new ItemStack(Blocks.crafting_table), new ItemStack(Blocks.chest));
-		GameRegistry.addRecipe(new ShapedOreRecipe(ToolGrindStack, new Object[]{"CCC","FFF","CCC", 'F',new ItemStack(Items.flint),'C',"cobblestone"}));
+		GameRegistry.addShapelessRecipe(AdvancedCraftingStatck, new ItemStack(Blocks.CRAFTING_TABLE), new ItemStack(Blocks.CHEST));
+		GameRegistry.addRecipe(new ShapedOreRecipe(ToolGrindStack, new Object[]{"CCC","FFF","CCC", 'F',new ItemStack(Items.FLINT),'C',"cobblestone"}));
 		GameRegistry.addRecipe(new ShapedOreRecipe(GrindstoneStack, new Object[]{"WWW","CIC","CCC",'W',"plankWood",'I',"ingotIron",'C',"cobblestone"}));
 	}
 }

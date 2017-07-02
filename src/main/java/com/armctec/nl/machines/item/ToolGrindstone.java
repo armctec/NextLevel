@@ -1,16 +1,16 @@
 package com.armctec.nl.machines.item;
 
-import net.minecraft.block.Block;
-import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.init.Items;
-import net.minecraft.item.ItemStack;
-import net.minecraft.util.BlockPos;
-import net.minecraft.world.World;
-
 import com.armctec.nl.general.item.ItemBasic;
 import com.armctec.nl.machines.gui.CreativeTabMachines;
 import com.armctec.nl.machines.reference.ModConfig;
 import com.armctec.nl.machines.reference.Names;
+
+import net.minecraft.block.Block;
+import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.init.Items;
+import net.minecraft.item.ItemStack;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.World;
 
 public class ToolGrindstone extends ItemBasic
 {

@@ -1,16 +1,16 @@
 package com.armctec.nl.machines.gui;
 
+import com.armctec.nl.machines.inventory.container.ContainerGrindstone;
+import com.armctec.nl.machines.reference.ModConfig;
+import com.armctec.nl.machines.tileentity.TileEntityGrindstone;
+
 import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.resources.I18n;
 import net.minecraft.entity.player.InventoryPlayer;
-import net.minecraft.util.BlockPos;
 import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
-
-import com.armctec.nl.machines.inventory.container.ContainerGrindstone;
-import com.armctec.nl.machines.reference.ModConfig;
-import com.armctec.nl.machines.tileentity.TileEntityGrindstone;
 
 public class GuiGrindstone extends GuiContainer
 {

@@ -1,15 +1,15 @@
 package com.armctec.nl.machines.inventory.container;
 
+import com.armctec.nl.machines.inventory.slot.SlotGrindstone;
+import com.armctec.nl.machines.tileentity.TileEntityGrindstone;
+
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.inventory.Container;
 import net.minecraft.inventory.Slot;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.BlockPos;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
-
-import com.armctec.nl.machines.inventory.slot.SlotGrindstone;
-import com.armctec.nl.machines.tileentity.TileEntityGrindstone;
 
 public class ContainerGrindstone extends Container
 {

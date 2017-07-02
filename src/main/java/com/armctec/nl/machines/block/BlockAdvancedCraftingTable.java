@@ -1,15 +1,5 @@
 package com.armctec.nl.machines.block;
 
-import net.minecraft.block.material.Material;
-import net.minecraft.block.state.IBlockState;
-import net.minecraft.entity.item.EntityItem;
-import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.inventory.IInventory;
-import net.minecraft.tileentity.TileEntity;
-import net.minecraft.util.BlockPos;
-import net.minecraft.util.EnumFacing;
-import net.minecraft.world.World;
-
 import com.armctec.nl.general.block.BlockBasicContainer;
 import com.armctec.nl.machines.MachinesNL;
 import com.armctec.nl.machines.gui.CreativeTabMachines;
@@ -18,15 +8,26 @@ import com.armctec.nl.machines.reference.ModConfig;
 import com.armctec.nl.machines.reference.Names;
 import com.armctec.nl.machines.tileentity.TileEntityAdvancedCrafting;
 
+import net.minecraft.block.SoundType;
+import net.minecraft.block.material.Material;
+import net.minecraft.block.state.IBlockState;
+import net.minecraft.entity.item.EntityItem;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.inventory.IInventory;
+import net.minecraft.tileentity.TileEntity;
+import net.minecraft.util.EnumFacing;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.World;
+
 public class BlockAdvancedCraftingTable extends BlockBasicContainer
 {
 	public BlockAdvancedCraftingTable() 
 	{
-		super(Material.wood);
+		super(Material.WOOD);
 		this.setCreativeTab(CreativeTabMachines.MACHINES_TAB);
 		this.isBlockContainer = true;
 		setBlockName(ModConfig.MOD_ID, Names.Blocks.ADVANCED_CRAFTING_TABLE);
-		setStepSound(soundTypeWood);
+		setSoundType(SoundType.WOOD);
 		setHarvestLevel("pickaxe",-1);
 		setHarvestLevel("axe", 0);
 	}

@@ -1,5 +1,14 @@
 package com.armctec.nl.machines.block;
 
+import com.armctec.nl.general.block.BlockBasicContainer;
+import com.armctec.nl.machines.MachinesNL;
+import com.armctec.nl.machines.gui.CreativeTabMachines;
+import com.armctec.nl.machines.handler.GuiHandlerGrindstone;
+import com.armctec.nl.machines.init.ModBlocks;
+import com.armctec.nl.machines.reference.ModConfig;
+import com.armctec.nl.machines.reference.Names;
+import com.armctec.nl.machines.tileentity.TileEntityBomba;
+
 import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.properties.PropertyDirection;
 import net.minecraft.block.properties.PropertyInteger;
@@ -12,22 +21,13 @@ import net.minecraft.inventory.IInventory;
 import net.minecraft.inventory.InventoryHelper;
 import net.minecraft.item.Item;
 import net.minecraft.tileentity.TileEntity;
-import net.minecraft.util.BlockPos;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumWorldBlockLayer;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
-
-import com.armctec.nl.general.block.BlockBasicContainer;
-import com.armctec.nl.machines.MachinesNL;
-import com.armctec.nl.machines.gui.CreativeTabMachines;
-import com.armctec.nl.machines.handler.GuiHandlerGrindstone;
-import com.armctec.nl.machines.init.ModBlocks;
-import com.armctec.nl.machines.reference.ModConfig;
-import com.armctec.nl.machines.reference.Names;
-import com.armctec.nl.machines.tileentity.TileEntityBomba;
 
 
 public class BlockBomba extends BlockBasicContainer 

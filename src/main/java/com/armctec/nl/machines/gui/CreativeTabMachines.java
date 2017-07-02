@@ -13,7 +13,7 @@ public class CreativeTabMachines
         @Override
         public Item getTabIconItem()
         {
-            return Items.furnace_minecart;
+            return Items.FURNACE_MINECART;
         }
     };
 }

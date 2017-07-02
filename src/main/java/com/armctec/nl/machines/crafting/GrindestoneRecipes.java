@@ -6,15 +6,15 @@ import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 
+import com.armctec.nl.machines.reference.ModConfig;
+import com.google.common.collect.Maps;
+
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.oredict.OreDictionary;
-
-import com.armctec.nl.machines.reference.ModConfig;
-import com.google.common.collect.Maps;
 
 public class GrindestoneRecipes
 {
@@ -34,13 +34,13 @@ public class GrindestoneRecipes
     {
     	// Init Static items
     	// Diversos
-    	this.addGrinderRecipe(Blocks.sandstone, new ItemStack(Blocks.sand, 4), 0.0F);
-    	this.addGrinderRecipe(Blocks.cobblestone, new ItemStack(Blocks.gravel, 1),  0.0F);
-    	this.addGrinderRecipe(Blocks.gravel, new RecipesAnexo(new ItemStack(Blocks.sand, 1), 1.0F, new ItemStack(Items.flint), 0.25F, 0.0F));
+    	this.addGrinderRecipe(Blocks.SANDSTONE, new ItemStack(Blocks.SAND, 4), 0.0F);
+    	this.addGrinderRecipe(Blocks.COBBLESTONE, new ItemStack(Blocks.GRAVEL, 1),  0.0F);
+    	this.addGrinderRecipe(Blocks.GRAVEL, new RecipesAnexo(new ItemStack(Blocks.SAND, 1), 1.0F, new ItemStack(Items.FLINT), 0.25F, 0.0F));
     	
     	// Dust
-    	this.addGrinderRecipe(Blocks.redstone_ore, new ItemStack(Items.redstone, 1), 0.8F);
-    	this.addGrinderRecipe(Blocks.lapis_ore, new ItemStack(Items.dye, 1, 4), 0.8F);
+    	this.addGrinderRecipe(Blocks.REDSTONE_ORE, new ItemStack(Items.REDSTONE, 1), 0.8F);
+    	this.addGrinderRecipe(Blocks.LAPIS_ORE, new ItemStack(Items.DYE, 1, 4), 0.8F);
     	
     }
     
@@ -81,7 +81,7 @@ public class GrindestoneRecipes
     	// Dust for Vanilla
     	this.addGrinderRecipe("ingotIron", new RecipesAnexo("dustIron", 1, 1.0f, 0.0f));
     	this.addGrinderRecipe("ingotGold", new RecipesAnexo("dustGold", 1, 1.0f, 0.0f));
-    	this.addGrinderRecipe(Items.ender_pearl, new RecipesAnexo("dustEnder", 1, 1.0f, 0.0f));
+    	this.addGrinderRecipe(Items.ENDER_PEARL, new RecipesAnexo("dustEnder", 1, 1.0f, 0.0f));
     	this.addGrinderRecipe("gemDiamond", new RecipesAnexo("dustDiamond", 1, 1.0f, 0.0f));
     	this.addGrinderRecipe("gemEmerald", new RecipesAnexo("dustEmerald", 1, 1.0f, 0.0f));
     	

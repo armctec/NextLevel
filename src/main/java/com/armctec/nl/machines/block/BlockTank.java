@@ -2,25 +2,25 @@ package com.armctec.nl.machines.block;
 
 import java.util.ArrayList;
 
+import com.armctec.nl.general.block.BlockAdvanced;
+import com.armctec.nl.general.utility.CheckBlocks;
+import com.armctec.nl.machines.gui.CreativeTabMachines;
+import com.armctec.nl.machines.reference.ModConfig;
+import com.armctec.nl.machines.reference.Names;
+
 import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.properties.PropertyInteger;
 import net.minecraft.block.state.BlockState;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.util.BlockPos;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumWorldBlockLayer;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
-
-import com.armctec.nl.general.block.BlockAdvanced;
-import com.armctec.nl.general.utility.CheckBlocks;
-import com.armctec.nl.machines.gui.CreativeTabMachines;
-import com.armctec.nl.machines.reference.ModConfig;
-import com.armctec.nl.machines.reference.Names;
 
 // Modo 0: Sem Conexao
 // Modo 1: Conexao Acima

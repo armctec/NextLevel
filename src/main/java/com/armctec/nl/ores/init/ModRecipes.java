@@ -54,8 +54,8 @@ public class ModRecipes
 		GameRegistry.addSmelting(ModItems.ZincDust, new ItemStack(ModItems.ZincIngot), 0.0F);
 
 		// Vanilla Smelting Dust
-		GameRegistry.addSmelting(ModItems.IronDust, new ItemStack(Items.iron_ingot), 0.0F);
-		GameRegistry.addSmelting(ModItems.GoldDust, new ItemStack(Items.gold_ingot), 0.0F);
+		GameRegistry.addSmelting(ModItems.IronDust, new ItemStack(Items.IRON_INGOT), 0.0F);
+		GameRegistry.addSmelting(ModItems.GoldDust, new ItemStack(Items.GOLD_INGOT), 0.0F);
 		
 		// Block recipes
 		makeBlock(ModBlocks.AluminiumBlock, "ingotAluminium");

@@ -1,15 +1,15 @@
 package com.armctec.nl.machines.handler;
 
-import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.tileentity.TileEntity;
-import net.minecraft.util.BlockPos;
-import net.minecraft.world.World;
-import net.minecraftforge.fml.common.network.IGuiHandler;
-
 import com.armctec.nl.machines.gui.GuiGrindstone;
 import com.armctec.nl.machines.inventory.container.ContainerGrindstone;
 import com.armctec.nl.machines.reference.Names;
 import com.armctec.nl.machines.tileentity.TileEntityGrindstone;
+
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.tileentity.TileEntity;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.World;
+import net.minecraftforge.fml.common.network.IGuiHandler;
 
 public class GuiHandlerGrindstone implements IGuiHandler
 {
